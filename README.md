@@ -3,8 +3,8 @@
 # Rubyのバージョン
 2.3.1
 
-#Railsのバージョン
+# Railsのバージョン
 5.0.7.2
 
-#DB
+# DB
 mySQL
