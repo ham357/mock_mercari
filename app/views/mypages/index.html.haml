@@ -1,0 +1,39 @@
+.mypage__container
+    .mypage__container__top
+        %section.mypage__container__top--icon
+            %a{ href: '#'}
+                %figure
+                    %img{src:"assets/member_no_image.png", witdh: '60px' ,height: '60px'}
+                %h2 ONAGAX
+                .mypage__container__top--icon--value
+                    .mypage__container__top--icon--value--eva 評価
+                    %span 0
+                    .mypage__container__top--icon--value--pro 出品数
+                    %span 0
+        .mypage__container__top__tab
+            %input#all{type:"radio", name:"tab_item", checked: true}
+            %label.tab_item{for:"all"} お知らせ
+            %input#todo{type:"radio", name:"tab_item"}
+            %label.tab_item{for:"todo"} やることリスト
+            .tab_content#all_content
+                %p.c-txtsp お知らせの商品がありません
+            .tab_content#todo_content
+                %p.c-txtsp 現在、やることリストはありません
+
+        .mypage__container__top__buy
+            %h2 購入した商品
+        .mypage__container__top__buy__tab
+            .mypage__container__top__buy__tab__tab
+                %input#buy{type:"radio", name:"tab2_item", checked: true}
+                %label.tab_item{for:"buy"} 取引中
+                %input#bought{type:"radio", name:"tab2_item"}
+                %label.tab_item{for:"bought"} 過去の取引
+                .tab_content#buy_content
+                    %p.c-txtsp 取引中の商品がありません
+                .tab_content#bought_content
+                    %p.c-txtsp 過去に取引した商品がありません
+.mypage__navi
+    %ul.mypage__navi--list
+        %li.mypage__navi--list--active{href:"#"} マイページ
+        %i.fas.fa-chevron-right
+        %li.mypage__navi--list--active{href:"#"}お知らせ
