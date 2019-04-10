@@ -1882,9 +1882,11 @@ background:#0099e8;
 color:#fff
 }
 
-.sp-header__user-nav{
-float:right;
-margin:4px 0 0
+.sp-header{
+  &__user-nav{
+  float:right;
+  margin:4px 0 0
+  }
 }
 
 .sp-header__user-icon{
@@ -2340,97 +2342,177 @@ background:#0099e8;
 color:#fff
 }
 
-.pc-header__user-nav{
+.pc-header{
+  &__user-nav{
 font-size:0
+  }
 }
 
-.pc-header__user-nav>li{
+.pc-header{
+  &__user-nav{
+    li{
 position:relative;
 display:inline-block;
 padding-left:28px
+    }
+  }
 }
 
-.pc-header__user-nav>li .pc-header__nav--root{
-line-height:32px
+.pc-header{
+  &__user-nav{
+    li{
+      .pc-header__nav--root{
+        line-height:32px
+      }
+    }
+  }
 }
 
-.pc-header__user-nav>li:first-child{
-padding:0
+.pc-header{
+  &__user-nav{
+    li:first-child{
+      padding:0
+    }
+  }
 }
 
-.pc-header__user-nav>li:hover .pc-header__user-box{
-display:block
+.pc-header{
+  &__user-nav{
+    li:hover{
+      .pc-header__user-box{
+        display:block
+      }
+    }
+  }
 }
 
-.pc-header__user-nav>li:hover i{
-color:#0099e8
+.pc-header{
+  &__user-nav{
+    li:hover i{
+      color:#0099e8
+    }
+  }
 }
 
-.pc-header__user-nav>li>a:hover{
-text-decoration:none;
-opacity:1
+.pc-header{
+  &__user-nav{
+    li{
+      a:hover{
+      text-decoration:none;
+      opacity:1
+      }
+    }
+  }
 }
 
-.pc-header__user-nav>li>a span{
-margin-left:10px
+.pc-header{
+  &__user-nav{
+    li{
+      a span{
+        margin-left:10px
+      }
+    }
+  }
 }
 
-.pc-header__user-nav>li i{
-color:#ccc
+.pc-header{
+  &__user-nav{
+    li i{
+      color:#ccc
+    }
+  }
 }
 
-.pc-header__user-nav .pc-header__user-icon{
-display:inline-block
+.pc-header{
+  &__user-nav{
+    .pc-header__user-icon{
+      display:inline-block
+    }
+  }
 }
 
-.pc-header__user-nav .pc-header__user-icon figure{
-display:inline-block;
-position:relative;
-text-align:center;
-vertical-align:middle
+.pc-header{
+  &__user-nav{
+    .pc-header__user-icon figure{
+      display:inline-block;
+      position:relative;
+      text-align:center;
+      vertical-align:middle
+    }
+  }
 }
 
-.pc-header__user-nav .pc-header__user-icon figure>div{
-overflow:hidden;
-border-radius:50%
+.pc-header{
+  &__user-nav {
+    .pc-header__user-icon figure>div{
+      overflow:hidden;
+      border-radius:50%
+    }
+  }
 }
 
-.pc-header__user-nav .pc-header__user-icon figure img{
-vertical-align:bottom
+.pc-header{
+  &__user-nav{
+    .pc-header__user-icon figure img{
+      vertical-align:bottom
+    }
+  }
 }
 
-.pc-header__user-nav .pc-header__user-icon figcaption{
-top:-6px;
-right:-6px
+.pc-header{
+  &__user-nav{
+    .pc-header__user-icon figcaption{
+      top:-6px;
+      right:-6px
+    }
+  }
 }
 
-.pc-header__user-nav .pc-header__user-icon i{
-color:#ccc
+.pc-header{
+  &__user-nav{
+    .pc-header__user-icon i{
+      color:#ccc
+    }
+  }
 }
 
-.pc-header__user-nav .pc-header__user-icon>div{
-display:inline-block;
-margin:0 0 0 8px;
-font-size:14px;
-vertical-align:middle
+.pc-header{
+  &__user-nav{
+    .pc-header__user-icon>div{
+      display:inline-block;
+      margin:0 0 0 8px;
+      font-size:14px;
+      vertical-align:middle
+    }
+  }
 }
 
-.pc-header__user-nav a{
-display:block;
-font-size:14px;
-color:#333
+.pc-header{
+  &__user-nav a{
+    display:block;
+    font-size:14px;
+    color:#333
+  }
 }
 
 .pc-header__user-nav i,.pc-header__user-nav span{
 vertical-align:middle
 }
 
-.pc-header__user-nav .icon-bell{
-font-size:20px
+.pc-header{
+  &__user-nav{
+    .icon-bell{
+      font-size:20px
+    }
+  }
 }
 
-.pc-header__user-nav .icon-check{
-font-size:16px
+.pc-header{
+  &__user-nav {
+    .icon-check{
+      font-size:16px
+    }
+  }
 }
 
 .pc-header__user-box{
