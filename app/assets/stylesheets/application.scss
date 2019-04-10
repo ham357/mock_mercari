@@ -1837,20 +1837,20 @@ height:40px
 height:156px
 }
 
-.sp-header-inner{
+.sp-header__inner{
 position:relative;
 padding:6px 10px 0
 }
 
 @media screen and (min-width: 375px){
-.sp-header-inner{
+.sp-header__inner{
 padding:6px 16px 0
 }
 
 
 }
 
-.sp-header-btn{
+.sp-header__btn{
 display:inline-block;
 padding:0 6px;
 border-radius:4px;
@@ -1858,12 +1858,12 @@ text-align:center;
 line-height:26px
 }
 
-.sp-header-btn:first-child{
+.sp-header__btn:first-child{
 margin-right:3px
 }
 
 @media screen and (min-width: 375px){
-.sp-header-btn{
+.sp-header__btn{
 padding:0 10px;
 line-height:30px
 }
@@ -1871,13 +1871,13 @@ line-height:30px
 
 }
 
-.sp-header-signup{
+.sp-header__signup{
 border:1px solid #0099e8;
 background:#fff;
 color:#0099e8
 }
 
-.sp-header-signup:hover{
+.sp-header__signup:hover{
 background:#0099e8;
 color:#fff
 }
@@ -1887,7 +1887,7 @@ float:right;
 margin:4px 0 0
 }
 
-.sp-header-user-icon{
+.sp-header__user-icon{
 color:#ccc;
 display:inline-block;
 height:32px;
@@ -1901,17 +1901,17 @@ vertical-align:middle;
 width:32px
 }
 
-.sp-header-user-icon.is-focus{
+.sp-header__user-icon.is-focus{
 -webkit-transform:scale(0.8);
 transform:scale(0.8);
 opacity:0
 }
 
-.sp-header-user-icon:last-child{
+.sp-header__user-icon:last-child{
 margin-right:0
 }
 
-.sp-header-user-icon figure{
+.sp-header__user-icon figure{
 display:inline-block;
 height:32px;
 margin:0 auto;
@@ -1919,16 +1919,16 @@ text-align:center;
 width:32px
 }
 
-.sp-header-user-icon figure div{
+.sp-header__user-icon figure div{
 overflow:hidden;
 border-radius:50%
 }
 
-.sp-header-user-icon figure i{
+.sp-header__user-icon figure i{
 vertical-align:-webkit-baseline-middle
 }
 
-.sp-header-user-icon figcaption{
+.sp-header__user-icon figcaption{
 position:absolute;
 top:-8px;
 right:-8px;
@@ -1956,7 +1956,7 @@ margin:13px 10px 6px;
 position:relative
 }
 
-.search-bar .sp-header-search{
+.search-bar .sp-header__search{
 background:#e6e6e6;
 border-color:transparent;
 border-radius:2px;
@@ -1978,7 +1978,7 @@ width:36px;
 z-index:1
 }
 
-.sp-header-nav{
+.sp-header__nav{
 position:relative;
 overflow:hidden;
 height:44px;
@@ -1986,7 +1986,7 @@ line-height:42px;
 -webkit-overflow-scrolling:touch
 }
 
-.sp-header-nav:after{
+.sp-header__nav:after{
 display:block;
 content:'';
 position:absolute;
@@ -1998,7 +1998,7 @@ background:-webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0
 background:linear-gradient(to right, rgba(255,255,255,0), #fff)
 }
 
-.sp-header-nav ul{
+.sp-header__nav ul{
 margin:0 auto;
 padding:0 8px 0 0;
 height:120%;
@@ -2008,21 +2008,21 @@ overflow-y:hidden;
 text-align:center
 }
 
-.sp-header-nav li{
+.sp-header__nav li{
 display:inline-block
 }
 
-.sp-header-nav a{
+.sp-header__nav a{
 display:block;
 color:#333;
 padding:0 16px
 }
 
-.sp-header-nav.search-links{
+.sp-header__nav.search-links{
 white-space:nowrap
 }
 
-.sp-header-nav.search-links a{
+.sp-header__nav.search-links a{
 display:inline-block;
 font-weight:bold;
 padding:0;
@@ -2031,11 +2031,11 @@ text-align:center;
 width:50%
 }
 
-.sp-header-nav.search-links a span{
+.sp-header__nav.search-links a span{
 vertical-align:middle
 }
 
-.sp-header-nav .sp-header-cat-brand-icon{
+.sp-header__nav .sp-header__cat-brand-icon{
 color:#EA352D;
 font-size:12px;
 margin-right:4px
@@ -2320,7 +2320,7 @@ text-decoration:none;
 transition:all ease-out .3s
 }
 
-.pc-header__login-nav .sp-header-btn{
+.pc-header__login-nav .sp-header__btn{
 margin:0
 }
 

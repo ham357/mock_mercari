@@ -1,30 +1,30 @@
 .default-container
   %header.sp-header.visible-tablet.has-search-nav
-    .sp-header-inner.clearfix
+    .sp-header__inner.clearfix
       %h1.logo
         %a{:href => "https://www.mercari.com/jp/"}
           %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3403318254"}/
       .sp-header__user-nav.clearfix
-        %a.sp-header-user-icon{:href => "https://www.mercari.com/jp/mypage/notification/"}
+        %a.sp-header__user-icon{:href => "https://www.mercari.com/jp/mypage/notification/"}
           %figure
             %i.icon-bell
-        %a.sp-header-user-icon{:href => "https://www.mercari.com/jp/mypage/todo/"}
+        %a.sp-header__user-icon{:href => "https://www.mercari.com/jp/mypage/todo/"}
           %figure
             %i.icon-check
-        %a.sp-header-user-icon.sp-header-user-profile{:href => "https://www.mercari.com/jp/mypage/"}
+        %a.sp-header__user-icon.sp-header__user-profile{:href => "https://www.mercari.com/jp/mypage/"}
           %figure
             %div
               %img{:alt => "", :src => "//static.mercdn.net/thumb/members/164317197.jpg?1419725926", :width => "32"}/
     .search-bar
-      %form.sp-header-form{:action => "https://www.mercari.com/jp/search/"}
-        %input.sp-header-search.input-default{:name => "keyword", :placeholder => "何をお探しですか？", :type => "search", :value => ""}/
+      %form.sp-header__form{:action => "https://www.mercari.com/jp/search/"}
+        %input.sp-header__search.input-default{:name => "keyword", :placeholder => "何をお探しですか？", :type => "search", :value => ""}/
         %i.icon-search
-    %nav.sp-header-nav.search-links
+    %nav.sp-header__nav.search-links
       %a{"data-ga" => "element", "data-ga-category" => "NAVIGATION", "data-ga-label" => "sp_header_nav_カテゴリから探す", :href => "/jp/category/"}
-        %i.icon-list.sp-header-cat-brand-icon
+        %i.icon-list.sp-header__cat-brand-icon
         %span カテゴリから探す
       %a{"data-ga" => "element", "data-ga-category" => "NAVIGATION", "data-ga-label" => "sp_header_nav_ブランドから探す", :href => "/jp/brand/"}
-        %i.icon-tag.sp-header-cat-brand-icon
+        %i.icon-tag.sp-header__cat-brand-icon
         %span ブランドから探す
   %header.pc-header.visible-pc-only
     .pc-header__inner
