@@ -1,5 +1,6 @@
 *{
     color: #333333;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
 
 body{
@@ -20,10 +21,10 @@ display: block;
 }
 
 .mypage__container{
-    width: 1020px;
-    height: 1252px;
+    width: 700px;
+    height: 2224px;
     padding-bottom: 40px;
-    margin: 40px 255px 0 255px;
+    margin: 24px 178.55px 0 178.55px;
     &__top {
         width: 700px;
         height: 932px;
@@ -70,7 +71,7 @@ display: block;
         }
         &__tab{
             margin-top: 50px;
-            padding-bottom: 40px;
+            padding-bottom: 30px;
             background-color: #fff;
             width: 700px;
             margin: 0 auto;
@@ -127,7 +128,7 @@ display: block;
                 width:700px;
                 &__tab{
                     margin-top: 50px;
-                    padding-bottom: 40px;
+                    margin-bottom: 40px;
                     background-color: #fff;
                     width: 700px;
                     margin: 0 auto;
@@ -153,7 +154,7 @@ display: block;
                     }
                     .tab_content {
                         display: none;
-                        padding: 160px 40px 30px;
+                        padding: 152px 40px 60px;
                         clear: both;
                         overflow: hidden;
                         font-weight: bold;
@@ -168,4 +169,82 @@ display: block;
             }
         }
     }
+    &__navi{
+        margin-top: 40px;
+        width:700px;
+        height: 1252px;
+        &--list{
+            width: 700px;
+            height: 685px;
+                &--item{
+                    width: 700px;
+                    height: 48px;
+                    background-color:  white;
+                    border-top: 1px solid #d9d9d9;
+                    &--a{
+                        width:668px;
+                        height: 16px;
+                        padding: 16px;
+                        font-size: 14px;
+                        line-height: 16px;
+                            .fa-chevron-right{
+                                float: right;
+                                font-size: 17px;
+                                opacity: 0.3;
+                                position: relative;
+                                right: 0px;
+                            }
+                    }
+                }
+                &--active{
+                    width: 700px;
+                    height: 48px;
+                    background-color: #d9d9d9;
+                    &--a{
+                        width:668px;
+                        height: 16px;
+                        padding: 16px;
+                        font-size: 14px;
+                        line-height: 16px;
+                        .fa-chevron-right{
+                            float: right;
+                            font-size: 17px;
+                            position: relative;
+                            right: 0px;
+                        }
+                    }
+                }
+        }
+        &--bottom{
+            font-weight: bold;
+            margin-top: 40px;
+            &--list{
+                margin-top:8px;
+                &--item{
+                    width: 700px;
+                    height: 48px;
+                    background-color:  white;
+                    border-top: 1px solid #d9d9d9;
+                    &--a{
+                        width:668px;
+                        height: 16px;
+                        padding: 16px;
+                        font-size: 14px;
+                        line-height: 16px;
+                            .fa-chevron-right{
+                                float: right;
+                                font-size: 17px;
+                                opacity: 0.3;
+                                position: relative;
+                                right: 0px;
+                            }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.toplist{
+    border-top: 0;
 }
