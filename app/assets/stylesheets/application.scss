@@ -2184,13 +2184,18 @@ margin-right:4px
     }
 
     &--parent-wrap{
-    position:absolute;
-    top:38px;
-    left:-34px;
-    z-index:1000;
-    background:#fff;
-    -webkit-box-shadow:0 1px 1px 0 rgba(0,0,0,0.24);
-    box-shadow:0 1px 1px 0 rgba(0,0,0,0.24)
+      position:absolute;
+      top:38px;
+      left:-34px;
+      z-index:1000;
+      background:#fff;
+      -webkit-box-shadow:0 1px 1px 0 rgba(0,0,0,0.24);
+      box-shadow:0 1px 1px 0 rgba(0,0,0,0.24);
+
+      @media screen and (min-width: 1068px){
+        left:0
+      }
+
     }
 
     &--parent-wrap a{
@@ -2298,14 +2303,6 @@ margin-right:4px
 display:block
 }
 
-
-@media screen and (min-width: 1068px){
-.pc-header__nav--parent-wrap{
-left:0
-}
-
-
-}
 .pc-header__nav--parent:hover>ul .pc-header__nav--child,.pc-header__nav--parent.hover>ul .pc-header__nav--child,.pc-header__nav--parent.active>ul .pc-header__nav--child{
 display:block
 }
@@ -2391,174 +2388,180 @@ color:#fff
       color:#ccc
     }
 
-    .pc-header__user-icon{
-      display:inline-block
+    
+    a{
+      display:block;
+      font-size:14px;
+      color:#333
     }
+    
+    .icon-bell{
+      font-size:20px
+    }
+    
+    .icon-check{
+      font-size:16px
+    }
+    
+  }
 
-    .pc-header__user-icon figure{
+  &__user-icon{
+    display:inline-block;
+  
+    figure{
       display:inline-block;
       position:relative;
       text-align:center;
-      vertical-align:middle
+      vertical-align:middle;
     }
-
-    .pc-header__user-icon figure>div{
+  
+    figure>div{
       overflow:hidden;
       border-radius:50%
     }
-
-    .pc-header__user-icon figure img{
+  
+    figure img{
       vertical-align:bottom
     }
-
-    .pc-header__user-icon figcaption{
+  
+    figcaption{
       top:-6px;
       right:-6px
     }
-
-    .pc-header__user-icon i{
+  
+    i{
       color:#ccc
     }
-
-    .pc-header__user-icon>div{
+  
+    >div{
       display:inline-block;
       margin:0 0 0 8px;
       font-size:14px;
       vertical-align:middle
     }
-
-    a{
-        display:block;
-        font-size:14px;
-        color:#333
-      }
-
-      .icon-bell{
-        font-size:20px
-      }
-
-      .icon-check{
-        font-size:16px
-      }
-
-    }
+  
   }
+  
+  &__user-box{
+  position:absolute;
+  top:42px;
+  z-index:1;
+  display:none;
+  width:320px;
+  background:#fff;
+  -webkit-box-shadow:0 1px 1px 0 rgba(0,0,0,0.24);
+  box-shadow:0 1px 1px 0 rgba(0,0,0,0.24);
+  font-size:14px;
+  
+    .loading-black{
+    height:80px;
+    background-position:center
+    }
+
+}
+  
+  &__mypage-box{
+  right:0;
+
+    .mypage-nav__list li:first-child{
+    border-top:1px solid #eee
+    }
+    
+  }
+  
+  &__mypage-state figure{
+  padding:28px 0 0;
+  height:80px;
+  background:url("/assets/img/mypage/user-bg.jpg");
+  background-repeat:no-repeat;
+  background-size:320px 80px
+  }
+  
+  &__mypage-state figure>div{
+  overflow:hidden;
+  width:60px;
+  height:60px;
+  margin:0 auto;
+  border-radius:50%;
+  -webkit-box-shadow:0 1px 1px 0 rgba(0,0,0,0.08);
+  box-shadow:0 1px 1px 0 rgba(0,0,0,0.08)
+  }
+  
+  &__mypage-state figcaption{
+  margin:8px 0 0;
+  padding:0 8px;
+  font-size:16px
+  }
+  
+  &__mypage-review-listing{
+  margin:40px 0 0;
+  padding:8px 8px 0;
+  font-size:0;
+  text-align:center
+  }
+  
+  &__mypage-review-listing li{
+  display:inline-block;
+  margin:0 0 0 16px;
+  font-size:14px
+  }
+  
+  &__mypage-review-listing li:first-child{
+  margin:0
+  }
+  
+  &__mypage-review-listing a:hover{
+  text-decoration:underline
+  }
+  
+  &__mypage-sales-point{
+  width:300px;
+  margin:16px auto;
+  background:#fafafa;
+  border:1px solid #eee
+  }
+  
+  &__mypage-sales-point li{
+  border-top:1px solid #eee
+  }
+  
+  &__mypage-sales-point li:first-child{
+  border:0
+  }
+  
+  &__mypage-sales-point a{
+  padding:0 8px;
+  line-height:40px
+  }
+  
+  &__mypage-sales-point .icon-arrow-right{
+  position:relative;
+  top:-2px;
+  font-size:12px;
+  margin:0 0 0 8px;
+  color:#ccc
+  }
+  
+  &__notification-box{
+  left:0
+  }
+  
+  &__todo-box{
+  left:50%;
+  -webkit-transform:translate(-50%, 0);
+  transform:translate(-50%, 0)
+  }
+  
+  &__user-error{
+  padding:24px
+  }
+
+}
 
 .pc-header__user-nav i,.pc-header__user-nav span{
 vertical-align:middle
 }
 
-.pc-header__user-box{
-position:absolute;
-top:42px;
-z-index:1;
-display:none;
-width:320px;
-background:#fff;
--webkit-box-shadow:0 1px 1px 0 rgba(0,0,0,0.24);
-box-shadow:0 1px 1px 0 rgba(0,0,0,0.24);
-font-size:14px
-}
-
-.pc-header__user-box .loading-black{
-height:80px;
-background-position:center
-}
-
-.pc-header__mypage-box{
-right:0
-}
-
-.pc-header__mypage-box .mypage-nav__list li:first-child{
-border-top:1px solid #eee
-}
-
-.pc-header__mypage-state figure{
-padding:28px 0 0;
-height:80px;
-background:url("/assets/img/mypage/user-bg.jpg");
-background-repeat:no-repeat;
-background-size:320px 80px
-}
-
-.pc-header__mypage-state figure>div{
-overflow:hidden;
-width:60px;
-height:60px;
-margin:0 auto;
-border-radius:50%;
--webkit-box-shadow:0 1px 1px 0 rgba(0,0,0,0.08);
-box-shadow:0 1px 1px 0 rgba(0,0,0,0.08)
-}
-
-.pc-header__mypage-state figcaption{
-margin:8px 0 0;
-padding:0 8px;
-font-size:16px
-}
-
-.pc-header__mypage-review-listing{
-margin:40px 0 0;
-padding:8px 8px 0;
-font-size:0;
-text-align:center
-}
-
-.pc-header__mypage-review-listing li{
-display:inline-block;
-margin:0 0 0 16px;
-font-size:14px
-}
-
-.pc-header__mypage-review-listing li:first-child{
-margin:0
-}
-
-.pc-header__mypage-review-listing a:hover{
-text-decoration:underline
-}
-
-.pc-header__mypage-sales-point{
-width:300px;
-margin:16px auto;
-background:#fafafa;
-border:1px solid #eee
-}
-
-.pc-header__mypage-sales-point li{
-border-top:1px solid #eee
-}
-
-.pc-header__mypage-sales-point li:first-child{
-border:0
-}
-
-.pc-header__mypage-sales-point a{
-padding:0 8px;
-line-height:40px
-}
-
-.pc-header__mypage-sales-point .icon-arrow-right{
-position:relative;
-top:-2px;
-font-size:12px;
-margin:0 0 0 8px;
-color:#ccc
-}
-
-.pc-header__notification-box{
-left:0
-}
-
-.pc-header__todo-box{
-left:50%;
--webkit-transform:translate(-50%, 0);
-transform:translate(-50%, 0)
-}
-
-.pc-header__user-error{
-padding:24px
-}
 
 .single-header{
 text-align:center
