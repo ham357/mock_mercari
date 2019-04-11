@@ -1,6 +1,6 @@
 # README
 
-#バージョン定義
+#　バージョン定義
 
 ### Rubyのバージョン
 2.3.1
@@ -40,6 +40,7 @@
 - has_many :points
 - has_many :rates
 - has_many :liles, through: products
+- has_many :orders, through: products
 - has_many :comment, through: products
 
 
@@ -68,9 +69,123 @@
 
 ### Association
 - belongs_to :user
-- has_many :order_items
+- has_one :order
 - has_many :comments
 - has_many :likes
 - has_many :product_images
 
 
+## pointテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|point|integer|null: false|
+|user_id|integer|null: false|
+|created_at|datetime||
+|deadline_at|datetime||
+
+### Association
+- belongs_to :user
+
+
+## rateテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|rate|string|null: false|
+|user_id|integer|null: false|
+|rated_it|integer|null: false|
+|created_at|datetime||
+|update_at|datetime||
+
+### Association
+- belongs_to :user
+
+
+## ordersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|product_id|integer||
+|user_id|integer||
+|point_id|integer||
+|convert_cash|boolean|default: false|
+|created_at|datetime||
+
+### Association
+- has_one :product
+- belongs_to :user
+
+
+## commentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|comment|text|null :false|
+|user_id|integer|null :false|
+|product_id|integer|null: false|
+|created_at|datetime||
+|update_at|datetime||
+
+### Assosiation
+- belongs_to :product
+- belongs_to :user
+
+
+## likesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|product_id|integer|null :false|
+|user_id|integer|null :false|
+
+### Assosiation
+- belongs_to :product
+- belongs_to :user
+
+
+## product_imagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|image_url|text|null :false|
+|product_id|integer|null :false|
+
+### Assosiation
+- belongs_to :product
+
+
+## categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string||
+
+### Assosiation
+
+
+## subcategoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string||
+
+### Assosiation
+
+
+## subsubcategoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string||
+
+### Assosiation
+
+
+## brandsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string||
+
+### Assosiation
