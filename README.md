@@ -1,6 +1,6 @@
 # README
 
-#　バージョン定義
+## バージョン定義
 
 ### Rubyのバージョン
 2.3.1
@@ -48,7 +48,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, index: true, length:{maximum: 40}|
 |category_id|integer|null: false|
 |subcategory_id|integer|null: false|
 |subsubcategory_id|integer|null: false|
@@ -60,7 +60,7 @@
 |price|integer|null: false|
 |size|string||
 |product_image_id|integer|null: false|
-|introduct|text|null: false|
+|description|text|null: false, length:{maximum: 1000}|
 |user_id|integer||
 |order_item_id|integer||
 |sold|boolean|default: false|
@@ -70,8 +70,8 @@
 ### Association
 - belongs_to :user
 - has_one :order
-- has_many :comments
-- has_many :likes
+- has_many :comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
 - has_many :product_images
 
 
@@ -121,7 +121,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|comment|text|null :false|
+|comment|text|null :false, length:{maximum: 1000}|
 |user_id|integer|null :false|
 |product_id|integer|null: false|
 |created_at|datetime||
@@ -161,16 +161,12 @@
 |------|----|-------|
 |name|string||
 
-### Assosiation
-
 
 ## subcategoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
-
-### Assosiation
 
 
 ## subsubcategoriesテーブル
@@ -179,13 +175,9 @@
 |------|----|-------|
 |name|string||
 
-### Assosiation
-
 
 ## brandsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
-
-### Assosiation
