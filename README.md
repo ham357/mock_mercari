@@ -1,9 +1,10 @@
 # README
 
-# Rubyのバージョン
-2.3.1
+#バージョン定義
 
-# Railsのバージョン
+### Rubyのバージョン
+2.3.1
+### Railsのバージョン
 5.0.7.2
 
 # データベース設計
@@ -12,7 +13,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|email|varchar(255)|null: false, |
+|email|varchar(255)|null: false|
 |encrypted_password|varchar(255)|null:false|
 |nickname|string|index: true, nill: false, unique: true|
 |first_name|string|null: false|
@@ -40,3 +41,36 @@
 - has_many :rates
 - has_many :liles, through: products
 - has_many :comment, through: products
+
+
+## productsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|category_id|integer|null: false|
+|subcategory_id|integer|null: false|
+|subsubcategory_id|integer|null: false|
+|brand_id|integer||
+|status|string|null: false|
+|shipping_fee|integer|null: false|
+|state|string|null: false|
+|shipping_day|integer|null: false|
+|price|integer|null: false|
+|size|string||
+|product_image_id|integer|null: false|
+|introduct|text|null: false|
+|user_id|integer||
+|order_item_id|integer||
+|sold|boolean|default: false|
+|create_at|datetime||
+|update_at|datetime||
+
+### Association
+- belongs_to :user
+- has_many :order_items
+- has_many :comments
+- has_many :likes
+- has_many :product_images
+
+
