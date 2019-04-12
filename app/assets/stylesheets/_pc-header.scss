@@ -28,6 +28,10 @@
       width:1020px
     } 
 
+    &:after{
+      @include clearfix();
+    }
+
   }
 
   &__form{
@@ -102,6 +106,7 @@
     }
 
     &--box{
+      @include clearfix();
       margin:8px 0 0
     }
 
@@ -437,6 +442,10 @@
 
       &:first-child{
         border:0
+      }
+
+      a{
+        @include clearfix();
       }
 
     }

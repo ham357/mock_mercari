@@ -1,3 +1,5 @@
+@import "./mixin/clearfix";
+
 .sp-header{
   position:relative;
   z-index:1000;
@@ -52,6 +54,7 @@
     }
   
     &__inner{
+    @include clearfix();
     position:relative;
     padding:6px 10px 0;
   
@@ -91,6 +94,7 @@
     }
   
     &__user-nav{
+    @include clearfix();
     float:right;
     margin:4px 0 0
     }

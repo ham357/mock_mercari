@@ -39,7 +39,7 @@
   color:#ccc
   }
   
-  .icon-facebook{
+  .fa-facebook{
   color:#fff;
   background:#385185;
   font-size:18px
@@ -57,7 +57,7 @@
   font-size:18px
   }
   
-  .icon-twitter{
+  .fa-twitter{
   color:#fff;
   background:#5d9dc9;
   font-size:16px
@@ -129,9 +129,13 @@
     content:'\f105'
     }
 
-  .fa-heart:before{
+  .fa-heart{
+    color:#ccc;
+
+  &:before{
     content:'\f004'
     }
+  }
 
   .fa-facebook{
     font-size:26px;

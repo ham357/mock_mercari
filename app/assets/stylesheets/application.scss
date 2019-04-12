@@ -996,6 +996,7 @@ display:block
 }
 
 .banner-pattern1{
+@include clearfix();
 padding:6px 1.875%
 }
 
@@ -1042,6 +1043,10 @@ margin:0 0 0 4px;
 vertical-align:middle
 }
 
+banner-rating:before{
+  @include clearfix();
+}
+  
 .banner-rating img{
 margin:0 0 0 2px
 }
@@ -1144,6 +1149,7 @@ left:0
 }
 
 .app-banner-icon{
+@include clearfix();
 margin:20px 0 0
 }
 
@@ -1152,6 +1158,7 @@ float:left
 }
 
 .app-banner-icon ul{
+@include clearfix();
 float:left;
 margin:0 0 0 24px;
 line-height:68px
@@ -1218,6 +1225,7 @@ margin:24px 0 8px
 }
 
 .items-box-content{
+@include clearfix();
 width:92%;
 margin:0 auto
 }
@@ -1351,6 +1359,7 @@ background:linear-gradient(to right, rgba(255,255,255,0), #fff 72%)
 }
 
 .items-box-num{
+@include clearfix();
 margin:8px 0 0
 }
 
@@ -1676,6 +1685,10 @@ left:0;
 transform:translate(0, -50%)
 }
 
+.top-main-visual-store.clearfix{
+  @include clearfix();
+}
+
 .top-banner{
 display:block;
 background-size:cover;
@@ -1774,6 +1787,7 @@ right:30px
 }
 
 #sp-top-dl{
+@include clearfix();
 width:240px;
 margin:5px auto
 }

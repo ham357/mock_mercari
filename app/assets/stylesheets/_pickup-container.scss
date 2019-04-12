@@ -38,6 +38,10 @@
   
   }
   
+  .pickup-container .items-box-container{
+    @include clearfix();
+  }
+  
   @media screen and (min-width: 768px){
   .pickup-container .items-box-container{
   width:700px;
