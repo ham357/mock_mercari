@@ -16,22 +16,19 @@
 |email|varchar(255)|null: false|
 |encrypted_password|varchar(255)|null:false|
 |nickname|string|index: true, nill: false, unique: true|
-|user_info_id|integer||
-|rate_id|integer| |
 |custmer_id|string| |
 |card_token|string| |
 |uid|string| |
 |provider|string| |
-|point_id|integer| |
 
 ### Association
 - has_one :user_info, dependent: :destroy, class_name: User_info
 - has_many :products
 - has_many :points
 - has_many :rates
-- has_many :liles, through: products
+- has_many :likes, through: products
 - has_many :orders, through: products
-- has_many :comment, through: products
+- has_many :comments, through: products
 
 
 ## user_infoテーブル
@@ -55,27 +52,21 @@
 |update_at|datetime||
 
 ### Assotiaction
-- has_one :user
+- belongs_to :user
 
 ## productsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true, length:{maximum: 40}|
-|category_id|integer|null: false|
-|subcategory_id|integer|null: false|
-|subsubcategory_id|integer|null: false|
-|brand_id|integer||
 |status|string|null: false|
 |shipping_fee|integer|null: false|
 |state|string|null: false|
 |shipping_day|integer|null: false|
 |price|integer|null: false|
 |size|string||
-|product_image_id|integer|null: false|
 |description|text|null: false, length:{maximum: 1000}|
 |user_id|integer||
-|order_item_id|integer||
 |sold|boolean|default: false|
 |create_at|datetime||
 |update_at|datetime||
@@ -83,6 +74,9 @@
 ### Association
 - belongs_to :user
 - has_one :order
+- has_one :category
+- has_one :subcategory
+- has_one :subsubcategory
 - has_many :comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :product_images
@@ -126,7 +120,7 @@
 |created_at|datetime||
 
 ### Association
-- has_one :product
+- belongs_to :product
 - belongs_to :user
 
 
@@ -173,6 +167,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
+|product_id|integer|null :false|
+
+### Assosiation
+- belongs_to :product
 
 
 ## subcategoriesテーブル
@@ -180,6 +178,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
+|product_id|integer|null :false|
+
+### Assosiation
+- belongs_to :product
 
 
 ## subsubcategoriesテーブル
@@ -187,6 +189,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
+|product_id|integer|null :false|
+
+### Assosiation
+- belongs_to :product
 
 
 ## brandsテーブル
@@ -194,3 +200,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
+|product_id|integer|null :false|
+
+### Assosiation
+- belongs_to :product
