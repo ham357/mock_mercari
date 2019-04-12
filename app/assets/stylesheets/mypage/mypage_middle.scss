@@ -1,185 +1,92 @@
-*{
-    color: #333333;
-    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-}
-
-body{
-    background-color: whitesmoke;
-    padding-top:50px;
-}
-
-#all:checked ~ #all_content,
-#todo:checked ~ #todo_content,
-{
-display: block;
-}
-
-#buy:checked ~ #buy_content,
-#bought:checked ~ #bought_content,
-{
-display: block;
-}
+@import "./mixin";
 
 @media screen and (min-width: 768px) and (max-width:1067px){
-.mypage__container{
-    width: 700px;
-    height: 2224px;
-    padding-bottom: 40px;
-    margin: 24px auto 0 auto;
-    &__top {
+    .mypage__container{
         width: 700px;
-        height: 932px;
-        &--icon{
-            width: 660px;
-            height: 140px;
-            padding: 40px 20px 20px 20px;
-            background-image: url(user-bg.jpg);
-            a{
+        height: 2224px;
+        padding-bottom: 40px;
+        margin: 24px auto 0 auto;
+        &__top {
+            height: 932px;
+            &--icon{
                 width: 660px;
-                height: 111px;
-                display: block;
-                figure{
-                    width: 60px;
-                    height: 60px;
-                    margin: 0 320px;
-                    position: relative;
-                    img{
-                        border-radius: 50%;
-                        right: 20px;
-                        position: absolute;
+                height: 140px;
+                padding: 40px 20px 20px 20px;
+                background-image: url(user-bg.jpg);
+                a{
+                    height: 111px;
+                    display: block;
+                    figure{
+                        width: 60px;
+                        height: 60px;
+                        margin: 0 320px;
+                        position: relative;
+                        img{
+                            border-radius: 50%;
+                            right: 20px;
+                            position: absolute;
+                        }
                     }
                 }
-            }
-            h2{
-                font-weight: bold;
-                text-align: center;
-                margin-top: 8px;
-                font-size: 14px;
-            }
-            &--value{
-                display: flex;
-                margin-top: 8px;
-                justify-content: center;
-                font-size: 14px;
-                span{
+                h2{
                     font-weight: bold;
-                    margin-left: 8px;
-                    line-height: 18px;
+                    text-align: center;
+                    margin-top: 8px;
+                    font-size: 14px;
                 }
-                &--pro{
-                    margin-left: 16px;
+                &--value{
+                    display: flex;
+                    margin-top: 8px;
+                    justify-content: center;
+                    font-size: 14px;
+                    span{
+                        font-weight: bold;
+                        margin-left: 8px;
+                        line-height: 18px;
+                    }
+                    &--pro{
+                        margin-left: 16px;
+                    }
                 }
-            }
-        }
-        &__tab{
-            margin-top: 50px;
-            padding-bottom: 30px;
-            background-color: #fff;
-            width: 700px;
-            margin: 0 auto;
-            .tab_item{
-                width: calc(100%/2);
-                height: 75px;
-                background-color: #d9d9d9;
-                line-height: 70px;
-                font-size: 16px;
-                text-align: center;
-                color: #565656;
-                display: block;
-                float: left;
-                text-align: center;
-                font-weight: bold;
-                transition: all 0.2s ease;
-            }
-            .tab_item:hover {
-                opacity: 0.75;
-            }
-            input[name="tab_item"] {
-                display: none;
-            }
-            .tab_content {
-                display: none;
-                padding: 160px 40px 30px;
-                clear: both;
-                overflow: hidden;
-                font-weight: bold;
-                text-align: center;
-                opacity: 0.5;
-            }
-        }
-        &__tab input:checked + .tab_item {
-            background-color: white;
-            border-top: 3px solid red;
-        }
-
-        &__buy{
-            width: 668px;
-            height: 72px;
-            padding: 0 16px;
-            background-color:white;
-            margin-top: 30px;
-            display: flex;
-            align-items: center;
-            h2{
-                font-size: 16px;
-                display: block;
-                margin: auto 0;
-                font-weight: bold;
             }
             &__tab{
-                width:700px;
-                &__tab{
-                    margin-top: 50px;
-                    margin-bottom: 40px;
-                    background-color: #fff;
-                    width: 700px;
-                    margin: 0 auto;
-                    .tab_item{
-                        width: calc(100%/2);
-                        height: 75px;
-                        background-color: #d9d9d9;
-                        line-height: 70px;
-                        font-size: 16px;
-                        text-align: center;
-                        color: #565656;
-                        display: block;
-                        float: left;
-                        text-align: center;
-                        font-weight: bold;
-                        transition: all 0.2s ease;
-                    }
-                    .tab_item:hover {
-                        opacity: 0.75;
-                    }
-                    input[name="tab2_item"] {
-                        display: none;
-                    }
-                    .tab_content {
-                        display: none;
-                        padding: 152px 40px 60px;
-                        clear: both;
-                        overflow: hidden;
-                        font-weight: bold;
-                        text-align: center;
-                        opacity: 0.5;
-                    }
+                @include tab
+            }
+
+            &__buy{
+                width: 668px;
+                height: 72px;
+                padding: 0 16px;
+                background-color:white;
+                margin-top: 30px;
+                display: flex;
+                align-items: center;
+                h2{
+                    font-size: 16px;
+                    display: block;
+                    margin: auto 0;
+                    font-weight: bold;
                 }
-                &__tab input:checked + .tab_item {
-                    background-color: white;
-                    border-top: 3px solid red;
+                &__tab{
+                    width:700px;
+                    &__tab{
+                        @include tab
+                    }
                 }
             }
         }
-    }
-    &__navi{
-        margin-top: 40px;
-        width:700px;
-        height: 1252px;
-        &--list{
-            width: 700px;
-            height: 685px;
+        &__navi{
+            margin-top: 40px;
+            width:700px;
+            height: 1252px;
+            &--list{
+                height: 685px;
+                h3{
+                    font-weight: bold;
+                    margin-top: 40px;
+                    margin-bottom: 8px;
+                }
                 &--item{
-                    width: 700px;
                     height: 48px;
                     background-color:  white;
                     border-top: 1px solid #d9d9d9;
@@ -189,66 +96,23 @@ display: block;
                         padding: 16px;
                         font-size: 14px;
                         line-height: 16px;
-                            .fa-chevron-right{
-                                float: right;
-                                font-size: 17px;
-                                opacity: 0.3;
-                                position: relative;
-                                right: 0px;
-                            }
-                    }
-                }
-                &--active{
-                    width: 700px;
-                    height: 48px;
-                    background-color: #d9d9d9;
-                    &--a{
-                        width:668px;
-                        height: 16px;
-                        padding: 16px;
-                        font-size: 14px;
-                        line-height: 16px;
-                        font-weight: bold;
                         .fa-chevron-right{
                             float: right;
                             font-size: 17px;
+                            opacity: 0.3;
                             position: relative;
                             right: 0px;
                         }
                     }
                 }
-        }
-        &--bottom{
-            font-weight: bold;
-            margin-top: 40px;
-            &--list{
-                margin-top:8px;
-                &--item{
-                    width: 700px;
+                .active{
                     height: 48px;
-                    background-color:  white;
-                    border-top: 1px solid #d9d9d9;
-                    &--a{
-                        width:668px;
-                        height: 16px;
-                        padding: 16px;
-                        font-size: 14px;
-                        line-height: 16px;
-                            .fa-chevron-right{
-                                float: right;
-                                font-size: 17px;
-                                opacity: 0.3;
-                                position: relative;
-                                right: 0px;
-                            }
-                    }
+                    background-color: #d9d9d9;
+                }
+                .toplist{
+                    border-top: 0;
                 }
             }
         }
     }
-}
-
-.toplist{
-    border-top: 0;
-}
 }
