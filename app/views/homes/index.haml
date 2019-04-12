@@ -7,10 +7,10 @@
       .sp-header__user-nav.clearfix
         %a.sp-header__user-icon{:href => "https://www.mercari.com/jp/mypage/notification/"}
           %figure
-            %i.icon-bell
+            %i.fa-bell
         %a.sp-header__user-icon{:href => "https://www.mercari.com/jp/mypage/todo/"}
           %figure
-            %i.icon-check
+            %i.fa-check
         %a.sp-header__user-icon.sp-header__user-profile{:href => "https://www.mercari.com/jp/mypage/"}
           %figure
             %div
@@ -18,13 +18,13 @@
     .search-bar
       %form.sp-header__form{:action => "https://www.mercari.com/jp/search/"}
         %input.sp-header__search.input-default{:name => "keyword", :placeholder => "何をお探しですか？", :type => "search", :value => ""}/
-        %i.icon-search
+        %i.fa-search
     %nav.sp-header__nav.search-links
       %a{"data-ga" => "element", "data-ga-category" => "NAVIGATION", "data-ga-label" => "sp_header_nav_カテゴリから探す", :href => "/jp/category/"}
-        %i.icon-list.sp-header__cat-brand-icon
+        %i.fa-list-ul.sp-header__cat-brand-icon
         %span カテゴリから探す
       %a{"data-ga" => "element", "data-ga-category" => "NAVIGATION", "data-ga-label" => "sp_header_nav_ブランドから探す", :href => "/jp/brand/"}
-        %i.icon-tag.sp-header__cat-brand-icon
+        %i.fa-tag.sp-header__cat-brand-icon
         %span ブランドから探す
   %header.pc-header.visible-pc-only
     .pc-header__inner
@@ -34,14 +34,14 @@
             %img{:alt => "mercari", :height => "36", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3403318254", :width => "134"}/
         %form.pc-header__form.l-right{:action => "https://www.mercari.com/jp/search/"}
           %input.input-default{:name => "keyword", :placeholder => "何かお探しですか？", :type => "search", :value => ""}/
-          %i.icon-search
+          %i.fa-search
       .pc-header__nav--box.clearfix
         %nav.l-left
           %ul.pc-header__nav
             %li
               %h2
                 %a.pc-header__nav--root.list-parent{:href => "https://www.mercari.com/jp/category/"}
-                  %i.icon-list.pc-header__cat-brand-icon
+                  %i.fa.fa-list-ul.pc-header__cat-brand-icon
                   %span カテゴリーから探す
               %ul.pc-header__nav--parent-wrap{"data-mega" => "1"}
                 %li.pc-header__nav--parent
@@ -59,7 +59,7 @@
             %li
               %h2
                 %a.pc-header__nav--root.list-parent{:href => "https://www.mercari.com/jp/brand/"}
-                  %i.icon-tag.pc-header__cat-brand-icon
+                  %i.fa.fa-tag.pc-header__cat-brand-icon
                   %span ブランドから探す
                 %ul.pc-header__nav--parent-wrap
                   %li.pc-header__nav--parent
@@ -72,12 +72,12 @@
           %ul.pc-header__user-nav
             %li{"data-id" => "pc-header__user-nav", "data-key" => "notification_list", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
               %a.pc-header__nav--root{"data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/", :href => "https://www.mercari.com/jp/mypage/notification/"}
-                %i.icon-bell
+                %i.fa-bell
                 %span お知らせ
               %ul.pc-header__user-box.pc-header__notification-box.mypage-item-list{"data-id" => "pc-header__user-items"}
             %li{"data-id" => "pc-header__user-nav", "data-key" => "todo_list", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
               %a.pc-header__nav--root{"data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/", :href => "https://www.mercari.com/jp/mypage/todo/"}
-                %i.icon-check
+                %i.fa-check
                 %span やることリスト
               %ul.pc-header__user-box.pc-header__todo-box.mypage-item-list{"data-id" => "pc-header__user-items"}
             %li
@@ -104,38 +104,38 @@
                           売上金
                         .l-right
                           ¥ 0
-                          %i.icon-arrow-right
+                          %i.fa-angle-right
                     %li
                       %a.clearfix{:href => "https://www.mercari.com/jp/mypage/point/"}
                         .l-left ポイント
                         .l-right
                           P 0
-                          %i.icon-arrow-right
+                          %i.fa-angle-right
                 %ul.mypage-nav__list
                   %li
                     %a.mypage-nav__list-item{:href => "https://www.mercari.com/jp/mypage/like/history/"}
                       いいね！一覧
-                      %i.icon-arrow-right
+                      %i.fa-angle-right
                   %li
                     %a.mypage-nav__list-item{:href => "https://www.mercari.com/jp/mypage/listings/listing/"}
                       出品した商品 - 出品中
-                      %i.icon-arrow-right
+                      %i.fa-angle-right
                   %li
                     %a.mypage-nav__list-item{:href => "https://www.mercari.com/jp/mypage/listings/in_progress/"}
                       出品した商品 - 取引中
-                      %i.icon-arrow-right
+                      %i.fa-angle-right
                   %li
                     %a.mypage-nav__list-item{:href => "https://www.mercari.com/jp/mypage/listings/completed/"}
                       出品した商品 - 売却済み
-                      %i.icon-arrow-right
+                      %i.fa-angle-right
                   %li
                     %a.mypage-nav__list-item{:href => "https://www.mercari.com/jp/mypage/purchase/"}
                       購入した商品 - 取引中
-                      %i.icon-arrow-right
+                      %i.fa-angle-right
                   %li
                     %a.mypage-nav__list-item{:href => "https://www.mercari.com/jp/mypage/purchased/"}
                       購入した商品 - 過去の取引
-                      %i.icon-arrow-right
+                      %i.fa-angle-right
   %main.white{:role => "main"}
     %section.owl-carousel.top-carousel
       %a.top-banner.banner-natsukashi{:href => "https://mercari-special.jp/~natsukashi/"}
@@ -189,7 +189,7 @@
                 .items-box-num.clearfix
                   .items-box-price.font-5 ¥ 7,200
                   .items-box-likes.font-2
-                    %i.icon-like-border
+                    %i.fa-heart
                     %span 2
                   %p.item-box-tax (税込)
           %section.items-box
@@ -201,7 +201,7 @@
                 .items-box-num.clearfix
                   .items-box-price.font-5 ¥ 1,700
                   .items-box-likes.font-2
-                    %i.icon-like-border
+                    %i.fa-heart
                     %span 1
                   %p.item-box-tax (税込)
           %section.items-box
@@ -222,7 +222,7 @@
                 .items-box-num.clearfix
                   .items-box-price.font-5 ¥ 8,700
                   .items-box-likes.font-2
-                    %i.icon-like-border
+                    %i.fa-heart
                     %span 3
                   %p.item-box-tax (税込)
         .view-all
@@ -261,10 +261,10 @@
             %a{:href => "https://www.mercari.com/jp/logo-guidelines/"} メルカリロゴ利用ガイドライン
           %li.footer-social-link
             %a{:href => "https://twitter.com/mercari_jp", :target => "_blank"}
-              %i.icon-twitter
+              %i.fa-twitter
           %li.footer-social-link
             %a{:href => "https://www.facebook.com/mercarijp", :target => "_blank"}
-              %i.icon-facebook
+              %i.fa-facebook
       .footer-cell
         %h2.footer-head ヘルプ＆ガイド
         %ul
@@ -322,7 +322,7 @@
         %small © 2019 Mercari
   %a.footer-sell-btn{:href => "https://www.mercari.com/jp/sell/"}
     %div 出品
-    %i.icon-camera
+    %i.fa-camera
   .custom-banner.custom-banner-ios.banner-pattern1.clearfix
     %figure
       %img{:alt => "Mercari app's icon", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/custom-banner-icon.png?3403318254", :width => "56"}/

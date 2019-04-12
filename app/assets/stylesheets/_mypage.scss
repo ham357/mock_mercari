@@ -181,7 +181,7 @@
   margin:0 8px 0 0
   }
   
-  .mypage-item-link .icon-arrow-right{
+  .mypage-item-link .fa-angle-right{
   position:absolute;
   top:50%;
   right:16px;
@@ -300,11 +300,11 @@
   text-align:center
   }
   
-  .mypage-go-list span,.mypage-go-list .icon-arrow-right{
+  .mypage-go-list span,.mypage-go-list .fa-angle-right{
   vertical-align:middle
   }
   
-  .mypage-go-list .icon-arrow-right{
+  .mypage-go-list .fa-angle-right{
   margin:0 0 0 8px
   }
   
@@ -339,7 +339,7 @@
   opacity:1
   }
   
-  .mypage-nav__list a:hover .icon-arrow-right{
+  .mypage-nav__list a:hover .fa-angle-right{
   -webkit-transform:translate(4px, -50%);
   transform:translate(4px, -50%);
   color:#333
@@ -359,7 +359,7 @@
   font-weight:600
   }
   
-  .mypage-nav__list-item.active .icon-arrow-right{
+  .mypage-nav__list-item.active .fa-angle-right{
   color:#333
   }
   
@@ -367,7 +367,7 @@
   background:#eee
   }
   
-  .mypage-nav__list-item .icon-arrow-right{
+  .mypage-nav__list-item .fa-angle-right{
   position:absolute;
   top:50%;
   right:16px;
