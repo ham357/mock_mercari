@@ -1,0 +1,551 @@
+
+.mypage-user-icon{
+  position:relative;
+  height:155px;
+  padding:20px;
+  background:url("/jp/assets/img/mypage/user-bg.jpg?36968975");
+  background-repeat:no-repeat;
+  background-size:cover;
+  text-align:center
+  }
+  
+  @media screen and (min-width: 768px){
+  .mypage-user-icon{
+  height:200px
+  }
+  
+  
+  }
+  
+  .mypage-user-icon>a{
+  display:block;
+  position:absolute;
+  top:50%;
+  left:0;
+  right:0;
+  -webkit-transform:translate(0, -50%);
+  transform:translate(0, -50%);
+  color:#333
+  }
+  
+  .mypage-user-icon figure{
+  overflow:hidden;
+  width:60px;
+  height:60px;
+  margin:0 auto;
+  border-radius:50%
+  }
+  
+  .mypage-user-icon h2{
+  margin:8px 0 0;
+  font-size:14px
+  }
+  
+  .mypage-user-icon+.mypage-tab-container{
+  margin:0
+  }
+  
+  .mypage-user-icon .user-official-badge{
+  margin:8px 0 0
+  }
+  
+  .mypage-number{
+  margin:8px 0 0;
+  font-size:0
+  }
+  
+  .mypage-number div{
+  display:inline-block;
+  font-size:14px
+  }
+  
+  .mypage-number div+div{
+  margin:0 0 0 16px
+  }
+  
+  .mypage-number span{
+  margin:0 0 0 8px;
+  font-size:16px
+  }
+  
+  .mypage-tab-container{
+  margin:40px 0 0;
+  background:#fff
+  }
+  
+  .mypage-tab-container:nth-of-type(1){
+  margin:0
+  }
+  
+  .mypage-tab-container+.pager{
+  margin:40px 0 0
+  }
+  
+  .mypage-tab-container-notification-todo{
+  margin:0;
+  background:#fff
+  }
+  
+  .mypage-tab-head{
+  padding:0 4%;
+  background:#fafafa;
+  font-size:16px;
+  line-height:72px
+  }
+  
+  @media screen and (min-width: 768px){
+  .mypage-tab-head{
+  padding:0 16px
+  }
+  
+  
+  }
+  
+  .mypage-tabs li{
+  width:50%
+  }
+  
+  .mypage-item-list li{
+  position:relative;
+  border-bottom:1px solid #eee
+  }
+  
+  .mypage-item-list li:last-child{
+  border:0
+  }
+  
+  .mypage-item-list li:first-child{
+  border-bottom:1px solid #eee
+  }
+  
+  .mypage-item-list li.mypage-item-not-found{
+  border:0
+  }
+  
+  .mypage-item-list a:hover{
+  background:#fafafa;
+  opacity:1;
+  text-decoration:none
+  }
+  
+  .mypage-item-list img{
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:1;
+  width:100%
+  }
+  
+  .mypage-item-list img.is-higher-height{
+  top:50%;
+  -webkit-transform:translate(0, -50%);
+  transform:translate(0, -50%)
+  }
+  
+  .mypage-item-list img.is-higher-width{
+  width:auto;
+  left:50%;
+  right:auto;
+  height:100%;
+  -webkit-transform:translate(-50%, 0);
+  transform:translate(-50%, 0)
+  }
+  
+  .mypage-item-link{
+  display:block;
+  min-height:80px;
+  padding:16px;
+  color:#333
+  }
+  
+  .mypage-item-link figure{
+  position:relative;
+  overflow:hidden;
+  float:left;
+  width:48px;
+  height:48px
+  }
+  
+  .mypage-item-link time{
+  display:inline-block;
+  color:#888
+  }
+  
+  .mypage-item-link time span{
+  vertical-align:middle
+  }
+  
+  .mypage-item-link .icon-time{
+  margin:0 8px 0 0
+  }
+  
+  .mypage-item-link .icon-arrow-right{
+  position:absolute;
+  top:50%;
+  right:16px;
+  -webkit-transform:translate(0, -50%);
+  transform:translate(0, -50%)
+  }
+  
+  .mypage-item-status{
+  display:inline-block;
+  margin:8px 0 0 0;
+  padding:5px 6px;
+  border-radius:2px;
+  font-size:12px;
+  color:#fff
+  }
+  
+  .mypage-item-status.action-required{
+  background:#ea352d
+  }
+  
+  .mypage-item-status.awaiting{
+  background:#0099e8
+  }
+  
+  .mypage-item-status.done{
+  background:#888
+  }
+  
+  .mypage-item-body{
+  margin:0 40px 0 68px
+  }
+  
+  .mypage-item-body .clearfix{
+  margin:8px 0 0
+  }
+  
+  .mypage-item-body .l-left{
+  width:50%
+  }
+  
+  @media screen and (min-width: 768px){
+  .mypage-item-body .l-left{
+  width:auto
+  }
+  
+  
+  }
+  
+  .mypage-item-body.show-stock-item{
+  margin-right:100px
+  }
+  
+  .mypage-item-text{
+  overflow:hidden;
+  display:block;
+  display:-webkit-box;
+  max-height:4.4em;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  text-overflow:ellipsis;
+  line-height:1.5
+  }
+  
+  .mypage-item-not-found{
+  padding:160px 0 60px;
+  background:url("/jp/assets/img/common/common/logo-gray-icon.svg?36968975");
+  background-repeat:no-repeat;
+  background-position:center 40px;
+  background-size:78px 85px;
+  text-align:center;
+  font-size:16px;
+  color:#ccc
+  }
+  
+  .listing-item-count{
+  vertical-align:2px;
+  margin:0 6px 0 0
+  }
+  
+  .listing-item-count i{
+  vertical-align:middle;
+  color:#ccc
+  }
+  
+  .listing-item-count span{
+  vertical-align:middle;
+  margin:0 0 0 2px;
+  font-size:16px;
+  color:#888
+  }
+  
+  .stock-item{
+  float:right;
+  text-align:center;
+  width:80px;
+  margin-right:20px
+  }
+  
+  .stock-item .stock-item-count{
+  height:3rem;
+  font-size:2.6rem;
+  font-weight:600
+  }
+  
+  .mypage-go-list{
+  padding:16px
+  }
+  
+  .mypage-go-list a{
+  display:block;
+  height:56px;
+  margin:0 auto;
+  background:#eee;
+  color:#333;
+  line-height:56px;
+  text-align:center
+  }
+  
+  .mypage-go-list span,.mypage-go-list .icon-arrow-right{
+  vertical-align:middle
+  }
+  
+  .mypage-go-list .icon-arrow-right{
+  margin:0 0 0 8px
+  }
+  
+  .mypage-nav__head{
+  margin:40px 4% 0;
+  font-size:16px
+  }
+  
+  @media screen and (min-width: 768px){
+  .mypage-nav__head{
+  margin:40px 0 0
+  }
+  
+  
+  }
+  
+  .mypage-nav__head+.mypage-nav__list{
+  margin:8px 0 0
+  }
+  
+  .mypage-nav__list li{
+  border-top:1px solid #eee
+  }
+  
+  .mypage-nav__list li:first-child{
+  border:0
+  }
+  
+  .mypage-nav__list a:hover{
+  background:#fafafa;
+  text-decoration:none;
+  opacity:1
+  }
+  
+  .mypage-nav__list a:hover .icon-arrow-right{
+  -webkit-transform:translate(4px, -50%);
+  transform:translate(4px, -50%);
+  color:#333
+  }
+  
+  .mypage-nav__list-item{
+  position:relative;
+  display:block;
+  min-height:48px;
+  padding:16px;
+  background:#fff;
+  color:#333
+  }
+  
+  .mypage-nav__list-item.active{
+  background:#eee;
+  font-weight:600
+  }
+  
+  .mypage-nav__list-item.active .icon-arrow-right{
+  color:#333
+  }
+  
+  .mypage-nav__list-item.active:hover{
+  background:#eee
+  }
+  
+  .mypage-nav__list-item .icon-arrow-right{
+  position:absolute;
+  top:50%;
+  right:16px;
+  color:#ccc;
+  -webkit-transform:translate(0, -50%);
+  transform:translate(0, -50%);
+  -webkit-transition:all ease-out .2s;
+  transition:all ease-out .2s
+  }
+  
+  .mypage-nav__number{
+  position:absolute;
+  top:50%;
+  right:32px;
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:#ea352d;
+  text-align:center;
+  line-height:24px;
+  color:#fff;
+  -webkit-transform:translate(0, -50%);
+  transform:translate(0, -50%)
+  }
+  
+  .mypage-sold .item-sold-out-badge:after{
+  border-width:40px 40px 0 0
+  }
+  
+  .mypage-sold .item-sold-out-badge>div{
+  top:8px;
+  font-size:11px;
+  letter-spacing:1px
+  }
+  
+  .mypage-history{
+  margin:16px 4% 0;
+  height:44px
+  }
+  
+  @media screen and (min-width: 768px){
+  .mypage-history{
+  margin:16px 0 0
+  }
+  
+  
+  }
+  
+  @media screen and (min-width: 1068px){
+  .mypage-history{
+  margin:40px 0 0
+  }
+  
+  
+  }
+  
+  .listing-item-change-box{
+  margin:24px 0 24px 0;
+  background:#fff;
+  padding:8px 16px 8px 16px
+  }
+  
+  .listing-item-change-box .btn-default{
+  margin:16px 0 16px 0
+  }
+  
+  .listing-item-change-box p{
+  font-size:16px
+  }
+  
+  .mypage-bank-account .address-info,.mypage-identification .address-info{
+  margin:0 0 0 4px
+  }
+  
+  .mypage-bank-account .address-info address,.mypage-identification .address-info address{
+  font-size:16px;
+  margin:8px 0 0
+  }
+  
+  .mypage-bank-account .address-info address p,.mypage-identification .address-info address p{
+  margin:0
+  }
+  
+  .mypage-bank-account button[type="submit"],.mypage-identification button[type="submit"]{
+  margin:40px 0 0 0
+  }
+  
+  .mypage-deferred-payments .month-block{
+  padding:0 16px
+  }
+  
+  .mypage-deferred-payments .month-block .head{
+  padding-top:40px;
+  font-weight:bold;
+  font-size:16px
+  }
+  
+  .mypage-deferred-payments .month-block .body{
+  padding:10px 0 16px;
+  font-size:14px;
+  line-height:1.3em
+  }
+  
+  .mypage-deferred-payments .mypage-nav__list{
+  border-bottom:1px solid #eee
+  }
+  
+  .mypage-deferred-payments .payment-method{
+  padding:40px 0 32px
+  }
+  
+  .mypage-deferred-payments .payment-method .head{
+  padding:0 16px;
+  font-size:16px;
+  font-weight:bold
+  }
+  
+  .mypage-deferred-payments .payment-method .body{
+  margin:16px 0 32px;
+  padding:0 16px;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -ms-flex-wrap:wrap;
+  flex-wrap:wrap;
+  -ms-flex-negative:0;
+  flex-shrink:0
+  }
+  
+  .mypage-deferred-payments .payment-method .body li{
+  margin-top:16px;
+  width:50%
+  }
+  
+  @media screen and (min-width: 768px){
+  .mypage-deferred-payments .payment-method .body li{
+  width:33%
+  }
+  
+  
+  }
+  
+  .mypage-deferred-payments .payment-method .body li label{
+  line-height:20px
+  }
+  
+  .mypage-deferred-payments .payment-method .payment-cvs{
+  margin:16px 24px;
+  padding:16px;
+  background:#fff6de
+  }
+  
+  .mypage-deferred-payments .payment-method .payment-cvs .destination{
+  margin-bottom:8px;
+  font-size:14px;
+  font-weight:bold
+  }
+  
+  .mypage-deferred-payments .payment-method .payment-cvs .instructions{
+  font-size:12px;
+  line-height:1.3em
+  }
+  
+  .mypage-deferred-payments .payment-method .payment-cvs .seven-eleven{
+  padding-top:5px;
+  font-size:12px
+  }
+  
+  .mypage-deferred-payments .payment-method .payment-cvs .seven-eleven a{
+  color:'#d3463d'
+  }
+  
+  .mypage-deferred-payments .payment-method .btn-default{
+  margin:0 auto;
+  width:45%
+  }
+  
+  .mypage-deferred-payments .no-item{
+  padding:40px 24px 0
+  }
+  
