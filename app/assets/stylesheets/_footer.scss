@@ -1,40 +1,34 @@
 .global-footer{
   padding:0 20px 10px 20px;
   background:#212121;
-  color:#fff
-  }
+  color:#fff;
   
-  .global-footer nav{
+    nav{
     @include clearfix();
 
-    }
-
-  @media screen {
-    .global-footer nav{
-  
-      @media (min-width: 768px) {
+      @media screen and  (min-width: 768px) {
         width:700px;
         margin:0 auto
       }
   
-      @media (min-width: 1068px) {
+      @media screen and (min-width: 1068px) {
         width:1020px
       }
   
     }
   
-  }
+    li{
+    color:#333
+    }
+    
+    a{
+    color:#fff;
+    font-size:12px;
+    line-height:1.5em
+    }
   
-  .global-footer li{
-  color:#333
   }
-  
-  .global-footer a{
-  color:#fff;
-  font-size:12px;
-  line-height:1.5em
-  }
-  
+
   .footer-head{
   color:#fff;
   font-size:16px;
@@ -46,141 +40,132 @@
   float:left;
   margin-top:18px;
   padding-left:10px;
-  width:50%
-  }
+  width:50%;
   
-  .footer-cell:first-child{
+  &:first-child{
   padding:0 10px 0 0
   }
   
-  .footer-cell a{
+  a{
   display:inline-block
   }
   
-  .footer-cell li{
-  color:#fff
+  li{
+  color:#fff;
+  
+    &:first-child{
+    margin-top:12px
+    }
+    
+    
   }
   
-  .footer-cell li:first-child{
-  margin-top:12px
-  }
-  
-  .footer-cell.full-width{
+  &.full-width{
   width:100%;
   margin:30px 0 0;
   padding:0
   }
   
+  & li{
+    margin:14px 0 0;
+    
+    
+    &:first-child{
+      margin:16px 0 0
+    }
+
+  }
+  
+  a{
+    display:block;
+    opacity:.7
+  }
+  
+}
+
   @media screen and (min-width: 1068px){
   .footer-cell{
   width:23%;
   padding:0 40px 0 0;
-  vertical-align:top
+  vertical-align:top;
+
+    &:first-child{
+    padding:0 20px 0 0;
+    width:20%
+    }
+    
+    &.full-width{
+    margin-top:18px;
+    padding:0 40px 0 0;
+    width:42%
+    }
+
   }
-  
-  .footer-cell:first-child{
-  padding:0 20px 0 0;
-  width:20%
-  }
-  
-  .footer-cell.full-width{
-  margin-top:18px;
-  padding:0 40px 0 0;
-  width:42%
-  }
-  
-  
-  }
-  
-  .footer-cell li{
-  margin:14px 0 0
-  }
-  
-  .footer-cell li:first-child{
-  margin:16px 0 0
-  }
-  
-  .footer-cell a{
-  display:block;
-  opacity:.7
-  }
-  
+
+}
+
   .inner-footer-cell{
   float:left;
   padding-left:10px;
   vertical-align:top;
-  width:50%
-  }
+  width:50%;
   
-  .inner-footer-cell:first-of-type{
-  padding:0 10px 0 0
+    &:first-of-type{
+    padding:0 10px 0 0
+    }
+
   }
   
   .footer-social-link{
-  display:inline-block
-  }
+  display:inline-block;
+
+    a{
+    opacity:1
+    }
   
-  .footer-social-link a{
-  opacity:1
-  }
-  
-  .footer-social-link i{
-  background:transparent;
-  margin:16px 18px 0 0
+    i{
+    background:transparent;
+    margin:16px 18px 0 0
+    }
+
   }
   
   .footer-nav-lang{
   margin-top:35px;
-  padding:0
+  padding:0;
+  
+    @media screen and (min-width: 1068px){
+    margin-top:18px
+    }
+    
+    @media screen and (min-width: 768px){
+    width:auto
+    }
+
+    li{
+    display:inline-block;
+    padding-right:30px;
+    
+      @media screen and (min-width: 1068px){
+      display:block
+      }    
+
+    }
+
   }
   
-  @media screen and (min-width: 1068px){
-  .footer-nav-lang{
-  margin-top:18px
-  }
-  
-  
-  }
-  
-  .footer-nav-lang li{
-  display:inline-block;
-  padding-right:30px
-  }
-  
-  @media screen and (min-width: 1068px){
-  .footer-nav-lang li{
-  display:block
-  }
-  
-  
-  }
-  
-  @media screen and (min-width: 768px){
-  .footer-nav-lang{
-  width:auto
-  }
-  
-  
-  }
   
   .footer-bottom{
-  margin:50px auto 0
-  }
+  margin:50px auto 0;
   
-  @media screen and (min-width: 768px){
-  .footer-bottom{
-  width:700px
-  }
-  
-  
-  }
-  
-  @media screen and (min-width: 1068px){
-  .footer-bottom{
-  margin:30px auto 20px;
-  width:1020px
-  }
-  
+    @media screen and (min-width: 768px){
+    width:700px
+    }
+    
+    @media screen and (min-width: 1068px){
+    margin:30px auto 20px;
+    width:1020px
+    }
   
   }
   
@@ -194,18 +179,15 @@
   display:inline-block;
   margin:8px 0 0;
   text-align:center;
-  vertical-align:sub
-  }
+  vertical-align:sub;
   
-  .footer-copyright small{
-  font-size:12px
-  }
-  
-  @media screen and (min-width: 1068px){
-  .footer-copyright{
-  width:745px
-  }
-  
+    small{
+    font-size:12px
+    }
+    
+    @media screen and (min-width: 1068px){
+    width:745px
+    }
   
   }
   
@@ -224,50 +206,41 @@
   border-radius:50%;
   background:#ea352d;
   color:#fff;
-  text-align:center
-  }
-  
-  @media screen and (min-width: 768px){
-  .footer-sell-btn{
-  bottom:32px;
-  right:32px;
-  width:160px;
-  height:160px;
-  font-size:22px
-  }
-  
-  
-  }
-  
-  .footer-sell-btn div{
-  margin:14px 0 0
-  }
-  
-  @media screen and (min-width: 768px){
-  .footer-sell-btn div{
-  margin:32px 0 0
-  }
-  
-  
-  }
-  
-  .footer-sell-btn:hover{
-  opacity:1;
-  text-decoration:none
-  }
-  
-  .footer-sell-btn .icon-camera{
-  margin:4px 0 0;
-  font-size:24px
-  }
-  
-  @media screen and (min-width: 768px){
-  .footer-sell-btn .icon-camera{
-  margin:8px 0 0;
-  font-size:54px
-  }
-  
-  
+  text-align:center;
+
+    @media screen and (min-width: 768px){
+    bottom:32px;
+    right:32px;
+    width:160px;
+    height:160px;
+    font-size:22px
+    }
+
+    div{
+     margin:14px 0 0;
+
+      @media screen and (min-width: 768px){
+      margin:32px 0 0
+      }
+      
+     }
+              
+     &:hover{
+     opacity:1;
+     text-decoration:none
+     }
+     
+     .fa-camera{
+     margin:4px 0 0;
+     font-size:24px;
+
+      @media screen and (min-width: 768px){
+      margin:8px 0 0;
+      font-size:54px
+      }
+
+     }
+     
   }
   
   .single-footer{
@@ -278,57 +251,53 @@
   z-index:1;
   height:250px;
   padding:40px 0;
-  text-align:center
-  }
+  text-align:center;
   
   @media screen and (min-width: 768px){
-  .single-footer{
   width:456px;
   height:220px;
   margin:0 auto
   }
-  
-  
-  }
-  
-  .single-footer ul{
+    
+  ul{
   font-size:0
   }
   
-  .single-footer li{
+  li{
   margin:16px 0 0;
-  font-size:12px
+  font-size:12px;
+
+    @media screen and (min-width: 768px){
+    display:inline-block;
+    margin:0 0 0 16px
+    }
+    
+    &:first-child{
+    margin:0
+    }
+
   }
-  
-  @media screen and (min-width: 768px){
-  .single-footer li{
-  display:inline-block;
-  margin:0 0 0 16px
-  }
-  
-  
-  }
-  
-  .single-footer li:first-child{
-  margin:0
-  }
-  
-  .single-footer a{
+
+  a{
   display:block;
   color:#333
   }
   
-  .single-footer p{
+  p{
   margin:8px 0 0
   }
   
-  .single-footer small{
+  small{
   font-size:13px
   }
   
-  .single-footer-logo{
+  &-logo{
   width:80px;
   height:65px;
   margin:40px auto 0
   }
+  
+}
+  
+  
   
