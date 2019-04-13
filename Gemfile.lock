@@ -212,7 +212,7 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano3-unicorn
   coffee-rails (~> 4.2)
-  font-awesome-sas
+  font-awesome-sass
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
