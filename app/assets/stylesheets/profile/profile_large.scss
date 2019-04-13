@@ -1,11 +1,15 @@
-@media screen and (min-width: 768px) and (max-width:1067px){
+@media screen and (min-width: 1068px){
     .profile__container{
-        width: 700px;
-        height: 2224px;
+        width: 1020px;
+        height: 1252px;
         padding-bottom: 40px;
         margin: 24px auto 0 auto;
+        display: flex;
+        align-items: stretch;
         &__top {
             height: 568px;
+            width: 700px;
+            order: 1;
             background-color: white;
             h1{
                 font-weight: bold;
@@ -69,9 +73,10 @@
             }
         }
         &__navi{
-            margin-top: 40px;
-            width:700px;
+            margin-right: 40px;
+            width:280px;
             height: 1252px;
+            order: -1;
             &--list{
                 height: 685px;
                 h3{
@@ -84,7 +89,7 @@
                     background-color:  white;
                     border-top: 1px solid $subBackColor;
                     &--a{
-                        width:668px;
+                        width:248px;
                         height: 16px;
                         padding: 16px;
                         font-size: 14px;
