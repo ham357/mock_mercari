@@ -1,4 +1,5 @@
 %li.mypage__container__navi--list--item.active
     .mypage__container__navi--list--item--a
-        %a{href:"#{url}"} #{contents}
-        %i.fas.fa-chevron-right
+        = link_to "#{url}" do
+            #{contents}
+            %i.fas.fa-chevron-right
