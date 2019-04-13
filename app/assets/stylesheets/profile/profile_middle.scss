@@ -1,0 +1,111 @@
+@media screen and (min-width: 768px) and (max-width:1067px){
+    .profile__container{
+        width: 700px;
+        height: 2224px;
+        padding-bottom: 40px;
+        margin: 24px auto 0 auto;
+        &__top {
+            height: 568px;
+            background-color: white;
+            h1{
+                font-weight: bold;
+                font-size: 24px;
+                width: 652px;
+                height: 55px;
+                display: block;
+                text-align: center;
+                line-height: 55px;
+                margin: auto;
+            }
+            &--names{
+                width: 668px;
+                height: 60px;
+                padding: 72px 16px 24px 16px;
+                background-image: url(/images/user-bg.jpg);
+                display: flex;
+                justify-content: center;
+                figure{
+                    width: 60px;
+                    height: 60px;
+                    margin:0;
+                    display: inline-block;
+                    img{
+                        border-radius: 50%;
+                    }
+                }
+                input{
+                    width: 186px;
+                    height:28px;
+                    padding: 10px 16px 8px 16px;
+                    margin: auto 0 auto 8px;
+                    border: 0.5px solid lightgray;
+                    border-radius: 0.2em;
+                    display: inline-block;
+                    font-size: 14px;
+                }
+                input:focus {
+                    border: 0.5px solid skyblue;
+                 }
+            }
+            &--contents{
+                height: 282px;
+                width: 668px;
+                padding: 40px 16px;
+                textarea{
+                    width: 646px;
+                    height: 194px;
+                    padding: 10px;
+                    border: 0.5px solid lightgray;
+                }
+                .btn-default{
+                    width: 666px;
+                    height: 48px;
+                    border: 1px solid;
+                    margin-top: 16px;
+                    background-color: red;
+                    font-size: 14px;
+                    color: white;
+                }
+            }
+        }
+        &__navi{
+            margin-top: 40px;
+            width:700px;
+            height: 1252px;
+            &--list{
+                height: 685px;
+                h3{
+                    font-weight: bold;
+                    margin-top: 40px;
+                    margin-bottom: 8px;
+                }
+                &--item{
+                    height: 48px;
+                    background-color:  white;
+                    border-top: 1px solid $subBackColor;
+                    &--a{
+                        width:668px;
+                        height: 16px;
+                        padding: 16px;
+                        font-size: 14px;
+                        line-height: 16px;
+                        .fa-chevron-right{
+                            float: right;
+                            font-size: 17px;
+                            opacity: 0.3;
+                            position: relative;
+                            right: 0px;
+                        }
+                    }
+                }
+                .active{
+                    height: 48px;
+                    background-color: $subBackColor;
+                }
+                .toplist{
+                    border-top: 0;
+                }
+            }
+        }
+    }
+}
