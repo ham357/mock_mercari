@@ -42,6 +42,7 @@
                     border-radius: 0.2em;
                     display: inline-block;
                     font-size: 14px;
+                    outline: none;
                 }
                 input:focus {
                     border: 0.5px solid skyblue;
@@ -56,6 +57,7 @@
                     height: 194px;
                     padding: 10px;
                     border: 0.5px solid lightgray;
+                    outline: none;
                 }
                 .btn-default{
                     width: 666px;
@@ -65,6 +67,7 @@
                     background-color: crimson;
                     font-size: 14px;
                     color: white;
+                    outline: none;
                 }
             }
         }
