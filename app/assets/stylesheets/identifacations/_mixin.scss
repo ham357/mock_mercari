@@ -1,0 +1,49 @@
+// マイページ等にある２つのタブ
+@mixin tab{
+    margin-top: 50px;
+    margin-bottom: 40px;
+    background-color: #fff;
+    margin: 0 auto;
+    .tab_item{
+        width: calc(100%/2);
+        height: 75px;
+        background-color: #d9d9d9;
+        line-height: 70px;
+        font-size: 16px;
+        text-align: center;
+        color: #565656;
+        display: block;
+        float: left;
+        text-align: center;
+        font-weight: bold;
+        transition: all 0.2s ease;
+    }
+    .tab_item:hover {
+        opacity: 0.75;
+    }
+    input[name="tab_item"] {
+        display: none;
+    }
+    input[name="tab2_item"] {
+        display: none;
+    }
+    .tab_content {
+        display: none;
+        padding: 152px 40px 60px;
+        clear: both;
+        overflow: hidden;
+        font-weight: bold;
+        text-align: center;
+        opacity: 0.5;
+    }
+    #all:checked ~ #all_content,#todo:checked ~ #todo_content{
+        display: block;
+    }
+    #buy:checked ~ #buy_content,#bought:checked ~ #bought_content{
+        display: block;
+    }
+    input:checked + .tab_item {
+        background-color: white;
+        border-top: 3px solid red;
+    }
+}

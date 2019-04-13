@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :mypages, only: :index
   resources :profiles, only: :index
   #profilesはmypagesのネスト
-
+  resources :identifacations, only: :index
+  #identificationはmypagesのネスト
   root to: 'products#index'
 
 end

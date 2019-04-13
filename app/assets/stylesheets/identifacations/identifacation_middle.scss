@@ -1,0 +1,118 @@
+@media screen and (min-width: 768px) and (max-width:1067px){
+    .identifi__container{
+        width: 700px;
+        height: 1028px;
+        padding-bottom: 40px;
+        margin: 24px auto 0 auto;
+        &__top{
+            width: 700px;
+            height: 1208px;
+            &__section{
+                width: 652px;
+                height:33px;
+                padding: 8px 24px;
+                border-bottom: 1px solid $subBackColor;
+                background-color: white;
+                h2{
+                    font-weight: bold;
+                    text-align: center;
+                    font-size: 25px;
+                }
+                &--form{
+                    width: 572px;
+                    height: 1029px;
+                    padding: 64px;
+                    border-top: 1px solid $subBackColor;
+                    background-color: white;
+                    &--top{
+                        width: 572px;
+                        height: 71px;
+                        p{
+                            font-size: 14px;
+                        }
+                        &--p{
+                            height:21px;
+                            margin-top: 8px;
+                            text-align: right;
+                        }
+                    }
+                    &--group{
+                        height:43px;
+                        margin-top: 40px;
+                        p{
+                            margin-top:8px;
+                        }
+                    }
+                    &--groupf{
+                        height:70px;
+                        margin-top: 40px;
+                        p{
+                            margin-top:8px;
+                        }
+                        .arbitrary{
+                            padding: 2px 4px 2px 4px;
+                            margin-left: 8px;
+                            color: white;
+                            background-color: silver;
+                            border-radius: 0.2em;
+                            font-size: 12px;
+                            vertical-align: 2pt;
+                        }
+                        .input--default{
+                            width: 538px;
+                            height: 28px;
+                            padding: 10px 16px 8px 16px;
+                            border: 1px solid $subBackColor;
+                            margin-top: 8px;
+                            outline: none;
+                            border-radius: 0.2em;
+                        }
+                        input:focus {
+                            border: 1px solid skyblue;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__navi{
+            margin-top: 40px;
+            width:700px;
+            height: 1252px;
+            &--list{
+                height: 685px;
+                h3{
+                    font-weight: bold;
+                    margin-top: 40px;
+                    margin-bottom: 8px;
+                }
+                &--item{
+                    height: 48px;
+                    background-color:  white;
+                    border-top: 1px solid $subBackColor;
+                    &--a{
+                        width:668px;
+                        height: 16px;
+                        padding: 16px;
+                        font-size: 14px;
+                        line-height: 16px;
+                        .fa-chevron-right{
+                            float: right;
+                            font-size: 17px;
+                            opacity: 0.3;
+                            position: relative;
+                            right: 0px;
+                        }
+                    }
+                }
+                .active{
+                    height: 48px;
+                    background-color: $subBackColor;
+                }
+                .toplist{
+                    border-top: 0;
+                }
+            }
+        }
+    }
+}
