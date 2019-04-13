@@ -448,3 +448,40 @@
     }
 
   }
+
+  .mypage-tabs,.listing-tabs,.review-history-tabs{
+    border:0;
+    background:#eee;
+    font-size:0
+    }
+    
+    .mypage-tabs li,.listing-tabs li,.review-history-tabs li{
+    display:inline-block;
+    text-align:center;
+    vertical-align:top
+    }
+    
+    .mypage-tabs li.active,.listing-tabs li.active,.review-history-tabs li.active{
+    background:#fff
+    }
+    
+    .mypage-tabs li.active a,.listing-tabs li.active a,.review-history-tabs li.active a{
+    border-top:2px solid #ea352d
+    }
+    
+    .mypage-tabs a,.listing-tabs a,.review-history-tabs a{
+    position:relative;
+    display:block;
+    color:#333;
+    font-size:16px;
+    line-height:72px
+    }
+    
+    .mypage-tabs a:hover,.listing-tabs a:hover,.review-history-tabs a:hover{
+    text-decoration:none
+    }
+    
+    .mypage-tabs .mypage-nav__number,.listing-tabs .mypage-nav__number,.review-history-tabs .mypage-nav__number{
+    top:16px;
+    right:2px
+    }
