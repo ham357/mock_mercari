@@ -260,32 +260,31 @@
     &__login-nav .btn-red{
       display:block
     }
-    
+
   }
   
   &__user-nav{
     font-size:0;
-    >li{
+    &>li{
       position:relative;
       display:inline-block;
-      padding-left:28px;
+      padding-left:15px;
 
       .pc-header__nav--root{
         line-height:32px;
       }
-
     }
 
-    >li:first-child{
+    &>li:first-child{
       padding:0
     }
-    >li:hover{
+    &>li:hover{
       .pc-header__user-box{
         display:block
       }
     }
 
-    >li:hover i{
+    &>li:hover i{
       color:#0099e8
     }
 
@@ -296,13 +295,13 @@
       }
     }
     
-    >li{
+    &>li{
       >a span{
         margin-left:10px
       }
     }
 
-    >li i{
+    &>li i{
       color:#ccc
     }
 
@@ -320,8 +319,8 @@
     .fa-check{
       font-size:16px
     }
-    
-  }
+
+    }
 
   &__user-icon{
     display:inline-block;
