@@ -68,6 +68,10 @@
                     font-size: 14px;
                     color: white;
                     outline: none;
+                    transition: 500ms;
+                }
+                .btn-default:active{
+                    background-color: gray;
                 }
             }
         }
