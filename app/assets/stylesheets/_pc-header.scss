@@ -78,12 +78,14 @@
     >li{
     position:relative;
     display:inline-block;
-    padding:0 0 0 22px
-    }
+    padding:0 0 0 22px;
 
-    li:first-child{
+    &:first-child{
     padding:0 0 0 2px
     }
+
+    }
+
 
     h2{
     font-size:14px;
@@ -92,12 +94,13 @@
 
     a{
     display:block;
-    color:#333
-    }
+    color:#333;
 
-    a:hover{
-    opacity:1;
-    text-decoration:none
+      &:hover{
+      opacity:1;
+      text-decoration:none
+      }
+
     }
 
     .icon-arrow-bottom{
@@ -115,17 +118,17 @@
       height:42px;
       line-height:32px;
 
-      &.list-parent{
-        font-weight:bold;
-      }
+        &.list-parent{
+          font-weight:bold;
+        }
 
-      &:hover{
-        color:#0099e8
-      }
+        &:hover{
+          color:#0099e8
+        }
 
-      span{
-        vertical-align:middle
-      }
+        span{
+          vertical-align:middle
+        }
 
     }
 
@@ -143,42 +146,45 @@
       color:#fff
     }
 
-    &--parent-wrap{
-      position:absolute;
-      top:38px;
-      left:-34px;
-      z-index:1000;
-      background:#fff;
-      -webkit-box-shadow:0 1px 1px 0 rgba(0,0,0,0.24);
-      box-shadow:0 1px 1px 0 rgba(0,0,0,0.24);
+    &--parent{
+      display:none;
+      width:224px;
 
-      @media screen and (min-width: 1068px){
-        left:0
+      &-wrap{
+        position:absolute;
+        top:38px;
+        left:-34px;
+        z-index:1000;
+        background:#fff;
+        -webkit-box-shadow:0 1px 1px 0 rgba(0,0,0,0.24);
+        box-shadow:0 1px 1px 0 rgba(0,0,0,0.24);
+  
+        @media screen and (min-width: 1068px){
+          left:0;          
+        }
+
+        a{
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        font-size:14px
+        }
+
+      }
+  
+      h3{
+      font-weight:400;
+      font-size:14px;
+      
+        a{
+          padding:0 16px;
+          line-height:44px
+        }
+
       }
 
     }
 
-    &--parent-wrap a{
-    overflow:hidden;
-    text-overflow:ellipsis;
-    white-space:nowrap;
-    font-size:14px
-    }
-
-    &--parent{
-    display:none;
-    width:224px
-    }
-
-    &--parent h3{
-    font-weight:400;
-    font-size:14px
-    }
-
-    &--parent h3 a{
-      padding:0 16px;
-      line-height:44px
-    }
 
     &--nochild{
     display:none;
