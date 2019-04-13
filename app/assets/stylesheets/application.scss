@@ -1029,7 +1029,7 @@ color:#333
 }
 
 .app-banner{
-background:url("/jp/assets/img/common/jp/top/download_bg_pc.jpg?36968975");
+background:url("../images/download_bg_pc.jpg?36968975");
 background-position:center;
 background-size:cover
 }
@@ -1317,7 +1317,7 @@ transform:translateY(-23px)
 }
 
 .top-carousel .owl-next{
-background-image:url("/jp/assets/img/common/jp/top/carousel-next.png");
+background-image:url("../images/carousel-next.png");
 right:10px
 }
 
@@ -1330,7 +1330,7 @@ right:60px
 }
 
 .top-carousel .owl-prev{
-background-image:url("/jp/assets/img/common/jp/top/carousel-prev.png");
+background-image:url("../images/carousel-prev.png");
 left:10px
 }
 
@@ -1373,7 +1373,7 @@ display:block
 }
 
 .top-main-visual{
-background:url("/jp/assets/img/common/jp/top/main_bg_pc.jpg");
+background:url("../images/main_bg_pc.jpg");
 background-size:cover;
 display:none;
 height:290px
@@ -1477,7 +1477,7 @@ background-size:auto
 }
 
 .top-banner.banner-natsukashi{
-background-image:url("/jp/assets/img/common/jp/top/banner-natsukashi.jpg")
+background-image:url("../images/banner-natsukashi.jpg")
 }
 
 @media screen and (min-width: 1440px){
@@ -1490,7 +1490,7 @@ background-repeat:repeat-x
 }
 
 .top-banner.banner-bokurano-heisei{
-background-image:url("/jp/assets/img/common/jp/top/banner-bokurano-heisei.jpg")
+background-image:url("../images/banner-bokurano-heisei.jpg")
 }
 
 @media screen and (min-width: 1440px){
@@ -1503,7 +1503,7 @@ background-repeat:repeat-x
 }
 
 .top-banner.banner-new-life{
-background-image:url("/jp/assets/img/common/jp/top/banner-new-life.jpg")
+background-image:url("../images/banner-new-life.jpg")
 }
 
 @media screen and (min-width: 1440px){
@@ -1516,7 +1516,7 @@ background-repeat:repeat-x
 }
 
 #sp-top-banner{
-background:url("/jp/assets/img/common/jp/top/main_bg_pc.jpg");
+background:url("../images/main_bg_pc.jpg");
 background-size:cover;
 color:#333;
 height:157px;
