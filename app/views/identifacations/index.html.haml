@@ -23,11 +23,11 @@
                 %label{for: "zip_code"} 郵便番号
                 %span.arbitrary 任意
                 %input.input--default{type: "text", name: "zip_code", placeholder: "例） 1234567"}
-            .identifi__container__top__section--form--groupf
+            .identifi__container__top__section--form--groups
                 %label{for: "zip_code"} 都道府県
                 %span.arbitrary 任意
-                .select--wrap
-                    %select.select-default{name: "prefecture"}
+                .identifi__container__top__section--form--groups--wrap
+                    %select.select--default{name: "prefecture"}
                         %option --
                         %option 北海道
                         %option 沖縄
@@ -37,13 +37,19 @@
                 %span.arbitrary 任意
                 %input.input--default{type: "text", name: "zip_code", placeholder: "例） 東京都立川市"}
             .identifi__container__top__section--form--groupf
-                %label{for: "zip_code"} 市区町村
+                %label{for: "zip_code"} 番地
                 %span.arbitrary 任意
                 %input.input--default{type: "text", name: "zip_code", placeholder: "例） 羽衣町2-7-3"}
             .identifi__container__top__section--form--groupf
                 %label{for: "zip_code"} 市区町村
                 %span.arbitrary 任意
                 %input.input--default{type: "text", name: "zip_code", placeholder: "例） レスポワール立川101"}
+            .identifi__container__top__section--form--groupb
+                %button.btn--default{type: "submit"} 登録する
+            .identifi__container__top__section--form--bottom
+                .identifi__container__top__section--form--bottom--p
+                    %a{href: '#'} 本人情報の登録について
+                    %i.fas.fa-chevron-right
     .profile__container__navi
         %ul.profile__container__navi--list
             -# renderで部分テンプレート 条件分岐未実装
@@ -66,11 +72,11 @@
             = render partial: "top_tab", locals: { url:'#', contents: '売上・振込申請' }
             = render partial: "tab", locals: { url:'#', contents: 'ポイント' }
             %h3 設定
-            = render partial: "active_tab", locals: { url:'#', contents: 'プロフィール' }
+            = render partial: "top_tab", locals: { url:'#', contents: 'プロフィール' }
             = render partial: "tab", locals: { url:'#', contents: '発送元・お届け先住所変更' }
             = render partial: "tab", locals: { url:'#', contents: '支払い方法' }
             = render partial: "tab", locals: { url:'#', contents: 'メール / パスワード'  }
-            = render partial: "tab", locals: { url:'#', contents: '本人情報' }
+            = render partial: "active_tab", locals: { url:'#', contents: '本人情報' }
             = render partial: "tab", locals: { url:'#', contents: '電話番号の確認' }
             = render partial: "tab", locals: { url:'#', contents: 'ログアウト' }
 
