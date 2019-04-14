@@ -188,77 +188,88 @@
 
     &--nochild{
     display:none;
-    width:224px
-    }
+    width:224px;
 
-    &--nochild h3{
-    font-weight:400;
-    font-size:14px
-    }
+      h3{
+      font-weight:400;
+      font-size:14px;
 
-    &--nochild h3 a{
-    padding:0 16px;
-    line-height:44px
-    }
-    &--child-wrap{
-    position:absolute;
-    top:0;
-    left:224px;
-    bottom:0;
-    background:#fff;
-    -webkit-box-shadow:1px 0 0 0 #eee inset;
-    box-shadow:1px 0 0 0 #eee inset
+        a{
+        padding:0 16px;
+        line-height:44px
+        }
+      }
+
     }
 
     &--child{
     display:none;
-    width:224px
-    }
-    &--child>a{
-    padding:8px 16px
-    }
+    width:224px;
+    
+      &>a{
+      padding:8px 16px;
 
-    &--grand-child-wrap{
-    position:absolute;
-    top:0;
-    left:224px;
-    bottom:0;
-    background:#fff;
-    -webkit-box-shadow:1px 0 0 0 #eee inset;
-    box-shadow:1px 0 0 0 #eee inset
+      }
+
+      &-wrap{
+      position:absolute;
+      top:0;
+      left:224px;
+      bottom:0;
+      background:#fff;
+      -webkit-box-shadow:1px 0 0 0 #eee inset;
+      box-shadow:1px 0 0 0 #eee inset
+      }
+
     }
 
     &--grand-child{
     display:none;
-    width:320px
+    width:320px;
+
+      &>a{
+      padding:8px 16px
+      }
+
+      &-wrap{
+      position:absolute;
+      top:0;
+      left:224px;
+      bottom:0;
+      background:#fff;
+      -webkit-box-shadow:1px 0 0 0 #eee inset;
+      box-shadow:1px 0 0 0 #eee inset
+      }
+
     }
 
-    &--grand-child>a{
-    padding:8px 16px
-    }
 
-    &__login-nav>li{
-    display:inline-block;
-    margin:0 0 0 8px
-    }
+    &__login-nav{
 
-    &__login-nav>li:first-child{
-    margin:0
-    }
+      &>li{
+      display:inline-block;
+      margin:0 0 0 8px
+      }
 
-    &__login-nav a:hover{
-    opacity:1;
-    text-decoration:none;
-    -webkit-transition:all ease-out .3s;
-    transition:all ease-out .3s
-    }
+      &>li:first-child{
+      margin:0
+      }
 
-    &__login-nav .sp-header__btn{
-    margin:0
-    }
+      a:hover{
+      opacity:1;
+      text-decoration:none;
+      -webkit-transition:all ease-out .3s;
+      transition:all ease-out .3s
+      }
 
-    &__login-nav .btn-red{
-      display:block
+      .sp-header__btn{
+      margin:0
+      }
+
+      .btn-red{
+        display:block
+      }
+
     }
 
   }
@@ -312,15 +323,19 @@
       color:#333
     }
     
-    .fa-bell{
+    .fa{
+      
+      &-bell{
       font-size:20px
-    }
+      }
     
-    .fa-check{
+      &-check{
       font-size:16px
-    }
+      }
 
     }
+
+  }
 
   &__user-icon{
     display:inline-block;
@@ -330,15 +345,16 @@
       position:relative;
       text-align:center;
       vertical-align:middle;
-    }
-  
-    figure>div{
-      overflow:hidden;
-      border-radius:50%
-    }
-  
-    figure img{
-      vertical-align:bottom
+
+      &>div{
+        overflow:hidden;
+        border-radius:50%
+      }
+    
+      img{
+        vertical-align:bottom
+      }
+
     }
   
     figcaption{
@@ -350,7 +366,7 @@
       color:#ccc
     }
   
-    >div{
+    &>div{
       display:inline-block;
       margin:0 0 0 8px;
       font-size:14px;
@@ -377,98 +393,103 @@
 
 }
   
-  &__mypage-box{
-  right:0;
-
-    .mypage-nav__list li:first-child{
-    border-top:1px solid #eee
-    }
-
-  }
+  &__mypage{
   
-  &__mypage-state{
-    figure{
-      padding:28px 0 0;
-      height:80px;
-      background:url("../images/mypage/user-bg.jpg");
-      background-repeat:no-repeat;
-      background-size:320px 80px
-    }
-  
-    figure>div{
-      overflow:hidden;
-      width:60px;
-      height:60px;
-      margin:0 auto;
-      border-radius:50%;
-      -webkit-box-shadow:0 1px 1px 0 rgba(0,0,0,0.08);
-      box-shadow:0 1px 1px 0 rgba(0,0,0,0.08)
-    }
-  
-    figcaption{
-      margin:8px 0 0;
-      padding:0 8px;
-      font-size:16px
-    }
+    &-box{
+    right:0;
 
-  }
-  
-  &__mypage-review-listing{
-    margin:40px 0 0;
-    padding:8px 8px 0;
-    font-size:0;
-    text-align:center;
+      .mypage-nav__list li:first-child{
+      border-top:1px solid #eee
+      }
 
-      li{
-        display:inline-block;
-        margin:0 0 0 16px;
-        font-size:14px;
+    }
+    
+    &-state{
+      figure{
+        padding:28px 0 0;
+        height:80px;
+        background:url("../images/mypage/user-bg.jpg");
+        background-repeat:no-repeat;
+        background-size:320px 80px;
 
-        &:first-child{
-          margin:0
+        &>div{
+          overflow:hidden;
+          width:60px;
+          height:60px;
+          margin:0 auto;
+          border-radius:50%;
+          -webkit-box-shadow:0 1px 1px 0 rgba(0,0,0,0.08);
+          box-shadow:0 1px 1px 0 rgba(0,0,0,0.08)
         }
 
       }
     
-      a:hover{
-      text-decoration:underline
-      }
-
-  }
-  
-  &__mypage-sales-point{
-    width:300px;
-    margin:16px auto;
-    background:#fafafa;
-    border:1px solid #eee;
-    
-    li{
-      border-top:1px solid #eee;
-
-      &:first-child{
-        border:0
-      }
-
-      a{
-        @include clearfix();
+      figcaption{
+        margin:8px 0 0;
+        padding:0 8px;
+        font-size:16px
       }
 
     }
-  
-  a{
-    padding:0 8px;
-    line-height:40px
-  }
-  
-  .ffa-angle-right{
-    position:relative;
-    top:-2px;
-    font-size:12px;
-    margin:0 0 0 8px;
-    color:#ccc
-  }
+    
+    &-review-listing{
+      margin:40px 0 0;
+      padding:8px 8px 0;
+      font-size:0;
+      text-align:center;
 
-}
+        li{
+          display:inline-block;
+          margin:0 0 0 16px;
+          font-size:14px;
+
+          &:first-child{
+            margin:0
+          }
+
+        }
+      
+        a:hover{
+        text-decoration:underline
+        }
+
+    }
+    
+    &-sales-point{
+      width:300px;
+      margin:16px auto;
+      background:#fafafa;
+      border:1px solid #eee;
+      
+      li{
+        border-top:1px solid #eee;
+
+        &:first-child{
+          border:0
+        }
+
+        a{
+          @include clearfix();
+        }
+
+      }
+    
+      a{
+        padding:0 8px;
+        line-height:40px
+      }
+      
+      .ffa-angle-right{
+        position:relative;
+        top:-2px;
+        font-size:12px;
+        margin:0 0 0 8px;
+        color:#ccc
+      }
+
+    }
+
+  }
   
   &__notification-box{
   left:0

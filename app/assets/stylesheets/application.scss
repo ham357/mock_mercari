@@ -1663,62 +1663,60 @@ display:none
 display:none
 }
 
-.visible-pc{
-display:none
-}
+.visible{
+  
+  &-pc{
+  display:none;
+  
+    @media screen and (min-width: 768px){
+    display:block
+    }
 
-@media screen and (min-width: 768px){
-.visible-pc{
-display:block
-}
+    &-only{
+      display:none;
+  
+      @media screen and (min-width: 1068px){
+      display:block
+      }
+  
+    }
+    
+    
+  }
+  
+  &-tablet{
 
+    @media screen and (min-width: 1068px){
+    display:none
+    }
 
-}
+  }
+  
+  
+  &-sp{
 
-.visible-pc-only{
-display:none
-}
+    @media screen and (min-width: 768px){
+    display:none
+    }
+  
+  }
 
-@media screen and (min-width: 1068px){
-.visible-pc-only{
-display:block
-}
+  &-large{
+  display:none;
 
+    @media screen and (min-width: 1068px){
+    display:block
+    }
 
-}
-
-@media screen and (min-width: 1068px){
-.visible-tablet{
-display:none
-}
-
-
-}
-
-@media screen and (min-width: 768px){
-.visible-sp{
-display:none
-}
-
-
-}
-
-@media screen and (min-width: 1068px){
-.hidden-large{
-display:none
-}
-
-
-}
-
-.visible-large{
-display:none
-}
-
-@media screen and (min-width: 1068px){
-.visible-large{
-display:block
-}
-
+  }
 
 }
+  
+  @media screen and (min-width: 1068px){
+  .hidden-large{
+  display:none
+  }
+  
+  }
+  
+  

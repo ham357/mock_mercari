@@ -1,157 +1,148 @@
-// .fa {
-//   display: inline-block;
-//   font: normal normal normal 14px/1 FontAwesome;
-//   font-size: inherit;
-//   text-rendering: auto;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-//   }
+i[class^='fa-'],i[class*='fa-']{
+  display:inline-block;
+  font-family:'FontAwesome';
+  speak:none;
+  font-style:normal;
+  font-weight:400;
+  font-variant:normal;
+  text-transform:none;
+  line-height:1;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale
+}
 
-  i[class^='fa-'],i[class*='fa-']{
-    display:inline-block;
-    font-family:'FontAwesome';
-    speak:none;
-    font-style:normal;
-    font-weight:400;
-    font-variant:normal;
-    text-transform:none;
-    line-height:1;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale
+.search-bar .fa-search{
+  height:36px;
+  line-height:38px;
+  position:absolute;
+  right:7px;
+  text-align:center;
+  top:6px;
+  width:36px;
+  z-index:1
   }
-
-  .search-bar .fa-search{
-    height:36px;
-    line-height:38px;
-    position:absolute;
-    right:7px;
-    text-align:center;
-    top:6px;
-    width:36px;
-    z-index:1
-    }
 
 .icon-like{
-  color:#ea352d
-  }
+color:#ea352d
+}
+
+.icon-like-border{
+color:#ccc
+}
+
+.fa-facebook{
+color:#fff;
+background:#385185;
+font-size:18px
+}
+
+.icon-line{
+color:#fff;
+background:#00c137;
+font-size:22px
+}
+
+.icon-pinterest{
+color:#fff;
+background:#aa262a;
+font-size:18px
+}
+
+.fa-twitter{
+color:#fff;
+background:#5d9dc9;
+font-size:16px
+}
+
+.icon-time{
+font-size:16px;
+vertical-align:middle
+}
+
+.icon-good{
+color:#ef5185
+}
+
+.icon-normal{
+color:#fba933
+}
+
+.icon-bad{
+color:#6ab5d8
+}
+
+.icon-balloon{
+font-size:15px
+}
+
+.fa-list-ul:before{
+content:'\f0ca'
+}
   
-  .icon-like-border{
-  color:#ccc
+.fa-tag:before{
+  content:'\f02b'
   }
+
+.fa-bell{
+  font-size:20px;
   
-  .fa-facebook{
-  color:#fff;
-  background:#385185;
-  font-size:18px
+  &:before{
+    content:'\f0f3'
+    }
+
   }
-  
-  .icon-line{
-  color:#fff;
-  background:#00c137;
-  font-size:22px
-  }
-  
-  .icon-pinterest{
-  color:#fff;
-  background:#aa262a;
-  font-size:18px
-  }
-  
-  .fa-twitter{
-  color:#fff;
-  background:#5d9dc9;
-  font-size:16px
-  }
-  
-  .icon-time{
+
+.fa-check{
   font-size:16px;
-  vertical-align:middle
-  }
+  padding-top:2px;
   
-  .icon-good{
-  color:#ef5185
-  }
-  
-  .icon-normal{
-  color:#fba933
-  }
-  
-  .icon-bad{
-  color:#6ab5d8
-  }
-  
-  .icon-balloon{
-  font-size:15px
+  &:before{
+    content:'\f00c'
+    }
+
   }
 
-  .fa-list-ul:before{
-  content:'\f0ca'
-  }
-    
-  .fa-tag:before{
-    content:'\f02b'
-    }
-
-  .fa-bell{
-    font-size:20px;
-    
-    &:before{
-      content:'\f0f3'
-      }
-
-    }
-
-  .fa-check{
-    font-size:16px;
-    padding-top:2px;
-    
-    &:before{
-      content:'\f00c'
-      }
-
-    }
-
-  .fa-camera{
-      font-size: 60px;
-      // padding-top: 10px;
-
-    &:before{
-      content:'\f030'
-      }
-
-    }
-
-  .fa-search:before{
-    content:'\f002'
-    }
-
-  .fa-angle-right:before{
-    content:'\f105'
-    }
-
-  .fa-heart{
-    color:#ccc;
+.fa-camera{
+    font-size: 60px;
+    // padding-top: 10px;
 
   &:before{
-    content:'\f004'
+    content:'\f030'
     }
+
   }
 
-  .fa-facebook{
-    font-size:26px;
+.fa-search:before{
+  content:'\f002'
+  }
 
-      &:before{
-        content:'\f09a'
-        }
+.fa-angle-right:before{
+  content:'\f105'
+  }
 
-    }
-    
-  .fa-twitter{
-    font-size:24px;
-    
-      &:before{
-        content:'\f099'
+.fa-heart{
+  color:#ccc;
+
+&:before{
+  content:'\f004'
+  }
+}
+
+.fa-facebook{
+  font-size:26px;
+
+    &:before{
+      content:'\f09a'
       }
 
   }
-      
+  
+.fa-twitter{
+  font-size:24px;
+  
+    &:before{
+      content:'\f099'
+    }
+
+}
+    

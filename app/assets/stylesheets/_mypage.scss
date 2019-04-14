@@ -1,5 +1,7 @@
 
-.mypage-user-icon{
+.mypage{
+  
+  &-user-icon{
   position:relative;
   height:155px;
   padding:20px;
@@ -46,7 +48,7 @@
 
   }
   
-  .mypage-number{
+  &-number{
   margin:8px 0 0;
   font-size:0;
     
@@ -66,7 +68,7 @@
 
   }
   
-  .mypage-tab-container{
+  &-tab-container{
   margin:40px 0 0;
   background:#fff;
 
@@ -85,7 +87,7 @@
     
   }
   
-  .mypage-tab-head{
+  &-tab-head{
   padding:0 4%;
   background:#fafafa;
   font-size:16px;
@@ -97,181 +99,185 @@
 
   }
   
-  .mypage-tabs li{
+  &-tabs li{
   width:50%
   }
   
-  .mypage-item-list{
+  &-item{
     
-    li{
-      position:relative;
-      border-bottom:1px solid #eee;
+    &-list{
+    
+      li{
+        position:relative;
+        border-bottom:1px solid #eee;
 
-        &:last-child{
-        border:0
+          &:last-child{
+          border:0
+          }
+          
+          &:first-child{
+          border-bottom:1px solid #eee
+          }
+          
+          &.mypage-item-not-found{
+          border:0
+          }
+
         }
-        
-        &:first-child{
-        border-bottom:1px solid #eee
+    
+      a:hover{
+      background:#fafafa;
+      opacity:1;
+      text-decoration:none
+      }
+    
+      img{
+      position:absolute;
+      top:0;
+      right:0;
+      bottom:0;
+      left:0;
+      z-index:1;
+      width:100%;
+
+        &.is-higher-height{
+        top:50%;
+        -webkit-transform:translate(0, -50%);
+        transform:translate(0, -50%)
         }
-        
-        &.mypage-item-not-found{
-        border:0
+
+        &.is-higher-width{
+        width:auto;
+        left:50%;
+        right:auto;
+        height:100%;
+        -webkit-transform:translate(-50%, 0);
+        transform:translate(-50%, 0)
         }
 
       }
-  
-    a:hover{
-    background:#fafafa;
-    opacity:1;
-    text-decoration:none
-    }
-  
-    img{
-    position:absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    z-index:1;
-    width:100%;
 
-      &.is-higher-height{
+    }  
+    
+    &-link{
+    display:block;
+    min-height:80px;
+    padding:16px;
+    color:#333;
+    
+      figure{
+      position:relative;
+      overflow:hidden;
+      float:left;
+      width:48px;
+      height:48px;
+      }
+    
+      time{
+      display:inline-block;
+      color:#888;
+      
+        span{
+        vertical-align:middle
+        }
+
+      }
+
+      .icon-time{
+      margin:0 8px 0 0
+      }
+
+      .fa-angle-right{
+      position:absolute;
       top:50%;
+      right:16px;
       -webkit-transform:translate(0, -50%);
       transform:translate(0, -50%)
       }
 
-      &.is-higher-width{
-      width:auto;
-      left:50%;
-      right:auto;
-      height:100%;
-      -webkit-transform:translate(-50%, 0);
-      transform:translate(-50%, 0)
-      }
-
     }
-
-  }  
-  
-  .mypage-item-link{
-  display:block;
-  min-height:80px;
-  padding:16px;
-  color:#333;
-  
-    figure{
-    position:relative;
-    overflow:hidden;
-    float:left;
-    width:48px;
-    height:48px;
-    }
-  
-    time{
+      
+    &-status{
     display:inline-block;
-    color:#888;
-    
-      span{
-      vertical-align:middle
+    margin:8px 0 0 0;
+    padding:5px 6px;
+    border-radius:2px;
+    font-size:12px;
+    color:#fff;
+
+      &.action-required{
+      background:#ea352d
       }
-
-    }
-
-    .icon-time{
-    margin:0 8px 0 0
-    }
-
-    .fa-angle-right{
-    position:absolute;
-    top:50%;
-    right:16px;
-    -webkit-transform:translate(0, -50%);
-    transform:translate(0, -50%)
-    }
-
-  }
+      
+      &.awaiting{
+      background:#0099e8
+      }
+      
+      &.done{
+      background:#888
+      }
     
-  .mypage-item-status{
-  display:inline-block;
-  margin:8px 0 0 0;
-  padding:5px 6px;
-  border-radius:2px;
-  font-size:12px;
-  color:#fff;
-
-    &.action-required{
-    background:#ea352d
     }
     
-    &.awaiting{
-    background:#0099e8
-    }
-    
-    &.done{
-    background:#888
-    }
-  
-  }
-  
-  .mypage-item-body{
-  margin:0 40px 0 68px;
-    
-    .l-left{
-    width:50%;
+    &-body{
+    margin:0 40px 0 68px;
+      
+      .l-left{
+      width:50%;
 
-      @media screen and (min-width: 768px){
-      width:auto
+        @media screen and (min-width: 768px){
+        width:auto
+        }
+
+      }
+      
+      &.show-stock-item{
+      margin-right:100px
       }
 
     }
     
-    &.show-stock-item{
-    margin-right:100px
+    
+    &-text{
+    overflow:hidden;
+    display:block;
+    display:-webkit-box;
+    max-height:4.4em;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    text-overflow:ellipsis;
+    line-height:1.5
     }
-
-  }
-  
-  
-  .mypage-item-text{
-  overflow:hidden;
-  display:block;
-  display:-webkit-box;
-  max-height:4.4em;
-  -webkit-line-clamp:3;
-  -webkit-box-orient:vertical;
-  text-overflow:ellipsis;
-  line-height:1.5
-  }
-  
-  .mypage-item-not-found{
-  padding:160px 0 60px;
-  background:url("/jp/assets/img/common/common/logo-gray-icon.svg?36968975");
-  background-repeat:no-repeat;
-  background-position:center 40px;
-  background-size:78px 85px;
-  text-align:center;
-  font-size:16px;
-  color:#ccc
-  }
-  
-  .listing-item-count{
-  vertical-align:2px;
-  margin:0 6px 0 0;
-
-    i{
-    vertical-align:middle;
+    
+    &-item-not-found{
+    padding:160px 0 60px;
+    background:url("/jp/assets/img/common/common/logo-gray-icon.svg?36968975");
+    background-repeat:no-repeat;
+    background-position:center 40px;
+    background-size:78px 85px;
+    text-align:center;
+    font-size:16px;
     color:#ccc
     }
     
-    span{
-    vertical-align:middle;
-    margin:0 0 0 2px;
-    font-size:16px;
-    color:#888
+    .listing-item-count{
+    vertical-align:2px;
+    margin:0 6px 0 0;
+
+      i{
+      vertical-align:middle;
+      color:#ccc
+      }
+      
+      span{
+      vertical-align:middle;
+      margin:0 0 0 2px;
+      font-size:16px;
+      color:#888
+      }
+      
     }
-    
+
   }
   
   .stock-item{
@@ -288,7 +294,7 @@
 
   }
   
-  .mypage-go-list{
+  &-go-list{
   padding:16px;
 
     a{
@@ -311,7 +317,7 @@
 
   }
   
-  .mypage-nav{
+  &-nav{
 
     &__head{
     margin:40px 4% 0;
@@ -401,7 +407,7 @@
 
   }
   
-  .mypage-sold{
+  &-sold{
 
     .item-sold-out-badge{
 
@@ -420,7 +426,7 @@
   }
   
   
-  .mypage-history{
+  &-history{
   margin:16px 4% 0;
   height:44px;
 
@@ -449,7 +455,9 @@
 
   }
 
-  .mypage-tabs,.listing-tabs,.review-history-tabs{
+}
+
+    .mypage-tabs,.listing-tabs,.review-history-tabs{
     border:0;
     background:#eee;
     font-size:0
