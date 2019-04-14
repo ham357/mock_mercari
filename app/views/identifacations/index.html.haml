@@ -2,23 +2,18 @@
     .identifi__container__top
         %section.identifi__container__top__section
             %h2 本人確認の登録
+        -# deviseが実装され次第、ここからform_for
         %form{class: "identifi__container__top__section--form"}
             .identifi__container__top__section--form--top
                 %p
                 お客様の本人情報をご登録下さい
                 %br 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
                 %p.identifi__container__top__section--form--top--p
-                    %a{href: '#'} 本人確認書類のアップロードについて
+                    = link_to "本人確認書類のアップロードについて", '#'
                     %i.fas.fa-chevron-right
-            .identifi__container__top__section--form--group
-                %label お名前
-                %p 翁長 奨
-            .identifi__container__top__section--form--group
-                %label お名前カナ
-                %p オナガ ショウ
-            .identifi__container__top__section--form--group
-                %label 誕生日
-                %p 1986/06/10
+            = render partial: "user", locals: { label:'お名前', value: '翁長 奨' }
+            = render partial: "user", locals: { label:'お名前カナ', value: 'オナガ ショウ' }
+            = render partial: "user", locals: { label:'誕生日', value: '1986/06/10' }
             .identifi__container__top__section--form--groupf
                 %label{for: "zip_code"} 郵便番号
                 %span.arbitrary 任意
@@ -44,7 +39,7 @@
                 %button.btn--default{type: "submit"} 登録する
             .identifi__container__top__section--form--bottom
                 .identifi__container__top__section--form--bottom--p
-                    %a{href: '#'} 本人情報の登録について
+                    = link_to "本人情報の登録について", '#'
                     %i.fas.fa-chevron-right
     .profile__container__navi
         %ul.profile__container__navi--list
