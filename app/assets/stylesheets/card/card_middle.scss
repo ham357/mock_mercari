@@ -18,6 +18,7 @@
                 }
                 &__info{
                     width: 572px;
+                    // 内容の数によって高さを変える
                     min-height: 180px;
                     height: auto !important;
                     height:180px;
@@ -36,6 +37,48 @@
                                 font-size: 16px;
                                 line-height: 16px;
                             }
+                        &--card{
+                            width: 572px;
+                            height: 117px;
+                            &__list{
+                                width: 100%;
+                                height: 68px;
+                                padding: 24px 0;
+                                border-bottom: 1px solid $subBackColor;
+                                position: relative;
+                                &__form{
+                                    width: 320px;
+                                    height: 68px;
+                                    margin: 0 auto;
+                                    &--figure{
+                                        width: 100%;
+                                        height: 20px;
+                                        margin: 0;
+                                        i{
+                                            font-size: 20px;
+                                        }
+                                    }
+                                    &--num{
+                                        width: 100%;
+                                        height: 16px;
+                                        margin-top: 8px;
+                                        font-size: 14p;
+                                    }
+                                    &--remove{
+                                        position: absolute;
+                                        top: 20%;
+                                        right: 20%;
+                                        display: inline-block;
+                                        text-decoration: none;
+                                        color: crimson;
+                                        border: solid 1px crimson;
+                                        border-radius: 3px;
+                                        transition: .4s;
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
                         }
                     }
                     &__add{

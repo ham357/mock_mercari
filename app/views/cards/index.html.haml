@@ -6,13 +6,11 @@
                 %section.card__container__top__section__info__title
                     .card__container__top__section__info__title--list
                         %h3 クレジットカード一覧
-                        %ul.card__title__list
-                -# 条件分岐で消す
-                %section.card__container__top__section__info__add
-                    .card__container__top__section__info__add--btn
-                        %a.btn-default{href: "#"}
-                            %i.fas.fa-credit-card
-                            %p クレジットカードを追加する
+                    %ul.card__container__top__section__info__title--list--card
+                        -# テンプレートで条件分岐かつeachで取り出す
+                        -# = render partial: "cards"
+                -# テンプレートで条件分岐(if user.card_token)
+                = render partial: "add"
                 .card__container__top__section__info__not
                     %p.card__container__top__info__not--p
                         = link_to "支払い方法について", '#'
