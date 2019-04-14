@@ -1,92 +1,184 @@
 @media screen and (max-width: 767px) {
-    .mypage__container{
+    .identifi__container{
         width: 100vw;
-        height: 2224px;
+        height: 2500px;
         padding-bottom: 40px;
-        margin: 24px auto 0 auto;
-        &__top {
-            height: 932px;
-            &--icon{
-                height: 140px;
-                padding: 40px 20px 20px 20px;
-                background-image: url(/images/user-bg.jpg);
-                background-size: cover;
-                a{
-                    width: 100vw;
-                    height: 111px;
-                    display: block;
-                    margin: 0 auto;
-                    figure{
-                        width: 60px;
-                        height: 60px;
-                        margin: 0 auto;
-                        img{
-                            border-radius: 50%;
-                        }
-                    }
-                }
+        margin-top: 24px;
+        &__top{
+            height: 1160px;
+            background-color: white;
+            &__section{
+                height: 33px;
+                padding: 8px 24px;
+                border-bottom: 1px solid $subBackColor;
+                background-color: white;
                 h2{
                     font-weight: bold;
                     text-align: center;
-                    margin-top: 8px;
-                    font-size: 14px;
+                    font-size: 20px;
                 }
-                &--value{
-                    display: flex;
-                    margin-top: 8px;
-                    justify-content: center;
-                    font-size: 14px;
-                    span{
-                        font-weight: bold;
-                        margin-left: 8px;
-                        line-height: 18px;
+                &--form{
+                    box-sizing: border-box;
+                    padding: 40px;
+                    width: 100%;
+                    height: 1029px;
+                    border-top: 1px solid $subBackColor;
+                    &--top{
+                        height: 71px;
+                        p{
+                            font-size: 13px;
+                        }
+                        &--p{
+                            height:21px;
+                            margin-top: 8px;
+                            text-align: right;
+                            a{
+                                color: dodgerblue;
+                            }
+                            a:hover {
+                                text-decoration: underline;
+                                opacity: 0.8;
+                            }
+                            i{
+                                color: dodgerblue;
+                            }
+                        }
                     }
-                    &--pro{
-                        margin-left: 16px;
+                    &--group{
+                        height:43px;
+                        margin-top: 40px;
+                        p{
+                            margin-top:8px;
+                        }
                     }
-                }
-            }
-            &__tab{
-                @include tab
-            }
-
-            &__buy{
-                width: 100vw;
-                height: 72px;
-                padding: 0 16px;
-                background-color:white;
-                margin-top: 30px;
-                display: flex;
-                align-items: center;
-                h2{
-                    font-size: 16px;
-                    display: block;
-                    margin: auto 0;
-                    font-weight: bold;
-                }
-                &__tab{
-                    width:100vw;
-                    &__tab{
-                        @include tab
+                    &--groups{
+                        height:70px;
+                        margin-top: 40px;
+                        .arbitrary{
+                            padding: 2px 4px 2px 4px;
+                            margin-left: 8px;
+                            color: white;
+                            background-color: silver;
+                            border-radius: 0.2em;
+                            font-size: 12px;
+                            vertical-align: 2pt;
+                        }
+                        &--wrap{
+                            width: 100%;
+                            height: 48px;
+                            margin-top: 8px;
+                            position: relative;
+                            .select--default{
+                                width: 100%;
+                                height: 46px;
+                                padding: 0 16px;
+                                border: 1px solid $subBackColor;
+                                border-radius: 0.2em;
+                                background: transparent;
+                                -webkit-appearance: none;
+                                outline: none;
+                            }
+                            i{
+                            position: absolute;
+                            top: 30%;
+                            left: 95%;
+                            font-size: 18px;
+                            color: $subBackColor;
+                            }
+                            select:focus {
+                                border: 1px solid skyblue;
+                            }
+                        }
+                    }
+                    &--groupf{
+                        height:70px;
+                        margin-top: 40px;
+                        p{
+                            margin-top:8px;
+                        }
+                        .arbitrary{
+                            padding: 2px 4px 2px 4px;
+                            margin-left: 8px;
+                            color: white;
+                            background-color: silver;
+                            border-radius: 0.2em;
+                            font-size: 12px;
+                            vertical-align: 2pt;
+                        }
+                        .input--default{
+                            box-sizing: border-box;
+                            width: 100%;
+                            padding: 24px 16px 22px 16px;
+                            border: 0.5px solid $subBackColor;
+                            margin-top: 8px;
+                            border-radius: 0.2em;
+                            height: 28px;
+                            outline: none;
+                        }
+                        input:focus {
+                            border: 1px solid skyblue;
+                        }
+                    }
+                    &--groupb{
+                        height:43px;
+                        margin-top: 40px;
+                        .btn--default{
+                            width: 100%;
+                            height: 48px;
+                            border: 1px solid;
+                            margin-top: 16px;
+                            background-color: crimson;
+                            font-size: 14px;
+                            color: white;
+                            outline: none;
+                            transition: 500ms;
+                        }
+                        .btn--default:active{
+                            background-color: gray;
+                        }
+                    }
+                    &--bottom{
+                        margin-top: 40px;
+                        height: 21px;
+                        &--p{
+                            width: 100%;
+                            height:21px;
+                            margin-top: 8px;
+                            text-align: right;
+                            font-size: 13px;
+                            a{
+                                color: dodgerblue;
+                            }
+                            a:hover {
+                                text-decoration: underline;
+                                opacity: 0.8;
+                            }
+                            i{
+                                color: dodgerblue;
+                            }
+                        }
                     }
                 }
             }
         }
+
         &__navi{
             margin-top: 40px;
-            width:100vw;
+            width:700px;
             height: 1252px;
             &--list{
                 height: 685px;
                 h3{
                     font-weight: bold;
-                    margin: 40px auto 8px 20px;
+                    margin-top: 40px;
+                    margin-bottom: 8px;
                 }
                 &--item{
                     height: 48px;
                     background-color:  white;
                     border-top: 1px solid $subBackColor;
                     &--a{
+                        width:668px;
                         height: 16px;
                         padding: 16px;
                         font-size: 14px;

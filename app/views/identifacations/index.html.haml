@@ -24,26 +24,22 @@
                 %span.arbitrary 任意
                 %input.input--default{type: "text", name: "zip_code", placeholder: "例） 1234567"}
             .identifi__container__top__section--form--groups
-                %label{for: "zip_code"} 都道府県
+                %label{for: "stats"} 都道府県
                 %span.arbitrary 任意
-                .identifi__container__top__section--form--groups--wrap
-                    %select.select--default{name: "prefecture"}
-                        %option --
-                        %option 北海道
-                        %option 沖縄
-                    %i.fas.fa-chevron-down
+                -# 都道府県で長くなるのでテンプレート
+                = render partial: "select"
             .identifi__container__top__section--form--groupf
-                %label{for: "zip_code"} 市区町村
+                %label{for: "city"} 市区町村
                 %span.arbitrary 任意
-                %input.input--default{type: "text", name: "zip_code", placeholder: "例） 東京都立川市"}
+                %input.input--default{type: "text", name: "city", placeholder: "例） 東京都立川市"}
             .identifi__container__top__section--form--groupf
-                %label{for: "zip_code"} 番地
+                %label{for: "adress"} 番地
                 %span.arbitrary 任意
-                %input.input--default{type: "text", name: "zip_code", placeholder: "例） 羽衣町2-7-3"}
+                %input.input--default{type: "text", name: "adress", placeholder: "例） 羽衣町2-7-3"}
             .identifi__container__top__section--form--groupf
-                %label{for: "zip_code"} 市区町村
+                %label{for: "adress2"} 建物名
                 %span.arbitrary 任意
-                %input.input--default{type: "text", name: "zip_code", placeholder: "例） レスポワール立川101"}
+                %input.input--default{type: "text", name: "adress2", placeholder: "例） レスポワール立川101"}
             .identifi__container__top__section--form--groupb
                 %button.btn--default{type: "submit"} 登録する
             .identifi__container__top__section--form--bottom

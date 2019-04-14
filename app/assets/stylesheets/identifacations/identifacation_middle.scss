@@ -164,21 +164,19 @@
 
         &__navi{
             margin-top: 40px;
-            width:700px;
+            width:100vw;
             height: 1252px;
             &--list{
                 height: 685px;
                 h3{
                     font-weight: bold;
-                    margin-top: 40px;
-                    margin-bottom: 8px;
+                    margin: 40px auto 8px 20px;
                 }
                 &--item{
                     height: 48px;
                     background-color:  white;
                     border-top: 1px solid $subBackColor;
                     &--a{
-                        width:668px;
                         height: 16px;
                         padding: 16px;
                         font-size: 14px;
