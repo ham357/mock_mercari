@@ -1,12 +1,12 @@
 @import "./mixin/clearfix";
 
-.sp-header{
+.header--sp{
   position:relative;
   z-index:1000;
   height:114px;
   background:#fff;
   
-    .logo{
+    .mercari-logo{
     float:left;
     width:120px;
     height:32px;
@@ -21,32 +21,32 @@
         width:135px;
         height:39px
       }
-  
-    }
-  
-    .logo.is-focus{
-    position:relative;
-    z-index:1;
-    background:#fff;
-    opacity:0;
-    -webkit-transform:scale(0.8);
-    transform:scale(0.8)
-    }
-  
-    .logo a{
-    display:block;
-    color:#333
-    }
-  
-    .logo img{
-    width:120px;
-    height:32px;
-  
-      @media screen and (min-width: 375px){
-        width:148px;
-        height:40px
+    
+      &.is-focus{
+      position:relative;
+      z-index:1;
+      background:#fff;
+      opacity:0;
+      -webkit-transform:scale(0.8);
+      transform:scale(0.8)
       }
-  
+    
+      a{
+      display:block;
+      color:#333
+      }
+    
+      img{
+      width:120px;
+      height:32px;
+    
+        @media screen and (min-width: 375px){
+          width:148px;
+          height:40px
+        }
+    
+      }
+
     }
   
     &.has-search-nav{
@@ -76,22 +76,24 @@
         line-height:30px
       }
   
-    }
-  
-    &__btn:first-child{
-    margin-right:3px
+      &:first-child{
+      margin-right:3px
+      }
+
     }
   
     &__signup{
     border:1px solid #0099e8;
     background:#fff;
-    color:#0099e8
-    }
-  
-    &__signup:hover{
+    color:#0099e8;
+
+    &:hover{
     background:#0099e8;
     color:#fff
     }
+    
+    }
+  
   
     &__user-nav{
     @include clearfix();
@@ -210,7 +212,7 @@
         vertical-align:middle
       }
     
-      .sp-header__cat-brand-icon{
+      .header--sp__cat-brand-icon{
         color:#EA352D;
         font: size 16px;
         margin-right:4px
