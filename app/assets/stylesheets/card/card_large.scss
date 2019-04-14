@@ -1,0 +1,123 @@
+@media screen and (min-width: 1068px){
+    .profile__container{
+        width: 1020px;
+        height: 1252px;
+        padding-bottom: 40px;
+        margin: 24px auto 0 auto;
+        display: flex;
+        align-items: stretch;
+        &__top {
+            height: 568px;
+            width: 700px;
+            order: 1;
+            background-color: white;
+            h1{
+                font-weight: bold;
+                font-size: 24px;
+                width: 652px;
+                height: 55px;
+                display: block;
+                text-align: center;
+                line-height: 55px;
+                margin: auto;
+            }
+            &--names{
+                width: 668px;
+                height: 60px;
+                padding: 72px 16px 24px 16px;
+                background-image: url(/images/user-bg.jpg);
+                display: flex;
+                justify-content: center;
+                figure{
+                    width: 60px;
+                    height: 60px;
+                    margin:0;
+                    display: inline-block;
+                    img{
+                        border-radius: 50%;
+                    }
+                }
+                input{
+                    width: 186px;
+                    height:28px;
+                    padding: 10px 16px 8px 16px;
+                    margin: auto 0 auto 8px;
+                    border: 0.5px solid lightgray;
+                    border-radius: 0.2em;
+                    display: inline-block;
+                    font-size: 14px;
+                    outline: none;
+                }
+                input:focus {
+                    border: 0.5px solid skyblue;
+                 }
+            }
+            &--contents{
+                height: 282px;
+                width: 668px;
+                padding: 40px 16px;
+                textarea{
+                    width: 646px;
+                    height: 194px;
+                    padding: 10px;
+                    border: 0.5px solid lightgray;
+                    outline: none;
+                }
+                .btn-default{
+                    width: 666px;
+                    height: 48px;
+                    border: 1px solid;
+                    margin-top: 16px;
+                    background-color: crimson;
+                    font-size: 14px;
+                    color: white;
+                    outline: none;
+                    transition: 500ms;
+                }
+                .btn-default:active{
+                    background-color: gray;
+                }
+            }
+        }
+        &__navi{
+            margin-right: 40px;
+            width:280px;
+            height: 1252px;
+            order: -1;
+            &--list{
+                height: 685px;
+                h3{
+                    font-weight: bold;
+                    margin-top: 40px;
+                    margin-bottom: 8px;
+                }
+                &--item{
+                    height: 48px;
+                    background-color:  white;
+                    border-top: 1px solid $subBackColor;
+                    &--a{
+                        width:248px;
+                        height: 16px;
+                        padding: 16px;
+                        font-size: 14px;
+                        line-height: 16px;
+                        .fa-chevron-right{
+                            float: right;
+                            font-size: 17px;
+                            opacity: 0.3;
+                            position: relative;
+                            right: 0px;
+                        }
+                    }
+                }
+                .active{
+                    height: 48px;
+                    background-color: $subBackColor;
+                }
+                .toplist{
+                    border-top: 0;
+                }
+            }
+        }
+    }
+}
