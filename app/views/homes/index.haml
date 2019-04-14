@@ -1,7 +1,7 @@
 .main-wrapper
-  %header.header--sp.visible-sp.has-search-nav
+  %header.header--sp
     .header--sp__inner
-      %h1.mercari-logo
+      %h1.header--sp__logo
         = link_to "https://www.mercari.com/jp/" do
           %img{alt: "mercari", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3403318254"}/
       .header--sp__user-nav
@@ -15,9 +15,9 @@
           %figure
             %div
               %img{alt: "", src: "//static.mercdn.net/thumb/members/164317197.jpg?1419725926", width: "32"}/
-    .search-bar
+    .header--sp__search-bar
       %form.header--sp__form{action: "https://www.mercari.com/jp/search/"}
-        %input.header--sp__search.input-default{name: "keyword", placeholder: "何をお探しですか？", type: "search",value: ""}/
+        %input.header--sp__search{name: "keyword", placeholder: "何をお探しですか？", type: "search",value: ""}/
         %i.fa-search
     %nav.header--sp__nav.search-links
       = link_to "/jp/category/", data: {ga: "element" , ga: {category: "NAVIGATION", label: "sp_header_nav_カテゴリから探す"}} do
@@ -26,16 +26,16 @@
       = link_to "/jp/category/", data: {ga: "element" , ga: {category: "NAVIGATION", label: "sp_header_nav_ブランドから探す"}} do
         %i.fa-tag.header--sp__cat-brand-icon
         %span ブランドから探す
-  %header.header--pc.visible-pc
+  %header.header--pc
     .header--pc__inner
-      %h1.l-left
+      %h1
         = link_to "https://www.mercari.com/jp/" do
           %img{alt: "mercari",height: "36", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3403318254", width: "134"}/
-      %form.header--pc__form.l-right{action: "https://www.mercari.com/jp/search/"}
-        %input.input-default{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
+      %form.header--pc__form{action: "https://www.mercari.com/jp/search/"}
+        %input.header--pc__search{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
         %i.fa-search
       .header--pc__nav--box
-        %nav.l-left
+        %nav
           %ul.header--pc__nav
             %li
               %h2
@@ -67,36 +67,36 @@
                   %li.header--pc__nav--parent
                     %h3
                       = link_to "ブランド一覧","https://www.mercari.com/jp/brand/"
-        .l-right
+        .header--pc__user-wrapper
           %ul.header--pc__user-nav
             %li{"data-id": "header--pc__user-nav", "data-key": "notification_list", "data-url": "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
               = link_to "https://www.mercari.com/jp/mypage/notification/", data: {url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"} ,class: "header--pc__nav--root" do
                 %i.fa-bell
                 %span お知らせ
-              %ul.header--pc__user-box.header--pc__notification-box.mypage-item-list{"data-id": "header--pc__user-items"}
+              %ul.header--pc__user-box.header--pc__notification-box.mypage__item-list{"data-id": "header--pc__user-items"}
             %li{"data-id": "header--pc__user-nav", "data-key": "todo_list", "data-url": "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
               = link_to "https://www.mercari.com/jp/mypage/todo/", data: {url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"} ,class: "header--pc__nav--root" do
                 %i.fa-check
                 %span やることリスト
-              %ul.header--pc__user-box.header--pc__todo-box.mypage-item-list{"data-id": "header--pc__user-items"}
+              %ul.header--pc__user-box.header--pc__todo-box.mypage__item-list{"data-id": "header--pc__user-items"}
             %li
               = link_to "https://www.mercari.com/jp/mypage/", class: 'header--pc__user-icon header--pc__nav--root' do
                 %figure
                   %div
                     %img{alt: "", src: "//static.mercdn.net/thumb/members/164317197.jpg?1419725926", width: "32"}/
                 %div マイページ
-              .header--pc__user-box.header--pc__mypage-box
-                .header--pc__mypage-state
+              .header--pc__user-box.header--pc__mypage--box
+                .header--pc__mypage--state
                   %figure
                     %div
                       %img{alt: "", src: "//static.mercdn.net/thumb/members/164317197.jpg?1419725926", width: "60"}/
                     %figcaption Kousuke Inoue
-                  %ul.header--pc__mypage-review-listing
+                  %ul.header--pc__mypage__review-listing
                     %li
                       = link_to "評価: 0","https://www.mercari.com/jp/mypage/review/history/"
                     %li
                       = link_to "出品数: 0","https://www.mercari.com/jp/mypage/listings/listing/"
-                  %ul.header--pc__mypage-sales-point
+                  %ul.header--pc__mypage__sales-point
                     %li
                       = link_to "https://www.mercari.com/jp/mypage/sales/" do
                         .l-left
@@ -110,29 +110,29 @@
                         .l-right
                           P 0
                           %i.fa-angle-right
-                %ul.mypage-nav__list
+                %ul.mypage__nav--list
                   %li
-                    = link_to "https://www.mercari.com/jp/mypage/like/history/", class: 'mypage-nav__list-item' do
+                    = link_to "https://www.mercari.com/jp/mypage/like/history/", class: 'mypage__nav--list-item' do
                       いいね！一覧
                       %i.fa-angle-right
                   %li
-                    = link_to "https://www.mercari.com/jp/mypage/listings/listing/", class: 'mypage-nav__list-item' do
+                    = link_to "https://www.mercari.com/jp/mypage/listings/listing/", class: 'mypage__nav--list-item' do
                       出品した商品 - 出品中
                       %i.fa-angle-right
                   %li
-                    = link_to "https://www.mercari.com/jp/mypage/listings/in_progress/", class: 'mypage-nav__list-item' do
+                    = link_to "https://www.mercari.com/jp/mypage/listings/in_progress/", class: 'mypage__nav--list-item' do
                       出品した商品 - 取引中
                       %i.fa-angle-right
                   %li
-                    = link_to "https://www.mercari.com/jp/mypage/listings/completed/", class: 'mypage-nav__list-item' do
+                    = link_to "https://www.mercari.com/jp/mypage/listings/completed/", class: 'mypage__nav--list-item' do
                       出品した商品 - 売却済み
                       %i.fa-angle-right
                   %li
-                    = link_to "https://www.mercari.com/jp/mypage/purchase/", class: 'mypage-nav__list-item' do
+                    = link_to "https://www.mercari.com/jp/mypage/purchase/", class: 'mypage__nav--list-item' do
                       購入した商品 - 取引中
                       %i.fa-angle-right
                   %li
-                    = link_to "https://www.mercari.com/jp/mypage/purchased/", class: 'mypage-nav__list-item' do
+                    = link_to "https://www.mercari.com/jp/mypage/purchased/", class: 'mypage__nav--list-item' do
                       購入した商品 - 過去の取引
                       %i.fa-angle-right
   .main-container
@@ -389,4 +389,4 @@
     'event': 'dynamic_home',
     'uid': '164317197',
     'ecomm_pagetype': 'home'
-  });
+  }); 

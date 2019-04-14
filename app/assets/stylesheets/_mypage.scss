@@ -1,7 +1,7 @@
 
 .mypage{
   
-  &-user-icon{
+  &__user-icon{
   position:relative;
   height:155px;
   padding:20px;
@@ -48,7 +48,7 @@
 
   }
   
-  &-number{
+  &__number{
   margin:8px 0 0;
   font-size:0;
     
@@ -68,7 +68,7 @@
 
   }
   
-  &-tab-container{
+  &__tab-container{
   margin:40px 0 0;
   background:#fff;
 
@@ -87,7 +87,7 @@
     
   }
   
-  &-tab-head{
+  &__tab-head{
   padding:0 4%;
   background:#fafafa;
   font-size:16px;
@@ -99,11 +99,11 @@
 
   }
   
-  &-tabs li{
+  &__tabs li{
   width:50%
   }
   
-  &-item{
+  &__item{
     
     &-list{
     
@@ -159,7 +159,7 @@
 
     }  
     
-    &-link{
+    &__link{
     display:block;
     min-height:80px;
     padding:16px;
@@ -197,7 +197,7 @@
 
     }
       
-    &-status{
+    &__status{
     display:inline-block;
     margin:8px 0 0 0;
     padding:5px 6px;
@@ -219,7 +219,7 @@
     
     }
     
-    &-body{
+    &__body{
     margin:0 40px 0 68px;
       
       .l-left{
@@ -238,7 +238,7 @@
     }
     
     
-    &-text{
+    &__text{
     overflow:hidden;
     display:block;
     display:-webkit-box;
@@ -249,7 +249,7 @@
     line-height:1.5
     }
     
-    &-item-not-found{
+    &__item-not-found{
     padding:160px 0 60px;
     background:url("/jp/assets/img/common/common/logo-gray-icon.svg?36968975");
     background-repeat:no-repeat;
@@ -294,7 +294,7 @@
 
   }
   
-  &-go-list{
+  &__go-list{
   padding:16px;
 
     a{
@@ -317,7 +317,7 @@
 
   }
   
-  &-nav{
+  &__nav{
 
     &__head{
     margin:40px 4% 0;
@@ -329,11 +329,11 @@
 
     }
     
-    &__head+.mypage-nav__list{
+    &__head+.mypage-nav--list{
     margin:8px 0 0
     }
     
-    &__list li{
+    &--list li{
     border-top:1px solid #eee;
     
       &:first-child{
@@ -342,7 +342,7 @@
 
     }
     
-    &__list a:hover{
+    &--list a:hover{
     background:#fafafa;
     text-decoration:none;
     opacity:1;
@@ -355,7 +355,7 @@
 
     }
     
-    &__list-item{
+    &--list-item{
     position:relative;
     display:block;
     min-height:48px;
@@ -405,28 +405,9 @@
     transform:translate(0, -50%)
     }
 
-  }
+  }  
   
-  &-sold{
-
-    .item-sold-out-badge{
-
-      &:after{
-      border-width:40px 40px 0 0
-      }
-          
-      &>div{
-      top:8px;
-      font-size:11px;
-      letter-spacing:1px
-      }
-
-    } 
-
-  }
-  
-  
-  &-history{
+  &__history{
   margin:16px 4% 0;
   height:44px;
 
@@ -439,57 +420,5 @@
     }
 
   }
-    
-  .listing-item-change-box{
-  margin:24px 0 24px 0;
-  background:#fff;
-  padding:8px 16px 8px 16px;
-
-    .btn-default{
-    margin:16px 0 16px 0
-    }
-    
-    p{
-    font-size:16px
-    }
-
-  }
 
 }
-
-    .mypage-tabs,.listing-tabs,.review-history-tabs{
-    border:0;
-    background:#eee;
-    font-size:0
-    }
-    
-    .mypage-tabs li,.listing-tabs li,.review-history-tabs li{
-    display:inline-block;
-    text-align:center;
-    vertical-align:top
-    }
-    
-    .mypage-tabs li.active,.listing-tabs li.active,.review-history-tabs li.active{
-    background:#fff
-    }
-    
-    .mypage-tabs li.active a,.listing-tabs li.active a,.review-history-tabs li.active a{
-    border-top:2px solid #ea352d
-    }
-    
-    .mypage-tabs a,.listing-tabs a,.review-history-tabs a{
-    position:relative;
-    display:block;
-    color:#333;
-    font-size:16px;
-    line-height:72px
-    }
-    
-    .mypage-tabs a:hover,.listing-tabs a:hover,.review-history-tabs a:hover{
-    text-decoration:none
-    }
-    
-    .mypage-tabs .mypage-nav__number,.listing-tabs .mypage-nav__number,.review-history-tabs .mypage-nav__number{
-    top:16px;
-    right:2px
-    }

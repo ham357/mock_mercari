@@ -1,12 +1,21 @@
 @import "./mixin/clearfix";
+@import "./mixin/input-default";
 
 .header--sp{
   position:relative;
   z-index:1000;
-  height:114px;
   background:#fff;
+  height:156px;
+
+  @media screen and (min-width: 1068px){
+  display:none
+  }  
+
+  @media screen and (min-width: 768px){
+  display:none
+  }
   
-    .mercari-logo{
+    &__logo{
     float:left;
     width:120px;
     height:32px;
@@ -49,10 +58,6 @@
 
     }
   
-    &.has-search-nav{
-    height:156px
-    }
-  
     &__inner{
     @include clearfix();
     position:relative;
@@ -91,15 +96,53 @@
     background:#0099e8;
     color:#fff
     }
-    
+
     }
-  
   
     &__user-nav{
     @include clearfix();
     float:right;
     margin:4px 0 0
     }
+
+    &__search-bar{
+      margin:13px 10px 6px;
+      position:relative
+      }
+      
+    &__search-bar .header--sp__search{
+    background:#e6e6e6;
+    border-color:transparent;
+    border-radius:2px;
+    width:100%;
+    height:50px;
+    padding:0 50px 0 10px;
+    -webkit-transition:all ease-out .3s;
+    transition:all ease-out .3s
+    }
+
+    &__search{
+      @include input-default();
+
+      position:relative;
+      width:calc(100% - (134px + 45px));
+          
+        &::-ms-clear{
+          margin-right:25px
+        }
+  
+      }
+  
+      .fa-search{
+        position:absolute;
+        top:7px;
+        right:8px;
+        width:36px;
+        line-height:36px;
+        cursor:pointer;
+        text-align:center
+      }
+
   
     &__user-icon{
     color:#ccc;
@@ -112,48 +155,50 @@
     -webkit-transition:all ease-out .3s;
     transition:all ease-out .3s;
     vertical-align:middle;
-    width:32px
-    }
-  
-    &__user-icon.is-focus{
-    -webkit-transform:scale(0.8);
-    transform:scale(0.8);
-    opacity:0
-    }
-  
-    &__user-icon:last-child{
-    margin-right:0
-    }
-  
-    &__user-icon figure{
-    display:inline-block;
-    height:32px;
-    margin:0 auto;
-    text-align:center;
-    width:32px
-    }
-  
-    &__user-icon figure div{
-    overflow:hidden;
-    border-radius:50%
-    }
-  
-    &__user-icon figure i{
-    vertical-align:-webkit-baseline-middle
-    }
-  
-    &__user-icon figcaption{
-    position:absolute;
-    top:-8px;
-    right:-8px;
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    background:#ea352d;
-    text-align:center;
-    line-height:20px;
-    font-size:12px;
-    color:#fff
+    width:32px;
+
+      &.is-focus{
+      -webkit-transform:scale(0.8);
+      transform:scale(0.8);
+      opacity:0
+      }
+    
+      &:last-child{
+      margin-right:0
+      }
+    
+      figure{
+      display:inline-block;
+      height:32px;
+      margin:0 auto;
+      text-align:center;
+      width:32px;
+
+        div{
+        overflow:hidden;
+        border-radius:50%
+        }
+      
+        i{
+        vertical-align:-webkit-baseline-middle
+        }
+
+      }
+    
+      figcaption{
+      position:absolute;
+      top:-8px;
+      right:-8px;
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      background:#ea352d;
+      text-align:center;
+      line-height:20px;
+      font-size:12px;
+      color:#fff
+      }
+
     }
     
     &__nav{
@@ -196,27 +241,31 @@
       }
     
       &.search-links{
-        white-space:nowrap
+        white-space:nowrap;
+
+        a{
+          display:inline-block;
+          font-weight:bold;
+          padding:0;
+          position:relative;
+          text-align:center;
+          width:50%;
+
+          span{
+            vertical-align:middle
+          }
+
+        }
+      
       }
     
-      &.search-links a{
-        display:inline-block;
-        font-weight:bold;
-        padding:0;
-        position:relative;
-        text-align:center;
-        width:50%
-      }
-    
-      &.search-links a span{
-        vertical-align:middle
-      }
-    
-      .header--sp__cat-brand-icon{
-        color:#EA352D;
-        font: size 16px;
-        margin-right:4px
-      }
-    
+      
     }
+
+    &__cat-brand-icon{
+      color:#EA352D;
+      font: size 16px;
+      margin-right:4px
+    }
+    
   }

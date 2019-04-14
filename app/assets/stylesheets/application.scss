@@ -601,32 +601,6 @@ font-weight:400;
 color:#333
 }
 
-.l-left{
-float:left
-}
-
-.l-right{
-float:right
-}
-
-.input-default{
-height:48px;
-padding:10px 16px 8px;
-border-radius:4px;
-border:1px solid #ccc;
-background:#fff;
-line-height:1.5;
-font-size:16px
-}
-
-.input-default.has-error{
-border-color:#ea352d
-}
-
-.input-default:focus{
-border-color:#0099e8
-}
-
 .notification{
 position:absolute;
 top:114px;
@@ -681,33 +655,6 @@ transform:translate(0, -50%)
 }
 
 
-}
-
-.search-bar{
-margin:13px 10px 6px;
-position:relative
-}
-
-.search-bar .header--sp__search{
-background:#e6e6e6;
-border-color:transparent;
-border-radius:2px;
-width:100%;
-height:50px;
-padding:0 50px 0 10px;
--webkit-transition:all ease-out .3s;
-transition:all ease-out .3s
-}
-
-.search-bar .icon-search{
-height:36px;
-line-height:38px;
-position:absolute;
-right:7px;
-text-align:center;
-top:6px;
-width:36px;
-z-index:1
 }
 
 .single-header{
@@ -1649,60 +1596,60 @@ display:none
 display:none
 }
 
-.visible{
+// .visible{
   
-  &-pc{
-  display:none;
+//   &-pc{
+//   display:none;
   
-    @media screen and (min-width: 768px){
-    display:block
-    }
+//     @media screen and (min-width: 768px){
+//     display:block
+//     }
 
-    &-only{
-      display:none;
+//     &-only{
+//       display:none;
   
-      @media screen and (min-width: 1068px){
-      display:block
-      }
+//       @media screen and (min-width: 1068px){
+//       display:block
+//       }
   
-    }
+//     }
     
     
-  }
+//   }
   
-  &-tablet{
+//   &-tablet{
 
-    @media screen and (min-width: 1068px){
-    display:none
-    }
+//     @media screen and (min-width: 1068px){
+//     display:none
+//     }
 
-  }
+//   }
   
   
-  &-sp{
+//   &-sp{
 
-    @media screen and (min-width: 768px){
-    display:none
-    }
+//     @media screen and (min-width: 768px){
+//     display:none
+//     }
   
-  }
+//   }
 
-  &-large{
-  display:none;
+//   &-large{
+//   display:none;
 
-    @media screen and (min-width: 1068px){
-    display:block
-    }
+//     @media screen and (min-width: 1068px){
+//     display:block
+//     }
 
-  }
+//   }
 
-}
+// }
   
-  @media screen and (min-width: 1068px){
-  .hidden-large{
-  display:none
-  }
+//   @media screen and (min-width: 1068px){
+//   .hidden-large{
+//   display:none
+//   }
   
-  }
+//   }
   
   
