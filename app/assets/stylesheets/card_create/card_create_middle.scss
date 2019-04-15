@@ -147,10 +147,22 @@
                                 color: royalblue;
                                 font-size: 14px;
                             }
-                            p{
+                            .sequ_box{
                                 display: inline-block;
                                 color: royalblue;
                                 font-size: 14px;
+                            }
+                            .arrwo_box{
+                                &--content{
+                                text-align: center;
+                                    a{
+                                        font-size: 14px;
+                                    }
+                                    img{
+                                        width: 240px;
+                                        height: 150px;
+                                    }
+                                }
                             }
                         }
                     }
@@ -211,5 +223,6 @@
                 }
             }
         }
+        @include arrow
     }
 }

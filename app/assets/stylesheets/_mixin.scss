@@ -47,3 +47,46 @@
         border-top: 3px solid red;
     }
 }
+// セキュリティコードの説明
+@mixin arrow{
+.sequ_box div {
+    position: relative;
+    }
+
+    .arrow_box {
+        width: 288px;
+        height: 134px;
+        display: none;
+        position: absolute;
+        padding: 16px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px; 
+        border-radius: 8px;
+        background:lightgray;
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+        }
+
+    .arrow_box::before {
+    position: absolute;
+    bottom: -15%;
+    right: 10%;
+    margin-left: -10px;
+    border-bottom-color: lightgray;
+    border-width: 10px;
+    pointer-events: none;
+    width: 240px;
+    height: 150px;
+    display: inline-block;
+    background-image: url(/images/seq-card.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: bottom;
+    content: "";
+    }
+
+    p:hover + .arrow_box {
+    display: block;
+    }
+}
