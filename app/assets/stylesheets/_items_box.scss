@@ -1,8 +1,6 @@
 .items-box{
   position:relative;
   float:left;
-  // width:48%;
-  // margin:0 0 4% 4%;
   background:#fff;
 
   margin:0 0 20px 20px;
@@ -136,6 +134,9 @@
     left:0;
     z-index:1;
     width:100%;
+    opacity:1;
+    -webkit-transition:opacity .3s;
+    transition:opacity .3s;
 
       &.is-higher-height{
       top:50%;

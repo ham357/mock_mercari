@@ -1,0 +1,142 @@
+
+.app-banner{
+
+  &__container{
+  background:url("../images/download_bg_pc.jpg?36968975");
+  background-position:center;
+  background-size:cover
+}
+
+  &--pc{
+  overflow:hidden;
+  position:relative;
+  display:none;
+  width:750px;
+  height:260px;
+  margin:0 auto;
+  color:#fff;
+
+    @media screen and (min-width: 768px){
+    display:block
+    }
+    
+    h2{
+    margin:0;
+    font-size:16px;
+
+    @media screen and (min-width: 1068px){
+    font-size:24px
+    }
+
+    }
+    
+    p{
+    margin:10px 0 0;
+    font-size:24px;
+
+    @media screen and (min-width: 1068px){
+    font-size:35px
+    }
+
+    }
+    
+    h2,p{
+    text-shadow:0 0 5px rgba(0,0,0,0.4)
+    }
+    
+    &>figure{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    width:300px;
+    height:100%;
+
+      img{
+      width:100%
+      }
+    
+    }
+    
+    &__inner{
+    position:absolute;
+    top:50%;
+    left:16px;
+    -webkit-transform:translate(0, -50%);
+    transform:translate(0, -50%);
+
+      @media screen and (min-width: 1068px){
+      left:0
+      }
+      
+    }
+
+  }
+
+  &__icon{
+  @include clearfix();
+  margin:20px 0 0;
+  
+    figure{
+    float:left
+    }
+    
+    ul{
+    @include clearfix();
+    float:left;
+    margin:0 0 0 24px;
+    line-height:68px
+    }
+    
+    li{
+    float:left;
+
+      &:last-child{
+      margin:0 0 0 16px
+      }
+
+    }
+    
+    a{
+    display:block;
+    line-height:68px
+    }
+    
+    img{
+    vertical-align:middle
+    }
+    
+  }
+
+  &__mobile{
+  text-align:center;
+
+    a{
+    background:rgba(0,0,0,0.2);
+    color:#fff;
+    display:block;
+    padding:15px 0
+    }
+    
+    &__icon{
+    display:inline-block;
+    margin:0 20px 0 0;
+    vertical-align:top
+    }
+    
+    &__mobile-text{
+    display:inline-block;
+    padding-top:2px;
+    text-align:left;
+
+      span{
+      display:block;
+      font-size:1.4em;
+      padding-top:10px
+      }
+
+    }
+  
+  }
+
+}

@@ -207,6 +207,21 @@
       height:44px;
       line-height:42px;
       -webkit-overflow-scrolling:touch;
+
+        a{
+          display:inline-block;
+          font-weight:bold;
+          padding:0;
+          position:relative;
+          text-align:center;
+          width:50%;
+          color: #333;
+
+          span{
+            vertical-align:middle
+          }
+
+        }
     
       &:after{
         display:block;
@@ -233,32 +248,6 @@
       li{
         display:inline-block
       }
-    
-      a{
-        display:block;
-        color:#333;
-        padding:0 16px
-      }
-    
-      &.search-links{
-        white-space:nowrap;
-
-        a{
-          display:inline-block;
-          font-weight:bold;
-          padding:0;
-          position:relative;
-          text-align:center;
-          width:50%;
-
-          span{
-            vertical-align:middle
-          }
-
-        }
-      
-      }
-    
       
     }
 

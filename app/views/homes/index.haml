@@ -19,7 +19,7 @@
       %form.header--sp__form{action: "https://www.mercari.com/jp/search/"}
         %input.header--sp__search{name: "keyword", placeholder: "何をお探しですか？", type: "search",value: ""}/
         %i.fa-search
-    %nav.header--sp__nav.search-links
+    %nav.header--sp__nav
       = link_to "/jp/category/", data: {ga: "element" , ga: {category: "NAVIGATION", label: "sp_header_nav_カテゴリから探す"}} do
         %i.fa-list-ul.header--sp__cat-brand-icon
         %span カテゴリから探す
@@ -136,42 +136,8 @@
                       購入した商品 - 過去の取引
                       %i.fa-angle-right
   .main-container
-    %section.owl-carousel.top-carousel
-      = link_to "", "https://mercari-special.jp/~natsukashi/", class: 'top-banner banner-natsukashi'
-      = link_to "", "/jp/featured/newlife/", class: 'top-banner banner-new-life'
-      %div
-        .top-main-visual
-          %div
-            .top-main-visual-content
-              %h2
-                スマホでかんたん
-                %br>/
-                フリマアプリ
-              %p
-                メルカリはスマホカメラからすぐに出品できる
-                %br>/
-                購入時も安心な独自システムのアプリです
-              .top-main-visual-store
-                = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", class: 'pull-left', target: "_blank" do
-                  %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?3403318254"}/
-                = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", class: 'pull-left', target: "_blank" do
-                  %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?3403318254"}/
-            %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?3403318254"}/
-        #sp-top.visible-sp
-          #sp-top-banner
-            %h2
-              スマホで
-              %br>/
-              かんたん
-              %br>/
-              フリマアプリ
-            %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?3403318254"}/
-          #sp-top-dl
-            = link_to "http://app.adjust.io/xio2ii?campaign=iOS&adgroup=top.foot" do
-              %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?3403318254"}/
-            = link_to "http://app.adjust.io/xio2ii?campaign=android&adgroup=top.foot" do
-              %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?3403318254"}/
-      = link_to "", "/jp/promotion/201812_bokurano_heisei/", class: 'top-banner banner-bokurano-heisei'
+    %section.top-banner__container
+      = link_to "", "https://mercari-special.jp/~natsukashi/", class: 'top-banner__banner-natsukashi'
     %section.pickup__container
       %h2.pickup__head ピックアップカテゴリー
       %section.items-box__container
@@ -182,7 +148,7 @@
           %section.items-box
             = link_to "https://item.mercari.com/jp/m67684181775/" do
               %figure.items-box__photo
-                %img.lazyload{alt: "sale〜4/12 エフデ 大きいサイズ 15号 スカート", "data-src": "https://static.mercdn.net/thumb/photos/m67684181775_1.jpg?1554605302"}/
+                %img{alt: "sale〜4/12 エフデ 大きいサイズ 15号 スカート", src: "https://static.mercdn.net/thumb/photos/m67684181775_1.jpg?1554605302"}/
               .items-box__body
                 %h3.items-box__name sale〜4/12 エフデ 大きいサイズ 15号 スカート
                 .items-box__num
@@ -194,7 +160,7 @@
           %section.items-box
             = link_to "https://item.mercari.com/jp/m55484898626/" do
               %figure.items-box__photo
-                %img.lazyload{alt: "カーディガン（ジェラートピケ）", "data-src": "https://static.mercdn.net/thumb/photos/m55484898626_1.jpg?1550203297"}/
+                %img{alt: "カーディガン（ジェラートピケ）", src: "https://static.mercdn.net/thumb/photos/m55484898626_1.jpg?1550203297"}/
               .items-box__body
                 %h3.items-box__name カーディガン（ジェラートピケ）
                 .items-box__num
@@ -206,7 +172,7 @@
           %section.items-box
             = link_to "https://item.mercari.com/jp/m41498429342/" do
               %figure.items-box__photo
-                %img.lazyload{alt: "MISCH MASCH ホワイト　ワンピース　刺繍　フリル　フラワー デート服", "data-src": "https://static.mercdn.net/thumb/photos/m41498429342_1.jpg?1554707158"}/
+                %img{alt: "MISCH MASCH ホワイト　ワンピース　刺繍　フリル　フラワー デート服", src: "https://static.mercdn.net/thumb/photos/m41498429342_1.jpg?1554707158"}/
               .items-box__body
                 %h3.items-box__name MISCH MASCH ホワイト　ワンピース　刺繍　フリル　フラワー デート服
                 .items-box__num
@@ -215,7 +181,7 @@
           %section.items-box
             = link_to "https://item.mercari.com/jp/m23376020836/" do
               %figure.items-box__photo
-                %img.lazyload{alt: "ペンダントトップ　アクアマリン　ネックレストップ　チャーム", "data-src": "https://static.mercdn.net/thumb/photos/m23376020836_1.jpg?1553425198"}/
+                %img{alt: "ペンダントトップ　アクアマリン　ネックレストップ　チャーム", src: "https://static.mercdn.net/thumb/photos/m23376020836_1.jpg?1553425198"}/
               .items-box__body
                 %h3.items-box__name ペンダントトップ　アクアマリン　ネックレストップ　チャーム
                 .items-box__num
@@ -227,12 +193,12 @@
         .items-box__view-all
           = link_to "/jp/category/1/" do
             すべての商品を見る
-  %aside.app-banner
-    .app-banner-pc
-      .app-banner-pc-inner
+  %aside.app-banner__container
+    .app-banner--pc
+      .app-banner--pc__inner
         %h2 スマホでかんたんフリマアプリ
         %p 今すぐ無料ダウンロード！
-        .app-banner-icon
+        .app-banner__icon
           %figure
             %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?3403318254", width: "68"}/
           %ul
@@ -347,46 +313,3 @@
   = link_to "https://www.mercari.com/jp/sell/", class: "footer__sell-btn" do
     %div 出品
     %i.fa-camera
-  .custom-banner.custom-banner-ios.banner-pattern1
-    %figure
-      %img{alt: "Mercari app's icon", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/custom-banner-icon.png?3403318254", width: "56"}/
-    .banner-rating
-      %figcaption
-        iOS版メルカリ
-      %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/star-on.png?3403318254", width: "12"}/
-      %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/star-on.png?3403318254", width: "12"}/
-      %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/star-on.png?3403318254", width: "12"}/
-      %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/star-on.png?3403318254", width: "12"}/
-      %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/star-off.png?3403318254", width: "12"}/
-      %span.user-num (6,698)
-    = link_to "http://app.adjust.io/xio2ii?campaign=iOS&adgroup=installHeader.creative1", class: "pattern1-install", target: "_blank" do
-      インストール
-    = link_to "", data: {action: "app/launch", toggle: "open-app", url: {scheme: "mercari://"}} ,class: "pattern1-open" do
-      アプリで開く
-    %i.icon-close
-  .custom-banner.custom-banner-android.banner-pattern1
-    %figure
-      %img{alt: "Mercari app's icon", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/custom-banner-icon.png?3403318254", width: "56"}/
-    .banner-rating
-      %figcaption
-        Android版メルカリ
-      %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/star-on.png?3403318254", width: "12"}/
-      %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/star-on.png?3403318254", width: "12"}/
-      %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/star-on.png?3403318254", width: "12"}/
-      %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/star-on.png?3403318254", width: "12"}/
-      %img{alt: "", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/star-off.png?3403318254", width: "12"}/
-      %span.user-num (60,414)
-    = link_to "http://app.adjust.io/xio2ii?campaign=android&adgroup=installHeader.creative1" , class: 'pattern1-install', target: "_blank" do
-      インストール
-    = link_to "", data: {action: "app/launch", toggle: "open-app", url: {scheme: "mercari://"}} ,class: "pattern1-open" do
-      アプリで開く
-    %i.icon-close
-  .overlay
-%script{src: "//www-mercari-jp.akamaized.net/assets/js/app.js?1798344894"}
-:javascript
-  window.dataLayer = window.dataLayer || []
-  dataLayer.push({
-    'event': 'dynamic_home',
-    'uid': '164317197',
-    'ecomm_pagetype': 'home'
-  }); 
