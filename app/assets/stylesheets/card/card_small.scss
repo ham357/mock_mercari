@@ -1,163 +1,143 @@
 @media screen and (max-width: 767px) {
-    @include arrow;
-    @include input--label;
-    .ccreate__container{
+    .card__container{
         width: 100vw;
-        height: 1910px;
+        height: 100%;
         padding-bottom: 40px;
         margin: 24px auto 0 auto;
         &__top{
-            height: 666px;
-            width: 100%;
-            background-color: white;
-            h2{
-                font-weight: bold;
-                font-size: 25px;
-                height: 33px;
-                width: 652px;
-                padding: 8px 24px;
-                text-align: center;
-                border-bottom: 1px solid $subBackColor;
-            }
-            &__form{
-                width: 100vw;
-                height: 487px;
-                padding: 64px;
-                border-top: 1px;
-                box-sizing: border-box;
-                &__content{
-                    width: 320px;
-                    height: 487px;
-                    margin: 0 auto;
-
-                    &--group{
-                        &--brand{
-                            width: 100%;
-                            height: 20px;
-                            padding-top: 8px;
-                            display: flex;
-                            &--list{
-                                margin-left: 8px;
-                                #visa{
-                                    width: 49px;
-                                    height: 20px;
-                                }
-                                #master{
-                                    width: 34px;
-                                    height: 20px;
-                                }
-                                #saison{
-                                    width: 30px;
-                                    height: 20px;
-                                }
-                                #jcb{
-                                    width: 32px;
-                                    height: 20px;
-                                }
-                                #express{
-                                    width: 21px;
-                                    height: 20px;
-                                }
-                                #diners{
-                                    width: 32px;
-                                    height: 20px;
-                                }
-                                #discover{
-                                    width: 32px;
-                                    height: 20px;
-                                }
+            box-sizing: border-box;
+            &__section{
+                h2{
+                    height: 33px;
+                    padding: 8px 24px;
+                    display: block;
+                    margin: auto;
+                    border-bottom: 1px solid $subBackColor;
+                    background-color: white;
+                    font-weight: bold;
+                    font-size: 22px;
+                    text-align: center;
+                }
+                &__info{
+                    box-sizing: border-box;
+                    width: 100%;
+                    // 内容の数によって高さを変える
+                    min-height: 180px;
+                    height: auto !important;
+                    height:180px;
+                    padding:64px;
+                    border-top: 1px solid $subBackColor;
+                    background-color: white;
+                    &__title{
+                        height: 16px;
+                        &--list{
+                            width: 320px;
+                            height: 16px;
+                            margin: 0 auto;
+                            h3{
+                                font-weight: bold;
+                                height: 16px;
+                                font-size: 16px;
+                                line-height: 16px;
                             }
-                        }
-                    }
-                    &--expire{
-                        height: 126px;
-                        margin-top: 40px;
-                        position: relative;
-                        &--wrap{
-                            width: 112px;
-                            height: 48px;
-                            margin-top: 8px;
-                            position: relative;
-                            .select-default{
+                        &--card{
+                            width: 572px;
+                            height: 117px;
+                            &__list{
                                 width: 100%;
-                                height: 46px;
-                                padding: 0 16px;
-                                border: 1px solid $subBackColor;
-                                border-radius: 0.2em;
-                                background: transparent;
-                                -webkit-appearance: none;
-                                outline: none;
-                            }
-                            i{
-                                opacity: 0.8;
-                                position: absolute;
-                                top: 30%;
-                                right: 10%;
-                            }
-                        }
-                        .select-month{
-                            margin: 0 8px;
-                            display: block;
-                            position: absolute;
-                            top: 32%;
-                            left: 35%
-                        }
-                        .select-yeah{
-                            margin: 0 8px;
-                            display: block;
-                            position: absolute;
-                            top: 78%;
-                            left: 35%
-                        }
-                    }
-                    &--code{
-                        margin-top: 40px;
-                    }
-                    &--sequ{
-                        width: 100%;
-                        height: 15px;
-                        margin-top: 8px;
-                        &--text{
-                            width: 100%;
-                            text-align: right;
-                            i{
-                                color: royalblue;
-                                font-size: 14px;
-                            }
-                            .sequ_box{
-                                display: inline-block;
-                                color: royalblue;
-                                font-size: 14px;
-                            }
-                            .arrwo_box{
-                                &--content{
-                                text-align: center;
-                                    a{
+                                height: 68px;
+                                padding: 24px 0;
+                                border-bottom: 1px solid $subBackColor;
+                                position: relative;
+                                &__form{
+                                    width: 320px;
+                                    height: 68px;
+                                    margin: 0 auto;
+                                    &--figure{
+                                        width: 100%;
+                                        height: 20px;
+                                        margin: 0;
+                                        i{
+                                            font-size: 20px;
+                                        }
+                                    }
+                                    &--num{
+                                        width: 100%;
+                                        height: 16px;
+                                        margin-top: 8px;
+                                        font-size: 14p;
+                                    }
+                                    &--remove{
+                                        position: absolute;
+                                        top: 20%;
+                                        right: 20%;
+                                        display: inline-block;
+                                        text-decoration: none;
+                                        color: crimson;
+                                        border: solid 1px crimson;
+                                        border-radius: 3px;
+                                        transition: .4s;
                                         font-size: 14px;
                                     }
-                                    img{
-                                        width: 240px;
-                                        height: 150px;
-                                    }
                                 }
                             }
                         }
+                        }
                     }
-                }
-                .btn-default{
-                    width: 100%;
-                    height: 48px;
-                    border: 1px solid;
-                    margin-top: 16px;
-                    background-color: crimson;
-                    font-size: 14px;
-                    color: white;
-                    outline: none;
-                    transition: 500ms;
-                    margin-top: 40px;
-                }
-                .btn-default:active{
-                    background-color: gray;
+                    &__add{
+                        height: 58px;
+                        padding: 24px 0;
+                        border-bottom: 1px solid $subBackColor;
+                        &--btn{
+                            width: 320px;
+                            margin: 0 auto;
+                            .btn-default{
+                                display: block;
+                                width: 320px;
+                                height: 48px;
+                                background-color: crimson;
+                                margin-bottom: 8px;
+                                font-size: 14px;
+                                outline: none;
+                                transition: 500ms;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                i{
+                                    color: white;
+                                    margin-right: 16px;
+                                    display: block;
+                                }
+                                p{
+                                    color: white;
+                                    display: block;
+                                }
+                            }
+                            .btn-default:active{
+                                background-color: gray;
+                            }
+                        }
+                    }
+                    &__not{
+                        width: 100%;
+                        height: 17px;
+                        p{
+                            height: 17px;
+                            margin-top: 40px;
+                            font-size: 14px;
+                            text-align: right;
+                            a{
+                                color: dodgerblue;
+                            }
+                            a:hover {
+                                text-decoration: underline;
+                                opacity: 0.8;
+                            }
+                            i{
+                                color: dodgerblue;
+                            }
+                        }
+                    }
                 }
             }
         }
