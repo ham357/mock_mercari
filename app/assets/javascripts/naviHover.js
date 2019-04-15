@@ -1,5 +1,5 @@
 $(function(){
-    $("li").hover(function(){
+    $(".navi--hover").hover(function(){
         $(this).css('background-color', '#f5f5f5');
         $('.active').css('background-color', '');
         $(this).find('.fa-chevron-right').css('opacity', '1');
