@@ -1,31 +1,6 @@
 @media screen and (min-width: 768px) and (max-width:1067px){
-    .input--label{
-        font-weight: bold;
-        font-size: 14px;
-        height: 14px;
-        width: 70px;
-    }
-    .require{
-        padding: 2px 4px 2px 4px;
-        margin-left: 8px;
-        color: white;
-        background-color: crimson;
-        border-radius: 0.2em;
-        font-size: 12px;
-        vertical-align: 2pt;
-    }
-    .input--default{
-        width: 286px;
-        height: 28px;
-        padding: 10px 16px 8px 16px;
-        border: 1px solid $subBackColor;
-        margin-top: 8px;
-        outline: none;
-        border-radius: 0.2em;
-    }
-    input:focus {
-        border: 1px solid skyblue;
-    }
+    @include arrow;
+    @include input--label;
     .ccreate__container{
         width: 700px;
         height: 1958px;
@@ -223,6 +198,5 @@
                 }
             }
         }
-        @include arrow
     }
 }

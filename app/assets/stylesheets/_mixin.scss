@@ -90,3 +90,34 @@
     display: block;
     }
 }
+
+// フォーム等にあるラベルの書式とアクティブ時の枠イベント
+@mixin input--label{
+    .input--label{
+        font-weight: bold;
+        font-size: 14px;
+        height: 14px;
+        width: 70px;
+    }
+    .require{
+        padding: 2px 4px 2px 4px;
+        margin-left: 8px;
+        color: white;
+        background-color: crimson;
+        border-radius: 0.2em;
+        font-size: 12px;
+        vertical-align: 2pt;
+    }
+    .input--default{
+        width: 286px;
+        height: 28px;
+        padding: 10px 16px 8px 16px;
+        border: 1px solid $subBackColor;
+        margin-top: 8px;
+        outline: none;
+        border-radius: 0.2em;
+    }
+    input:focus {
+        border: 1px solid skyblue;
+    }
+}
