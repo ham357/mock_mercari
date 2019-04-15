@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :cards, only: :index
   #cardsはmypagesのネスト
   resources :card_creates, only: :index
+  resources :identifacations, only: :index
+  #identificationはmypagesのネスト
+
   root to: 'products#index'
 
 end
