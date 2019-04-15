@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   #profilesはmypagesのネスト
   resources :cards, only: :index
   #cardsはmypagesのネスト
+  resources :card_creates, only: :index
   root to: 'products#index'
 
 end

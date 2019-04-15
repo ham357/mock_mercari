@@ -1,8 +1,8 @@
-.card__container
-    .card__container__top
-        %section.card__container__top__section
-            %h2 支払い方法
-            .card__container__top__section__info
+.card_create__container
+    .card_create__container__top
+        %section.card_create__container__top__section
+            %h2 クレジットカード情報入力
+            .card_create__container__top__section__info
                 %section.card__container__top__section__info__title
                     .card__container__top__section__info__title--list
                         %h3 クレジットカード一覧
@@ -16,8 +16,8 @@
                         = link_to "支払い方法について", '#'
                         %i.fas.fa-chevron-right
 
-    .card__container__navi
-        %ul.card__container__navi--list
+    .card_create__container__navi
+        %ul.card_create__container__navi--list
             -# renderで部分テンプレート 条件分岐未実装
             = render partial: "top_tab", locals: { url:'#', contents: 'マイページ' }
             = render partial: "tab", locals: { url:'#', contents: 'おしらせ'  }
@@ -38,9 +38,9 @@
             = render partial: "top_tab", locals: { url:'#', contents: '売上・振込申請' }
             = render partial: "tab", locals: { url:'#', contents: 'ポイント' }
             %h3 設定
-            = render partial: "top_tab", locals: { url:'#', contents: 'プロフィール' }
+            = render partial: "active_tab", locals: { url:'#', contents: 'プロフィール' }
             = render partial: "tab", locals: { url:'#', contents: '発送元・お届け先住所変更' }
-            = render partial: "active_tab", locals: { url:'#', contents: '支払い方法' }
+            = render partial: "tab", locals: { url:'#', contents: '支払い方法' }
             = render partial: "tab", locals: { url:'#', contents: 'メール / パスワード'  }
             = render partial: "tab", locals: { url:'#', contents: '本人情報' }
             = render partial: "tab", locals: { url:'#', contents: '電話番号の確認' }
