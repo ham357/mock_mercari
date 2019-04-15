@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :identifacations, only: :index
   #identificationはmypagesのネスト
 
-  resources :products, only: :index'
+  resources :products, only: :index
 
 end
