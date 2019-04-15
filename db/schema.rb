@@ -38,6 +38,12 @@ ActiveRecord::Schema.define(version: 20190414024143) do
     t.datetime "updated_at"
     t.string   "nickname",           null: false
     t.index ["nickname"], name: "index_users_on_nickname", using: :btree
+
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "prefecture_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+
   end
 
 end
