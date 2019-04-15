@@ -5,10 +5,10 @@ class CreateUserInfos < ActiveRecord::Migration[5.0]
       t.string      :last_name,           null:false
       t.string      :kana_first_name,     null:false
       t.string      :kana_last_name,      null:false
-      t.integer     :postal_code,         null:false
+      t.integer     :postal_code,         
       t.string      :state,               null:false
-      t.string      :city,                null:false
-      t.string      :adress,              null:false
+      t.string      :city,                
+      t.string      :address,              
       t.integer     :tel_number
       t.integer     :birth_year,          null:false
       t.integer     :birth_month,         null:false
