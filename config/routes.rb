@@ -10,10 +10,7 @@ Rails.application.routes.draw do
   resources :card_creates, only: :index
   resources :identifacations, only: :index
   #identificationはmypagesのネスト
-<<<<<<< HEAD
-=======
 
-  root to: 'products#index'
+  resources :products, only: :index'
 
->>>>>>> ONAGAX/master
 end
