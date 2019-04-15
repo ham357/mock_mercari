@@ -21,8 +21,9 @@
             .identifi__container__top__section--form--groups
                 %label{for: "stats"} 都道府県
                 %span.arbitrary 任意
-                -# 都道府県で長くなるのでテンプレート
-                = render partial: "select"
+                .identifi__container__top__section--form--groups--wrap
+                    = collection_select :page, :prefecture_id, Prefecture.all, :id, :name, {selected: "13"}, class: "select--default"
+                    %i.fas.fa-chevron-down
             .identifi__container__top__section--form--groupf
                 %label{for: "city"} 市区町村
                 %span.arbitrary 任意
