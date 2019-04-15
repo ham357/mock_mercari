@@ -1,0 +1,113 @@
+@media screen and (min-width: 768px) and (max-width:1067px){
+    .mypage__container{
+        width: 700px;
+        height: 2224px;
+        padding-bottom: 40px;
+        margin: 24px auto 0 auto;
+        &__top {
+            height: 932px;
+            &--icon{
+                width: 660px;
+                height: 140px;
+                padding: 40px 20px 20px 20px;
+                background-image: url(/images/user-bg.jpg);
+                a{
+                    height: 111px;
+                    display: block;
+                    figure{
+                        width: 60px;
+                        height: 60px;
+                        margin: 0 auto;
+                        img{
+                            border-radius: 50%;
+                        }
+                    }
+                }
+                h2{
+                    font-weight: bold;
+                    text-align: center;
+                    margin-top: 8px;
+                    font-size: 14px;
+                }
+                &--value{
+                    display: flex;
+                    margin-top: 8px;
+                    justify-content: center;
+                    font-size: 14px;
+                    span{
+                        font-weight: bold;
+                        margin-left: 8px;
+                        line-height: 18px;
+                    }
+                    &--pro{
+                        margin-left: 16px;
+                    }
+                }
+            }
+            &__tab{
+                @include tab
+            }
+
+            &__buy{
+                width: 668px;
+                height: 72px;
+                padding: 0 16px;
+                background-color:white;
+                margin-top: 30px;
+                display: flex;
+                align-items: center;
+                h2{
+                    font-size: 16px;
+                    display: block;
+                    margin: auto 0;
+                    font-weight: bold;
+                }
+                &__tab{
+                    width:700px;
+                    &__tab{
+                        @include tab
+                    }
+                }
+            }
+        }
+        &__navi{
+            margin-top: 40px;
+            width:700px;
+            height: 1252px;
+            &--list{
+                height: 685px;
+                h3{
+                    font-weight: bold;
+                    margin-top: 40px;
+                    margin-bottom: 8px;
+                }
+                &--item{
+                    height: 48px;
+                    background-color:  white;
+                    border-top: 1px solid $subBackColor;
+                    &--a{
+                        width:668px;
+                        height: 16px;
+                        padding: 16px;
+                        font-size: 14px;
+                        line-height: 16px;
+                        .fa-chevron-right{
+                            float: right;
+                            font-size: 17px;
+                            opacity: 0.3;
+                            position: relative;
+                            right: 0px;
+                        }
+                    }
+                }
+                .active{
+                    height: 48px;
+                    background-color: $subBackColor;
+                }
+                .toplist{
+                    border-top: 0;
+                }
+            }
+        }
+    }
+}
