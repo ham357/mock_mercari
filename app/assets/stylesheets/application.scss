@@ -1,6 +1,6 @@
 @import "./reset";
 @import "./style";
-@import "./mypage/mixin";
+@import "./mixin";
 @import "./mypage/valiable";
 @import "./mypage/mypage_middle";
 @import "./mypage/mypage_large";
@@ -8,6 +8,12 @@
 @import "./profile/profile_middle";
 @import "./profile/profile_small";
 @import "./profile/profile_large";
+@import "./card/card_small";
+@import "./card/card_middle";
+@import "./card/card_large";
+@import "./card_create/card_create_small";
+@import "./card_create/card_create_middle";
+@import "./card_create/card_create_large";
 @import "./identifacations/identifacation_middle";
 @import "./identifacations/identifacation_small";
 @import "./identifacations/identifacation_large";
