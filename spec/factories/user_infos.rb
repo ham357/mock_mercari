@@ -9,7 +9,7 @@ FactoryBot.define do
     state                        {"日本"}
     city                         {"東京"}
     adress                       {"千葉県佐倉市"}
-    tel_number                   {"4444"}
+    tel_number                   {"09054090990"}
     birth_year                   {"1900"}
     birth_month                  {"12"}
     birth_day                    {"12"}

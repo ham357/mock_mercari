@@ -2,14 +2,27 @@ require 'rails_helper'
 
 describe User do
   describe '#create' do
-    it "is invalid all date" do
 
+    it "is invalid all date" do
+      user = build(:user)
+      expect(user).to be_valid
     end
 
     it "is invalid without a nickname" do
       user = build(:user, nickname: nil)
       user.valid?
       expect(user.errors[:nickname]).to include("can't be blank")
+    end
+
+    it "is invalid with a nickname that has more than 21 characters " do
+      user = build(:user, nickname: "aaaaaaaaaaaaaaaaaaaaa")
+      user.valid?
+      expect(user.errors[:nickname][0]).to include("is too long")
+    end
+
+    it "is valid with a nickname that has less than 20 characters " do
+      user = build(:user, nickname: "aaaaaaaaaaaaaaaaaaaa")
+      expect(user).to be_valid
     end
 
     it "is invalid without a email" do
@@ -42,6 +55,7 @@ describe User do
       user.valid?
       expect(user.errors[:password][0]).to include("is too short")
     end
+
 
   end
 end

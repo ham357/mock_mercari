@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'devise'
+gem 'pry-rails'
 
 
 group :development, :test do
