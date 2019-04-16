@@ -10,12 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190415022756) do
+ActiveRecord::Schema.define(version: 20190414024143) do
+
+  create_table "user_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "first_name",                    null: false
+    t.string   "last_name",                     null: false
+    t.string   "kana_first_name",               null: false
+    t.string   "kana_last_name",                null: false
+    t.integer  "postal_code",                   null: false
+    t.string   "state",                         null: false
+    t.string   "city",                          null: false
+    t.string   "adress",                        null: false
+    t.integer  "tel_number"
+    t.integer  "birth_year",                    null: false
+    t.integer  "birth_month",                   null: false
+    t.integer  "birth_day",                     null: false
+    t.text     "profile_comment", limit: 65535
+    t.string   "user_id",                       null: false
+    t.datetime "created_at"
+    t.datetime "update_at"
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "email",              null: false
+    t.string   "encrypted_password", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "nickname",           null: false
+    t.index ["nickname"], name: "index_users_on_nickname", using: :btree
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+
   end
 
 end
