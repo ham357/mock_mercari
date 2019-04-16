@@ -1,0 +1,185 @@
+@media screen and (min-width: 1068px){
+    .card__container{
+        width: 1020px;
+        height:1252%;
+        padding-bottom: 40px;
+        margin: 24px auto 0 auto;
+        display: flex;
+        align-items: stretch;
+        &__top{
+            order: 1;
+            &__section{
+                h2{
+                    width: 652px;
+                    height: 33px;
+                    padding: 8px 24px;
+                    border-bottom: 1px solid $subBackColor;
+                    background-color: white;
+                    font-weight: bold;
+                    font-size: 25px;
+                    text-align: center;
+                }
+                &__info{
+                    width: 572px;
+                    // 内容の数によって高さを変える
+                    min-height: 180px;
+                    height: auto !important;
+                    height:180px;
+                    padding:64px;
+                    border-top: 1px solid $subBackColor;
+                    background-color: white;
+                    &__title{
+                        height: 16px;
+                        &--list{
+                            width: 320px;
+                            height: 16px;
+                            margin: 0 auto;
+                            h3{
+                                font-weight: bold;
+                                height: 16px;
+                                font-size: 16px;
+                                line-height: 16px;
+                            }
+                        &--card{
+                            width: 572px;
+                            height: 117px;
+                            &__list{
+                                width: 100%;
+                                height: 68px;
+                                padding: 24px 0;
+                                border-bottom: 1px solid $subBackColor;
+                                position: relative;
+                                &__form{
+                                    width: 320px;
+                                    height: 68px;
+                                    margin: 0 auto;
+                                    &--figure{
+                                        width: 100%;
+                                        height: 20px;
+                                        margin: 0;
+                                        i{
+                                            font-size: 20px;
+                                        }
+                                    }
+                                    &--num{
+                                        width: 100%;
+                                        height: 16px;
+                                        margin-top: 8px;
+                                        font-size: 14p;
+                                    }
+                                    &--remove{
+                                        position: absolute;
+                                        top: 20%;
+                                        right: 20%;
+                                        display: inline-block;
+                                        text-decoration: none;
+                                        color: crimson;
+                                        border: solid 1px crimson;
+                                        border-radius: 3px;
+                                        transition: .4s;
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+                        }
+                    }
+                    &__add{
+                        height: 58px;
+                        padding: 24px 0;
+                        border-bottom: 1px solid $subBackColor;
+                        &--btn{
+                            width: 320px;
+                            margin: 0 auto;
+                            .btn-default{
+                                display: block;
+                                width: 320px;
+                                height: 48px;
+                                background-color: crimson;
+                                margin-bottom: 8px;
+                                font-size: 14px;
+                                outline: none;
+                                transition: 500ms;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                i{
+                                    color: white;
+                                    margin-right: 16px;
+                                    display: block;
+                                }
+                                p{
+                                    color: white;
+                                    display: block;
+                                }
+                            }
+                            .btn-default:active{
+                                background-color: gray;
+                            }
+                        }
+                    }
+                    &__not{
+                        width: 100%;
+                        height: 17px;
+                        p{
+                            height: 17px;
+                            margin-top: 40px;
+                            font-size: 14px;
+                            text-align: right;
+                            a{
+                                color: dodgerblue;
+                            }
+                            a:hover {
+                                text-decoration: underline;
+                                opacity: 0.8;
+                            }
+                            i{
+                                color: dodgerblue;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &__navi{
+            margin-right: 40px;
+            width:280px;
+            height: 1252px;
+            order: -1;
+            &--list{
+                height: 685px;
+                h3{
+                    font-weight: bold;
+                    margin-top: 40px;
+                    margin-bottom: 8px;
+                }
+                &--item{
+                    height: 48px;
+                    background-color:  white;
+                    border-top: 1px solid $subBackColor;
+                    &--a{
+                        width: 100%;
+                        height: 16px;
+                        padding: 16px;
+                        font-size: 14px;
+                        line-height: 16px;
+                        .fa-chevron-right{
+                            float: right;
+                            font-size: 17px;
+                            opacity: 0.3;
+                            position: relative;
+                            right: 0px;
+                        }
+                    }
+                }
+                .active{
+                    height: 48px;
+                    background-color: $subBackColor;
+                }
+                .toplist{
+                    border-top: 0;
+                }
+            }
+        }
+    }
+}
