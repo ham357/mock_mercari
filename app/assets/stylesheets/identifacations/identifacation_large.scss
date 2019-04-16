@@ -1,0 +1,207 @@
+@media screen and (min-width: 1068px){
+    .identifi__container{
+        width: 1020px;
+        height: 1252px;
+        padding-bottom: 40px;
+        margin: 24px auto 0 auto;
+        display: flex;
+        align-items: stretch;
+        &__top{
+            width: 700px;
+            height: 1208px;
+            &__section{
+                width: 652px;
+                height:33px;
+                padding: 8px 24px;
+                border-bottom: 1px solid $subBackColor;
+                background-color: white;
+                h2{
+                    font-weight: bold;
+                    text-align: center;
+                    font-size: 25px;
+                }
+                &--form{
+                    width: 572px;
+                    height: 1029px;
+                    padding: 64px;
+                    border-top: 1px solid $subBackColor;
+                    background-color: white;
+                    &--top{
+                        width: 572px;
+                        height: 71px;
+                        p{
+                            font-size: 14px;
+                        }
+                        &--p{
+                            height:21px;
+                            margin-top: 8px;
+                            text-align: right;
+                            a{
+                                color: dodgerblue;
+                            }
+                            a:hover {
+                                text-decoration: underline;
+                                opacity: 0.8;
+                            }
+                            i{
+                                color: dodgerblue;
+                            }
+                        }
+                    }
+                    &--group{
+                        height:43px;
+                        margin-top: 40px;
+                        p{
+                            margin-top:8px;
+                        }
+                    }
+                    &--groups{
+                        height:70px;
+                        margin-top: 40px;
+                        .arbitrary{
+                            padding: 2px 4px 2px 4px;
+                            margin-left: 8px;
+                            color: white;
+                            background-color: silver;
+                            border-radius: 0.2em;
+                            font-size: 12px;
+                            vertical-align: 2pt;
+                        }
+                        &--wrap{
+                            height: 48px;
+                            margin-top: 8px;
+                            position: relative;
+                            .select--default{
+                                width: 100%;
+                                height: 46px;
+                                padding: 0 16px;
+                                border: 1px solid $subBackColor;
+                                border-radius: 0.2em;
+                                background: transparent;
+                                -webkit-appearance: none;
+                                outline: none;
+                            }
+                            i{
+                            position: absolute;
+                            top: 30%;
+                            left: 95%;
+                            font-size: 18px;
+                            color: $subBackColor;
+                            }
+                            select:focus {
+                                border: 1px solid skyblue;
+                            }
+                        }
+                    }
+                    &--groupf{
+                        height:70px;
+                        margin-top: 40px;
+                        p{
+                            margin-top:8px;
+                        }
+                        .arbitrary{
+                            padding: 2px 4px 2px 4px;
+                            margin-left: 8px;
+                            color: white;
+                            background-color: silver;
+                            border-radius: 0.2em;
+                            font-size: 12px;
+                            vertical-align: 2pt;
+                        }
+                        .input--default{
+                            width: 538px;
+                            height: 28px;
+                            padding: 10px 16px 8px 16px;
+                            border: 1px solid $subBackColor;
+                            margin-top: 8px;
+                            outline: none;
+                            border-radius: 0.2em;
+                        }
+                        input:focus {
+                            border: 1px solid skyblue;
+                        }
+                    }
+                    &--groupb{
+                        height:43px;
+                        margin-top: 40px;
+                        .btn--default{
+                            width: 100%;
+                            height: 48px;
+                            border: 1px solid;
+                            margin-top: 16px;
+                            background-color: crimson;
+                            font-size: 14px;
+                            color: white;
+                            outline: none;
+                            transition: 500ms;
+                        }
+                        .btn--default:active{
+                            background-color: gray;
+                        }
+                    }
+                    &--bottom{
+                        margin-top: 40px;
+                        height: 21px;
+                        &--p{
+                            width: 572px;
+                            height:21px;
+                            margin-top: 8px;
+                            text-align: right;
+                            font-size: 14px;
+                            a{
+                                color: dodgerblue;
+                            }
+                            a:hover {
+                                text-decoration: underline;
+                                opacity: 0.8;
+                            }
+                            i{
+                                color: dodgerblue;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &__navi{
+            margin-right: 40px;
+            width:280px;
+            height: 1252px;
+            order: -1;
+            &--list{
+                height: 685px;
+                h3{
+                    font-weight: bold;
+                    margin-top: 40px;
+                    margin-bottom: 8px;
+                }
+                &--item{
+                    height: 48px;
+                    background-color:  white;
+                    border-top: 1px solid $subBackColor;
+                    &--a{
+                        width:248px;
+                        height: 16px;
+                        padding: 16px;
+                        font-size: 14px;
+                        line-height: 16px;
+                        .fa-chevron-right{
+                            float: right;
+                            font-size: 17px;
+                            opacity: 0.3;
+                            position: relative;
+                            right: 0px;
+                        }
+                    }
+                }
+                .active{
+                    height: 48px;
+                    background-color: $subBackColor;
+                }
+                .toplist{
+                    border-top: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,123 @@
+// マイページ等にある２つのタブ
+@mixin tab{
+    margin-top: 50px;
+    margin-bottom: 40px;
+    background-color: #fff;
+    margin: 0 auto;
+    .tab_item{
+        width: calc(100%/2);
+        height: 75px;
+        background-color: #d9d9d9;
+        line-height: 70px;
+        font-size: 16px;
+        text-align: center;
+        color: #565656;
+        display: block;
+        float: left;
+        text-align: center;
+        font-weight: bold;
+        transition: all 0.2s ease;
+    }
+    .tab_item:hover {
+        opacity: 0.75;
+    }
+    input[name="tab_item"] {
+        display: none;
+    }
+    input[name="tab2_item"] {
+        display: none;
+    }
+    .tab_content {
+        display: none;
+        padding: 152px 40px 60px;
+        clear: both;
+        overflow: hidden;
+        font-weight: bold;
+        text-align: center;
+        opacity: 0.5;
+    }
+    #all:checked ~ #all_content,#todo:checked ~ #todo_content{
+        display: block;
+    }
+    #buy:checked ~ #buy_content,#bought:checked ~ #bought_content{
+        display: block;
+    }
+    input:checked + .tab_item {
+        background-color: white;
+        border-top: 3px solid red;
+    }
+}
+// セキュリティコードの説明
+@mixin arrow{
+.sequ_box div {
+    position: relative;
+    }
+
+    .arrow_box {
+        width: 288px;
+        height: 134px;
+        display: none;
+        position: absolute;
+        padding: 16px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px; 
+        border-radius: 8px;
+        background:lightgray;
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+        }
+
+    .arrow_box::before {
+    position: absolute;
+    bottom: -15%;
+    right: 10%;
+    margin-left: -10px;
+    border-bottom-color: lightgray;
+    border-width: 10px;
+    pointer-events: none;
+    width: 240px;
+    height: 150px;
+    display: inline-block;
+    background-image: url(/images/seq-card.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: bottom;
+    content: "";
+    }
+
+    p:hover + .arrow_box {
+    display: block;
+    }
+}
+
+// フォーム等にあるラベルの書式とアクティブ時の枠イベント
+@mixin input--label{
+    .input--label{
+        font-weight: bold;
+        font-size: 14px;
+        height: 14px;
+        width: 70px;
+    }
+    .require{
+        padding: 2px 4px 2px 4px;
+        margin-left: 8px;
+        color: white;
+        background-color: crimson;
+        border-radius: 0.2em;
+        font-size: 12px;
+        vertical-align: 2pt;
+    }
+    .input--default{
+        width: 286px;
+        height: 28px;
+        padding: 10px 16px 8px 16px;
+        border: 1px solid $subBackColor;
+        margin-top: 8px;
+        outline: none;
+        border-radius: 0.2em;
+    }
+    input:focus {
+        border: 1px solid skyblue;
+    }
+}

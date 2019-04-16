@@ -1,0 +1,82 @@
+i[class^='fa-'], i[class*='fa-'] {
+  display: inline-block;
+  font-family: 'FontAwesome';
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+.header--sp__search-bar .fa-search {
+  height: 36px;
+  line-height: 38px;
+  position: absolute;
+  right: 7px;
+  text-align: center;
+  top: 6px;
+  width: 36px;
+  z-index: 1
+}
+
+.fa-list-ul:before {
+  content: '\f0ca'
+}
+
+.fa-tag:before {
+  content: '\f02b'
+}
+
+.fa-bell {
+  font-size: 20px;
+  &:before {
+    content: '\f0f3'
+  }
+}
+
+.fa-check {
+  font-size: 16px;
+  padding-top: 2px;
+  &:before {
+    content: '\f00c'
+  }
+}
+
+.fa-camera {
+  font-size: 60px;
+  &:before {
+    content: '\f030'
+  }
+}
+
+.fa-search:before {
+  content: '\f002'
+}
+
+.fa-angle-right:before {
+  content: '\f105'
+}
+
+.fa-heart {
+  color: #ccc;
+  &:before {
+    content: '\f004'
+  }
+}
+
+.fa-facebook {
+  font-size: 26px;
+  &:before {
+    content: '\f09a'
+  }
+}
+
+.fa-twitter {
+  font-size: 24px;
+  &:before {
+    content: '\f099'
+  }
+}
