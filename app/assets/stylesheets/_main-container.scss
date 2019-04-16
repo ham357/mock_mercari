@@ -1,75 +1,56 @@
-.main-container{
-  display:block;
+.main-container {
+  display: block;
   background-color: #fff;
-  }
-  
-  .top-banner__container{
-
-  position:relative;
-  height:200px;
-  overflow:hidden;
-  
-  @media screen and (min-width: 768px){
-  height:290px
-  }
-  
-  @media screen and (min-width: 1068px){
-  height:390px
-  }
-  
 }
 
-  .top-banner{
+.top-banner__container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  @media screen and (min-width: 768px) {
+    height:290px
+  }
+  @media screen and (min-width: 1068px) {
+    height: 390px
+  }
+}
 
-    &__banner-natsukashi{
-    display:block;
-    background-size:cover;
-    background-position:center;
-    height:100%;
-    
-    &:hover{
-    opacity:1
+.top-banner {
+  &__banner-natsukashi {
+    display: block;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    &:hover {
+      opacity: 1
     }
-    
     background-image:url("../images/banner-natsukashi.jpg");
-
-      @media screen and (min-width: 1068px){
-      background-size:auto
-      }
-
-      @media screen and (min-width: 1440px){
-      background-size:contain;
-      background-repeat:repeat-x
-      }
-
-      }
-    
+    @media screen and (min-width: 1068px) {
+      background-size: auto
     }
-
-.pickup{
-  
-  &__container{
-  padding:20px 0 0 0;
-  background:#f5f5f5;
-
-    @media screen and (min-width: 768px){
-    padding:40px 0
+    @media screen and (min-width: 1440px) {
+      background-size: contain;
+      background-repeat: repeat-x
     }
-
-    h2{
-    font-size:22px;
-    text-align:center;
-
-      @media screen and (min-width: 768px){
-      font-size:28px
-      }
-
-    }
-    
   }
+}
 
-  &__head{
-  font-size:28px
+.pickup {
+  &__container {
+    padding: 20px 0 0 0;
+    background: #f5f5f5;
+    @media screen and (min-width: 768px) {
+      padding:40px 0
+    }
+    h2 {
+      font-size: 22px;
+      text-align: center;
+      @media screen and (min-width: 768px) {
+        font-size:28px
+      }
+    }
   }
-
+  &__head {
+    font-size: 28px
+  }
 }
