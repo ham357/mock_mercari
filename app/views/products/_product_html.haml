@@ -1,0 +1,12 @@
+%section.items-box
+  = link_to "https://item.mercari.com/jp/m67684181775/" do
+    %figure.items-box__photo
+      = image_tag "#{product.product_images.image_url}", alt: "#{product.name}"
+    .items-box__body
+      %h3.items-box__name = product.name
+      .items-box__num
+        .items-box__price = product.price
+        .items-box__likes
+          %i.fa-heart
+          %span 2
+        %p.item-box__tax (税込)
