@@ -1,5 +1,13 @@
 @import "./reset";
-@import "./style";
+@import "./initialize";
+@import "./icons.scss";
+@import "./header-sp";
+@import "./header-pc";
+@import "./main-container";
+@import "./items_box";
+@import "./mypage";
+@import "./app-banner";
+@import "./footer";
 @import "./mixin";
 @import "./mypage/valiable";
 @import "./mypage/mypage_middle";
