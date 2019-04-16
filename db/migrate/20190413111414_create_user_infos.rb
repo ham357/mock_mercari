@@ -17,6 +17,7 @@ class CreateUserInfos < ActiveRecord::Migration[5.0]
       t.string      :user_id,             null:false
       t.datetime    :created_at
       t.datetime    :update_at
+      t.timestamps null: false
     end
   end
 end
