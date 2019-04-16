@@ -36,8 +36,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'haml-rails'
 gem 'devise'
-gem 'pry-rails'
 gem 'active_hash'
+gem 'font-awesome-sass
 
 
 group :development, :test do
@@ -57,7 +57,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'font-awesome-sass
+  gem 'pry-rails'
 end
 
 group :production do
