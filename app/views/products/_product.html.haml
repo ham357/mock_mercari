@@ -7,9 +7,10 @@
         = product.name
       .items-box__num
         .items-box__price 
-          = product.price
-        .items-box__likes
-          %i.fa-heart
-          %span 
-            = product.likes.count
+          = converting_to_jpy(product.price)
+        - if product.likes.count > 0
+          .items-box__likes
+            %i.fa-heart
+            %span
+              = product.likes.count
         %p.item-box__tax (税込)
