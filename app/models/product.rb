@@ -1,7 +1,11 @@
 class Product < ApplicationRecord
-  validates_presence_of :name, :status, :shipping_fee, :state, :shipping_day, :price, :description, :sold
+  validates_presence_of :name, :status, :shipping_fee, :state, :shipping_method, :shipping_day, :price, :description
   validates :name, length: { maximum: 40 }
+  validates :price, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, only_integer: true}
   validates :description, length: { maximum: 100 }
 
-  has_many :product_images, :dependent: :destroy
+  has_many :product_images, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
+  belongs_to :user
 end
