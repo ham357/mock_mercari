@@ -19,6 +19,7 @@
   a {
     display: block;
     color: #333;
+
     &:hover {
       opacity: 1;
       text-decoration: none
@@ -56,10 +57,14 @@
     }
   }
   &__container {
+    .a--blue{
+      color: royalblue;
+    }
     @include clearfix();
     &>h3 {
       font-size: 18px;
       margin: 26px 11px;
+      font-weight: bold;
       text-align: center;
       @media screen and (min-width: 768px) {
         font-size:22px
@@ -76,29 +81,31 @@
   &__content {
     @include clearfix();
     width: 92%;
-    margin: 0 auto;
+    height: 330px;
     @media screen and (min-width: 768px) {
       width:auto
     }
   }
   &__photo {
-    overflow: hidden;
     position: relative;
     width: 100%;
-    height: 0;
-    padding: 0 0 100%;
+    height: 200px;
+    margin-bottom: -14px;
     @media screen and (min-width: 768px) {
       width:220px;
-      height: 220px
+      height: 220px;
     }
     img {
       position: absolute;
-      top: 0;
+      top: -14px;
       right: 0;
       bottom: 0;
-      left: 0;
+      left: -40px;
       z-index: 1;
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 30%;
       opacity: 1;
       -webkit-transition: opacity .3s;
       transition: opacity .3s;
@@ -119,7 +126,7 @@
   }
   &__body {
     padding: 16px;
-    height: 110px
+    height: 78px
   }
   &__name {
     overflow: hidden;
@@ -162,7 +169,7 @@
   }
   &__tax {
     font-size: 10px;
-    clear: both
+    clear: both;
   }
   &__likes {
     float: right;
@@ -183,6 +190,9 @@
     padding: 0 0 30px;
     text-align: right;
     width: 91%;
+    .a--view-all{
+      color: royalblue;
+    }
     @media screen and (min-width: 768px) {
       padding:20px 0 30px;
       width: 99.5%
