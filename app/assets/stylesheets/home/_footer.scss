@@ -15,6 +15,7 @@
     }
   }
   &__cell {
+    box-sizing: border-box;
     display: block;
     float: left;
     margin-top: 18px;
@@ -62,6 +63,7 @@
       padding: 0
     }
     @media screen and (min-width: 1068px) {
+      box-sizing: border-box;
       width: 23%;
       padding: 0 40px 0 0;
       vertical-align: top;
@@ -76,6 +78,7 @@
       }
     }
     &--inner {
+      box-sizing: border-box;
       float: left;
       padding-left: 10px;
       vertical-align: top;
@@ -97,14 +100,16 @@
   }
   &__bottom {
     margin: 50px auto 0;
+    display: flex;
     @media screen and (min-width: 768px) {
       width:700px
     }
     @media screen and (min-width: 1068px) {
       margin: 30px auto 20px;
-      width: 1020px
+      width: 1020px;
+      height: 33px;
     }
-  }
+  };
   &__logo {
     display: inline-block;
     margin-right: 10px;
