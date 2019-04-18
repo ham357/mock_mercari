@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'devise'
 gem 'active_hash'
-gem 'font-awesome-sass
+gem 'font-awesome-sass'
 
 
 group :development, :test do
