@@ -80,7 +80,6 @@ GEM
     diff-lcs (1.3)
     erb2haml (0.1.5)
       html2haml
-
     erubis (2.7.0)
     execjs (2.7.0)
     factory_bot (5.0.2)
@@ -270,10 +269,11 @@ DEPENDENCIES
   capistrano3-unicorn
   coffee-rails (~> 4.2)
   devise
+  erb2haml
   factory_bot_rails
   faker
   faker-japanese
-  erb2haml
+  font-awesome-rails
   font-awesome-sass
   gimei
   haml-rails

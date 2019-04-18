@@ -5,17 +5,17 @@ class CreateUserInfos < ActiveRecord::Migration[5.0]
       t.string      :last_name,           null:false
       t.string      :kana_first_name,     null:false
       t.string      :kana_last_name,      null:false
-      t.integer     :postal_code,         
-      t.string      :state,               
-      t.string      :city,                
-      t.string      :address,              
+      t.integer     :postal_code
+      t.string      :state
+      t.string      :city
+      t.string      :address
       t.integer     :tel_number
       t.integer     :birth_year,          null:false
       t.integer     :birth_month,         null:false
       t.integer     :birth_day,           null:false
       t.text        :profile_comment
       t.string      :user_id,             null:false
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end
