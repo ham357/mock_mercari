@@ -84,7 +84,7 @@ end
 
 10.times do |n|
 
-  image_url             = "http://placehold.it/300x200/?text=Dummy"
+  image_url          = File.open("#{Rails.root}/public/images/no_image.jpg")
   product_id         = Faker::Number.between(1, 10)
 
   ProductImage.create!(image_url: image_url,
