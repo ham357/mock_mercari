@@ -14,12 +14,12 @@ describe Product, type: :model do
       end
       
       it "商品名が39文字で登録できる" do
-        product = build(:product, name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",user_id: @user.id)
+        product = build(:product, name:  "#{'a' * 39}",user_id: @user.id)
         expect(product).to be_valid
       end
       
       it "説明文が100文字より少ない" do
-        product = build(:product, description: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",user_id: @user.id)
+        product = build(:product, description:  "#{'a' * 99}",user_id: @user.id)
         expect(product).to be_valid
       end
     end
@@ -99,7 +99,7 @@ describe Product, type: :model do
       end
       
       it "説明文が100文字より多いためエラーになる" do
-        product = build(:product, description: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",user_id: @user.id)
+        product = build(:product, description:  "#{'a' * 101}",user_id: @user.id)
         product.valid?
         expect(product.errors[:description][0]).to include("is too long")
       end
