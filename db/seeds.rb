@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-10.times do |n|
+10.times{
   nickname             = Faker::Games::Pokemon.name
   email                = Faker::Internet.email
   password = Faker::Internet.password(min_length = 6, max_length = 128)
@@ -16,9 +16,10 @@
                email: email,
                password: password,
                password_confirmation: password)
-end
 
-10.times do |n|
+}
+  
+(1..10).each do |n|
   gimei = Gimei.name
   address = Gimei.address
 
@@ -53,7 +54,7 @@ end
                     user_id: user_id)
 end
 
-10.times do |n|
+10.times{
   address = Gimei.address
   product_size   = %w[M L]  
 
@@ -80,16 +81,23 @@ end
     description: description,
     user_id: user_id,
     sold: sold)
-end
-
-10.times do |n|
-
+  }
+  
+(1..10).each do |n|
   image_url          = File.open("#{Rails.root}/public/images/no_image.jpg")
-  product_id         = Faker::Number.between(1, 10)
+  product_id         = n
 
   ProductImage.create!(image_url: image_url,
     product_id: product_id)
 end
+
+10.times{
+  image_url          = File.open("#{Rails.root}/public/images/no_image.jpg")
+  product_id         = Faker::Number.between(1, 10)
+  
+  ProductImage.create!(image_url: image_url,
+    product_id: product_id)
+}
 
 product_numbers = %w[4 6 8 10 1 3 5 7]
 user_numbers = %w[3 5 7 9 10 2 4 6]
