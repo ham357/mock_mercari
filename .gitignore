@@ -13,5 +13,10 @@
 !/log/.keep
 !/tmp/.keep
 
+# 投稿された画像
+public/uploads/*
+
 # Ignore Byebug command history file.
 .byebug_history
+
+config/secrets.yml
