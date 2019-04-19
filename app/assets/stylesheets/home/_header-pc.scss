@@ -1,5 +1,8 @@
 @import "./mixin/input-default";
+@import "./mixin/";
 .header--pc {
+  @include initialize;
+
   position: relative;
   z-index: 1001;
   background: #fff;
@@ -42,7 +45,8 @@
   }
   &__search {
     @include input-default();
-    background: #e6e6e6;
+    box-sizing: border-box;
+    background: whitesmoke;
     border-color: transparent;
     border-radius: 2px;
     padding: 0 42px 0 10px;
@@ -64,6 +68,9 @@
     color: #EA352D;
     font-size: 16px;
     margin-right: 4px
+  }
+  .header--pc__nav--box__nav{
+    margin-top: 8px;
   }
   &__nav {
     font-size: 0;
@@ -189,7 +196,8 @@
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
-          font-size: 14px
+          font-size: 14px;
+          margin-top: 8px;
         }
       }
       h3 {
@@ -269,6 +277,7 @@
   }
   &__user-wrapper {
     float: right;
+    margin-top: 8px;
   }
   &__user-nav {
     font-size: 0;

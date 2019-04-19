@@ -1,4 +1,5 @@
 .app-banner {
+
   &__container {
     background: url("../images/download_bg_pc.jpg?36968975");
     background-position: center;
@@ -39,11 +40,15 @@
       bottom: 0;
       width: 300px;
       height: 100%;
+      margin: 0;
       img {
         width: 100%
       }
     }
     &__inner {
+      h2{
+        font-weight: bold;
+      }
       position: absolute;
       top: 50%;
       left: 16px;
@@ -58,7 +63,8 @@
     @include clearfix();
     margin: 20px 0 0;
     figure {
-      float: left
+      float: left;
+      margin: 0;
     }
     ul {
       @include clearfix();

@@ -15,7 +15,7 @@ class CreateUserInfos < ActiveRecord::Migration[5.0]
       t.integer     :birth_day,           null:false
       t.text        :profile_comment
       t.string      :user_id,             null:false
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end

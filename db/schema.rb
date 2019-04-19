@@ -10,13 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20190416124854) do
+=======
+ActiveRecord::Schema.define(version: 20190415022756) do
+>>>>>>> ONAGAX/master
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
+<<<<<<< HEAD
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id", null: false
@@ -52,6 +57,8 @@ ActiveRecord::Schema.define(version: 20190416124854) do
     t.index ["name"], name: "index_products_on_name", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
+=======
+>>>>>>> ONAGAX/master
 
   create_table "user_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "first_name",                    null: false

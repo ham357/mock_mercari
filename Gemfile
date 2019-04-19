@@ -78,8 +78,11 @@ gem 'haml-rails'
 
 # Font Awesome
 gem "font-awesome-rails"
+<<<<<<< HEAD
 
 # Carrierwave
 gem 'carrierwave'
 # MiniMagick
 gem 'mini_magick'
+=======
+>>>>>>> ONAGAX/master
