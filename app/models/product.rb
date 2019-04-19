@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   validates :description, length: { maximum: 100 }
 
   has_many :product_images, dependent: :destroy
+  accepts_nested_attributes_for :product_images
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
   belongs_to :user
