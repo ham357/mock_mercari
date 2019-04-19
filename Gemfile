@@ -77,3 +77,8 @@ gem 'haml-rails'
 
 # Font Awesome
 gem "font-awesome-rails"
+
+# Carrierwave
+gem 'carrierwave'
+# MiniMagick
+gem 'mini_magick'
