@@ -52,6 +52,7 @@ group :development, :test do
   gem 'faker-japanese'
   gem 'gimei'
   gem 'takarabako'
+  gem 'rails-controller-testing'
 end
 
 group :development do
