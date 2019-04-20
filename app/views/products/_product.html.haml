@@ -1,0 +1,16 @@
+%section.items-box
+  = link_to "https://item.mercari.com/jp/m67684181775/" do
+    %figure.items-box__photo
+      = image_tag product_image(product), alt: product.name
+    .items-box__body
+      %h3.items-box__name 
+        = product.name
+      .items-box__num
+        .items-box__price 
+          = converting_to_jpy(product.price)
+        - if product.likes.count > 0
+          .items-box__likes
+            %i.fa-heart
+            %span
+              = product.likes.count
+        %p.item-box__tax (税込)
