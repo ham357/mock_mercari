@@ -38,7 +38,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'active_hash', '~>2.0.0'
 gem 'font-awesome-sass'
-
+gem 'sassc', '~>1.12.1'
 
 group :development, :test do
   gem 'capistrano'
