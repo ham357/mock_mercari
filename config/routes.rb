@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :identifacations, only: :index
   resources :user_infos
   resources :signup_sns, only: :index
+  resources :products, only: :index
 end
