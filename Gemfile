@@ -51,6 +51,8 @@ group :development, :test do
   gem 'faker'
   gem 'faker-japanese'
   gem 'gimei'
+  gem 'takarabako'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -76,3 +78,8 @@ gem 'haml-rails'
 
 # Font Awesome
 gem "font-awesome-rails"
+
+# Carrierwave
+gem 'carrierwave'
+# MiniMagick
+gem 'mini_magick'
