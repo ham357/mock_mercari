@@ -1,17 +1,21 @@
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 767px) {
   @include input--label;
   .regi__header{
     width: 100vw;
-    height: 128px;
+    height: 56px;
     text-align: center;
     &--h1{
-      width: 193px;
-      margin-top: 40px;
+      box-sizing: border-box;
+      width: 128px;
+      height: 33px;
+      margin: 11px 0 12px 0;
       display: inline-block;
       &--a{
+        width: 120px;
+        height: 33px;
         &--img{
-          width: 185px;
-          height: 49px;
+          width: 120px;
+          height: 33px;
           margin-right: 8px;
         }
       }
@@ -19,28 +23,29 @@
   }
 
   .regi__container{
-    width: 700px;
-    height: 1719px;
+    width: 100vw;
+    height: 1744px;
     margin: 0 auto;
     background-color: white;
     &__panel{
       &--head{
-        width: 668px;
-        height: 33px;
-        padding: 32px 16px;
+        box-sizing: border-box;
+        width: 100%;
+        height: 65px;
+        padding: 24px 8px;
         font-weight: bold;
-        font-size: 23px;
+        font-size: 18px;
         text-align: center;
         &--form{
           width: 100%;
           height: 1590px;
-          padding:  40px 64px 40px 64px;
+          padding:  40px;
           border-top: 1px solid $subBackColor;
           box-sizing: border-box;
           &__content{
             width: 320px;
             height: 1239px;
-            margin: 0 126px;
+            margin: 0 auto;
             &--group{
               margin-top: 30px;
               .label--default{
@@ -124,28 +129,34 @@
   }
 
   .regi__footer{
-    width: 456px;
-    height: 140px;
+    width: 100vw;
+    height: 170px;
     margin: 0 auto;
-    padding: 40px;
+    padding: 40px 0;
     &__nav{
       height: 12px;
       &--ul{
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        height: 68px;
+        width: 100%;
         &--li{
           font-size: 12px;
+          height: 12px;
+          margin:0 auto 15px auto ;
         }
       }
     }
     &--a{
-      width: 80px;
+      width: 100%;
       height: 65px;
-      margin: 40px 188px 0 188px;
+      margin: 80px auto 20px auto;
       display: block;
       &--img{
         width: 80px;
         height: 65px;
+        margin: 0 auto;
+        display: block;
       }
     }
     &--p{
