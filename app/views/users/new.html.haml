@@ -27,7 +27,7 @@
         .regi__container__panel--head--form__content--group
           %h3 本人確認
           %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-          = f.fields_for @user.build_user_info do |s|
+          = f.fields_for :user_info, @user.build_user_info do |s|
             .regi__container__panel--head--form__content--group
               = s.label "姓(全角)",class: "input--label"
               %span.require 必須

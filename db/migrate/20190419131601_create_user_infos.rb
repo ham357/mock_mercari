@@ -14,7 +14,7 @@ class CreateUserInfos < ActiveRecord::Migration[5.0]
       t.integer     :birth_month
       t.integer     :birth_day
       t.text        :profile_comment
-      t.string      :user_id,             null:false
+      t.references     :user,           foreign_key: true, null:false
 
     end
   end

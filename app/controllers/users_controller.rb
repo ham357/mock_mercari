@@ -1,16 +1,15 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class UsersController < ApplicationController
   def index
   end
 
   def new
     @user = User.new
-    @user.user.build_user_info
+    @user.build_user_info
   end
 
   def create
-    binding.pry
     @user = User.new(strong_params)
-    @user.save
+    @user.save!
     redirect_to users_path(@user)
   end
 
