@@ -1,0 +1,36 @@
+.logout__container
+    .logtous__container__content
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logtous__container__content--link"
+
+        %a "#{current_user.nickname}"
+
+    .profile__container__navi
+        %ul.profile__container__navi--list
+            -# renderで部分テンプレート 条件分岐未実装
+            = render partial: "top_tab", locals: { url:'#', contents: 'マイページ' }
+            = render partial: "tab", locals: { url:'#', contents: 'おしらせ'  }
+            = render partial: "tab", locals: { url:'#', contents: 'やることリスト'  }
+            = render partial: "tab", locals: { url:'#', contents: 'いいね！一覧'  }
+            = render partial: "tab", locals: { url:'#', contents: '出品する'  }
+            = render partial: "tab", locals: { url:'#', contents: '出品した商品 - 出品中'  }
+            = render partial: "tab", locals: { url:'#', contents: '出品した商品 - 取引中'  }
+            = render partial: "tab", locals: { url:'#', contents: '出品した商品 - 売却済み'  }
+            = render partial: "tab", locals: { url:'#', contents: '購入した商品 - 取引中'  }
+            = render partial: "tab", locals: { url:'#', contents: '購入した商品 - 過去の取引'  }
+            = render partial: "tab", locals: { url:'#', contents: 'ニュース 一覧'  }
+            = render partial: "tab", locals: { url:'#', contents: '評価一覧'  }
+            = render partial: "tab", locals: { url:'#', contents: 'ガイド'  }
+            = render partial: "tab", locals: { url:'#', contents: 'お問い合わせ'  }
+            %h3 メルペイ
+            -# .toplistで上部border-lineを消去
+            = render partial: "top_tab", locals: { url:'#', contents: '売上・振込申請' }
+            = render partial: "tab", locals: { url:'#', contents: 'ポイント' }
+            %h3 設定
+            = render partial: "active_tab", locals: { url:'#', contents: 'プロフィール' }
+            = render partial: "tab", locals: { url:'#', contents: '発送元・お届け先住所変更' }
+            = render partial: "tab", locals: { url:'#', contents: '支払い方法' }
+            = render partial: "tab", locals: { url:'#', contents: 'メール / パスワード'  }
+            = render partial: "tab", locals: { url:'#', contents: '本人情報' }
+            = render partial: "tab", locals: { url:'#', contents: '電話番号の確認' }
+            = render partial: "tab", locals: { url:'#', contents: 'ログアウト' }
+

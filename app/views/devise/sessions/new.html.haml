@@ -30,6 +30,7 @@
           .g-recaptcha{'data-callback': "clearcall", 'data-sitekey': "6LcyHZ8UAAAAAKzqYXfBLyWitD8NCgRybJuofGcz"}
           = f.submit "ログイン", type: "submit", class: "btn--default"
           %a.login__container__panel__form__inner--groups--a{href: "#"} パスワードをお忘れの方
+          = render "devise/shared/links"
 
 %footer.signup__footer
   %nav.signup__footer__nav

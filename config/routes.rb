@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   resources :card_creates, only: :index
   resources :identifacations, only: :index
   resources :signup_sns, only: :index
-  resources :users do
-    resources :mypages, only: :index
-  end
-  devise_for :users
+  devise_for :users, controllers:{
+   registrations: 'users'
+   }
+  resources :users
+  resources :mypages, only: :index
+  resources :logouts, only: :index
+
 end
