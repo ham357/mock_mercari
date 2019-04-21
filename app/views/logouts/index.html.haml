@@ -1,9 +1,8 @@
 .logout__container
-    .logtous__container__content
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logtous__container__content--link"
-
-        %a "#{current_user.nickname}"
-
+    .logout__container__content
+        .logout__container__content__inner
+        = link_to  destroy_user_session_path, method: :delete, class: "logout__container__content__inner--link" do
+            %p ログアウト
     .profile__container__navi
         %ul.profile__container__navi--list
             -# renderで部分テンプレート 条件分岐未実装
@@ -26,11 +25,11 @@
             = render partial: "top_tab", locals: { url:'#', contents: '売上・振込申請' }
             = render partial: "tab", locals: { url:'#', contents: 'ポイント' }
             %h3 設定
-            = render partial: "active_tab", locals: { url:'#', contents: 'プロフィール' }
+            = render partial: "top_tab", locals: { url:'#', contents: 'プロフィール' }
             = render partial: "tab", locals: { url:'#', contents: '発送元・お届け先住所変更' }
             = render partial: "tab", locals: { url:'#', contents: '支払い方法' }
             = render partial: "tab", locals: { url:'#', contents: 'メール / パスワード'  }
             = render partial: "tab", locals: { url:'#', contents: '本人情報' }
             = render partial: "tab", locals: { url:'#', contents: '電話番号の確認' }
-            = render partial: "tab", locals: { url:'#', contents: 'ログアウト' }
+            = render partial: "active_tab", locals: { url:'#', contents: 'ログアウト' }
 
