@@ -7,8 +7,10 @@ class User < ApplicationRecord
 
   has_one :user_info
   has_one :social_profile
+  has_one :user_image
   accepts_nested_attributes_for :user_info
   accepts_nested_attributes_for :social_profile
+  accepts_nested_attributes_for :user_image
   has_many :products, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :product
@@ -21,7 +23,7 @@ class User < ApplicationRecord
     provider = auth.provider
     socialprofile = SocialProfile.where(uid: uid, provider: provider).first
     if socialprofile.present?
-      user = User.where(id: social_profile.user_id).first
+      user = User.where(id: socialprofile.user_id).first
     else
       user = User.where(email: auth.info.email).first
       if user.present?

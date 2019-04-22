@@ -10,31 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190421161627) do
+ActiveRecord::Schema.define(version: 20190422094846) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-  end
-
-  create_table "infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "kana_first_name"
-    t.string   "kana_last_name"
-    t.integer  "postal_code"
-    t.string   "state"
-    t.string   "city"
-    t.string   "address"
-    t.integer  "tel_number"
-    t.integer  "birth_year"
-    t.integer  "birth_month"
-    t.integer  "birth_day"
-    t.text     "profile_comment", limit: 65535
-    t.integer  "user_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -75,11 +56,19 @@ ActiveRecord::Schema.define(version: 20190421161627) do
   create_table "social_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "provider",      null: false
     t.string   "uid",           null: false
-    t.string   "access_token",  null: false
+    t.string   "access_token"
     t.string   "access_secret"
     t.integer  "user_id",       null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "user_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "image_url",  limit: 65535
+    t.integer  "user_id",                  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["user_id"], name: "index_user_images_on_user_id", using: :btree
   end
 
   create_table "user_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -96,7 +85,7 @@ ActiveRecord::Schema.define(version: 20190421161627) do
     t.integer "birth_month"
     t.integer "birth_day"
     t.text    "profile_comment", limit: 65535
-    t.integer "user_id"
+    t.integer "user_id",                       null: false
     t.index ["user_id"], name: "index_user_infos_on_user_id", using: :btree
   end
 
@@ -109,10 +98,6 @@ ActiveRecord::Schema.define(version: 20190421161627) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "nickname"
-    t.string   "custmer_id"
-    t.string   "card_token"
-    t.string   "uid"
-    t.string   "provider"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -121,5 +106,6 @@ ActiveRecord::Schema.define(version: 20190421161627) do
   add_foreign_key "likes", "users"
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "users"
+  add_foreign_key "user_images", "users"
   add_foreign_key "user_infos", "users"
 end
