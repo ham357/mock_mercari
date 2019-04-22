@@ -19,8 +19,8 @@ class User < ApplicationRecord
   def self.find_oauth(auth)
     uid = auth.uid
     provider = auth.provider
-    snscredential = SocialProfile.where(uid: uid, provider: provider).first
-    if snscredential.present?
+    socialprofile = SocialProfile.where(uid: uid, provider: provider).first
+    if socialprofile.present?
       user = User.where(id: social_profile.user_id).first
     else
       user = User.where(email: auth.info.email).first
