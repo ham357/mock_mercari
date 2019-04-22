@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :identifacations, only: :index
   resources :signup_sns, only: :index
   devise_for :users, controllers:{
-   registrations: 'users'
+   registrations: 'users',
+   omniauth_callbacks: "users/omniauth_callbacks"
    }
   resources :users
   resources :mypages, only: :index

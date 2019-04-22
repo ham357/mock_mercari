@@ -10,12 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190421054351) do
+ActiveRecord::Schema.define(version: 20190421161627) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "kana_first_name"
+    t.string   "kana_last_name"
+    t.integer  "postal_code"
+    t.string   "state"
+    t.string   "city"
+    t.string   "address"
+    t.integer  "tel_number"
+    t.integer  "birth_year"
+    t.integer  "birth_month"
+    t.integer  "birth_day"
+    t.text     "profile_comment", limit: 65535
+    t.integer  "user_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -53,6 +72,16 @@ ActiveRecord::Schema.define(version: 20190421054351) do
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
+  create_table "social_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "provider",      null: false
+    t.string   "uid",           null: false
+    t.string   "access_token",  null: false
+    t.string   "access_secret"
+    t.integer  "user_id",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "user_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "first_name"
     t.string  "last_name"
@@ -67,7 +96,7 @@ ActiveRecord::Schema.define(version: 20190421054351) do
     t.integer "birth_month"
     t.integer "birth_day"
     t.text    "profile_comment", limit: 65535
-    t.integer "user_id",                       null: false
+    t.integer "user_id"
     t.index ["user_id"], name: "index_user_infos_on_user_id", using: :btree
   end
 

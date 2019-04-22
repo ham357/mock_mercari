@@ -7,16 +7,16 @@
   .login__container__panel
     .login__container__panel__no-account
       %p アカウントをお持ちでない方はこちら
-      = link_to "#", class: "login__container__panel__no-account--a" do
+      = link_to '/users/sign_up', class: "login__container__panel__no-account--a" do
         %p 新規会員登録
     .login__container__panel__inner
       .login__container__panel__inner__fb
-        = link_to "" do
+        = link_to 'user_facebook_omniauth_authorize_path' do
           .btn--default
             %i.fab.fa-facebook-square
             %p Facebookで登録
       .login__container__panel__inner__google
-        = link_to "" do
+        = link_to '/users/auth/google_oauth2' do
           .btn--default
             %i.fab.fa-google
             %p Googleで登録
@@ -30,7 +30,7 @@
           .g-recaptcha{'data-callback': "clearcall", 'data-sitekey': "6LcyHZ8UAAAAAKzqYXfBLyWitD8NCgRybJuofGcz"}
           = f.submit "ログイン", type: "submit", class: "btn--default"
           %a.login__container__panel__form__inner--groups--a{href: "#"} パスワードをお忘れの方
-          = render "devise/shared/links"
+          =render "devise/shared/links"
 
 %footer.signup__footer
   %nav.signup__footer__nav
