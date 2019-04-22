@@ -72,18 +72,18 @@ ActiveRecord::Schema.define(version: 20190422094846) do
   end
 
   create_table "user_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "first_name"
-    t.string  "last_name"
-    t.string  "kana_first_name"
-    t.string  "kana_last_name"
+    t.string  "first_name",                    null: false
+    t.string  "last_name",                     null: false
+    t.string  "kana_first_name",               null: false
+    t.string  "kana_last_name",                null: false
     t.integer "postal_code"
     t.string  "state"
     t.string  "city"
     t.string  "address"
     t.integer "tel_number"
-    t.integer "birth_year"
-    t.integer "birth_month"
-    t.integer "birth_day"
+    t.integer "birth_year",                    null: false
+    t.integer "birth_month",                   null: false
+    t.integer "birth_day",                     null: false
     t.text    "profile_comment", limit: 65535
     t.integer "user_id",                       null: false
     t.index ["user_id"], name: "index_user_infos_on_user_id", using: :btree
