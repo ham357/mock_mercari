@@ -1,7 +1,7 @@
 %header.regi__header
   %h1.regi__header--h1
     = link_to "#", class:"regi__header--a"  do
-      %img{src: "/images/logo.svg", class: "login__header--h1--a--img"}
+      = image_tag "/images/logo.svg", class: "login__header--h1--a--img"
 
 .regi__container
   .regi__container__panel
@@ -115,7 +115,7 @@
       %li.regi__footer__nav--ul--li メルカリ利用規約
       %li.regi__footer__nav--ul--li 特定商取引に関する表記
   = link_to "#", class:"regi__footer--a"  do
-    %img{ src: "/images/logo-gray.svg", class: "regi__footer--a--img"}
+    = image_tag "/images/logo-gray.svg", class: "regi__footer--a--img"
   %p.signup__footer--p
     %small © 2019 Mecrari
 
