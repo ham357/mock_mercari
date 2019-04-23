@@ -54,6 +54,7 @@ group :development, :test do
   gem 'gimei'
   gem 'takarabako'
   gem 'rails-controller-testing'
+  gem 'capybara'
 end
 
 group :development do

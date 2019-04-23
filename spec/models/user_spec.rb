@@ -3,7 +3,7 @@ require 'rails_helper'
 describe User do
   describe '#create' do
 
-    it "すべてのカラムが保存可能である" do
+    it "すべてのデータがあり、正常に登録できる" do
       user = build(:user)
       expect(user).to be_valid
     end
@@ -55,7 +55,5 @@ describe User do
       user.valid?
       expect(user.errors[:password][0]).to include("is too short")
     end
-
-
   end
 end
