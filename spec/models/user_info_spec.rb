@@ -3,92 +3,92 @@ require 'rails_helper'
 describe UserInfo do
   describe '#create' do
 
-    it "is invalid all date" do
+    it " すべてのデータがあり正常に登録できる" do
       userinfo = build(:user)
       expect(userinfo).to be_valid
     end
 
-    it "is invalid without a first_name" do
+    it "first_nameなしでは保存不可" do
       userinfo = build(:user_info, first_name: nil)
       userinfo.valid?
       expect(userinfo.errors[:first_name]).to include("can't be blank")
     end
 
-    it "is invalid with a first_name that has more than 36 characters " do
-      userinfo = build(:user_info, first_name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    it "first_nameが36文字以上だと保存不可 " do
+      userinfo = build(:user_info, first_name: "a"*36)
       userinfo.valid?
       expect(userinfo.errors[:first_name][0]).to include("is too long")
     end
 
-    it "is valid with a first_name that has less than 35 characters " do
-      userinfo = build(:user_info, first_name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    it "first_nameが35文字以下だと保存可能" do
+      userinfo = build(:user_info, first_name: "a"*35)
       expect(userinfo).to be_valid
     end
 
-    it "is invalid without a last_name" do
+    it "last_nameが空だと保存不可" do
       userinfo = build(:user_info, last_name: nil)
       userinfo.valid?
       expect(userinfo.errors[:last_name]).to include("can't be blank")
     end
 
-    it "is invalid with a last_name that has more than 36 characters " do
-      userinfo = build(:user_info, last_name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    it "last_nameが36文字以上だと保存不可" do
+      userinfo = build(:user_info, last_name: "a"*36)
       userinfo.valid?
       expect(userinfo.errors[:last_name][0]).to include("is too long")
     end
 
-    it "is valid with a last_name that has less than 35 characters " do
-      userinfo = build(:user_info, last_name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    it "last_nameが35文字以下だと保存可能" do
+      userinfo = build(:user_info, last_name: "a"*35)
       expect(userinfo).to be_valid
     end
 
-    it "is invalid without a kana_first_name" do
+    it "kana_first_nameが空だと保存不可" do
       userinfo = build(:user_info, kana_first_name: nil)
       userinfo.valid?
       expect(userinfo.errors[:kana_first_name]).to include("can't be blank")
     end
 
-    it "is invalid with a kana_first_name that has more than 36 characters " do
-      userinfo = build(:user_info, kana_first_name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    it "kana_first_nameが36文字以上だと保存不可" do
+      userinfo = build(:user_info, kana_first_name: "a"*36)
       userinfo.valid?
       expect(userinfo.errors[:kana_first_name][0]).to include("is too long")
     end
 
-    it "is valid with a kana_first_name that has less than 35 characters " do
-      userinfo = build(:user_info, kana_first_name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    it "ana_first_nameが35文字以下だと保存可能" do
+      userinfo = build(:user_info, kana_first_name: "a"*35)
       expect(userinfo).to be_valid
     end
 
-    it "is invalid without a kana_last_name" do
+    it "kana_last_nameが空だと保存不可" do
       userinfo = build(:user_info, kana_last_name: nil)
       userinfo.valid?
       expect(userinfo.errors[:kana_last_name]).to include("can't be blank")
     end
 
-    it "is invalid with a kana_last_name that has more than 36 characters " do
-      userinfo = build(:user_info, kana_last_name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    it "kana_last_nameが36文字以上だと保存不可" do
+      userinfo = build(:user_info, kana_last_name: "a"*36)
       userinfo.valid?
       expect(userinfo.errors[:kana_last_name][0]).to include("is too long")
     end
 
-    it "is valid with a kana_last_name that has less than 35 characters " do
-      userinfo = build(:user_info, kana_last_name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    it "kana_last_nameが35文字以下だと保存可能" do
+      userinfo = build(:user_info, kana_last_name: "a"*35)
       expect(userinfo).to be_valid
     end
 
-    it "is invalid without a birth_year" do
+    it "birth_yearが空だと保存不可" do
       userinfo = build(:user_info, birth_year: nil)
       userinfo.valid?
       expect(userinfo.errors[:birth_year]).to include("can't be blank")
     end
 
-    it "is invalid without a birth_month" do
+    it "birth_monthが空だと保存不可" do
       userinfo = build(:user_info, birth_month: nil)
       userinfo.valid?
       expect(userinfo.errors[:birth_month]).to include("can't be blank")
     end
 
-    it "is invalid without a birth_day" do
+    it "birth_dayが空だと保存不可" do
       userinfo = build(:user_info, birth_day: nil)
       userinfo.valid?
       expect(userinfo.errors[:birth_day]).to include("can't be blank")

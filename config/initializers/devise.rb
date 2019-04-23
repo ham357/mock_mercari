@@ -3,12 +3,18 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.omniauth :google_oauth2,
+                  ENV['GOOGLE_CLIENT_ID'],
+                  ENV['GOOGLE_CLIENT_SECRET']
+  config.omniauth :facebook,
+                  ENV['FACEBOOK_KEY'],
+                  ENV['FACEBOOK_SECRET']
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'e6667e01bd1868390a0be3ad72559d975a05948dbdfb2f72455e640de65c1b991a4629ae3308dcc256e7cb238b2451599822021889c3b8df4228b07be6e999a4'
+  # config.secret_key = '786bccfb384ebd113382db507451e22680af0bd9cf9f0bf389392860379315e86d99560cc70e2f1455a24977db281742a71dfe5e44fa3b25ba287b49aec6f37e'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -114,7 +120,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '926df53790cbdd66585f38461bd936b7c7c673ef05a528bedcc7462e06526ae4a50082e28a9d640ed9f3a5ee7e64780dd8a5bfe6810f6247b19fff411139426a'
+  # config.pepper = 'ca86ba5a11318399b9dc279a4a8f8e2caa9225f816c7272411c29599076528d1a776c572e8fb546ad76513caa63dfe38934991fbce4c40bd879105f360eeb2a0'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false

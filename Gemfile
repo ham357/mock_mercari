@@ -37,6 +37,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'devise'
 gem 'active_hash', '~>2.0.0'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'capistrano'
@@ -51,6 +54,7 @@ group :development, :test do
   gem 'gimei'
   gem 'takarabako'
   gem 'rails-controller-testing'
+  gem 'capybara'
 end
 
 group :development do
