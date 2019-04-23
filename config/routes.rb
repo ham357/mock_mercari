@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   resources :users
   resources :mypages, only: :index
   resources :logouts, only: :index
+  resources :products
 
 end
