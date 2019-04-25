@@ -1,10 +1,6 @@
-class SearchesController < ApplicationController
-  def index
-    @products = search(params[:search])
-  end
+class Search < ApplicationRecord
 
-
-  def search(keyword)
+  def self.search(keyword)
     redirect_to root_path if params[:keyword] == ""
     splitKeyword = params[:keyword].split(/[[:blank:]]+/)
 

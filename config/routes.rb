@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   resources :mypages, only: :index
   resources :logouts, only: :index
   resources :products
-  resources :searches, only: :index
+  resources :searches
 
 end

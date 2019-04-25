@@ -1,21 +1,21 @@
 %header.header--sp
   .header--sp__inner
     %h1.header--sp__logo
-      = link_to "https://www.mercari.com/jp/" do
+      = link_to "#" do
         = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3403318254", alt: "mercari"
     .header--sp__user-nav
-      = link_to "https://www.mercari.com/jp/mypage/notification/", class: 'header--sp__user-icon' do
+      = link_to "#", class: 'header--sp__user-icon' do
         %figure
           %i.fa-bell
-      = link_to "https://www.mercari.com/jp/mypage/todo/", class: 'header--sp__user-icon' do
+      = link_to "#", class: 'header--sp__user-icon' do
         %figure
           %i.fa-check
-      = link_to "https://www.mercari.com/jp/mypage/", class: 'header--sp__user-icon header--sp__user-profile' do
+      = link_to "#", class: 'header--sp__user-icon header--sp__user-profile' do
         %figure
           %div
             = image_tag "//static.mercdn.net/thumb/members/164317197.jpg?1419725926", width: "32", alt: ""
   .header--sp__search-bar
-    %form.header--sp__form{action: "https://www.mercari.com/jp/search/"}
+    %form.header--sp__form{action: "#"}
       %input.header--sp__search{name: "keyword", placeholder: "何をお探しですか？", type: "search",value: ""}/
       %i.fa-search
   %nav.header--sp__nav
@@ -28,17 +28,18 @@
 %header.header--pc
   .header--pc__inner
     %h1
-      = link_to "https://www.mercari.com/jp/" do
+      = link_to "#" do
         = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3403318254", height: "36",width: "134", alt: "mercari"
-    %form.header--pc__form{action: "https://www.mercari.com/jp/search/"}
-      %input.header--pc__search{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
-      %i.fa-search
+    = form_tag searches_path, method: :get,class: "header--pc__form" do
+      %input.header--pc__search{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}
+      = button_tag type: 'submit', class: 'header--pc__form--btn' do
+        %i.fa-search
     .header--pc__nav--box
       %nav.header--pc__nav--box__nav
         %ul.header--pc__nav
           %li
             %h2
-              = link_to "https://www.mercari.com/jp/category/", class: 'header--pc__nav--root list-parent' do
+              = link_to "#", class: 'header--pc__nav--root list-parent' do
                 %i.fa.fa-list-ul.header--pc__cat-brand-icon
                 %span カテゴリーから探す
             %ul.header--pc__nav--parent-wrap{"data-mega": "1"}

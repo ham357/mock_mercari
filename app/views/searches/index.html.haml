@@ -2,67 +2,8 @@
   .search__container__item
     %h2.search__container__item--h2
       %p.search__container__item--h2--p 検索結果 1-48件
-    .search__container__item__box
-      %section.ritems-box
-        = link_to "#" do
-          %figure.ritems-box__photo
-            = image_tag "https://static.mercdn.net/thumb/photos/m67684181775_1.jpg?1554605302", alt: "sale〜4/12 エフデ 大きいサイズ 15号 スカート"
-          .ritems-box__body
-            %h3.ritems-box__name sale〜4/12 エフデ 大きいサイズ 15号 スカート
-            .ritems-box__num
-              .ritems-box__price ¥ 7,200
-              .ritems-box__likes
-                %i.fa-heart
-                %span 2
-              %p.ritems-box__tax (税込)
-      %section.ritems-box
-        = link_to "#" do
-          %figure.ritems-box__photo
-            = image_tag "https://static.mercdn.net/thumb/photos/m67684181775_1.jpg?1554605302", alt: "sale〜4/12 エフデ 大きいサイズ 15号 スカート"
-          .ritems-box__body
-            %h3.ritems-box__name sale〜4/12 エフデ 大きいサイズ 15号 スカート
-            .ritems-box__num
-              .ritems-box__price ¥ 7,200
-              .ritems-box__likes
-                %i.fa-heart
-                %span 2
-              %p.ritems-box__tax (税込)
-      %section.ritems-box
-        = link_to "#" do
-          %figure.ritems-box__photo
-            = image_tag "https://static.mercdn.net/thumb/photos/m67684181775_1.jpg?1554605302", alt: "sale〜4/12 エフデ 大きいサイズ 15号 スカート"
-          .ritems-box__body
-            %h3.ritems-box__name sale〜4/12 エフデ 大きいサイズ 15号 スカート
-            .ritems-box__num
-              .ritems-box__price ¥ 7,200
-              .ritems-box__likes
-                %i.fa-heart
-                %span 2
-              %p.ritems-box__tax (税込)
-      %section.ritems-box
-        = link_to "#" do
-          %figure.ritems-box__photo
-            = image_tag "https://static.mercdn.net/thumb/photos/m67684181775_1.jpg?1554605302", alt: "sale〜4/12 エフデ 大きいサイズ 15号 スカート"
-          .ritems-box__body
-            %h3.ritems-box__name sale〜4/12 エフデ 大きいサイズ 15号 スカート
-            .ritems-box__num
-              .ritems-box__price ¥ 7,200
-              .ritems-box__likes
-                %i.fa-heart
-                %span 2
-              %p.ritems-box__tax (税込)
-      %section.ritems-box
-        = link_to "#" do
-          %figure.ritems-box__photo
-            = image_tag "https://static.mercdn.net/thumb/photos/m67684181775_1.jpg?1554605302", alt: "sale〜4/12 エフデ 大きいサイズ 15号 スカート"
-          .ritems-box__body
-            %h3.ritems-box__name sale〜4/12 エフデ 大きいサイズ 15号 スカート
-            .ritems-box__num
-              .ritems-box__price ¥ 7,200
-              .ritems-box__likes
-                %i.fa-heart
-                %span 2
-              %p.ritems-box__tax (税込)
+    .search__container__item__r-box
+      = render @products
   .search__container__side
     =form_for "",html: {class: "search__container__side__form"} do |f|
       .search__container__side__form__switch

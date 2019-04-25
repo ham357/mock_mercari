@@ -1,0 +1,16 @@
+%section.ritems-box
+  = link_to "#" do
+    %figure.ritems-box__photo
+      = image_tag product_image(product), alt: product.name
+    .ritems-box__body
+      %h3.ritems-box__name
+        = product.name
+      .ritems-box__num
+        .ritems-box__price
+          = converting_to_jpy(product.price)
+        - if product.likes.count > 0
+          .ritems-box__likes
+            %i.fa-heart
+            %span
+              = product.likes.count
+        %p.ritem-box__tax (税込)
