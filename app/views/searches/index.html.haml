@@ -3,122 +3,170 @@
     %h2.search__container__item--h2
       %p.search__container__item--h2--p 検索結果 1-48件
     .search__container__item__box
-      %section.search__container__item__box--section
-        =link_to "#",class: "item--box"  do
-          %figure.item--box--figure
-            = image_tag "/images/no_image.jpg",class: "item--box--figure--img"
-          .item--box--body
-            %h3.item--box--body--h3
-              最終SALEッ！！ 今大人気のパンチングマシン
-            .item--box--body--num
-              .item--box--body--num--price
-                %p ¥ 377
-              .item--box--body--num--tax
-                %p (税込み)
+      %section.ritems-box
+        = link_to "#" do
+          %figure.ritems-box__photo
+            = image_tag "https://static.mercdn.net/thumb/photos/m67684181775_1.jpg?1554605302", alt: "sale〜4/12 エフデ 大きいサイズ 15号 スカート"
+          .ritems-box__body
+            %h3.ritems-box__name sale〜4/12 エフデ 大きいサイズ 15号 スカート
+            .ritems-box__num
+              .ritems-box__price ¥ 7,200
+              .ritems-box__likes
+                %i.fa-heart
+                %span 2
+              %p.ritems-box__tax (税込)
+      %section.ritems-box
+        = link_to "#" do
+          %figure.ritems-box__photo
+            = image_tag "https://static.mercdn.net/thumb/photos/m67684181775_1.jpg?1554605302", alt: "sale〜4/12 エフデ 大きいサイズ 15号 スカート"
+          .ritems-box__body
+            %h3.ritems-box__name sale〜4/12 エフデ 大きいサイズ 15号 スカート
+            .ritems-box__num
+              .ritems-box__price ¥ 7,200
+              .ritems-box__likes
+                %i.fa-heart
+                %span 2
+              %p.ritems-box__tax (税込)
+      %section.ritems-box
+        = link_to "#" do
+          %figure.ritems-box__photo
+            = image_tag "https://static.mercdn.net/thumb/photos/m67684181775_1.jpg?1554605302", alt: "sale〜4/12 エフデ 大きいサイズ 15号 スカート"
+          .ritems-box__body
+            %h3.ritems-box__name sale〜4/12 エフデ 大きいサイズ 15号 スカート
+            .ritems-box__num
+              .ritems-box__price ¥ 7,200
+              .ritems-box__likes
+                %i.fa-heart
+                %span 2
+              %p.ritems-box__tax (税込)
+      %section.ritems-box
+        = link_to "#" do
+          %figure.ritems-box__photo
+            = image_tag "https://static.mercdn.net/thumb/photos/m67684181775_1.jpg?1554605302", alt: "sale〜4/12 エフデ 大きいサイズ 15号 スカート"
+          .ritems-box__body
+            %h3.ritems-box__name sale〜4/12 エフデ 大きいサイズ 15号 スカート
+            .ritems-box__num
+              .ritems-box__price ¥ 7,200
+              .ritems-box__likes
+                %i.fa-heart
+                %span 2
+              %p.ritems-box__tax (税込)
+      %section.ritems-box
+        = link_to "#" do
+          %figure.ritems-box__photo
+            = image_tag "https://static.mercdn.net/thumb/photos/m67684181775_1.jpg?1554605302", alt: "sale〜4/12 エフデ 大きいサイズ 15号 スカート"
+          .ritems-box__body
+            %h3.ritems-box__name sale〜4/12 エフデ 大きいサイズ 15号 スカート
+            .ritems-box__num
+              .ritems-box__price ¥ 7,200
+              .ritems-box__likes
+                %i.fa-heart
+                %span 2
+              %p.ritems-box__tax (税込)
   .search__container__side
     =form_for "",html: {class: "search__container__side__form"} do |f|
       .search__container__side__form__switch
-        .search__container__side__form__switch__wrap
+        .search__container__side__form__switch--wrap
           %select.select-default
+            %option 並び替え
+            %option{value: "price_asa"} 価格の安い順
+            %option{value: "price_desc"} 価格の高い順
+            %option{value: "created_asc"} 出品の古い順
+            %option{value: "created_desc"} 出品の新しい順
+            %option{value: "like__desc"} いいね！の多い順
           %i.fas.fa-chevron-down
       .search__container__side__form__dropdown
         %h3.search__container__side__form__dropdown--h3
           詳細検索
         .search__container__side__form__dropdown__wrap
-          = f.label "" do
+          = f.label "", class: "label--default" do
             %i.fas.fa-plus
             %span キーワードを追加する
-          = f.text_field :keyword, placeholder: '例)値下げ交渉お断り' , class: "input-default"
-        .search__container__side__form__dropdown__wrap
+          = f.text_field :keyword, placeholder: '例)値下げ交渉お断り' , class: "input--default"
+        .search__container__side__form__dropdown__wraps
           = f.label "" do
             %i.fa.fa-list-ul
             %span カテゴリーを選択する
-          %select.select-default
+          %select.select--default
+            %option すべて
           %i.fas.fa-chevron-down
         .search__container__side__form__dropdown__wrap
-          = f.label "" do
+          = f.label "" ,class: "label--default" do
             %i.fa.fa-tag
             %span ブランド名から探す
-          = f.text_field :keyword, placeholder: '例)シャネル' , class: "input-default"
-        .search__container__side__form__dropdown__wrap
-          = f.label "" do
+          = f.text_field :keyword, placeholder: '例)シャネル' , class: "input--default"
+        .search__container__side__form__dropdown__wraps
+          = f.label "",class: "label--default" do
             %i.fas.fa-text-height
             %span サイズを指定する
-          %select.select-default
+          %select.select--default
+            %option すべて
           %i.fas.fa-chevron-down
         .search__container__side__form__dropdown__price
-          = f.label "" do
+          = f.label "",class: "label--default" do
             %i.fas.fa-dollar-sign
             %span 価格
-          %select.select-default
+          %select.select--default
+            %option 選択してください
           %i.fas.fa-chevron-down
-          = f.text_field :keyword, placeholder: '¥ Min' , class: "input-default"
+          = f.text_field :keyword, placeholder: '¥ Min' , class: "input--default"
           %span ~
-          = f.text_field :keyword, placeholder: '¥ Min' , class: "input-default"
-          .search__container__side__form__dropdown__status
-            = f.label "" do
-              %i.fa.fa-star
-              %span 商品の状態
-              .checkbox-default
-                = f.check_box 'condition_all', value: "1", 'data-search': "all"
-                %i.fas.fa-check-square
-                  = f.label "すべて", for: "condition_all"
-              .checkbox-default
-                = f.check_box 'item_condition_id[1]', value: "1"
-                %i.fas.fa-check-square
-                  = f.label "新品、未使用", for: "item_condition_id[1]"
-              .checkbox-default
-                = f.check_box 'item_condition_id[2]', value: "1"
-                %i.fas.fa-check-square
-                  = f.label "未使用に近い", for: "item_condition_id[2]"
-              .checkbox-default
-                = f.check_box 'item_condition_id[3]', value: "1"
-                %i.fas.fa-check-square
-                  = f.label "目立った傷や汚れなし", for: "item_condition_id[3]"
-              .checkbox-default
-                = f.check_box 'item_condition_id[4]', value: "1"
-                %i.fas.fa-check-square
-                  = f.label "やや傷や汚れあり", for: "item_condition_id[4]"
-              .checkbox-default
-                = f.check_box 'item_condition_id[5]', value: "1"
-                %i.fas.fa-check-square
-                  = f.label "傷や汚れあり", for: "item_condition_id[5]"
-              .checkbox-default
-                = f.check_box 'item_condition_id[6]', value: "1"
-                %i.fas.fa-check-square
-                  = f.label "全体的に質が悪い", for: "item_condition_id[6]"
-          .search__container__side__form__dropdown__ship
-            = f.label "" do
-              %i.fas.fa-truck
-              %span 配送料の負担
-              .checkbox-default
-                = f.check_box 'shipping_fee_all', value: "1", 'data-search': "all"
-                %i.fas.fa-check-square
-                  = f.label "すべて", for: "shipping_fee_all"
-              .checkbox-default
-                = f.check_box 'shipping_fee_id[1]', value: "1"
-                %i.fas.fa-check-square
-                  = f.label "着払い(購入者負担", for: "shipping_fee_id_[1]"
-              .checkbox-default
-                = f.check_box 'shipping_fee_id[2]', value: "1"
-                %i.fas.fa-check-square
-                  = f.label "送料込み(出品者負担)", for: "shipping_fee_id_[2]"
-          .search__container__side__form__dropdown__ship
-            = f.label "" do
-              %i.fas.fa-shopping-cart
-              %span 販売状況
-              .checkbox-default
-                = f.check_box 'sold_all', value: "1", 'data-search': "all"
-                %i.fas.fa-check-square
-                  = f.label "すべて", for: "sold_all"
-              .checkbox-default
-                = f.check_box 'sold_false', value: "1"
-                %i.fas.fa-check-square
-                  = f.label "販売中", for: "sold_false"
-              .checkbox-default
-                = f.check_box 'sold_true', value: "1"
-                %i.fas.fa-check-square
-                  = f.label "売り切れ", for: "sold_true"
-          .search__container__side__form__dropdown__btn
-            .btn-default.btn-gray{ 'data-search': "reset"} クリア
-            = f.submit "完了", type: "submit", class: "btn-default btn-red"
+          = f.text_field :keyword, placeholder: '¥ Max' , class: "input--default"
+        .search__container__side__form__dropdown__status
+          = f.label "",class: "label--default"  do
+            %i.fa.fa-star
+            %span 商品の状態
+          .search__container__side__form__dropdown__status--checkbox
+            .checkbox-default
+              = f.check_box 'contition_all', value: "1", class: "checkbox",'data-search': "all"
+              = f.label "すべて", for: "contition_all", class: "check_box"
+            .checkbox-default
+              = f.check_box 'item_condition_id[1]', value: "1", class: "checkbox"
+              = f.label "新品、未使用", for: "item_condition_id[1]", class: "check_box"
+            .checkbox-default
+              = f.check_box 'item_condition_id[2]', value: "1", class: "check_box"
+              = f.label "未使用に近い", for: "item_condition_id[2]", class: "check_box-label"
+            .checkbox-default
+              = f.check_box 'item_condition_id[3]', value: "1", class: "check_box"
+              = f.label "目立った傷や汚れなし", for: "item_condition_id[3]", class: "check_box-label"
+            .checkbox-default
+              = f.check_box 'item_condition_id[4]', value: "1", class: "check_box"
+              = f.label "やや傷や汚れあり", for: "item_condition_id[4]", class: "check_box-label"
+            .checkbox-default
+              = f.check_box 'item_condition_id[5]', value: "1", class: "check_box"
+              = f.label "傷や汚れあり", for: "item_condition_id[5]", class: "check_box-label"
+            .checkbox-default
+              = f.check_box 'item_condition_id[6]', value: "1", class: "check_box"
+              = f.label "全体的に質が悪い", for: "item_condition_id[6]", class: "check_box-label"
+        .search__container__side__form__dropdown__ship
+          = f.label "",class: "label--default" do
+            %i.fas.fa-truck
+            %span 配送料の負担
+          .search__container__side__form__dropdown__ship--checkbox
+            .checkbox-default
+              = f.check_box 'shipping_fee_all', value: "1", 'data-search': "all"
+              = f.label "すべて", for: "shipping_fee_all"
+            .checkbox-default
+              = f.check_box 'shipping_fee_id[1]', value: "1"
+              = f.label "着払い(購入者負担", for: "shipping_fee_id_[1]"
+            .checkbox-default
+              = f.check_box 'shipping_fee_id[2]', value: "1"
+              = f.label "送料込み(出品者負担)", for: "shipping_fee_id_[2]"
+        .search__container__side__form__dropdown__sold
+          = f.label "",class: "label--default" do
+            %i.fas.fa-shopping-cart
+            %span 販売状況
+          .search__container__side__form__dropdown__sold--checkbox
+            .checkbox-default
+              = f.check_box 'sold_all', value: "1", 'data-search': "all", class: "checkbox"
+              = f.label "すべて", for: "sold_all", class: 'checkbox-label'
+            .checkbox-default
+              = f.check_box 'sold_false', value: "1"
+              = f.label "販売中", for: "sold_false"
+            .checkbox-default
+              = f.check_box 'sold_true', value: "1"
+              = f.label "売り切れ", for: "sold_true"
+        .search__container__side__form__dropdown__btn
+          .btn--default.btn-gray{ 'data-search': "reset"}
+            %p クリア
+          = f.submit "完了", type: "submit", class: "btn--default btn-red"
