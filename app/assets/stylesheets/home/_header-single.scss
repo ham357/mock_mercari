@@ -1,0 +1,36 @@
+.header--single{
+
+  text-align: center;
+    @media screen and (min-width: 768px) {
+      
+      height: 128px;
+    }
+    &__inner{
+      
+      @media screen and (min-width: 768px) {
+        
+        h1{
+          padding: 40px 0 0;
+        }
+    
+        a{  
+          display: inline-block;
+          width: 185px;
+          height: 49px;
+          line-height: 49px;
+          margin: 1px 10px 0 2px;
+        } 
+    
+        img {
+            width: 185px;
+            height: 49px;
+        }
+
+    }
+
+    // @media screen and (min-width: 1068px) {
+    // }
+    
+
+  }
+}

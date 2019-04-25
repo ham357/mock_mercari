@@ -2,12 +2,14 @@
 @import "./initialize";
 @import "./home/icons.scss";
 @import "./home/header-sp";
+@import "./home/header-single";
 @import "./home/header-pc";
 @import "./home/main-container";
 @import "./home/items_box";
 @import "./home/mypage";
 @import "./home/app-banner";
 @import "./home/footer";
+@import "./home/footer-single";
 @import "./mixin";
 @import "./mypage/valiable";
 @import "./mypage/mypage_middle";
@@ -25,5 +27,13 @@
 @import "./identifacations/identifacation_middle";
 @import "./identifacations/identifacation_small";
 @import "./identifacations/identifacation_large";
+@import "./sell/sell_middle";
+@import "./sell/sell_small";
+@import "./sell/sell_large";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+/*
+ *
+*= require dropzone/basic
+*= require dropzone/dropzone
+ */
