@@ -11,7 +11,7 @@ class SearchesController < ApplicationController
     @products = []
     splitKeyword.each do |keyword|
       next if keyword == ""
-      @products = Product.where('name Like(?)', "%#{params[:keyword]}%")
+      @products = Product.where('name Like ? OR description Like ?', "%#{params[:keyword]}%")
     end
     @products.uniq!
   end

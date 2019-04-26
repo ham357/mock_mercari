@@ -54,9 +54,10 @@
                     user_id: user_id)
 end
 
-10.times{
+100.times{
   address = Gimei.address
   product_size   = %w[M L]  
+  category   = %w[33 442 99 171]
 
   name                  = Takarabako.open
   status                = Faker::Number.within(0..5)
@@ -67,6 +68,8 @@ end
   price                 = Faker::Number.between(300, 9999999)
   size                  = product_size.sample
   description           = Faker::Lorem.sentence
+  category_id           = category.sample
+  brand_id              = Faker::Number.within(1..10)
   user_id               = Faker::Number.within(1..10)
   sold                  = Faker::Boolean.boolean
 
@@ -79,11 +82,13 @@ end
     price: price,
     size: size,
     description: description,
+    category_id: category_id,
+    brand_id: brand_id,
     user_id: user_id,
     sold: sold)
   }
   
-(1..10).each do |n|
+(1..100).each do |n|
   image_url          = File.open("#{Rails.root}/public/images/no_image.jpg")
   product_id         = n
 
