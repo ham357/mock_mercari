@@ -1,25 +1,24 @@
 .search__container__item__r-box{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   .ritems-box__price{
     font-size: 14px;
   }
   .items-box {
     position: relative;
     background: #fff;
-    margin: 0 0 20px 0;
+    float: left;
+    margin: 0 0 20px 15px;
     width: calc(50% - 30px);
     figure {
       width: 100%;
     }
     &:last-child {
       @media screen and (min-width: 768px) {
-        display:none
+        display:block;
       }
       @media screen and (min-width: 1068px) {
         display: block;
-        margin: 0 0 0 0;
       }
     }
     a {

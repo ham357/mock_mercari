@@ -1,9 +1,12 @@
 .search__container
   .search__container__item
     %h2.search__container__item--h2
-      %p.search__container__item--h2--p 検索結果 1-48件
+      %p.search__container__item--h2--p
+        検索結果 #{(@products.offset_value)+1}-#{@products.offset_value+@products.length}件
     .search__container__item__r-box
       = render @products
+    .search__container__item__pagenator
+      = paginate @products
   .search__container__side
     =form_for "",html: {class: "search__container__side__form"} do |f|
       .search__container__side__form__switch

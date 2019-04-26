@@ -1,6 +1,6 @@
 .search__container{
   width: 1020px;
-  height: 3602px;
+  height: 100%;
   padding-bottom: 40px;
   margin: 40px auto 0 auto;
   display: flex;
@@ -13,6 +13,13 @@
       font-size: 22px;
       margin-bottom: 8px;
       color: #333;
+      &--p{
+        margin-left: 20px;
+      }
+    }
+    &__pagenator{
+      width: 100%;
+      padding: 0 20px;
     }
   }
   &__side{
