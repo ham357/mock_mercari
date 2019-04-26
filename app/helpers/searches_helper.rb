@@ -1,9 +1,7 @@
-class Search < ApplicationRecord
+module SearchesHelper
 
-  def self.search(keyword)
-    redirect_to root_path if params[:keyword] == ""
+  def search(keyword)
     splitKeyword = params[:keyword].split(/[[:blank:]]+/)
-
     @products = []
     splitKeyword.each do |keyword|
       next if keyword == ""
