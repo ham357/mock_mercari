@@ -1,10 +1,14 @@
 class SearchesController < ApplicationController
-  include SearchesHelper
+  before_action :set_search
 
   def index
-    @products = search(params[:search])
     @products = @products.page(params[:page]).per(48)
   end
 
+  def set_search
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true)
+    @products = @products.page(params[:page]).per(48)
+  end
 
 end

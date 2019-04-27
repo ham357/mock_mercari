@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_search
 
   protected
 
@@ -27,4 +28,11 @@ class ApplicationController < ActionController::Base
     username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
     end
   end
+
+  def set_search
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true)
+    @products = @products.page(params[:page]).per(48)
+  end
+
 end

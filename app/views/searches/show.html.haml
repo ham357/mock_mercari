@@ -11,7 +11,7 @@
     .search__container__item__pagenator
       = paginate @products unless @products.nil?
   .search__container__side
-    = search_form_for @q, url:searches_path do |f|
+    = search_form_for(@q, action: :show,contoroller: :searches) do |f|
       .search__container__side__form__switch
         .search__container__side__form__switch--wrap
           %select.select-default
@@ -59,51 +59,51 @@
           = f.text_field :price_gt, placeholder: '¥ Min' , class: "input--default"
           %span ~
           = f.text_field :price_lt, placeholder: '¥ Max' , class: "input--default"
-        -# .search__container__side__form__dropdown__status
-        -#   = f.label "",class: "label--default"  do
-        -#     %i.fa.fa-star
-        -#     %span 商品の状態
-        -#   .search__container__side__form__dropdown__status--checkbox
-        -#     .checkbox-default
-        -#       = f.check_box 'status_eq_all', value: "0,1,2,3,4,5", class: "checkbox", checked: 'true'
-        -#       = f.label "すべて", for: "status_all", class: "check_box"
-        -#     .checkbox-default
-        -#       = f.check_box 'status_eq', value: "0", class: "checkbox"
-        -#       = f.label "新品、未使用", for: "item_condition_id[1]", class: "check_box"
-        -#     .checkbox-default
-        -#       = f.check_box 'status_eq', value: "1", class: "check_box"
-        -#       = f.label "未使用に近い", for: "item_condition_id[2]", class: "check_box-label"
-        -#     .checkbox-default
-        -#       = f.check_box 'status_eq', value: "2", class: "check_box"
-        -#       = f.label "目立った傷や汚れなし", for: "item_condition_id[3]", class: "check_box-label"
-        -#     .checkbox-default
-        -#       = f.check_box 'status_eq', value: "3", class: "check_box"
-        -#       = f.label "やや傷や汚れあり", for: "item_condition_id[4]", class: "check_box-label"
-        -#     .checkbox-default
-        -#       = f.check_box 'status_eq', value: "4", class: "check_box"
-        -#       = f.label "傷や汚れあり", for: "item_condition_id[5]", class: "check_box-label"
-        -#     .checkbox-default
-        -#       = f.check_box 'status_eq', value: "5", class: "check_box"
-        -#       = f.label "全体的に質が悪い", for: "item_condition_id[6]", class: "check_box-label"
-        -# .search__container__side__form__dropdown__ship
-        -#   = f.label "",class: "label--default" do
-        -#     %i.fas.fa-truck
-        -#     %span 配送料の負担
-        -#   .search__container__side__form__dropdown__ship--checkbox
-        -#     .checkbox-default
-        -#       = f.check_box 'shipping_fee_eq_all', value: "0,1", 'data-search': "all",checked: 'true'
-        -#       = f.label "すべて", for: "shipping_fee_all"
-        -#     .checkbox-default
-        -#       = f.check_box 'shipping_fee_eq', value: "0"
-        -#       = f.label "着払い(購入者負担", for: "shipping_fee_id_[1]"
-        -#     .checkbox-default
-        -#       = f.check_box 'shipping_fee_eq', value: "1"
-        -#       = f.label "送料込み(出品者負担)", for: "shipping_fee_id_[2]"
-        -# .search__container__side__form__dropdown__sold
-        -#   = f.label "",class: "label--default" do
-        -#     %i.fas.fa-shopping-cart
-        -#     %span 販売状況
-        -#   .search__container__side__form__dropdown__sold--checkbox
+        .search__container__side__form__dropdown__status
+          = f.label "",class: "label--default"  do
+            %i.fa.fa-star
+            %span 商品の状態
+          .search__container__side__form__dropdown__status--checkbox
+            .checkbox-default
+              = f.check_box 'status_eq', value: "", class: "checkbox"
+              = f.label "すべて", for: "status_all", class: "check_box"
+            .checkbox-default
+              = f.check_box 'status_eq', value: "0", class: "checkbox"
+              = f.label "新品、未使用", for: "item_condition_id[1]", class: "check_box"
+            .checkbox-default
+              = f.check_box 'status_eq', value: "1", class: "check_box"
+              = f.label "未使用に近い", for: "item_condition_id[2]", class: "check_box-label"
+            .checkbox-default
+              = f.check_box 'status_eq', value: "2", class: "check_box"
+              = f.label "目立った傷や汚れなし", for: "item_condition_id[3]", class: "check_box-label"
+            .checkbox-default
+              = f.check_box 'status_eq', value: "3", class: "check_box"
+              = f.label "やや傷や汚れあり", for: "item_condition_id[4]", class: "check_box-label"
+            .checkbox-default
+              = f.check_box 'status_eq', value: "4", class: "check_box"
+              = f.label "傷や汚れあり", for: "item_condition_id[5]", class: "check_box-label"
+            .checkbox-default
+              = f.check_box 'status_eq', value: "5", class: "check_box"
+              = f.label "全体的に質が悪い", for: "item_condition_id[6]", class: "check_box-label"
+        .search__container__side__form__dropdown__ship
+          = f.label "",class: "label--default" do
+            %i.fas.fa-truck
+            %span 配送料の負担
+          .search__container__side__form__dropdown__ship--checkbox
+            .checkbox-default
+              = f.check_box 'shipping_fee_eq', value: "", 'data-search': "all"
+              = f.label "すべて", for: "shipping_fee_all"
+            .checkbox-default
+              = f.check_box 'shipping_fee_eq', value: "0"
+              = f.label "着払い(購入者負担", for: "shipping_fee_id_[1]"
+            .checkbox-default
+              = f.check_box 'shipping_fee_eq', value: "1"
+              = f.label "送料込み(出品者負担)", for: "shipping_fee_id_[2]"
+        .search__container__side__form__dropdown__sold
+          = f.label "",class: "label--default" do
+            %i.fas.fa-shopping-cart
+            %span 販売状況
+          .search__container__side__form__dropdown__sold--checkbox
             -# .checkbox-default
             -#   = f.check_box 'sold_all', value: "1", 'data-search': "all", class: "checkbox"
             -#   = f.label "すべて", for: "sold_all", class: 'checkbox-label'

@@ -1,6 +1,6 @@
 module SearchesHelper
 
-  def search(keyword)
+  def header_search(keyword)
     splitKeyword = params[:keyword].split(/[[:blank:]]+/)
     @products = []
     splitKeyword.each do |keyword|
