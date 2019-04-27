@@ -34,9 +34,30 @@
           = f.label "" do
             %i.fa.fa-list-ul
             %span カテゴリーを選択する
-          %select.select--default
-            %option すべて
-          %i.fas.fa-chevron-down
+          .search__container__side__form__dropdown__wraps--select
+            %select.select--default.area1
+              %option{value: "",category_id_eq: "",selected: "true"}すべて
+              - @categories.each do |ele|
+                - next if ele.sub_subcategory_id.present?
+                - next if ele.sub_category_id.present?
+                %option{value: "#{ele.id}",category_id_eq: "#{ele.id}"}#{ele.name}
+            %i.fas.fa-chevron-down
+          .search__container__side__form__dropdown__wraps--select.area2div
+            %select.select--default.area2{disabled: "disabled"}
+              %option{value: "",category_id_eq: "",selected: "true"}すべて
+              - @categories.each do |ele|
+                - next if ele.sub_subcategory_id.present?
+                - next if ele.sub_category_id.nil?
+                %option{value: "#{ele.id}",'data-group': "#{ele.main_category_id}",'subdata-group': "#{ele.sub_category_id}",category_id_eq: "#{ele.id}"}#{ele.name}
+            %i.fas.fa-chevron-down
+          .search__container__side__form__dropdown__wraps--select.area3div
+            %select.select--default.area3{disabled: "disabled"}
+              %option{value: "",category_id_eq: "",selected: "true"}すべて
+              - @categories.each do |ele|
+                - next if ele.sub_category_id.nil?
+                - next if ele.sub_subcategory_id.nil?
+                %option{value: "#{ele.id}",'data-group': "#{ele.main_category_id}",'subdata-group': "#{ele.sub_category_id}",category_id_eq: "#{ele.id}"}#{ele.name}
+            %i.fas.fa-chevron-down
         .search__container__side__form__dropdown__wrap
           = f.label "" ,class: "label--default" do
             %i.fa.fa-tag
@@ -114,6 +135,5 @@
             -#   = f.check_box 'sold_true', value: "1"
             -#   = f.label "売り切れ", for: "sold_true"
         .search__container__side__form__dropdown__btn
-          .btn--default.btn-gray{ 'data-search': "reset"}
-            %p クリア
+          %input{ value: "クリア", type: 'reset',class: 'btn--default btn-gray'}
           = f.submit "完了", type: "submit", class: "btn--default btn-red"

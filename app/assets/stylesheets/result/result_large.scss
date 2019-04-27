@@ -93,15 +93,23 @@
         }
         &__wraps{
           margin-top: 24px;
-          position: relative;
-          .label--default{
-            font-weight: bold;
-            color: #333;
-            display: inline-block;
-            i{
-              font-size: 16px;
-              opacity: 0.8;
+          // .area2div{
+          //   display: none;
+          // }
+          // .area3div{
+          //   display: none;
+          // }
+          &--select{
+            position: relative;
+            .label--default{
+              font-weight: bold;
+              color: #333;
               display: inline-block;
+              i{
+                font-size: 16px;
+                opacity: 0.8;
+                display: inline-block;
+              }
             }
           }
           .select--default{
