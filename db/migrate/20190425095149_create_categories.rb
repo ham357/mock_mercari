@@ -5,6 +5,9 @@ class CreateCategories < ActiveRecord::Migration[5.0]
           t.integer      :main_category_id,    null:false
           t.integer      :sub_category_id
           t.integer      :sub_subcategory_id
+          t.integer      :product_size_id
+          t.boolean      :size_flag,   default: false, null: false
+          t.boolean      :brand_flag,   default: false, null: false
           t.timestamps
     end
   end

@@ -3,6 +3,7 @@ class SearchesController < ApplicationController
 
   def index
     @categories = Category.all
+    @size = ProductSize.all
     @products = @products.page(params[:page]).per(48)
 
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")

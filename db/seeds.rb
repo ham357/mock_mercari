@@ -56,7 +56,6 @@ end
 
 100.times{
   address = Gimei.address
-  product_size   = %w[M L]  
   category   = %w[33 442 99 171]
 
   name                  = Takarabako.open
@@ -65,11 +64,11 @@ end
   state                 = Faker::Number.within(0..47)
   shipping_method       = Faker::Number.within(0..3)
   shipping_day          = Faker::Number.within(0..2)
-  price                 = Faker::Number.between(300, 9999999)
-  size                  = product_size.sample
+  price                 = Faker::Number.between(300, 100000)
+  product_size_id       = product_size.sample
   description           = Faker::Lorem.sentence
   category_id           = category.sample
-  brand_id              = Faker::Number.within(1..10)
+  brand_id              = brand.sample
   user_id               = Faker::Number.within(1..10)
   sold                  = Faker::Boolean.boolean
 
@@ -80,7 +79,7 @@ end
     shipping_method: shipping_method,
     shipping_day: shipping_day,
     price: price,
-    size: size,
+    prduct_size_id: product_size.sample,
     description: description,
     category_id: category_id,
     brand_id: brand_id,
@@ -130,5 +129,12 @@ CSV.foreach('db/csv/category_data.csv', headers: true) do |row|
       main_category_id: row["main_category_id"],
       sub_category_id: row["sub_category_id"],
       sub_subcategory_id: row["sub_subcategory_id"]
+  )
+end
+
+CSV.foreach('db/csv/product_size_data.csv', headers: true) do |row|
+  ProductSize.create(
+      name: row["name"],
+      size_category_id: row["size_category_id"]
   )
 end
