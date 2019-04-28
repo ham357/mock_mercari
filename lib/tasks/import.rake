@@ -24,4 +24,4 @@ namespace :import do
       puts "raised error : unKnown attribute "
     end
   end
-end 
+end

@@ -116,3 +116,19 @@ n = 0
               user_id: user_id)
     n += 1
 end
+
+require "csv"
+
+CSV.foreach('db/csv/brand_data.csv', headers: true) do |row|
+  Brand.create(name: row['name']
+                  )
+end
+
+CSV.foreach('db/csv/category_data.csv', headers: true) do |row|
+  Category.create(
+      name: row["name"],
+      main_category_id: row["main_category_id"],
+      sub_category_id: row["sub_category_id"],
+      sub_subcategory_id: row["sub_subcategory_id"]
+  )
+end

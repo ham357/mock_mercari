@@ -62,7 +62,15 @@
           = f.label "" ,class: "label--default" do
             %i.fa.fa-tag
             %span ブランド名から探す
-          = f.text_field :brands_name_cont, placeholder: '例)シャネル' , class: "input--default"
+          = f.text_field :brands_name_cont, placeholder: '例)シャネル' , class: "input--default brand--input"
+          %ul.brand--ul{'data-search': "brand-dom"}
+            %li.brand--ul--li シャネル
+            %li.brand--ul--li ヴィトン
+            %li.brand--ul--li ヴィトン
+            %li.brand--ul--li ヴィトン
+            %li.brand--ul--li ヴィトン
+            %li.brand--ul--li ヴィトン
+            %li.brand--ul--li ヴィトン
         .search__container__side__form__dropdown__wraps
           = f.label "",class: "label--default" do
             %i.fas.fa-text-height

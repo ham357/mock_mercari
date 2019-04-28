@@ -19,16 +19,16 @@ $(function(){
     var area2 = $(".area2 option:selected").attr('subdata-group');
     var area1 = $(".area1").val()
     $(".area3").removeAttr("disabled");
-    $(".area3div").css("display", "block");
     $(".area3").find("option").each(function(index, element){
       $(element).remove();
     })
     $(".area3").html(cpArea3);
-    console.log(area2)
-    console.log(area1)
     $(".area3 option[subdata-group != "+area2+"]").remove();
     $(".area3 option[data-group != "+area1+"]").remove();
     $(".area3").prepend('<option value= "",category_id_eq= "",selected= "true">すべて</option>');
     $('.area3').val('').change();
+  });
+    $(".area2").on("click",function(){
+    $(".area3div").css("display", "block");
   });
 });
