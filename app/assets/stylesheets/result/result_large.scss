@@ -91,16 +91,13 @@
           input:focus {
               border: 1px solid skyblue;
           }
-          ::-webkit-scrollbar {
-            -webkit-appearance: none;
-            width: 7px;
-          }
           ::-webkit-scrollbar-thumb {
               border-radius: 4px;
               background-color: rgba(0,0,0,.5);
               box-shadow: 0 0 1px rgba(255,255,255,.5);
           }
           .brand--ul{
+            box-sizing: border-box;
             display:none;
             z-index: 1;
             float:left;
@@ -110,21 +107,22 @@
             width: 248px;
             max-height: 280px;
             box-shadow: 0px -1px 2px 1px lightgray;
-            border: 0.5px solid lightgray;
             list-style-type: none;
             background-color: white;
-            overflow-y: scroll;
             overflow: scroll;
             &--li{
               width: 224px;
               padding: 16px 8px;
               height: 14px;
             }
-          .brand--ul:before, .brand--ul:after{
-            content: "";
-            display: table;
-          }
-
+            &--li:hover{
+              color:white;
+              background-color: skyblue;
+            }
+            .brand--ul:before, .brand--ul:after{
+              content: "";
+              display: table;
+            }
           }
         }
         &__wraps{

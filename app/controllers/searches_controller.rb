@@ -4,7 +4,12 @@ class SearchesController < ApplicationController
   def index
     @categories = Category.all
     @products = @products.page(params[:page]).per(48)
-    @category_name
+
+    @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.html
+      format.json { render json: @brands}
+    end
   end
 
   def set_search
@@ -13,7 +18,12 @@ class SearchesController < ApplicationController
     @products = @products.page(params[:page]).per(48)
   end
 
-  def category_name(id)
-    Category.find(id).name
+  #indexが複雑になるため、この関数から飛ばしたいが上手く飛ばせない
+  def search
+    @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.html
+      format.json { render 'index', json: @brands}
+    end
   end
 end
