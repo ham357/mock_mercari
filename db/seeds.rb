@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 10.times{
   nickname             = Faker::Games::Pokemon.name
   email                = Faker::Internet.email
@@ -65,10 +64,10 @@ end
   shipping_method       = Faker::Number.within(0..3)
   shipping_day          = Faker::Number.within(0..2)
   price                 = Faker::Number.between(300, 100000)
-  product_size_id       = product_size.sample
+  product_size_id       = Faker::Number.within(1..14)
   description           = Faker::Lorem.sentence
   category_id           = category.sample
-  brand_id              = brand.sample
+  brand_id              = Faker::Number.within(1..14)
   user_id               = Faker::Number.within(1..10)
   sold                  = Faker::Boolean.boolean
 
@@ -79,7 +78,7 @@ end
     shipping_method: shipping_method,
     shipping_day: shipping_day,
     price: price,
-    prduct_size_id: product_size.sample,
+    product_size_id: product_size_id,
     description: description,
     category_id: category_id,
     brand_id: brand_id,
@@ -138,3 +137,5 @@ CSV.foreach('db/csv/product_size_data.csv', headers: true) do |row|
       size_category_id: row["size_category_id"]
   )
 end
+
+

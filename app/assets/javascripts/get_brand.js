@@ -1,3 +1,4 @@
+// SearchContorollerのindexアクション”ブランドの選択”のインクリメンタルサーチ
 $(document).on('turbolinks:load', function(){
   $('.brand--input',).on('keyup',  function(){
     var input = $.trim($(this).val());

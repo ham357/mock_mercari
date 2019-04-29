@@ -1,3 +1,4 @@
+// SearchContorollerのindexアクション”カテゴリーを選択する”の３つのドロップダウンメニュー
 $(function(){
   var cpArea2 = $(".area2").html();
   var cpArea3 = $(".area3").html();
@@ -30,5 +31,19 @@ $(function(){
   });
     $(".area2").on("click",function(){
     $(".area3div").css("display", "block");
+  });
+});
+// SearchContorollerのindexアクション”サイズを指定する”のドロップダウンメニュー及びセレクトボタン
+$(function(){
+  var cpSizeArea2 = $(".size_area2div").html();
+  $(".size_area1").change(function(){
+    var area1 = $(".size_area1").val()
+    $(".size_area2div").css("display", "block");
+    $(".size_area2div").find(".check_box2").each(function(index, element){
+      $(element).remove();
+    })
+    $(".size_area2div").html(cpSizeArea2);
+    $(".check_box [data-group != "+area1+"]").remove();
+    $(".size_area2div").prepend('<div class="checkbox-default size_area2"><input value="0", id="check_all", type="checkbox",class= "check_box><label for="0",class= "check_box">すべて</label></input></div>');
   });
 });

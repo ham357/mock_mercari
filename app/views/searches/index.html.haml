@@ -68,9 +68,18 @@
           = f.label "",class: "label--default" do
             %i.fas.fa-text-height
             %span サイズを指定する
-          %select.select--default
-            %option すべて
-          %i.fas.fa-chevron-down
+          %select.select--default.size_area1
+            %option{value: "",size: "",selected: "true"}すべて
+            - @size.each do |ele|
+              - next if ele.size_category_id.present?
+              %option{value: "#{ele.id}",size: "#{ele.id}"}#{ele.name}
+          .checkbox-show.size_area2div
+            .checkbox-default.size_area2.check_box2
+            - @size.each do |ele|
+              - next if ele.size_category_id.nil?
+              .checkbox-default.size_area2.check_box.check_box2{'data-group': "#{ele.size_category_id}"}
+                = f.check_box 'product_size_id_eq', value: "#{ele.id}",id: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.size_category_id}"
+                = f.label "#{ele.name}", for: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.size_category_id}"
         .search__container__side__form__dropdown__price
           = f.label "",class: "label--default" do
             %i.fas.fa-dollar-sign

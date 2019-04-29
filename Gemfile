@@ -57,6 +57,7 @@ group :development, :test do
   gem 'takarabako'
   gem 'rails-controller-testing'
   gem 'capybara'
+  gem 'rails-erd'
 end
 
 group :development do
