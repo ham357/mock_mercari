@@ -21,7 +21,6 @@ $(function(){
       $(element).remove();
     })
     $(".area3div").html(cpArea3);
-    $(".area3div").prepend('<div class="checkbox-default area3_1", display= "none"><input value="0", id="check_all", type="checkbox",class= "check_box check_box1"><label for="0",class= "check_box check_box1"> すべて</label></input></div>');
     $(".check_box1 [subdata-group != "+area2+"]").remove();
     $(".check_box1 [data-group != "+area1+"]").remove();
     if(area2 == undefined){
@@ -43,10 +42,13 @@ $(function(){
       $(element).remove();
     })
     $(".size_area2div").html(cpSizeArea2);
+
+    console.log(area1)
     $(".check_box2 [data-group != "+area1+"]").remove();
     $(".size_area2div").prepend('<div class="checkbox-default size_area2"><input value="", id="check_all", type="checkbox",class= "check_box", data-group= ""><label for="check_all",class= "check_box",data-group= "" > すべて</label></input></div>')
-    if(area1 == null){
-      $(".size_area2div").remove();
+    if(area1 == undefined){
+      $(".check_box2").remove();
+      $(".size_area2").remove();
     };
   });
 });
