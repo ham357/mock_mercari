@@ -2,16 +2,12 @@
 $(function(){
   var cpArea2 = $(".area2").html();
   var cpArea3 = $(".area3div").html();
+  $(".area3").remove();
   $(".area1").change(function(){
-    var area1 = $(".area1").val()
+    var area1 = $(".area1").val();
     $(".area2").removeAttr("disabled");
     $(".area2div").css("display", "block");
-    $(".area2").find(".area3_1").each(function(index, element){
-      $(element).remove();
-    })
     $(".area2").html(cpArea2);
-    $(".area2 option[data-group != "+area1+"]").remove();
-    $(".area2").prepend('<option value= "",category_id_eq= "",selected= "true">すべて</option>');
     $('.area2').val('').change();
   });
     $(".area2").on("change",function(){

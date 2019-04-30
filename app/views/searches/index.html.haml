@@ -36,14 +36,14 @@
             %span カテゴリーを選択する
           .search__container__side__form__dropdown__wraps--select
             = f.select :category_main_category_id_eq,{},{},class: "select--default area1" do
-              %option{value: "",selected: "true"}すべて
+              %option{value: "",selected: "true"} すべて
               - @categories.each do |ele|
                 - next if ele.sub_subcategory_id.present?
                 - next if ele.sub_category_id.present?
                 %option{value: "#{ele.id}"}#{ele.name}
             %i.fas.fa-chevron-down
           .search__container__side__form__dropdown__wraps--select.area2div
-            = f.select :category_sub_category_id_eq,{},{},class: "select--default area2" do
+            = f.select :category_sub_category_id_eq,{},{},class: "select--default area2",disabled: "true" do
               %option{value: "",selected: "true"}すべて
               - @categories.each do |ele|
                 - next if ele.sub_subcategory_id.present?
@@ -52,19 +52,19 @@
             %i.fas.fa-chevron-down
           .search__container__side__form__dropdown__wraps--select.area3div
             .checkbox-default.area3.check_box1
-              .checkbox-default.area3.check_box
+              .checkbox-default.area3.check_box{disabled: "true"}
               - @categories.each do |ele|
                 - next if ele.sub_category_id.nil?
                 - next if ele.sub_subcategory_id.nil?
                 .checkbox-default.area3.check_box.check_box1{'data-group': "#{ele.main_category_id}",'subdata-group': "#{ele.sub_category_id}"}
-                  = f.check_box :category_sub_subcategory_id_eq, value: "#{ele.sub_subcategory_id}",id: "#{ele.name}", class: "check_box check_box1", 'data-group': "#{ele.main_category_id}",'subdata-group': "#{ele.sub_category_id}"
+                  = f.check_box :category_sub_subcategory_id_eq_all,{id: "#{ele.name}", class: "check_box check_box1", 'data-group': "#{ele.main_category_id}",'subdata-group': "#{ele.sub_category_id}",checked: false,checked_value: "#{ele.sub_subcategory_id}", unchecked_value: ""}
                   = f.label "#{ele.name}", for: "#{ele.name}", class: "check_box check_box1", 'data-group': "#{ele.main_category_id}",'subdata-group': "#{ele.sub_category_id}"
-        -# .search__container__side__form__dropdown__wrap
-        -#   = f.label "" ,class: "label--default" do
-        -#     %i.fa.fa-tag
-        -#     %span ブランド名から探す
-        -#   = f.text_field :brand_id_band_name_cont, placeholder: '例)シャネル' , class: "input--default brand--input", value: ""
-        -#   %ul.brand--ul{'data-search': "brand-dom"}
+        .search__container__side__form__dropdown__wrap
+          = f.label "" ,class: "label--default" do
+            %i.fa.fa-tag
+            %span ブランド名から探す
+          = f.text_field :brand_name_cont, placeholder: '例)シャネル' , class: "input--default brand--input", value: ""
+          %ul.brand--ul{'data-search': "brand-dom"}
         -# .search__container__side__form__dropdown__wraps
         -#   = f.label "",class: "label--default" do
         -#     %i.fas.fa-text-height
@@ -76,11 +76,11 @@
         -#       %option{value: "#{ele.id}",size: "#{ele.id}"}#{ele.name}
         -#   %i.fas.fa-chevron-down#fa-chevron-down
         -#   .checkbox-show.size_area2div
-        -#     .checkbox-default.size_area2.check_box2
+        -#     .checkbox-default.size_area2.check_box2{disabled: "true"}
         -#     - @size.each do |ele|
         -#       - next if ele.size_category_id.nil?
         -#       .checkbox-default.size_area2.check_box.check_box2{'data-group': "#{ele.size_category_id}"}
-        -#         = f.check_box :product_size_id, value: "#{ele.id}",id: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.size_category_id}"
+        -#         = f.check_box :product_size_id_eq,{id: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.size_category_id}",checked: false},"#{ele.id}"
         -#         = f.label "#{ele.name}", for: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.size_category_id}"
         -# .search__container__side__form__dropdown__price
         -#   = f.label "",class: "label--default" do
