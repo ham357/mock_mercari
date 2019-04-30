@@ -13,11 +13,14 @@
     margin: 0 auto
   }
   ul {
-    font-size: 0
+    font-size: 0;
+    @include clearfix;
   }
   li {
     margin: 16px 0 0;
     font-size: 12px;
+    list-style: none;
+
     @media screen and (min-width: 768px) {
       display:inline-block;
       margin: 0 0 0 16px
@@ -28,7 +31,9 @@
   }
   a {
     display: block;
-    color: #333
+    color: #333;
+    list-style: none;
+
   }
   p {
     margin: 8px 0 0
@@ -41,4 +46,5 @@
     height: 65px;
     margin: 40px auto 0
   }
+
 }

@@ -80,3 +80,17 @@ i[class^='fa-'], i[class*='fa-'] {
     content: '\f099'
   }
 }
+
+.fa-chevron-down {
+  font-size: 24px;
+  &:before {
+    content: '\f078'
+  }
+}
+
+.fa-camera {
+  font-size: 24px;
+  &:before {
+    content: '\f030'
+  }
+}

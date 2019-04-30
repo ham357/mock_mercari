@@ -1,12 +1,49 @@
 .header--single{
-
   text-align: center;
+  
+  h1{
+    display: inline-block;
+    height: 33px;
+  }
+  
+  a {
+    display: inline-block;
+    width: 120px;
+    height: 33px;
+    margin: 0 8px 0 0;
+    line-height: 33px;
+  }
+  
+  img {
+    width: 120px;
+    height: 33px;
+  }
+  
+  // &__logo{
+    // }
     @media screen and (min-width: 768px) {
       
       height: 128px;
     }
     &__inner{
+      height: 56px;
+      h1{
+        display: inline-block;
+        height: 33px;
+      }
       
+      a {
+        display: inline-block;
+        width: 120px;
+        height: 33px;
+        margin: 0 8px 0 0;
+        line-height: 33px;
+      }
+      
+      img {
+        width: 120px;
+        height: 33px;
+      }
       @media screen and (min-width: 768px) {
         
         h1{
@@ -28,9 +65,13 @@
 
     }
 
-    // @media screen and (min-width: 1068px) {
-    // }
-    
+    @media screen and (max-width: 767px) {
+      h1{
+        display: inline-block;
+        margin: 11px 0 12px;
+        height: 33px;
+      }
+    }
 
   }
 }
