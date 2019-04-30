@@ -82,22 +82,22 @@
               .checkbox-default.size_area2.check_box.check_box2{'data-group': "#{ele.size_category_id}"}
                 = f.check_box :product_size_id_eq,{id: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.size_category_id}",checked: false},ele.id,nil
                 = f.label "#{ele.name}", for: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.size_category_id}"
-        -# .search__container__side__form__dropdown__price
-        -#   = f.label "",class: "label--default" do
-        -#     %i.fas.fa-dollar-sign
-        -#     %span 価格
-        -#   %select.select--default
-        -#     %option 選択してください
-        -#     %option{price_gteq: "300", price_lteq: "1000"}300 ~ 1000
-        -#     %option{price_gteq: "1000", price_lteq: "5000"}1000 ~ 5000
-        -#     %option{price_gteq: "5000", price_lteq: "10000"}5000 ~ 10000
-        -#     %option{price_gteq: "10000", price_lteq: "30000"}10000 ~ 30000
-        -#     %option{price_gteq: "50000", price_lteq: "30000"}30000 ~ 50000
-        -#     %option{price_gteq: "50000"}50000 ~
-        -#   %i.fas.fa-chevron-down
-        -#   = f.text_field :price_gt, placeholder: '¥ Min' , class: "input--default"
-        -#   %span ~
-        -#   = f.text_field :price_lt, placeholder: '¥ Max' , class: "input--default"
+        .search__container__side__form__dropdown__price
+          = f.label "",class: "label--default" do
+            %i.fas.fa-dollar-sign
+            %span 価格
+          %select.select--default.price-select
+            %option 選択してください
+            %option{id:"300-"}300 ~ 1000
+            %option{id: "1000-"}1000 ~ 5000
+            %option{id: "5000-"}5000 ~ 10000
+            %option{id: "10000-"}10000 ~ 30000
+            %option{id: "30000-"}30000 ~ 50000
+            %option{id: "50000-"}50000 ~
+          %i.fas.fa-chevron-down
+          = f.number_field :price_gteq, placeholder: '¥ Min' , class: "input--default min"
+          %span ~
+          = f.number_field :price_lteq, placeholder: '¥ Max' , class: "input--default max"
         -# .search__container__side__form__dropdown__status
         -#   = f.label "",class: "label--default"  do
         -#     %i.fa.fa-star

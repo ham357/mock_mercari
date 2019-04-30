@@ -50,4 +50,27 @@ $(function(){
       $(".size_area2").remove();
     };
   });
+  // 専用のカラムをつくるまでこれで
+  $('.price-select').change(function(){
+    var id = $('.price-select').val();
+    if (id == '300 ~ 1000'){
+      $('.min').val('300');
+      $('.max').val('1000');
+    }else if (id == '1000 ~ 5000'){
+      $('.min').val('1000');
+      $('.max').val('5000');
+    }else if (id == '5000 ~ 10000'){
+      $('.min').val('5000');
+      $('.max').val('10000');
+    }else if (id == '10000 ~ 30000'){
+      $('.min').val('10000');
+      $('.max').val('30000');
+    }else if (id == '30000 ~ 50000'){
+      $('.min').val('30000');
+      $('.max').val('50000');
+    }else if (id == '50000 ~'){
+      $('.min').val('50000');
+      $('.max').val('');
+    }
+  })
 });
