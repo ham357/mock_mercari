@@ -58,7 +58,7 @@
                 - next if ele.sub_category_id.nil?
                 - next if ele.sub_subcategory_id.nil?
                 .checkbox-default.area3.check_box.check_box1{'data-group': "#{ele.main_category_id}",'subdata-group': "#{ele.sub_category_id}"}
-                  = f.check_box :category_sub_subcategory_id_eq_all,{id: "#{ele.name}", class: "check_box check_box1", 'data-group': "#{ele.main_category_id}",'subdata-group': "#{ele.sub_category_id}",checked: false},ele.sub_subcategory_id,nil
+                  = f.check_box :category_sub_subcategory_id_eq_all_any,{id: "#{ele.name}", class: "check_box check_box1", 'data-group': "#{ele.main_category_id}",'subdata-group': "#{ele.sub_category_id}",checked: false},ele.sub_subcategory_id,nil
                   = f.label "#{ele.name}", for: "#{ele.name}", class: "check_box check_box1", 'data-group': "#{ele.main_category_id}",'subdata-group': "#{ele.sub_category_id}"
         .search__container__side__form__dropdown__wrap
           = f.label "" ,class: "label--default" do
@@ -81,7 +81,7 @@
             - @size.each do |ele|
               - next if ele.size_category_id.nil?
               .checkbox-default.size_area2.check_box.check_box2{'data-group': "#{ele.size_category_id}"}
-                = f.check_box :product_size_id_eq,{id: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.size_category_id}",checked: false},ele.id,nil
+                = f.check_box :product_size_id_eq_any,{id: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.size_category_id}",checked: false},ele.id,nil
                 = f.label "#{ele.name}", for: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.size_category_id}"
         .search__container__side__form__dropdown__price
           = f.label "",class: "label--default" do
@@ -105,27 +105,30 @@
             %span 商品の状態
           .search__container__side__form__dropdown__status--checkbox
             %label
-              %input{type: 'checkbox' } すべて
-            =f.collection_check_boxes(:status_eq_all, Status.all, :id, :name) do |b|
-              = b.label{ b.check_box + b.text }
+              %input{type: 'checkbox',class: "all_check_1" } すべて
+            =f.collection_check_boxes(:status_eq_any, Status.all, :id, :name) do |b|
+              = b.label class: "check_1" do
+                = b.check_box + b.text
         .search__container__side__form__dropdown__ship
           = f.label "",class: "label--default" do
             %i.fas.fa-truck
             %span 配送料の負担
           .search__container__side__form__dropdown__ship--checkbox
             %label
-              %input{type: 'checkbox',} すべて
-            =f.collection_check_boxes(:shipping_fee_eq_all, ShippingFee.all, :id, :name) do |b|
-              = b.label{ b.check_box + b.text }
+              %input{type: 'checkbox',class: "all_check_2"} すべて
+            =f.collection_check_boxes(:shipping_fee_eq_any, ShippingFee.all, :id, :name) do |b|
+              = b.label class: "check_2" do
+                = b.check_box + b.text
         .search__container__side__form__dropdown__sold
           = f.label "",class: "label--default" do
             %i.fas.fa-shopping-cart
             %span 販売状況
           .search__container__side__form__dropdown__sold--checkbox
             %label
-              %input{type: 'checkbox',} すべて
-            =f.collection_check_boxes(:sold_eq_all, Sold.all, :id, :name) do |b|
-              = b.label{ b.check_box + b.text }
+              %input{type: 'checkbox',class: "all_check_3"} すべて
+            =f.collection_check_boxes(:sold_eq_any, Sold.all, :id, :name) do |b|
+              = b.label class: "check_3" do
+                = b.check_box + b.text
         .search__container__side__form__dropdown__btn
           %input{ value: "クリア", type: 'reset',class: 'btn--default btn-gray'}
           = f.submit "完了", type: "submit", class: "btn--default btn-red"

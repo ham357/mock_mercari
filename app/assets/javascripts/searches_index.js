@@ -35,14 +35,11 @@ $(function(){
   $(".check_box2").remove();
   $(".size_area1").change(function(){
     var area1 = $(".size_area1 option:selected").attr('size')
-    console.log(area1)
     $(".size_area2div").css("display", "block");
     $(".size_area2div").find(".check_box2").each(function(index, element){
       $(element).remove();
     })
     $(".size_area2div").html(cpSizeArea2);
-
-    console.log(area1)
     $(".check_box2 [data-group != "+area1+"]").remove();
     $(".size_area2div").prepend('<div class="checkbox-default size_area2"><input value="", id="check_all", type="checkbox",class= "check_box", data-group= ""><label for="check_all",class= "check_box",data-group= "" > すべて</label></input></div>')
     if(area1 == undefined){
@@ -73,4 +70,32 @@ $(function(){
       $('.max').val('');
     }
   })
+  // クリアボタン
+  $(function(){
+    $(".btn-gray").on("click",function(){
+      $(".area3").remove();
+      $(".area2div").css("display", "none");
+      $(".size_area2").remove();
+      clearForm(this.form);
+
+    })
+    function clearForm(form) {
+      $(form)
+            .find("input, select, textarea")
+            .not(":button, :submit, :rest, :hidden")
+            .val("")
+            .prop("checked", false)
+            .prop("selected", false);
+    };
+  });
+
+  $('.all_check_1').on('change', function() {
+    $('.check_1').children('input').prop('checked', this.checked);
+  });
+  $('.all_check_2').on('change', function() {
+    $('.check_2').children('input').prop('checked', this.checked);
+  });
+  $('.all_check_3').on('change', function() {
+    $('.check_3').children('input').prop('checked', this.checked);
+  });
 });
