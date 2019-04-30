@@ -8,6 +8,8 @@ $(function(){
     $(".area2").removeAttr("disabled");
     $(".area2div").css("display", "block");
     $(".area2").html(cpArea2);
+    $(".area2 option[data-group != "+area1+"]").remove();
+    $(".area2").prepend('<option value= "",category_id_eq= "",selected= "true">すべて</option>');
     $('.area2').val('').change();
   });
     $(".area2").on("change",function(){
@@ -30,6 +32,7 @@ $(function(){
 // SearchContorollerのindexアクション”サイズを指定する”のドロップダウンメニュー及びセレクトボタン
 $(function(){
   var cpSizeArea2 = $(".size_area2div").html();
+  $(".check_box2").remove();
   $(".size_area1").change(function(){
     var area1 = $(".size_area1 option:selected").attr('size')
     console.log(area1)
