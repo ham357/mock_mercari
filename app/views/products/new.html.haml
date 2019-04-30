@@ -1,8 +1,8 @@
 %header.header--single
     .header--single__inner 
         %h1.header--single__logo
-        = link_to "https://www.mercari.com/jp/" do
-            = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1414406813",   alt: "mercari"
+            = link_to "https://www.mercari.com/jp/" do
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1414406813",   alt: "mercari"
 .sell__container
     .sell__container__top
         %section.sell__container__top__section
@@ -16,6 +16,7 @@
                     %p 最大10枚までアップロードできます
                     .dz-message.needsclick
                         %pre ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+                        %i.fa-camera
                     .fallback
                         = f.file_field :image_url
                 .sell__container__top__section--form--groups
@@ -41,59 +42,75 @@
                                 %span 必須
                             .sell__container__top__section--form--group--select
                                 = f.collection_select :state, @category, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                %i.fa-chevron-down
+                        -# .sell__container__top__section--form--group
+                        -#     .sell__container__top__section--form--group--head
+                        -#         = f.label :サイズ
+                        -#         %span 必須
+                        -#     .sell__container__top__section--form--group--select
+                        -#         -# - binding.pry
+                        -#         = f.collection_select :shipping_fee, ShippingFee.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
                         .sell__container__top__section--form--group
                             .sell__container__top__section--form--group--head
                                 = f.label :商品の状態
                                 %span 必須
                             .sell__container__top__section--form--group--select      
-                                = f.collection_select :state, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
-                        .sell__container__top__section--form--group
-                            .sell__container__top__section--form--group--head
-                                = f.label :カテゴリー
-                                %span 必須
-                            .sell__container__top__section--form--group--select
-                                = f.collection_select :state, Category.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
-                            .sell__container__top__section--form--group
-                                = f.label :サイズ
-                                = f.text_field :name
-                            .sell__container__top__section--form--group
-                                = f.label :ブランド
-                                = f.text_field :name
-                            .sell__container__top__section--form--group
-                                = f.label :商品の状態
-                                = f.text_field :name
+                                = f.collection_select :status, ProductStatus.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                %i.fa-chevron-down
+                        -# .sell__container__top__section--form--group
+                        -#     .sell__container__top__section--form--group--head
+                        -#         = f.label :カテゴリー
+                        -#         %span 必須
+                        -#     .sell__container__top__section--form--group--select
+                        -#         = f.collection_select :state, Category.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                        -#     .sell__container__top__section--form--group
+                        -#         = f.label :サイズ
+                        -#         = f.text_field :name
+                        -#     .sell__container__top__section--form--group
+                        -#         = f.label :ブランド
+                        -#         = f.text_field :name
+                        -#     .sell__container__top__section--form--group
+                        -#         = f.label :商品の状態
+                        -#         = f.text_field :name
                 .sell__container__top__section--form--groups
                     .sell__container__top__section--form--group--sub-head
                         = f.label :配送について
+                        = link_to "?", "https://www.mercari.com/jp/help_center/article/68/",target: "_blank", class: 'sell__container__top__section--form--group--form-question'
                     .sell__container__top__section--form--group--content
                         .sell__container__top__section--form--group
                             .sell__container__top__section--form--group--head
                                 = f.label :配送料の負担
                                 %span 必須
                             .sell__container__top__section--form--group--select
-                                = f.collection_select :state, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                -# - binding.pry
+                                = f.collection_select :shipping_fee, ShippingFee.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                %i.fa-chevron-down
                         .sell__container__top__section--form--group
                             .sell__container__top__section--form--group--head
                                 = f.label :配送の方法
                                 %span 必須
                             .sell__container__top__section--form--group--select
-                                = f.collection_select :state, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                = f.collection_select :shipping_method, ShippingMethod.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                %i.fa-chevron-down
                         .sell__container__top__section--form--group
                             .sell__container__top__section--form--group--head
                                 = f.label :発送元の地域
                                 %span 必須
                             .sell__container__top__section--form--group--select
                                 = f.collection_select :state, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                %i.fa-chevron-down
                         .sell__container__top__section--form--group
                             .sell__container__top__section--form--group--head
                                 = f.label :発送までの日数
                                 %span 必須
                             .sell__container__top__section--form--group--select
-                                = f.collection_select :state, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                = f.collection_select :shipping_day, ShippingDay.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                %i.fa-chevron-down
                 .sell__container__top__section--form--groups
                     .sell__container__top__section--form--group--sub-head
                         .sell__container__top__section--form--group--input
                             = f.label :"販売価格(300〜9,999,999)"
+                            = link_to "?", "https://www.mercari.com/jp/help_center/article/64/",target: "_blank", class: 'sell__container__top__section--form--group--form-question'
                     .sell__container__top__section--form--group--content
                         .sell__container__top__section--form--group--content--price
                             %ul.sell__container__top__section--form--group--content--price--group
@@ -136,7 +153,7 @@
                                 %button.btn--gray もどる
 %footer.single-footer
     %nav
-        %ul.clearfix
+        %ul
         %li
             %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
         %li
