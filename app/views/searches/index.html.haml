@@ -98,13 +98,15 @@
           = f.number_field :price_gteq, placeholder: '¥ Min' , class: "input--default min"
           %span ~
           = f.number_field :price_lteq, placeholder: '¥ Max' , class: "input--default max"
-        -# .search__container__side__form__dropdown__status
-        -#   = f.label "",class: "label--default"  do
-        -#     %i.fa.fa-star
-        -#     %span 商品の状態
-        -#   .search__container__side__form__dropdown__status--checkbox
-        -#     .checkbox-default
-        -#       = f.check_box 'status_eq_all', value: "0,1,2,3,4,5", class: "checkbox", checked: 'true'
+        .search__container__side__form__dropdown__status
+          = f.label "",class: "label--default"  do
+            %i.fa.fa-star
+            %span 商品の状態
+          .search__container__side__form__dropdown__status--checkbox
+            %label
+              %input{type: 'checkbox', } すべて
+            =f.collection_check_boxes(:status_eq_all, Status.all, :id, :name) do |b|
+              = b.label{ b.check_box + b.text }
         -#       = f.label "すべて", for: "status_all", class: "check_box"
         -#     .checkbox-default
         -#       = f.check_box 'status_eq', value: "0", class: "checkbox"
