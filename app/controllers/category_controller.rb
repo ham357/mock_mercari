@@ -6,11 +6,10 @@ class CategoryController < ApplicationController
         category = Category.where(id:params[:id]) 
         if category[0].sub_category_id == nil
           @categories = Category.where(main_category_id:category[0].main_category_id,sub_subcategory_id:category[0].sub_subcategory_id)
-          @product_sizes = ProductSize.where(size_category:@categories[0].size_category_id)
         else
-          @categories = Category.where(main_category_id:category[0].main_category_id,sub_category_id: category[0].sub_category_id)
-          @product_sizes = ProductSize.where(size_category:@categories[0].size_category_id)
+          @categories = Category.where(main_category_id:category[0].main_category_id,sub_category_id:category[0].sub_category_id)
         end
+        @product_sizes = ProductSize.where(size_category:@categories[0].size_category_id)
         render "products/new"
       }
     end
