@@ -15,11 +15,14 @@ $(document).on('turbolinks:load', function(){
       $('.brand--ul').find('.brand--ul--li').remove();
       $('.brand--ul').css("display", "block");
       $(data).each(function(index, brand){
-        $('.brand--ul').append('<li class= "brand--ul--li" , id= "'+brand.name+'">' + brand.name + '</li>' );
+        $('.brand--ul').append('<li class= "brand--ul--li", id= "'+ brand.id +'" , name= "'+brand.name+'">' + brand.name + '</li>' );
       })
       $('.brand--ul--li').on("click",function(){
-        var value = $(this).attr('id')
-        $('.brand--input').val(value);
+        var name = $(this).attr('name')
+        var id = $(this).attr('id')
+        console.log(id)
+        $('.brand--input').val(name);
+        $('.hidden-brand--input').val(id);
         $('.brand--ul').find('.brand--ul--li').remove();
         $('.brand--ul').css("display", "none");
       });

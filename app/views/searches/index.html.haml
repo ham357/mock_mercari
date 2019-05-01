@@ -12,25 +12,27 @@
     .search__container__item__pagenator
       = paginate @products unless @products.nil?
   .search__container__side
-    = search_form_for @q, url:searches_path do |f|
+    = form_tag('/searches', method: 'get',class:"search__container__side__form")  do
       .search__container__side__form__switch
         .search__container__side__form__switch--wrap
-          %select.select-default
-            %option 並び替え
-            %option{value: "price_asa"} 価格の安い順
-            %option{value: "price_desc"} 価格の高い順
-            %option{value: "created_asc"} 出品の古い順
-            %option{value: "created_desc"} 出品の新しい順
-            %option{value: "like__desc"} いいね！の多い順
+          = select '',:sort,{},{},class: 'select-default sort-select' do
+            %option{value: 0}並び替え
+            %option{value: 1} 価格の安い順
+            %option{value: 2} 価格の高い順
+            %option{value: 3} 出品の古い順
+            %option{value: 4} 出品の新しい順
+            %option{value: 5} いいね！の多い順
           %i.fas.fa-chevron-down
-      .search__container__side__form__dropdown
+        = submit_tag "",class:'btn-other'
+    .search__container__side__form__dropdown
+      = search_form_for @q, url:searches_path do |f|
         %h3.search__container__side__form__dropdown--h3
           詳細検索
         .search__container__side__form__dropdown__wrap
           = f.label "", class: "label--default" do
             %i.fas.fa-plus
             %span キーワードを追加する
-          = f.text_field :name_cont, placeholder: '例)値下げ交渉お断り' , class: "input--default"
+          = f.text_field :name_or_description_cont, placeholder: '例)値下げ交渉お断り' , class: "input--default"
         .search__container__side__form__dropdown__wraps
           = f.label "" do
             %i.fa.fa-list-ul
@@ -64,8 +66,9 @@
           = f.label "" ,class: "label--default" do
             %i.fa.fa-tag
             %span ブランド名から探す
-          = f.text_field :brand_name_cont, placeholder: '例)シャネル' , class: "input--default brand--input", value: ""
+          %input{type: 'text_field', placeholder: '例)シャネル' , class: "input--default brand--input", value: ""}
           %ul.brand--ul{'data-search': "brand-dom"}
+          = f.text_field :brand_id_eq ,class: 'hidden-brand--input'
         .search__container__side__form__dropdown__wraps
           = f.label "",class: "label--default" do
             %i.fas.fa-text-height

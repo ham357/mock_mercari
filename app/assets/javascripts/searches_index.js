@@ -88,7 +88,7 @@ $(function(){
             .prop("selected", false);
     };
   });
-
+    // ”すべて”チェックボックス
   $('.all_check_1').on('change', function() {
     $('.check_1').children('input').prop('checked', this.checked);
   });
@@ -97,5 +97,11 @@ $(function(){
   });
   $('.all_check_3').on('change', function() {
     $('.check_3').children('input').prop('checked', this.checked);
+  });
+
+  $(function(){
+    $(".sort-select").on("change",function(){
+      $(".search__container__side__form").submit();
+    });
   });
 });

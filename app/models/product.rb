@@ -18,4 +18,14 @@ class Product < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :category
   belongs_to_active_hash :status
+
+  scope :price_asc, -> { order(price: :asc)}
+  scope :prie_desc, -> { order(price: :desc)}
+  scope :created_at, -> { order(created_at: :asc)}
+  scope :created_at, -> { order(created_at: :desc)}
+  scope :like_desc, -> { order(like_product_id_count: :desc)}
+
+  def self.ransackable_scopes(auth_object = nil)
+    %i(price_asc)
+  end
 end

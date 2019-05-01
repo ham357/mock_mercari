@@ -31,7 +31,7 @@
       = link_to "#" do
         = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3403318254", height: "36",width: "134", alt: "mercari"
     = search_form_for @q, url:searches_path,class:'header--pc__form' do |s|
-      = s.text_field :name_cont, placeholder: '何をお探しですか？',type: "search",class: "header--pc__search"
+      = s.text_field :name_or_description_cont, placeholder: '何をお探しですか？',type: "search",class: "header--pc__search"
       = button_tag type: 'submit', class: 'header--pc__form--btn' do
         %i.fa-search
     .header--pc__nav--box
