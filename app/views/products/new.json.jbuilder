@@ -20,3 +20,12 @@ json.size_category do
     end
   end
 end
+
+json.shipping_method do
+  if @product_shipping_methods.present?
+    json.array! @product_shipping_methods do |product_shipping_method|
+      json.id                   product_shipping_method.id
+      json.name                 product_shipping_method.name
+    end
+  end
+end
