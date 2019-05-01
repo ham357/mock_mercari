@@ -57,7 +57,7 @@ $(function(){
       <label>ブランド</label>
       <span>任意</span>
       <div class="sell__container__top__section--form--group--seach">
-      <input type="serch" name="name" class="sell__container__top__section--form--group--seach--input" placeholder = "例）シャネル">
+      <input type="text" name="name" class="sell__container__top__section--form--group--seach--input" placeholder = "例）シャネル">
       </div>
       </div>
       </div>`
