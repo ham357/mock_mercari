@@ -16,15 +16,13 @@ FactoryBot.define do
     postal_code                  { Faker::Address.postcode }
     state                        {"日本"}
     city                         { gimei_state}
-    adress                       { gimei_city }
+    address                      { gimei_city }
     tel_number                   { Faker::PhoneNumber.phone_number }
     birth_year                   { Faker::Number.between(1900, 2019)}
     birth_month                  { Faker::Number.between(1, 12) }
     birth_day                    { Faker::Number.between(1, 31) }
     profile_comment              { Faker::Lorem.paragraph }
     user_id                      { Faker::Number.between(1, 30000) }
-    created_at                   { Faker::Time.between(2.days.ago, Date.today, :all) }
-    update_at                    { Faker::Time.between(2.days.ago, Date.today, :all) }
   end
 
 end
