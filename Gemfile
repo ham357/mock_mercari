@@ -36,9 +36,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'haml-rails'
 gem 'devise'
-gem 'active_hash'
-gem 'font-awesome-sass
-
+gem 'active_hash', '~>2.0.0'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'capistrano'
@@ -51,6 +52,9 @@ group :development, :test do
   gem 'faker'
   gem 'faker-japanese'
   gem 'gimei'
+  gem 'takarabako'
+  gem 'rails-controller-testing'
+  gem 'capybara'
 end
 
 group :development do
@@ -76,3 +80,11 @@ gem 'haml-rails'
 
 # Font Awesome
 gem "font-awesome-rails"
+
+# Carrierwave
+gem 'carrierwave'
+# MiniMagick
+gem 'mini_magick'
+
+# Dropzone.js
+gem 'dropzonejs-rails'

@@ -1,0 +1,171 @@
+.footer {
+  &__main {
+    padding: 0 20px 10px 20px;
+    background: #212121;
+    color: #fff;
+  }
+  &__nav {
+    @include clearfix();
+    @media screen and (min-width: 768px) {
+      width:700px;
+      margin: 0 auto
+    }
+    @media screen and (min-width: 1068px) {
+      width: 1020px
+    }
+  }
+  &__cell {
+    box-sizing: border-box;
+    display: block;
+    float: left;
+    margin-top: 18px;
+    padding-left: 10px;
+    width: 50%;
+    &--head {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 100;
+    }
+    li {
+      color: #fff;
+      margin: 14px 0 0;
+    }
+    a {
+      color: #fff;
+      font-size: 12px;
+      line-height: 1.5em;
+      display: block;
+      opacity: .7;
+    }
+    &:first-child {
+      padding: 0 10px 0 0
+    }
+    &:last-child {
+      margin-top: 35px;
+      padding: 0;
+      @media screen and (min-width: 1068px) {
+        margin-top:18px
+      }
+      @media screen and (min-width: 768px) {
+        width: auto
+      }
+      li {
+        display: inline-block;
+        padding-right: 30px;
+        @media screen and (min-width: 1068px) {
+          display:block
+        }
+      }
+    }
+    &.full-width {
+      width: 100%;
+      margin: 30px 0 0;
+      padding: 0
+    }
+    @media screen and (min-width: 1068px) {
+      box-sizing: border-box;
+      width: 23%;
+      padding: 0 40px 0 0;
+      vertical-align: top;
+      &:first-child {
+        padding: 0 20px 0 0;
+        width: 20%
+      }
+      &.full-width {
+        margin-top: 18px;
+        padding: 0 40px 0 0;
+        width: 42%
+      }
+    }
+    &--inner {
+      box-sizing: border-box;
+      float: left;
+      padding-left: 10px;
+      vertical-align: top;
+      width: 50%;
+      &:first-of-type {
+        padding: 0 10px 0 0
+      }
+    }
+  }
+  &__social-link {
+    display: inline-block;
+    a {
+      opacity: 1
+    }
+    i {
+      background: transparent;
+      margin: 16px 18px 0 0
+    }
+  }
+  &__bottom {
+    margin: 50px auto 0;
+    display: flex;
+    @media screen and (min-width: 768px) {
+      width:700px
+    }
+    @media screen and (min-width: 1068px) {
+      margin: 30px auto 20px;
+      width: 1020px;
+      height: 33px;
+    }
+  };
+  &__logo {
+    display: inline-block;
+    margin-right: 10px;
+    width: auto
+  }
+  &__copyright {
+    display: inline-block;
+    margin: 8px 0 0;
+    text-align: center;
+    vertical-align: sub;
+    small {
+      font-size: 12px
+    }
+    @media screen and (min-width: 1068px) {
+      width: 745px
+    }
+  }
+  &__address {
+    margin: 24px 0 0;
+    line-height: 1.2
+  }
+  &__sell-btn {
+    position: fixed;
+    bottom: -14px;
+    right: -14px;
+    z-index: 1000;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #ea352d;
+    color: #fff;
+    text-align: center;
+    @media screen and (min-width: 768px) {
+      bottom:32px;
+      right: 32px;
+      width: 160px;
+      height: 160px;
+      font-size: 22px
+    }
+    div {
+      margin: 14px 0 0;
+      @media screen and (min-width: 768px) {
+        margin:32px 0 0
+      }
+    }
+    &:hover {
+      opacity: 1;
+      text-decoration: none
+    }
+    .fa-camera {
+      margin: 4px 0 0;
+      font-size: 24px;
+      @media screen and (min-width: 768px) {
+        margin:8px 0 0;
+        font-size: 54px
+      }
+    }
+  }
+}

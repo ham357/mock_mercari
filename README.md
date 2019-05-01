@@ -42,7 +42,7 @@
 |postal_code|integer|null: false|
 |state|string|null: false|
 |city|string|null: false|
-|adress|string|null: false|
+|address|string|null: false|
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|inteer|null: false|

@@ -1,0 +1,73 @@
+@media screen and (min-width: 1068px){
+    .logout__container{
+        width: 1020px;
+        height: 1252px;
+        padding-bottom: 40px;
+        margin: 24px auto 0 auto;
+        display: flex;
+        align-items: stretch;
+        &__content{
+            width: 700px;
+            height:179px;
+            background-color: white;
+            box-sizing: border-box;
+            padding: 64px;
+            text-align: center;
+            order: 1;
+            &__inner{
+                &--link{
+                    p{
+                        box-sizing: border-box;
+                        width: 318px;
+                        height: 48px;
+                        color: white;
+                        background-color: crimson;
+                        text-align: center;
+                        padding: 15px 0;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+        &__navi{
+            margin-right: 40px;
+            width:280px;
+            height: 1252px;
+            order: -1;
+            &--list{
+                height: 685px;
+                h3{
+                    font-weight: bold;
+                    margin-top: 40px;
+                    margin-bottom: 8px;
+                }
+                &--item{
+                    height: 48px;
+                    background-color:  white;
+                    border-top: 1px solid $subBackColor;
+                    &--a{
+                        width:248px;
+                        height: 16px;
+                        padding: 16px;
+                        font-size: 14px;
+                        line-height: 16px;
+                        .fa-chevron-right{
+                            float: right;
+                            font-size: 17px;
+                            opacity: 0.3;
+                            position: relative;
+                            right: 0px;
+                        }
+                    }
+                }
+                .active{
+                    height: 48px;
+                    background-color: $subBackColor;
+                }
+                .toplist{
+                    border-top: 0;
+                }
+            }
+        }
+    }
+}
