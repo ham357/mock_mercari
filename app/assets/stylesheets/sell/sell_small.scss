@@ -1,518 +1,378 @@
 @media screen and (max-width: 767px) {
-    .sell__container{
-        color: #333;
-        width: 100%;
-        // height: 100%;
-        // padding-bottom: 40px;
+    .sell__container {
+      color: #333;
+      width: 100%;
+      margin: 0 auto;
+      &__top {
         margin: 0 auto;
-        &__top{
-            // width: 700px;
-            margin: 0 auto;
-            // height: 100%;
-            &__section{
-                // width: 652px;
-                // height:89px;
-                // padding: 32px 16px;
-                // border-bottom: 1px solid $subBackColor;
-                background-color: white;
-                h2{
-                    font-weight: bold;
-                    color: #333;
-                    padding: 24px 8px;
-                    font-size: 18px;
-                    line-height: 1.5;
-                    text-align: center;
+        &__section {
+          background-color: white;
+          h2 {
+            font-weight: bold;
+            color: #333;
+            padding: 24px 8px;
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: center;
+          }
+          &--form {
+            border-top: 1px solid #eee;
+            background-color: white;
+            &--uploader {
+              padding: 40px 2.5%;
+              h3 {
+                font-weight: bold;
+                margin: 0 auto
+              }
+              &--head {
+                font-size: 16px;
+                +p {
+                  margin: 7px 0 0;
+                  line-height: 1.5;
                 }
-                &--form{
-                    // width: 700px;
-                    // height: 2400px;
-                    // height: 100%;
-                    // padding: 37px 40px;
-                    border-top: 1px solid #eee;
-                    background-color: white;
-                    &--uploader{
-                        // width: 100%;
-                        padding: 40px 2.5%;
-                        h3{
-                            font-weight: bold;
-                            margin: 0 auto
-                        }
-
-                        &--head{
-                            font-size: 16px;
-                            // margin-bottom: 20px;
-                            +p{
-                                margin: 7px 0 0;
-                                line-height: 1.5;
-                            }
-                        }
-
-                    }
-                    
-                    span{
-                        background: #ea352d;
-                        margin: 0 0 0 8px;
-                        padding: 2px 4px;
-                        border-radius: 2px;
-                        color: #fff;
-                        font-size: 12px;
-                        vertical-align: top;
-                    }
-                    .dropzone {
-                        
-                        .dz-message {
-                            position: relative;
-                            // width: 439.750%;
-                            // min-height: 162px;
-                            height: 80px;
-                            background-color: #f5f5f5;;
-                            border: 1px dashed #ccc;
-                            font-size: 16px;
-                            text-align: center;
-                            // margin-left: 0;
-                            // margin: 16px auto 0;
-                            padding: 40px;
-                            
-                            pre{
-                                // padding-top: 20px;
-                                // font-weight: bold;
-                                // text-align: center;
-                                // margin: 0 auto;
-                                // font-size: 14px;
-                                // line-height: 0;
-                                display: none;
-                                position: absolute;
-                                top: 47%;
-                                left: 16px;
-                                right: 16px;
-                                text-align: center;
-                                font-size: 14px;
-                                line-height: 1.5;
-                                -webkit-transform: translate(0, -50%);
-                                transform: translate(0, -50%);
-                                pointer-events: none;
-                                white-space: pre-wrap;
-                                word-wrap: break-word;
-                            }
-
-                            .fa-camera{
-                                position: absolute;
-                                top: 50%;
-                                left: 50%;
-                                -webkit-transform: translate(-50%, -50%);
-                                transform: translate(-50%, -50%);
-                                font-size: 14px;
-                            }
-                          }
-                        }
-                    &--top{
-                        width: 572px;
-                        height: 71px;
-                        p{
-                            font-size: 14px;
-                        }
-                        &--p{
-                            height:21px;
-                            margin-top: 8px;
-                            text-align: right;
-                            a{
-                                color: dodgerblue;
-                            }
-                            a:hover {
-                                text-decoration: underline;
-                                opacity: 0.8;
-                            }
-                            i{
-                                color: dodgerblue;
-                            }
-                        }
-                    }
-                    &--group{
-                        // position: relative;
-                        margin: 40px 0 0;
-                        // height:43px;
-                        // margin-top: 40px;
-                        // width: 400px;
-                        // &:first-child {
-                        //     margin: 0;
-                        // }
-
-                        &--input{
-                            margin: 40px 0 0;
-                            // height:43px;
-                            // margin-top: 40px;
-                            // width: 400px;
-                            &:first-child {
-                                margin: 0;
-                            }
-                            .input-text{
-                                width: 507px;
-                                height: 28px;
-                                padding: 10px 16px 8px 16px;
-                                border: 1px solid $subBackColor;
-                                margin-top: 8px;
-                                outline: none;
-                                border-radius: 0.2em;
-                            }
-                            input:focus {
-                                border: 1px solid skyblue;
-                            }
-                        }
-
-                        p{
-                            margin-top:8px;
-                        }
-
-                        &--head{
-                            // float: left;
-                            // width: 200px;
-                            label{
-
-                                font-weight: bold;
-                            }
-                            span{
-                                background: #ea352d;
-                                margin: 0 0 0 8px;
-                                padding: 2px 4px;
-                                border-radius: 2px;
-                                color: #fff;
-                                font-size: 12px;
-                                vertical-align: top;
-                                font-weight: bold;
-                            }
-                            &--gray{
-                                label{
-
-                                    font-weight: bold;
-                                }
-                                span{
-                                    background: #ccc;
-                                    margin: 0 0 0 8px;
-                                    padding: 2px 4px;
-                                    border-radius: 2px;
-                                    color: #fff;
-                                    font-size: 12px;
-                                    vertical-align: top;
-                                    font-weight: bold;
-                                }
-                            }
-                        }
-
-                        &--textarea{
-                                padding: 10px;
-                                margin: 8px 0 0;
-                                width: 519px;
-                                display: block;
-                                // padding: 10px 16px 8px 16px;
-                                max-width: 100%;
-                                min-height: 104px;
-                                border: 1px solid #ccc;
-                                background: #fff;
-                                font-size: 16px;
-                                line-height: 1.5;
-                            
-                        }
-                        
-
-                        &--sub-head{
-                            //  float: left;
-                            //  width: 200px;
-                             color: #888;
-                             font-size: 14px;
-                             font-weight: bold;
-
-                             label{
-                                 display: block;
-                             }
-                        }
-
-                        &--form-question{
-                            display: inline-block;
-                            width: 14px;
-                            height: 14px;
-                            border-radius: 50%;
-                            background: #0099e8;
-                            color: #fff;
-                            line-height: 14px;
-                            font-size: 12px;
-                            text-align: center;
-                        }
-
-                        &--content{
-                            // float: right;
-                            // width: 500px;
-                            // width: 400px;
-                            margin-top: 0;
-                            
-                            @include clearfix;
-
-                            &--price{
-                                
-                                &--group{
-                                    margin: 40px 0 0;
-
-                                    .sell__container__top__section--form--group{
-                                        border-bottom: 1px solid #eee;
-                                    }
-
-                                    li:nth-child(2){
-                                        font-weight: normal;
-                                    }
-                                    
-                                    &--input-top{
-                                        clear: both;
-                                        // padding: 24px 0;
-                                        padding: 0 0 24px;;
-                                        
-                                        .sell__container__top__section--form--group--head{
-                                            float: left;
-                                            line-height: 48px;
-                                            width: 50%;
-                                            
-                                            
-                                        }
-                                        
-                                        .sell__container__top__section--form--group--text{
-                                            float: right;
-                                            // width: 50%;
-                                            font-weight: normal;
-
-                                            
-
-                                            .input-text{
-                                                margin: 0;
-                                                width: 126px;
-                                                height: 28px;
-                                                margin: 0 0 0 5px;
-                                                padding: 10px 16px 8px;
-                                                border-radius: 4px;
-                                                border: 1px solid #ccc;
-                                                background: #fff;
-                                                line-height: 1.5;
-                                                font-size: 16px;
-                                                text-align: right;
-                                            }
-                                            input:focus {
-                                                border: 1px solid skyblue;
-                                            }
-                                        }
-                                        @include clearfix();
-                                    }
-
-                                    &--input{
-                                        clear: both;
-                                        padding: 24px 0;
-                                        border-top: 1px solid #ccc;
-                                        font-weight: normal;
-                                        
-                                        
-                                        .sell__container__top__section--form--group--head{
-                                            float: left;
-                                            width: 50%;
-                                            font-weight: normal;
-                                            
-                                        }
-                                        
-                                        .sell__container__top__section--form--group--text{
-                                            float: right;
-                                        }
-                                        @include clearfix();
-                                    }
-
-                                    &--input-last{
-                                        clear: both;
-                                        padding: 24px 0;
-                                        border-top: 1px solid #ccc;
-                                        
-                                        
-                                        .sell__container__top__section--form--group--head{
-                                            float: left;
-                                            width: 50%;
-                                            font-size: 16px;
-                                            
-                                        }
-                                        
-                                        .sell__container__top__section--form--group--text{
-                                            float: right;
-                                            font-size: 34px;
-                                        }
-                                        @include clearfix();
-                                    }
-
-                                }
-
-                            }
-
-                           
-                        }
-
-                        &--select {
-                            position: relative;
-                            margin: 8px 0 0;
-                            &--box {
-                                position: relative;
-                                z-index: 2;
-                                width: 100%;
-                                height: 48px;
-                                padding: 0 16px;
-                                border-radius: 4px;
-                                border: 1px solid #ccc;
-                                background: 0;
-                                font-size: 16px;
-                                line-height: 1.5;
-                                cursor: pointer;
-                                -webkit-appearance: none;
-                                -moz-appearance: none;
-                                appearance: none;
-                            }
-                            .fa-chevron-down{
-                                position: absolute;
-                                right: 16px;
-                                top: 30%;
-                                z-index: 2;
-                                color: #888;
-                                font-size: 18px;
-                            }
-                        }
-
-
-                        &--seach--input{
-                            width: 368px;
-                            height: 48px;
-                            padding: 0 16px;
-                            border-radius: 4px;
-                            border: 1px solid #ccc;
-                            background: 0;
-                            font-size: 16px;
-                            line-height: 1.5;
-                        }
-                    }
-                    &--groups{
-                        // width: 700px;
-                        // height: auto;
-                        // overflow:
-                        padding: 40px;
-                        // height:70px;
-                        // margin-top: 40px;
-                        border-top: 1px solid #eee;  
-                        // &:after {
-                        //     @include clearfix();
-                        //   } 
-
-                        // .arbitrary{
-                        //     padding: 2px 4px 2px 4px;
-                        //     margin-left: 8px;
-                        //     color: white;
-                        //     background-color: silver;
-                        //     border-radius: 0.2em;
-                        //     font-size: 12px;
-                        //     vertical-align: 2pt;
-                        // }
-                        clear: both;
-                        @include clearfix;
-                    }
-                    //     &--wrap{
-                    //         height: 48px;
-                    //         margin-top: 8px;
-                    //         position: relative;
-                    //         .select--default{
-                    //             width: 100%;
-                    //             height: 46px;
-                    //             padding: 0 16px;
-                    //             border: 1px solid $subBackColor;
-                    //             border-radius: 0.2em;
-                    //             background: transparent;
-                    //             -webkit-appearance: none;
-                    //             outline: none;
-                    //         }
-                    //         i{
-                    //         position: absolute;
-                    //         top: 30%;
-                    //         left: 95%;
-                    //         font-size: 18px;
-                    //         color: $subBackColor;
-                    //         }
-                    //         select:focus {
-                    //             border: 1px solid skyblue;
-                    //         }
-                    //     }
-                    // }
-                    &--groupf{
-                        // height:70px;
-                        margin-top: 40px;
-                        p{
-                            margin-top:8px;
-                        }
-                        // .arbitrary{
-                        //     padding: 2px 4px 2px 4px;
-                        //     margin-left: 8px;
-                        //     color: white;
-                        //     background-color: silver;
-                        //     border-radius: 0.2em;
-                        //     font-size: 12px;
-                        //     vertical-align: 2pt;
-                        // }
-                    }
-                    &--groupb{
-                        // width: 700px;
-                        // height:43px;
-                        margin: 40px 0 0;
-                        text-align: center;
-                        button{
-                            height: 48px;
-                            border: 1px solid;
-                            // margin-top: 16px;
-                            font-size: 14px;
-                            color: white;
-                            outline: none;
-                            transition: 500ms;
-                            cursor: pointer;
-                        }
-                        .btn{
-                            &--red{
-                                background-color: crimson;
-                                width: 100%;
-                                
-                                &:active{
-                                    background-color: gray;
-                                }
-                            }
-                            
-                            &--gray{
-                                background: #aaa;
-                                width: 45%;
-                                margin: 24px auto 0;
-                                &:hover{
-                                    opacity: 1;
-                                }
-
-                            }
-                        }
-                    }
-                    &--bottom{
-                        // margin-top: 40px;
-                        // height: 21px;
-                        &--p{
-                            // width: 630px;
-                            // height:21px;
-                            margin-top: 8px;
-                            // text-align: right;
-                            font-size: 14px;
-                            line-height: 1.5;
-                            a{
-                                color: dodgerblue;
-                            }
-                            a:hover {
-                                text-decoration: underline;
-                                opacity: 0.8;
-                            }
-                            i{
-                                color: dodgerblue;
-                            }
-                        }
-                    }
-                }
+              }
             }
+            span {
+              background: #ea352d;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .dropzone {
+              .dz-message {
+                position: relative;
+                height: 80px;
+                background-color: #f5f5f5;
+                ;
+                border: 1px dashed #ccc;
+                font-size: 16px;
+                text-align: center;
+                padding: 40px;
+                pre {
+                  display: none;
+                  position: absolute;
+                  top: 47%;
+                  left: 16px;
+                  right: 16px;
+                  text-align: center;
+                  font-size: 14px;
+                  line-height: 1.5;
+                  -webkit-transform: translate(0, -50%);
+                  transform: translate(0, -50%);
+                  pointer-events: none;
+                  white-space: pre-wrap;
+                  word-wrap: break-word;
+                }
+                .fa-camera {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  -webkit-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
+                  font-size: 14px;
+                }
+              }
+            }
+            &--top {
+              width: 572px;
+              height: 71px;
+              p {
+                font-size: 14px;
+              }
+              &--p {
+                height: 21px;
+                margin-top: 8px;
+                text-align: right;
+                a {
+                  color: dodgerblue;
+                }
+                a:hover {
+                  text-decoration: underline;
+                  opacity: 0.8;
+                }
+                i {
+                  color: dodgerblue;
+                }
+              }
+            }
+            &--group {
+              margin: 40px 0 0;
+              &--input {
+                margin: 40px 0 0;
+                &:first-child {
+                  margin: 0;
+                }
+                .input-text {
+                  width: 507px;
+                  height: 28px;
+                  padding: 10px 16px 8px 16px;
+                  border: 1px solid $subBackColor;
+                  margin-top: 8px;
+                  outline: none;
+                  border-radius: 0.2em;
+                }
+                input:focus {
+                  border: 1px solid skyblue;
+                }
+              }
+              p {
+                margin-top: 8px;
+              }
+              &--head {
+                label {
+                  font-weight: bold;
+                }
+                span {
+                  background: #ea352d;
+                  margin: 0 0 0 8px;
+                  padding: 2px 4px;
+                  border-radius: 2px;
+                  color: #fff;
+                  font-size: 12px;
+                  vertical-align: top;
+                  font-weight: bold;
+                }
+                &--gray {
+                  label {
+                    font-weight: bold;
+                  }
+                  span {
+                    background: #ccc;
+                    margin: 0 0 0 8px;
+                    padding: 2px 4px;
+                    border-radius: 2px;
+                    color: #fff;
+                    font-size: 12px;
+                    vertical-align: top;
+                    font-weight: bold;
+                  }
+                }
+              }
+              &--textarea {
+                padding: 10px;
+                margin: 8px 0 0;
+                width: 519px;
+                display: block;
+                max-width: 100%;
+                min-height: 104px;
+                border: 1px solid #ccc;
+                background: #fff;
+                font-size: 16px;
+                line-height: 1.5;
+              }
+              &--sub-head {
+                color: #888;
+                font-size: 14px;
+                font-weight: bold;
+                label {
+                  display: block;
+                }
+              }
+              &--form-question {
+                display: inline-block;
+                width: 14px;
+                height: 14px;
+                border-radius: 50%;
+                background: #0099e8;
+                color: #fff;
+                line-height: 14px;
+                font-size: 12px;
+                text-align: center;
+              }
+              &--content {
+                margin-top: 0;
+                @include clearfix;
+                &--price {
+                  &--group {
+                    margin: 40px 0 0;
+                    .sell__container__top__section--form--group {
+                      border-bottom: 1px solid #eee;
+                    }
+                    li:nth-child(2) {
+                      font-weight: normal;
+                    }
+                    &--input-top {
+                      clear: both;
+                      padding: 0 0 24px;
+                      .sell__container__top__section--form--group--head {
+                        float: left;
+                        line-height: 48px;
+                        width: 50%;
+                      }
+                      .sell__container__top__section--form--group--text {
+                        float: right;
+                        font-weight: normal;
+                        .input-text {
+                          margin: 0;
+                          width: 120px;
+                          height: 28px;
+                          margin: 0 0 0 5px;
+                          padding: 10px 16px 8px;
+                          border-radius: 4px;
+                          border: 1px solid #ccc;
+                          background: #fff;
+                          line-height: 1.5;
+                          font-size: 16px;
+                          text-align: right;
+                        }
+                        input:focus {
+                          border: 1px solid skyblue;
+                        }
+                      }
+                      @include clearfix();
+                    }
+                    &--input-middle {
+                      clear: both;
+                      border-top: 1px solid #ccc;
+                      padding: 24px 0;
+                      &--head {
+                        float: left;
+                        width: 50%;
+                        font-weight: normal;
+                      }
+                      &--text {
+                        float: right;
+                        font-weight: normal;
+                      }
+                      @include clearfix();
+                    }
+                    &--input {
+                      clear: both;
+                      padding: 24px 0;
+                      border-top: 1px solid #ccc;
+                      font-weight: normal;
+                      .sell__container__top__section--form--group--head {
+                        float: left;
+                        width: 50%;
+                        font-weight: normal;
+                      }
+                      .sell__container__top__section--form--group--text {
+                        float: right;
+                      }
+                      @include clearfix();
+                    }
+                    &--input-last {
+                      clear: both;
+                      padding: 24px 0;
+                      border-top: 1px solid #ccc;
+                      .sell__container__top__section--form--group--head {
+                        float: left;
+                        width: 50%;
+                        font-size: 16px;
+                      }
+                      .sell__container__top__section--form--group--text {
+                        float: right;
+                        font-size: 34px;
+                      }
+                      @include clearfix();
+                    }
+                  }
+                }
+              }
+              &--select {
+                position: relative;
+                margin: 8px 0 0;
+                &--box {
+                  position: relative;
+                  z-index: 2;
+                  width: 100%;
+                  height: 48px;
+                  padding: 0 16px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  background: 0;
+                  font-size: 16px;
+                  line-height: 1.5;
+                  cursor: pointer;
+                  -webkit-appearance: none;
+                  -moz-appearance: none;
+                  appearance: none;
+                }
+                .fa-chevron-down {
+                  position: absolute;
+                  right: 16px;
+                  top: 30%;
+                  z-index: 2;
+                  color: #888;
+                  font-size: 18px;
+                }
+              }
+              &--seach--input {
+                width: 368px;
+                height: 48px;
+                padding: 0 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+              }
+            }
+            &--groups {
+              padding: 40px;
+              border-top: 1px solid #eee;
+              clear: both;
+              @include clearfix;
+            }
+            &--groupf {
+              margin-top: 40px;
+              p {
+                margin-top: 8px;
+              }
+            }
+            &--groupb {
+              margin: 40px 0 0;
+              text-align: center;
+              button {
+                height: 48px;
+                border: 1px solid;
+                font-size: 14px;
+                color: white;
+                outline: none;
+                transition: 500ms;
+                cursor: pointer;
+              }
+              .btn {
+                &--red {
+                  background-color: crimson;
+                  width: 100%;
+                  &:active {
+                    background-color: gray;
+                  }
+                }
+                &--gray {
+                  background: #aaa;
+                  width: 45%;
+                  margin: 24px auto 0;
+                  &:hover {
+                    opacity: 1;
+                  }
+                }
+              }
+            }
+            &--bottom {
+              &--p {
+                margin-top: 8px;
+                font-size: 14px;
+                line-height: 1.5;
+                a {
+                  color: dodgerblue;
+                }
+                a:hover {
+                  text-decoration: underline;
+                  opacity: 0.8;
+                }
+                i {
+                  color: dodgerblue;
+                }
+              }
+            }
+          }
         }
+      }
     }
-}
+  }
+  
