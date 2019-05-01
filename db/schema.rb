@@ -10,12 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190422094846) do
+ActiveRecord::Schema.define(version: 20190430110827) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_brands_on_name", using: :btree
+  end
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",                               null: false
+    t.integer  "main_category_id",                   null: false
+    t.integer  "sub_category_id"
+    t.integer  "sub_subcategory_id"
+    t.boolean  "size_flg",           default: false, null: false
+    t.integer  "size_category_id"
+    t.boolean  "brand_flg",          default: false, null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.index ["name"], name: "index_categories_on_name", using: :btree
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -35,6 +55,29 @@ ActiveRecord::Schema.define(version: 20190422094846) do
     t.index ["product_id"], name: "index_product_images_on_product_id", using: :btree
   end
 
+  create_table "product_shipping_fees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_product_shipping_fees_on_name", using: :btree
+  end
+
+  create_table "product_shipping_methods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",                  null: false
+    t.integer  "shipping_fee_category", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["name"], name: "index_product_shipping_methods_on_name", using: :btree
+  end
+
+  create_table "product_sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",          null: false
+    t.integer  "size_category", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["name"], name: "index_product_sizes_on_name", using: :btree
+  end
+
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                          null: false
     t.integer  "status",                                        null: false
@@ -45,6 +88,8 @@ ActiveRecord::Schema.define(version: 20190422094846) do
     t.integer  "price",                                         null: false
     t.string   "size"
     t.text     "description",     limit: 65535,                 null: false
+    t.integer  "category_id",                                   null: false
+    t.integer  "brand_id"
     t.integer  "user_id",                                       null: false
     t.boolean  "sold",                          default: false
     t.datetime "created_at",                                    null: false

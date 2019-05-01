@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  root 'homes#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.htm
-  resources :category, only: :inde
-
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'products#index'
+  resources :products, only: [:index, :create, :new]
+  get 'sell', to: 'products#new'
+  resources :category, only: :index
+  resources :product_shipping_methods, only: :index
+  resources :mypages, only: :index
   resources :profiles, only: :index
   resources :cards, only: :index
   resources :card_creates, only: :index
@@ -12,9 +15,5 @@ Rails.application.routes.draw do
    registrations: 'users',
    omniauth_callbacks: "users/omniauth_callbacks"
    }
-  resources :users
-  resources :mypages, only: :index
   resources :logouts, only: :index
-  resources :products
-
 end

@@ -85,3 +85,6 @@ gem "font-awesome-rails"
 gem 'carrierwave'
 # MiniMagick
 gem 'mini_magick'
+
+# Dropzone.js
+gem 'dropzonejs-rails'
