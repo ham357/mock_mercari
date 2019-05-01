@@ -98,10 +98,23 @@ $(function(){
   $('.all_check_3').on('change', function() {
     $('.check_3').children('input').prop('checked', this.checked);
   });
-
+  // ソート機能
   $(function(){
     $(".sort-select").on("change",function(){
-      $(".search__container__side__form").submit();
+      var area1 = $(".sort-select").val();
+      if(area1 == 1){
+      var url = $("#sort_1").attr('href');
+      }else if(area1 == 2){
+        var url = $("#sort_2").attr('href');
+      }else if(area1 == 3){
+        var url = $("#sort_3").attr('href');
+      }else if(area1 == 4){
+        var url = $("#sort_4").attr('href');
+      }else if(area1 == 5){
+        var url = $("#sort_5").attr('href');
+      }
+      console.log(url)
+      window.location.href = url;
     });
   });
 });

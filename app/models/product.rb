@@ -25,7 +25,9 @@ class Product < ApplicationRecord
   scope :created_at, -> { order(created_at: :desc)}
   scope :like_desc, -> { order(like_product_id_count: :desc)}
 
+  private
+
   def self.ransackable_scopes(auth_object = nil)
-    %i(price_asc)
+    %i(price_asc prie_desc)
   end
 end

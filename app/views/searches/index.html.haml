@@ -132,6 +132,12 @@
             =f.collection_check_boxes(:sold_eq_any, Sold.all, :id, :name) do |b|
               = b.label class: "check_3" do
                 = b.check_box + b.text
+        .search__container__side__form__dropdown__sortlinkc
+          = sort_link @q, :price, [:price, 'price asc'],{},id: 'sort_1'
+          = sort_link @q, :price, [:price, 'price desc'],{},id: 'sort_2'
+          = sort_link @q, :crea3ed_at, [:created_at, 'created_at desc'],{},id: 'sort_3'
+          = sort_link @q, :created_at, [:created_at, 'created_at asc'],{},id: 'sort_4'
+          = sort_link @q, :like, [:like_product_id_count, 'like_product_id_count desc'],{},id: 'sort_5'
         .search__container__side__form__dropdown__btn
           %input{ value: "クリア", type: 'reset',class: 'btn--default btn-gray'}
           = f.submit "完了", type: "submit", class: "btn--default btn-red"
