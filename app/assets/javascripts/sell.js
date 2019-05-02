@@ -58,6 +58,8 @@ $(function(){
       <span>任意</span>
       <div class="sell__container__top__section--form--group--seach">
       <input type="text" name="name" class="sell__container__top__section--form--group--seach--input" placeholder = "例）シャネル">
+      <div class="sell__container__top__section--form--group--seach--result">
+      </div>
       </div>
       </div>
       </div>`
