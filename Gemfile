@@ -40,6 +40,8 @@ gem 'active_hash', '~>2.0.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'kaminari', '~> 0.17.0'
+gem 'ransack'
 
 group :development, :test do
   gem 'capistrano'
@@ -55,6 +57,7 @@ group :development, :test do
   gem 'takarabako'
   gem 'rails-controller-testing'
   gem 'capybara'
+  gem 'rails-erd'
 end
 
 group :development do

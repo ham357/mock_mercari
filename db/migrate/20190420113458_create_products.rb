@@ -8,7 +8,6 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.integer     :shipping_method,      null:false
       t.integer     :shipping_day,      null:false
       t.integer      :price,      null:false
-      t.string      :size
       t.text      :description,      null:false
       t.references     :user,           foreign_key: true, null:false
       t.boolean     :sold,           default: false

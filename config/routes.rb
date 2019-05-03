@@ -16,4 +16,6 @@ Rails.application.routes.draw do
    omniauth_callbacks: "users/omniauth_callbacks"
    }
   resources :logouts, only: :index
+  resources :products
+  resources :searches
 end
