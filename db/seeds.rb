@@ -53,8 +53,11 @@
                     user_id: user_id)
 end
 
-100.times{
-  category = %w[33 442 99 171]
+
+10.times{
+  address = Gimei.address
+  product_size   = %w[M L]  
+  category   = %w[33 442 99 171]
 
   name                  = Takarabako.open
   status                = Faker::Number.within(0..5)
@@ -67,6 +70,7 @@ end
   description           = Faker::Lorem.sentence
   category_id           = category.sample
   brand_id              = Faker::Number.within(1..14)
+  brand_id              = Faker::Number.within(1..10)
   user_id               = Faker::Number.within(1..10)
   sold                  = Faker::Boolean.boolean
 
