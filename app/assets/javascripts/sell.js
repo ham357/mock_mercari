@@ -5,7 +5,7 @@ $(function(){
   function buildCategorySelectBox(categories,category_element) {
     
     var html = `<div class= "sell__container__top__section--form--group--select">
-    <select class="sell__container__top__section--form--group--select--box">
+    <select class="sell__container__top__section--form--group--select--box" name="product[category_id]">
       <option value="">---</option>`
 
       $.each( categories , function(index, category) {
@@ -30,7 +30,7 @@ $(function(){
       <label>サイズ</label>
       <span>必須</span>
       <div class= "sell__container__top__section--form--group--select">
-    <select class="sell__container__top__section--form--group--select--box">
+    <select class="sell__container__top__section--form--group--select--box" name="product[size]">
       <option value="">---</option>`
 
       $.each( product_sizes , function(index, product_size) {
@@ -57,7 +57,7 @@ $(function(){
       <label>ブランド</label>
       <span>任意</span>
       <div class="sell__container__top__section--form--group--seach">
-      <input type="text" name="name" class="sell__container__top__section--form--group--seach--input" placeholder = "例）シャネル">
+      <input type="text" name="product[brand_id]" class="sell__container__top__section--form--group--seach--input" placeholder = "例）シャネル">
       <div class="sell__container__top__section--form--group--seach--result">
       </div>
       </div>
@@ -75,7 +75,7 @@ $(function(){
       <label>配送方法の負担</label>
       <span>必須</span>
       <div class= "sell__container__top__section--form--group--select">
-    <select class="sell__container__top__section--form--group--select--box">
+    <select class="sell__container__top__section--form--group--select--box" name="product[shipping_method]">
       <option value="">---</option>`
 
       $.each( product_shipping_methods , function(index, product_shipping_method) {
