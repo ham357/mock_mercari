@@ -32,13 +32,13 @@
           = f.label "", class: "label--default" do
             %i.fas.fa-plus
             %span キーワードを追加する
-          = f.text_field :name_or_description_cont, placeholder: '例)値下げ交渉お断り' , class: "input--default", id: "keyword_search"
+          = f.text_field :name_or_description_cont, placeholder: '例)値下げ交渉お断り' , class: "input--default"
         .search__container__side__form__dropdown__wraps
           = f.label "" do
             %i.fa.fa-list-ul
             %span カテゴリーを選択する
           .search__container__side__form__dropdown__wraps--select
-            = f.select :category_main_category_id_eq,{},{},class: "select--default area1",id:'category_select' do
+            = f.select :category_main_category_id_eq,{},{},class: "select--default area1" do
               %option{value: "",selected: "true"} すべて
               - @categories.each do |ele|
                 - next if ele.sub_subcategory_id.present?

@@ -54,7 +54,7 @@
 end
 
 
-10.times{
+100.times{
   address = Gimei.address
   product_size   = %w[M L]  
   category   = %w[33 442 99 171]
@@ -98,7 +98,7 @@ end
     product_id: product_id)
 end
 
-10.times{
+100.times{
   image_url          = File.open("#{Rails.root}/public/images/no_image.jpg")
   product_id         = Faker::Number.between(1, 10)
   

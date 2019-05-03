@@ -16,6 +16,7 @@ class SearchesController < ApplicationController
   def set_search
     @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true)
+    @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
 end
