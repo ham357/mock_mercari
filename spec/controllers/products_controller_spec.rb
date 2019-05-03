@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe ProductsController, type: :controller do  
+describe ProductsController, type: :controller do
   describe 'GET #index' do
     it "インスタンス変数の値が正常" do
       products = create_list(:product, 3)

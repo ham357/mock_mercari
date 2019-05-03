@@ -10,24 +10,8 @@ class Product < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   belongs_to :user
 
-  has_many :product_sizes
-  has_many :categories
-  has_many :brands
-
+  has_one :product_size
+  has_one :category
+  has_one :brand
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :prefecture
-  belongs_to_active_hash :category
-  belongs_to_active_hash :status
-
-  scope :price_asc, -> { order(price: :asc)}
-  scope :prie_desc, -> { order(price: :desc)}
-  scope :created_at, -> { order(created_at: :asc)}
-  scope :created_at, -> { order(created_at: :desc)}
-  scope :like_desc, -> { order(like_product_id_count: :desc)}
-
-  private
-
-  def self.ransackable_scopes(auth_object = nil)
-    %i(price_asc prie_desc)
-  end
 end

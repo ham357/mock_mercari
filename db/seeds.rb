@@ -54,8 +54,7 @@
 end
 
 100.times{
-  address = Gimei.address
-  category   = %w[33 442 99 171]
+  category = %w[33 442 99 171]
 
   name                  = Takarabako.open
   status                = Faker::Number.within(0..5)
@@ -64,14 +63,15 @@ end
   shipping_method       = Faker::Number.within(0..3)
   shipping_day          = Faker::Number.within(0..2)
   price                 = Faker::Number.between(300, 100000)
-  product_size_id       = Faker::Number.within(1..14)
+  product_size_id       = Faker::Number.within(0..47)
   description           = Faker::Lorem.sentence
   category_id           = category.sample
   brand_id              = Faker::Number.within(1..14)
   user_id               = Faker::Number.within(1..10)
   sold                  = Faker::Boolean.boolean
 
-  Product.create!(name: name,
+  Product.create!(
+    name: name,
     status: status,
     shipping_fee: shipping_fee,
     state: state,
@@ -85,7 +85,7 @@ end
     user_id: user_id,
     sold: sold)
   }
-  
+
 (1..100).each do |n|
   image_url          = File.open("#{Rails.root}/public/images/no_image.jpg")
   product_id         = n
@@ -137,5 +137,3 @@ CSV.foreach('db/csv/product_size_data.csv', headers: true) do |row|
       size_category_id: row["size_category_id"]
   )
 end
-
-

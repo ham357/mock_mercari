@@ -32,7 +32,6 @@ class ApplicationController < ActionController::Base
   def set_search
     @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true)
-    @products = @products.page(params[:page]).per(48)
   end
 
 end
