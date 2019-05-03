@@ -113,7 +113,6 @@ $(function(){
       }else if(area1 == 5){
         var url = $("#sort_5").attr('href');
       }
-      console.log(url)
       window.location.href = url;
     });
   });

@@ -20,7 +20,6 @@ $(document).on('turbolinks:load', function(){
       $('.brand--ul--li').on("click",function(){
         var name = $(this).attr('name')
         var id = $(this).attr('id')
-        console.log(id)
         $('.brand--input').val(name);
         $('.hidden-brand--input').val(id);
         $('.brand--ul').find('.brand--ul--li').remove();
