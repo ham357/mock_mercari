@@ -15,6 +15,7 @@
 @import "./mypage/mypage_middle";
 @import "./mypage/mypage_large";
 @import "./mypage/mypage_small";
+@import "./product/new";
 @import "./profile/profile_middle";
 @import "./profile/profile_small";
 @import "./profile/profile_large";
@@ -40,6 +41,9 @@
 @import "./logout/logout_middle";
 @import "./logout/logout_small";
 @import "font-awesome";
+// @import "./basic.scss";
+// @import "./dropzone.scss";
+
 /*
  *
 *= require dropzone/basic
