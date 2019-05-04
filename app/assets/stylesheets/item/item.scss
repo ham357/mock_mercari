@@ -20,6 +20,8 @@
       height: 373px;
       border-collapse: collapse;
       table{
+        height: 374px;
+        box-sizing: border-box;
         tbody{
           tr{
             th{
@@ -58,6 +60,18 @@
                     color: skyblue;
                   }
                 }
+              }
+              #item_main_category{
+                height: 14px;
+              }
+              #item_sub_category{
+                height: 14px;
+              }
+              #item_sub_subcategory{
+                height: 14px;
+              }
+              .category-p{
+                display: inline-block;
               }
             }
           }
