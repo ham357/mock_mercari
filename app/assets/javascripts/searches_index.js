@@ -8,6 +8,10 @@ $(function(){
     $(".area2").removeAttr("disabled");
     $(".area2div").css("display", "block");
     $(".area2").html(cpArea2);
+    if(area1 == false){
+      $(".area2div").css("display", "none");
+      $(".area2").attr("disabled");
+    }
     $(".area2 option[data-group != "+area1+"]").remove();
     $(".area2").prepend('<option value= "",category_id_eq= "",selected= "true">すべて</option>');
     $('.area2').val('').change();
@@ -22,7 +26,7 @@ $(function(){
     $(".check_box1 [subdata-group != "+area2+"]").remove();
     $(".check_box1 [data-group != "+area1+"]").remove();
     if(area2 == undefined){
-      $(".area3_1").remove();
+      $(".area3").remove();
     }
   });
     $(".area2").on("change",function(){
