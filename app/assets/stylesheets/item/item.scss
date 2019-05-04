@@ -1,0 +1,118 @@
+
+.items__container{
+  width:620px;
+  height: 1930px;
+  padding: 24px;
+  margin: 40px auto 0 auto;
+  background-color: white;
+  &--h1{
+    height: 66px;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+  }
+  &__main{
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    &__detail{
+      width: 298px;
+      height: 373px;
+      border-collapse: collapse;
+      table{
+        tbody{
+          tr{
+            th{
+              width: 99px;
+              padding: 8px;
+              border: 1px solid lightgray;
+              border-collapse: collapse;
+              background-color: whitesmoke;
+            }
+            td{
+              width: 164px;
+              padding:8px;
+              border: 1px solid lightgray;
+              border-collapse: collapse;
+              .item-user{
+                width: 165px;
+                .item-user-ratings{
+                  margin-right: 5px;
+                  display: inline-block;
+                  .fa-grin{
+                    font-family:'Font Awesome 5 Free';
+                    font-size: 16px;
+                    font-weight: 900;
+                    color: crimson;
+                  }
+                  .fa-meh{
+                    font-family:'Font Awesome 5 Free';
+                    font-size: 16px;
+                    font-weight: 900;
+                    color: orange;
+                  }
+                  .fa-frown{
+                    font-family:'Font Awesome 5 Free';
+                    font-size: 16px;
+                    font-weight: 900;
+                    color: skyblue;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    #wrap{
+      background-color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 375px;
+      width: 300px;
+    }
+    #slider{
+      width: 300px;
+    }
+    .slide-item{
+      img{
+        width: 300px;
+        height: 300px;
+      }
+    }
+    #thumbnail-list{
+      width: 300px;
+      height: 75px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap:wrap;
+    }
+    .thumbnail-item{
+      flex: 0 1 25%;
+      box-sizing: border-box;
+      position:relative;
+      &:after{
+        content:'';
+        background-color: white;
+        position:absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.7;
+        transition: .3s opacity linear;
+      }
+      &.thumbnail-current:after{
+        opacity: 0;
+      }
+      img{
+        width: 75px;
+        height: 75px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
