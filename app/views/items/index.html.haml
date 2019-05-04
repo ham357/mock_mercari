@@ -71,3 +71,27 @@
           %tr
             %th 発送日の目安
             %td 1~2日で発送
+  .items__container__main__price
+    %span.span-price ¥ 3,380
+    %span.span-tax (税込)
+    %span.span-fee 送料込み
+  .items__container__main__sold
+    .items__container__main__sold--true
+      %h1 売り切れました
+    -# .items_container__main__sold--false
+    -# %h1 購入画面に進む
+  .items__container__main__description
+    %p ■商品ご覧頂き、誠にありがとうございます。※今だけ、フォロワーになって下さった方に、300円のお値引きサービス中！！　  以後省略
+  .items__container__main__like
+    .items__container__main__like__left
+      = button_tag '',class: 'item-button item-button-like' do
+        %i.far.fa-heart
+        %p いいね!
+        %p 7
+      = link_to '',class: 'item-button-bad' do
+        %i.far.fa-flag
+        %p 不適切な商品の報告
+    .items__container__main__like__right
+      = link_to '', class: 'items__container__main__like__right--safe' do
+        %i.fas.fa-lock
+        %span あんしん・あんぜんへの取り組み

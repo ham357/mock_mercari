@@ -1,7 +1,7 @@
 
 .items__container{
   width:620px;
-  height: 1930px;
+  height: 100%;
   padding: 24px;
   margin: 40px auto 0 auto;
   background-color: white;
@@ -74,6 +74,115 @@
                 display: inline-block;
               }
             }
+          }
+        }
+      }
+    }
+    &__price{
+      height: 50px;
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      .span-price{
+        font-weight: bold;
+        font-size: 43px;
+        margin-right: 10px;
+      }
+      .span-tax{
+        font-size: 10px;
+        margin:0 5px 5px 0;
+      }
+      .span-fee{
+        font-size: 15px;
+        margin-bottom: 2px;
+      }
+    }
+    &__sold{
+      height: 60px;
+      &--true{
+        background-color: gray;
+        height: 60px;
+        margin-top: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h1{
+          color: white;
+          font-size: 25px;
+          font-weight: bold;
+          display: inline-block;
+        }
+      }
+    }
+    &__description{
+      padding-top: 32px;
+      p{
+        font-size: 18px;
+      }
+    }
+    &__like{
+      height: 33px;
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      &__left{
+        height: 33px;
+        width: 315px;
+        display: flex;
+        .item-button-like{
+          height: 33px;
+          width: 119px;
+          padding: 8px 16px;
+          border: 1px solid whitesmoke;
+          background-color: whitesmoke;
+          border-radius: 1em;
+          .fa-heart{
+            display: inline-block;
+            margin-right: 2px;
+            font-size: 15px;
+            color: lightgray;
+          }
+          p{
+            display: inline-block;
+            margin-right: 3px;
+            font-size: 13px;
+          }
+        }
+        .item-button-bad{
+          display: block;
+          height: 15px;
+          width: 147px;
+          padding: 8px 16px;
+          border: 1px solid whitesmoke;
+          background-color: whitesmoke;
+          border-radius: 1em;
+          margin-left: 14px;
+          .fa-flag{
+            display: inline-block;
+            margin-right: 2px;
+            font-size: 15px;
+            color: lightgray;
+          }
+          p{
+            display: inline-block;
+            margin-right: 3px;
+            font-size: 13px;
+          }
+        }
+      }
+      &__right{
+        height: 15px;
+        margin-top: 8px;
+        &--safe{
+          .fa-lock{
+            display: inline-block;
+            margin-right: 2px;
+            font-size: 17px;
+          }
+          span{
+            display: inline-block;
+            font-size: 13px;
           }
         }
       }
