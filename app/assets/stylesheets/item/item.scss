@@ -452,3 +452,18 @@
     }
   }
 }
+.item__user-product{
+  width:668px;
+  margin: 0 auto;
+  &--h2{
+    min-height: 30px;
+    font-size: 20px;
+    margin: 24px 0 8px 0;
+    font-weight: bold;
+  }
+  &__list{
+    max-height:700px;
+    width: 668px;
+    margin-bottom: 30px;
+  }
+}
