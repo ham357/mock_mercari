@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :logouts, only: :index
   resources :products
   resources :searches
+  resources :buys
 end
