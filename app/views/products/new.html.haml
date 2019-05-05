@@ -8,18 +8,21 @@
         %section.sell__container__top__section
             %h2 商品の情報を入力
         .sell__container__top__section--form    
-            = form_for @product, html: {class: 'dropzone', id: 'upload-dropzone'} do |f|
+            = form_for @product, html: {class: 'dropzone', id: 'item-dropzone'} do |f|
                 .sell__container__top__section--form--uploader
                     %h3.sell__container__top__section--form--uploader--head 
                         出品画像
                         %span 必須  
                     %p 最大10枚までアップロードできます
+                    = f.fields_for :product_images do |image|
+                        .dropzone
+                            #dz-previews
+                            .dz-message.needsclick
+                                %pre ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+                                %i.fa-camera
+                            .fallback
+                                = image.file_field :image_url, multiple: true, class: "sell__container__top__section--form--uploader--items--image dz-message", 'data-image': 0
                     %ul.sell__container__top__section--form--uploader--items
-                        = f.fields_for :product_images do |image|
-                            = image.label :image, class: "dz-message", for: "upload-image" do
-                                = image.file_field :image_url, multiple: true, name: 'product_images[image_url][]', id: "upload-image", class: "sell__container__top__section--form--uploader--items--image dz-message", 'data-image': 0 do
-                                    %pre ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
-                                    %i.fa-camera
                 .sell__container__top__section--form--groups
                     .sell__container__top__section--form--group--input
                         .sell__container__top__section--form--group--head
@@ -89,18 +92,18 @@
                                     .sell__container__top__section--form--group--head
                                         = f.label :価格 
                                         %span 必須
-                                    .sell__container__top__section--form--group--text
+                                    .sell__container__top__section--form--group--text#item_price
                                         ¥
-                                        = f.text_field :price, class: "input-text", placeholder: "例）300"
+                                        = f.text_field :price, class: "input-text #item_price", placeholder: "例）300"
                                 %li.sell__container__top__section--form--group--content--price--group--input-middle
                                     .sell__container__top__section--form--group--content--price--group--input-middle--head
                                         = f.label :"販売手数料 (10%)"
-                                    .sell__container__top__section--form--group--content--price--group--input-middle--text
+                                    .sell__container__top__section--form--group--content--price--group--input-middle--text#commission
                                         = f.label :- 
                                 %li.sell__container__top__section--form--group--content--price--group--input-last
                                     .sell__container__top__section--form--group--head
                                         = f.label :販売利益
-                                    .sell__container__top__section--form--group--text
+                                    .sell__container__top__section--form--group--text#benefit
                                         = f.label :- 
                 .sell__container__top__section--form--groups                       
                     .sell__container__top__section--form--bottom
