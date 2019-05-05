@@ -1,6 +1,9 @@
 $(function(){
-  const default_category_group_elements_count = document.getElementsByClassName("sell__container__top__section--form--group--content")[0].children.length;
-  const default_shipping_group_elements_count = document.getElementsByClassName("sell__container__top__section--form--group--content")[1].children.length;
+    if($(".sell__container__top__section--form--group--content").length){
+      console.log($(".sell__container__top__section--form--group--content").length);
+        var default_category_group_elements_count = document.getElementsByClassName("sell__container__top__section--form--group--content")[0].children.length;
+        var default_shipping_group_elements_count = document.getElementsByClassName("sell__container__top__section--form--group--content")[1].children.length;
+      }
 
   function buildCategorySelectBox(categories,category_element) {
     
