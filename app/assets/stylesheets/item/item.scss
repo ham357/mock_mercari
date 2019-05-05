@@ -374,3 +374,42 @@
     }
   }
 }
+.item__nav{
+  width: 668px;
+  max-height: 28px;
+  margin: 24px auto 0 auto;
+  &__ul{
+    display: flex;
+    justify-content: space-between;
+    &__prev{
+      padding-left: 14px;
+      position: relative;
+      width: 301px;
+      .fa-chevron-left{
+        display: inline-block;
+        float: left;
+        position: absolute;
+        left: 0;
+        top:10px;
+      }
+      &--p{
+        display: inline-block;
+      }
+    }
+    &__next{
+      padding-right: 14px;
+      position: relative;
+      width: 301px;
+      .fa-chevron-right{
+        display: inline-block;
+        float: right;
+        position: absolute;
+        right: 0;
+        top:10px;
+      }
+      &--p{
+        text-align: right;
+      }
+    }
+  }
+}
