@@ -1,92 +1,87 @@
 .items__container
-  .items__container--h1 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
+  .items__container--h1 #{@product.name}
   .items__container__main
     .items__container__main__wrap#wrap
       %ul#slider
-        %li.slide-item
-          %img{'data-lazy':"images/m70068440240_1.jpg", alt:''}
-        %li.slide-item
-          %img{'data-lazy':"images/m70068440240_2.jpg", alt:''}
-        %li.slide-item
-          %img{'data-lazy':"images/m70068440240_3.jpg", alt:''}
-        %li.slide-item
-          %img{'data-lazy':"images/m70068440240_4.jpg", alt:''}
+        - @images.each do |n|
+          %li.slide-item
+            %img{'data-lazy':"/images/#{@product.product_images[n][:image_url]}", alt:''}
       %ul#thumbnail-list
-        %li.thumbnail-item
-          %img{src:"images/m70068440240_1.jpg", alt:''}
-        %li.thumbnail-item
-          %img{src:"images/m70068440240_2.jpg", alt:''}
-        %li.thumbnail-item
-          %img{src:"images/m70068440240_3.jpg", alt:''}
-        %li.thumbnail-item
-          %img{src:"images/m70068440240_4.jpg", alt:''}
+        - @images.each do |n|
+          %li.thumbnail-item
+            = image_tag "/images/#{@product.product_images[n][:image_url]}"
     .items__container__main__detail
       %table
         %tbody
           %tr
             %th 出品者
             %td
-              =link_to "BOON90sリバイバル@コスパ優良店", "#"
+              =link_to "#{@product.user.nickname}", "#"
               .item-user
                 .item-user-ratings
                   %i.fas.fa-grin
-                  %span 910
+                  %span #{@good.count}
                 .item-user-ratings
                   %i.fas.fa-meh
-                  %span 27
+                  %span #{@soso.count}
                 .item-user-ratings
                   %i.fas.fa-frown
-                  %span 4
+                  %span #{@bad.count}
           %tr
             %th カテゴリー
             %td
               = link_to "#" do
                 #item_main_category
-                  %p レディース
+                  %p #{@cate_name[0]}
               = link_to "#" do
                 #item_sub_category
                   %i.fas.fa-chevron-right
-                  %p.category-p バック
+                  %p.category-p #{@cate_name[1]}
               = link_to "#" do
                 #item_sub_subcategory
                   %i.fas.fa-chevron-right
-                  %p.category-p ショルダーバッグ
+                  %p.category-p #{@cate_name[2]}
           %tr
             %th ブランド
             %td
-              = link_to "コーチ","#"
+              = link_to "#{@brand}","#"
           %tr
             %th 商品の状態
-            %td やや傷や汚れ有り
+            %td #{@status}
           %tr
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td #{@shipping_fee}
           %tr
             %th 発送の方法
             %td らくらくメルカリ便
           %tr
             %th 発送元地域
-            %td 兵庫県
+            %td
+              = link_to "#{@state}","#"
           %tr
             %th 発送日の目安
-            %td 1~2日で発送
+            %td #{@shipping_day}
   .items__container__main__price
-    %span.span-price ¥ 3,380
+    %span.span-price
+      = number_to_currency(@product.price, unit: "¥ ")
     %span.span-tax (税込)
     %span.span-fee 送料込み
   .items__container__main__sold
-    .items__container__main__sold--true
-      %h1 売り切れました
-    -# .items_container__main__sold--false
-    -# %h1 購入画面に進む
+    -if @product.sold == true
+      .items__container__main__sold--true
+        %h1 売り切れました
+    - else
+      = link_to '#' do
+        .items_container__main__sold--false
+        %h1 購入画面に進む
   .items__container__main__description
-    %p ■商品ご覧頂き、誠にありがとうございます。※今だけ、フォロワーになって下さった方に、300円のお値引きサービス中！！　  以後省略
+    %p #{@product.description}
   .items__container__main__like
     .items__container__main__like__left
       = button_tag '',class: 'item-button item-button-like' do
         %i.far.fa-heart
         %p いいね!
-        %p 7
+        %p #{@like.count}
       = link_to '',class: 'item-button-bad' do
         %i.far.fa-flag
         %p 不適切な商品の報告
@@ -188,15 +183,15 @@
     %li.item__sns--ul--pintrest
       =link_to '#' do
         %i.fab.fa-pinterest-square
-.item__user-product
-  %h2.item__user-product--h2
-    =link_to "" do
-      %h2 BOON90sリバイバル@コスパ優良店ニキのその他の出品
-  .item__user-product__list
-    = render @products
-.item__user-product
-  %h2.item__user-product--h2
-    =link_to "" do
-      %h2 コーチのショルダーバッグ その他の出品
-  .item__user-product__list
-    = render @products
+-# .item__user-product
+-#   %h2.item__user-product--h2
+-#     =link_to "" do
+-#       %h2 BOON90sリバイバル@コスパ優良店ニキのその他の出品
+-#   .item__user-product__list
+-#     = render @products
+-# .item__user-product
+-#   %h2.item__user-product--h2
+-#     =link_to "" do
+-#       %h2 コーチのショルダーバッグ その他の出品
+-#   .item__user-product__list
+-#     = render @products

@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   resources :logouts, only: :index
   resources :products
   resources :searches
-  resources :items, only: :index
+  resources :items
 end
