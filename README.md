@@ -105,7 +105,7 @@ rails-erd
 
 |Column|Type|Options|
 |------|----|-------|
-|rate|string|null: false|
+|rate|integer|null: false|
 |user_id|integer|null: false|
 |rater_it|integer|null: false|
 
@@ -173,7 +173,7 @@ rails-erd
 |comment|text|null :false, length:{maximum: 1000}|
 |user_id|integer|null :false|
 |product_id|integer|null: false|
-|delete|boolean|default: false|
+|comment_deleted|boolean|default: false|
 
 ### Assosiation
 - belongs_to :product
