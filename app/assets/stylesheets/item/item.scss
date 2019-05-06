@@ -11,6 +11,9 @@
   a:link{
     color:  royalblue;
   }
+  .font-blue{
+    color:  royalblue;
+  }
   &--h1{
     height: 66px;
     font-weight: bold;
@@ -118,6 +121,22 @@
           font-size: 22px;
           font-weight: bold;
           display: inline-block;
+        }
+      }
+      &--a{
+        &--false{
+          background-color: crimson;
+          height: 60px;
+          margin-top: 16px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          h1{
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            display: inline-block;
+          }
         }
       }
     }

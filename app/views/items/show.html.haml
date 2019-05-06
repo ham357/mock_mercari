@@ -16,7 +16,7 @@
           %tr
             %th 出品者
             %td
-              =link_to "#{@product.user.nickname}", "#"
+              =link_to "#{@product.user.nickname}", "#",class:'font-blue'
               .item-user
                 .item-user-ratings
                   %i.fas.fa-grin
@@ -31,20 +31,22 @@
             %th カテゴリー
             %td
               = link_to "#" do
-                #item_main_category
+                #item_main_category.font-blue
                   %p #{@cate_name[0]}
               = link_to "#" do
-                #item_sub_category
-                  %i.fas.fa-chevron-right
-                  %p.category-p #{@cate_name[1]}
+                #item_sub_category.font-blue
+                  - unless @cate_name[1].nil?
+                    %i.fas.fa-chevron-right
+                    %p.category-p #{@cate_name[1]}
               = link_to "#" do
-                #item_sub_subcategory
-                  %i.fas.fa-chevron-right
-                  %p.category-p #{@cate_name[2]}
+                #item_sub_subcategory.font-blue
+                  - unless @cate_name[2].nil?
+                    %i.fas.fa-chevron-right
+                    %p.category-p #{@cate_name[2]}
           %tr
             %th ブランド
             %td
-              = link_to "#{@brand}","#"
+              = link_to "#{@brand}","#",class:"font-blue"
           %tr
             %th 商品の状態
             %td #{@status}
@@ -57,7 +59,7 @@
           %tr
             %th 発送元地域
             %td
-              = link_to "#{@state}","#"
+              = link_to "#{@state}","#",class:"font-blue"
           %tr
             %th 発送日の目安
             %td #{@shipping_day}
@@ -71,9 +73,9 @@
       .items__container__main__sold--true
         %h1 売り切れました
     - else
-      = link_to '#' do
-        .items_container__main__sold--false
-        %h1 購入画面に進む
+      = link_to '#',class:"items__container__main__sold--a" do
+        .items__container__main__sold--a--false
+          %h1 購入画面に進む
   .items__container__main__description
     %p #{@product.description}
   .items__container__main__like
