@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
     @shipping_day = ShippingDay.find(@product.id).name
     @like = Like.where(product_id: @product.id)
     @comments = Comment.where(product_id: params[:id])
-    @comment = @comments[0]
+    @comment = Comment.new
     @products = Product.where(id: 1..6)
     # binding.pry
   end

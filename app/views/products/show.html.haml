@@ -121,15 +121,15 @@
                     %i.far.fa-flag
   - if user_signed_in? == true
     .message__container__comment
-      = form_tag('/comments', method: "post", class: 'message__container__comment__form') do
+      = form_for(@comment, url: {controller: :comments, action: :create}, class: 'message__container__comment__form') do |f|
         %p.message__container__comment__form--p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         - if @product.sold == true
           = text_area_tag 'comment[comment]',"",{class: 'message__container__comment__form--input',disabled: 'disabled'}
           = submit_tag '売り切れの為コメントできません',type: 'submit', class: 'message__container__comment__form--btn',disabled: 'disabled'
         - else
           = f.hidden_field :product_id, value: @product.id
-          = text_area_tag 'comment[comment]',"",{class: 'message__container__comment__form--input'}
-          = submit_tag 'コメントする',type: 'submit', class: 'gray-btn'
+          = f.text_area :comment,{class: 'message__container__comment__form--input'}
+          = f.submit 'コメントする',type: 'submit', class: 'gray-btn'
 .item__nav
   %ul.item__nav__ul
     %li.item__nav__ul__prev
