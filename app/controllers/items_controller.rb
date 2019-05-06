@@ -13,6 +13,8 @@ class ItemsController < ApplicationController
     @state = Prefecture.find(@product.id).name
     @shipping_day = ShippingDay.find(@product.id).name
     @like = Like.where(product_id: @product.id)
+    @comments = Comment.where(product_id: params[:id])
+    @comment = @comments[0]
     @products = Product.where(id: 1..6)
     # binding.pry
   end

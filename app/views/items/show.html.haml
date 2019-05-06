@@ -94,69 +94,31 @@
 .message__container
   .message__container__content
     %ul.message__container__content--ul
-      %li.message__container__content--ul--li
-        = link_to '',class: "message__container__content--ul--li--user" do
-          %figure.user_icon
-            .user_icon
-              %img{src: '/images/user-icon.svg'}
-          -# %p 削除された場合表示なし
-          -# 出品者の時表示
-          -# .div_seller
-          -#   %p 出品者
-        .message__container__content--ul--li--body
-          .message__container__content--ul--li--body--text
-            %p 出品者がコメントを削除しました
-          .message__container__content--ul--li--body--time
-            .time-icon-left
-              %i.far.fa-clock
-              %span 187日前
-              -# 削除された場合表示なし
-            -# .time-icon-right
-            -#   = link_to '#' do
-            -#     %i.far.fa-flag
-      %li.message__container__content--ul--li
-        = link_to '',class: "message__container__content--ul--li--user" do
-          %figure.user_icon
-            .user_icon
-              %img{src: '/images/member_no_image.png'}
-          %p アワチンニキ
-          -# 出品者の時表示
-          -# .div_seller
-          -#   %p 出品者
-        .message__container__content--ul--li--body
-          .message__container__content--ul--li--body--text
-            %p
-              はじめまして。ずっと、気になっているのですが・・・こちらのバッグの『多少の汚れ』とは、パッと見る限り目立たない程度なのですか？皮の白いところは画像でわかるのですが、全体の感じがわからなかったので、質問してみました。
-          .message__container__content--ul--li--body--time
-            .time-icon-left
-              %i.far.fa-clock
-              %span 167日前
-            .time-icon-right
-              = link_to '#' do
-                %i.far.fa-flag
-      %li.message__container__content--ul--li
-        = link_to '',class: "message__container__content--ul--li--user" do
-          %figure.user_icon
-            .user_icon
-              %img{src: '/images/387561164.jpg'}
-          %p BOON90sリバイバル@コスパ優良店
-          .div_seller
-            %p 出品者
-        .message__container__content--ul--li--body
-          .message__container__content--ul--li--body--text
-            %p 
-              おまたせしました。
-              %br
-              先ほど確認しましたところ、画像にある底部に若干の汚れが見られる程度で、後はそれといって汚れはございませんでした。
-              %br
-              よろしくお願いします。
-          .message__container__content--ul--li--body--time
-            .time-icon-left
-              %i.far.fa-clock
-              %span 166日前
-            .time-icon-right
-              = link_to '#' do
-                %i.far.fa-flag
+      - @comments.each do |ele|
+        %li.message__container__content--ul--li
+          = link_to '#',class: "message__container__content--ul--li--user" do
+            %figure.user_icon
+              .user_icon
+                = image_tag "/images/#{ele.user.user_image[:image_url]}"
+            - if ele.comment_deleted == false
+              %p #{ele.user.nickname}
+            - if ele.user_id == @product.user_id
+              .div_seller
+                %p 出品者
+          .message__container__content--ul--li--body
+            .message__container__content--ul--li--body--text
+              - if ele.comment_deleted == true
+                %p 出品者がコメントを削除しました
+              - else
+                %p #{ele.comment}
+            .message__container__content--ul--li--body--time
+              .time-icon-left
+                %i.far.fa-clock
+                %span #{distance_of_time_in_words_to_now(ele.created_at)}前
+              - if ele.comment_deleted == false
+                .time-icon-right
+                  = link_to '#' do
+                    %i.far.fa-flag
   .message__container__comment
     = form_for '', class: 'message__container__comment__form' do |f|
       %p.message__container__comment__form--p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
