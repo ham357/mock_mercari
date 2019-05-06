@@ -381,6 +381,9 @@
         background-color: lemonchiffon;
         line-height: 15px;
       }
+      .soldout_text_area{
+        background-color: white;
+      }
       &--input{
         width: 600px;
         height: 82px;
@@ -423,7 +426,7 @@
         float: left;
         position: absolute;
         left: 0;
-        top:10px;
+        top: 3px;
       }
       &--p{
         display: inline-block;
@@ -438,7 +441,7 @@
         float: right;
         position: absolute;
         right: 0;
-        top:10px;
+        top: 3px;
       }
       &--p{
         text-align: right;
