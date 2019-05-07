@@ -25,7 +25,6 @@ $(function(){
       $(document).ready();
       $('#dz-preview').append(`<div class="dz-preview"><div class="dz-image"><img data-dz-thumbnail /></div><a class="dz-edit">編集</a></div>`)
 
-      console.log($('.dz-preview').length)
       if (($('.dz-preview').length + 1) < 5){
       var count = 100 - (($('.dz-preview').length + 1) * 20) + "%"
     }else if (($('.dz-preview').length + 1) >= 10){
@@ -41,7 +40,6 @@ $(function(){
     },
     removedfile: function(file){
       var id = $(file.previewTemplate).find('.dz-remove').attr('id');
-      console.log($('.dz-preview').length)
 
       if (($('.dz-preview').length - 1) < 5){
         var count = 100 - (($('.dz-preview').length - 1) * 20) + "%"
