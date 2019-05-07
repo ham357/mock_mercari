@@ -26,7 +26,6 @@ class ProductsController < ApplicationController
       @like = Like.where(product_id: @product.id)
       @comments = Comment.where(product_id: params[:id])
       @comment = Comment.new
-      @prev = @product.previous
       @products = Product.where(user_id: @product.user_id).where.not(id: params[:id]).limit(6)
       @products_brand = Product.where(brand_id: @product.brand_id).where.not(id: params[:id]).limit(6)
     end
