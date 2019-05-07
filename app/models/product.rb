@@ -11,10 +11,10 @@ class Product < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
 
-  has_many :product_sizes
-  has_many :categories
-  has_many :brands
-  has_many :product_status
+  has_one :product_size
+  has_one :category
+  has_one :brand
+  has_one :product_status
 
   def previous
     Product.where("id < ?", self.id).order("id DESC").first

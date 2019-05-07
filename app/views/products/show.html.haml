@@ -49,7 +49,7 @@
               = link_to "#{@brand}","#",class:"font-blue"
           %tr
             %th 商品の状態
-            %td #{@status}
+            %td #{@status_id}
           %tr
             %th 配送料の負担
             %td #{@shipping_fee}
@@ -142,7 +142,7 @@
           %p.item__nav__ul__prev--p #{@product.previous.name}
     %li.item__nav__ul__next
       - unless @product.next == nil
-        = link_to "#" do
+        = link_to "#{@product.next.id}" do
           %p.item__nav__ul__next--p #{@product.next.name}
           %i.fas.fa-chevron-right
 .item__sns
@@ -156,15 +156,17 @@
     %li.item__sns--ul--pintrest
       =link_to '#' do
         %i.fab.fa-pinterest-square
--# .item__user-product
--#   %h2.item__user-product--h2
--#     =link_to "" do
--#       %h2 BOON90sリバイバル@コスパ優良店ニキのその他の出品
--#   .item__user-product__list
--#     = render @products
--# .item__user-product
--#   %h2.item__user-product--h2
--#     =link_to "" do
--#       %h2 コーチのショルダーバッグ その他の出品
--#   .item__user-product__list
--#     = render @products
+.item__user-product
+  %h2.item__user-product__user
+    =link_to "",class: 'item__user-product__user--a' do
+      %h2 #{@product.user.nickname}さんのその他の出品
+  .item__user-product__list
+    = render @products
+- unless @brand.nil?
+  .item__user-product
+    %h2.item__user-product__user
+      =link_to "",class: 'item__user-product__user--a' do
+        %h2 #{@brand}の#{@cate_name[0]}その他の出品
+    .item__user-product__list
+      - @products_brand.each do |product|
+        = render partial: "products/product", locals: {product: product}

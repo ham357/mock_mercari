@@ -54,8 +54,8 @@
 end
 
 (1..10).each do |n|
-  image_url          = File.open("#{Rails.root}/public/images/member_no_image.png")
-  user_id         = n
+  image_url          = "member_no_image.png"
+  user_id            = n
 
   UserImage.create!(image_url: image_url,
     user_id: user_id)
@@ -74,27 +74,25 @@ end
 
 100.times{
   address = Gimei.address
-  product_size   = %w[M L]  
   category   = %w[33 442 99 171]
 
   name                  = Takarabako.open
-  status                = Faker::Number.within(0..5)
+  status_id             = Faker::Number.within(1..5)
   shipping_fee          = Faker::Number.within(0..1)
-  state                 = Faker::Number.within(0..47)
+  state                 = Faker::Number.within(1..47)
   shipping_method       = Faker::Number.within(0..3)
-  shipping_day          = Faker::Number.within(0..2)
+  shipping_day          = Faker::Number.within(1..3)
   price                 = Faker::Number.between(300, 100000)
   product_size_id       = Faker::Number.within(0..47)
   description           = Faker::Lorem.sentence
-  category_id           = category.sample
-  brand_id              = Faker::Number.within(1..14)
+  category_id           = Faker::Number.within(1..300)
   brand_id              = Faker::Number.within(1..10)
   user_id               = Faker::Number.within(1..10)
   sold                  = Faker::Boolean.boolean
 
-  Product.create!(
+  Product.create(
     name: name,
-    status: status,
+    status_id: status_id,
     shipping_fee: shipping_fee,
     state: state,
     shipping_method: shipping_method,

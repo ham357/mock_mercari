@@ -71,13 +71,15 @@
                 }
               }
               #item_main_category{
-                height: 14px;
               }
               #item_sub_category{
-                height: 14px;
               }
               #item_sub_subcategory{
-                height: 14px;
+                max-height: 28px;
+                box-sizing: border-box;
+              }
+              .fa-chevron-right{
+                display: inline-block;
               }
               .category-p{
                 display: inline-block;
@@ -489,17 +491,22 @@
   }
 }
 .item__user-product{
-  h2:hover{
-    opacity: 0.8;
-  }
   width:668px;
   margin: 0 auto;
-  &--h2{
-    min-height: 30px;
-    font-size: 20px;
-    margin: 24px 0 8px 0;
-    font-weight: bold;
-    color: royalblue;
+  &__user{
+    &--a{
+      h2{
+        min-height: 30px;
+        font-size: 20px;
+        margin: 24px 0 8px 0;
+        font-weight: bold;
+        color: royalblue;
+      }
+    }
+  }
+
+  h2:hover{
+    opacity: 0.8;
   }
   &__list{
     max-height:700px;
