@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-      @products = Product.where(id: 1..4)
+      @products = Product.all
   end
 
   def new
@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
       @bad = search_rate(1)
       @cate_name = category_define
       @brand = Brand.find(@product.brand_id).name
-      @status_id = Status.find(@product.status_id).name
+      @status_id = Status.find(@product.status_id).name unless @product.status_id.nil?
       @shipping_fee = ShippingFee.find(@product.shipping_fee).name
       @state = Prefecture.find(@product.state).name
       @shipping_day = ShippingDay.find(@product.shipping_day).name
