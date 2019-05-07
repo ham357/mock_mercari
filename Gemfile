@@ -55,6 +55,11 @@ group :development, :test do
   gem 'takarabako'
   gem 'rails-controller-testing'
   gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+  gem 'launchy'
+  gem 'pry-rails'
+  gem 'database_cleaner'
 end
 
 group :development do
