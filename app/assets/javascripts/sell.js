@@ -1,14 +1,20 @@
 $(function(){
     if($(".sell__container__top__section--form--group--content").length){
-      console.log($(".sell__container__top__section--form--group--content").length);
         var default_category_group_elements_count = document.getElementsByClassName("sell__container__top__section--form--group--content")[0].children.length;
         var default_shipping_group_elements_count = document.getElementsByClassName("sell__container__top__section--form--group--content")[1].children.length;
       }
 
-  function buildCategorySelectBox(categories,category_element) {
+  function buildCategorySelectBox(categories,category_element,category_select_box_element_count) {
+
+    if (category_select_box_element_count==1){
+      var ele_name = "product[sub_category_id]";
+    }else{
+      var ele_name = "product[sub_subcategory_id]";
+    }
+    
     
     var html = `<div class= "sell__container__top__section--form--group--select">
-    <select class="sell__container__top__section--form--group--select--box" name="product[category_id]">
+    <select class="sell__container__top__section--form--group--select--box" id= "${ ele_name }" name="product[category_id]">
       <option value="">---</option>`
 
       $.each( categories , function(index, category) {
@@ -141,7 +147,7 @@ $(function(){
                 for(var i=selected_group_elements_count;i>default_category_group_elements_count;i--){
                   selected_group_elements.eq(i-2).remove();
                 }
-                buildCategorySelectBox(data['category'],selected_element);
+                buildCategorySelectBox(data['category'],selected_element,category_select_box_element_count);
           }else{
               if(selected_group_elements_count == default_category_group_elements_count){
                 if(brand_flg){
