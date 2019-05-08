@@ -40,6 +40,8 @@ gem 'active_hash', '~>2.0.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'kaminari', '~> 0.17.0'
+gem 'ransack'
 
 group :development, :test do
   gem 'capistrano'
@@ -55,11 +57,15 @@ group :development, :test do
   gem 'takarabako'
   gem 'rails-controller-testing'
   gem 'capybara'
+<<<<<<< HEAD
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'launchy'
   gem 'pry-rails'
   gem 'database_cleaner'
+=======
+  gem 'rails-erd'
+>>>>>>> ONAGAX/master
 end
 
 group :development do

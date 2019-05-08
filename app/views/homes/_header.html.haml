@@ -1,22 +1,22 @@
 %header.header--sp
   .header--sp__inner
     %h1.header--sp__logo
-      = link_to "https://www.mercari.com/jp/" do
+      = link_to "#" do
         = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3403318254", alt: "mercari"
     .header--sp__user-nav
-      = link_to "https://www.mercari.com/jp/mypage/notification/", class: 'header--sp__user-icon' do
+      = link_to "#", class: 'header--sp__user-icon' do
         %figure
           %i.fa-bell
-      = link_to "https://www.mercari.com/jp/mypage/todo/", class: 'header--sp__user-icon' do
+      = link_to "#", class: 'header--sp__user-icon' do
         %figure
           %i.fa-check
-      = link_to "https://www.mercari.com/jp/mypage/", class: 'header--sp__user-icon header--sp__user-profile' do
+      = link_to "#", class: 'header--sp__user-icon header--sp__user-profile' do
         %figure
           %div
             = image_tag "//static.mercdn.net/thumb/members/164317197.jpg?1419725926", width: "32", alt: ""
   .header--sp__search-bar
-    %form.header--sp__form{action: "https://www.mercari.com/jp/search/"}
-      %input.header--sp__search{name: "keyword", placeholder: "何をお探しですか？", type: "search",value: ""}/
+    = search_form_for @q, url:searches_path,class:'header--sp__form' do |s|
+      = s.text_field :name_cont, placeholder: '何をお探しですか？',type: "search",class: "input--default"
       %i.fa-search
   %nav.header--sp__nav
     = link_to "#", data: {category: "NAVIGATION", label: "sp_header_nav_カテゴリから探す"} do
@@ -28,17 +28,18 @@
 %header.header--pc
   .header--pc__inner
     %h1
-      = link_to "https://www.mercari.com/jp/" do
+      = link_to "#" do
         = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3403318254", height: "36",width: "134", alt: "mercari"
-    %form.header--pc__form{action: "https://www.mercari.com/jp/search/"}
-      %input.header--pc__search{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
-      %i.fa-search
+    = search_form_for @q, url:searches_path,class:'header--pc__form' do |s|
+      = s.text_field :name_or_description_cont, placeholder: '何をお探しですか？',type: "search",class: "header--pc__search",id: "header--pc__search"
+      = button_tag type: 'submit', class: 'header--pc__form--btn' do
+        %i.fa-search
     .header--pc__nav--box
       %nav.header--pc__nav--box__nav
         %ul.header--pc__nav
           %li
             %h2
-              = link_to "https://www.mercari.com/jp/category/", class: 'header--pc__nav--root list-parent' do
+              = link_to "#", class: 'header--pc__nav--root list-parent' do
                 %i.fa.fa-list-ul.header--pc__cat-brand-icon
                 %span カテゴリーから探す
             %ul.header--pc__nav--parent-wrap{"data-mega": "1"}
@@ -82,14 +83,14 @@
             = link_to "https://www.mercari.com/jp/mypage/", class: 'header--pc__user-icon header--pc__nav--root' do
               %figure
                 %div
-                  = image_tag "//static.mercdn.net/thumb/members/164317197.jpg?1419725926", width: "32", alt: ""
+                  = image_tag "/images/member_no_image.png", width: "32", alt: ""
               %div マイページ
             .header--pc__user-box.header--pc__mypage--box
               .header--pc__mypage--state
                 %figure
                   %div
-                    = image_tag "//static.mercdn.net/thumb/members/164317197.jpg?1419725926", width: "60", alt: ""
-                  %figcaption Kousuke Inoue
+                    = image_tag "/images/member_no_image.png", width: "60", alt: ""
+                  %figcaption unKnown User
                 %ul.header--pc__mypage__review-listing
                   %li
                     = link_to "評価: 0","https://www.mercari.com/jp/mypage/review/history/"

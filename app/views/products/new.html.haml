@@ -51,8 +51,15 @@
                             .sell__container__top__section--form--group--head
                                 = f.label :商品の状態
                                 %span 必須
-                            .sell__container__top__section--form--group--select      
-                                = f.collection_select :status, ProductStatus.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                            .sell__container__top__section--form--group--select
+                                = select '',:sort,{},{},class: 'sell__container__top__section--form--group--select--box' do
+                                    %option{value:''} ---
+                                    %option{value: 1} 新品、未使用
+                                    %option{value: 2} 未使用に近い
+                                    %option{value: 3} 目立った傷や汚れなし
+                                    %option{value: 4} やや傷や汚れあり
+                                    %option{value: 5} 全体的に状態が悪い
+                                -# = f.collection_select :status,ProductStatus.all, :id, :name, {prompt: "---"},{class:  "sell__container__top__section--form--group--select--box"}
                                 %i.fa-chevron-down
                 .sell__container__top__section--form--groups
                     .sell__container__top__section--form--group--sub-head

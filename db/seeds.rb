@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 10.times{
   nickname             = Faker::Games::Pokemon.name
   email                = Faker::Internet.email
@@ -54,7 +53,8 @@
                     user_id: user_id)
 end
 
-10.times{
+
+100.times{
   address = Gimei.address
   product_size   = %w[M L]  
   category   = %w[33 442 99 171]
@@ -65,30 +65,32 @@ end
   state                 = Faker::Number.within(0..47)
   shipping_method       = Faker::Number.within(0..3)
   shipping_day          = Faker::Number.within(0..2)
-  price                 = Faker::Number.between(300, 9999999)
-  size                  = product_size.sample
+  price                 = Faker::Number.between(300, 100000)
+  product_size_id       = Faker::Number.within(0..47)
   description           = Faker::Lorem.sentence
   category_id           = category.sample
+  brand_id              = Faker::Number.within(1..14)
   brand_id              = Faker::Number.within(1..10)
   user_id               = Faker::Number.within(1..10)
   sold                  = Faker::Boolean.boolean
 
-  Product.create!(name: name,
+  Product.create!(
+    name: name,
     status: status,
     shipping_fee: shipping_fee,
     state: state,
     shipping_method: shipping_method,
     shipping_day: shipping_day,
     price: price,
-    size: size,
+    product_size_id: product_size_id,
     description: description,
     category_id: category_id,
     brand_id: brand_id,
     user_id: user_id,
     sold: sold)
   }
-  
-(1..10).each do |n|
+
+(1..100).each do |n|
   image_url          = File.open("#{Rails.root}/public/images/no_image.jpg")
   product_id         = n
 
@@ -96,7 +98,7 @@ end
     product_id: product_id)
 end
 
-10.times{
+100.times{
   image_url          = File.open("#{Rails.root}/public/images/no_image.jpg")
   product_id         = Faker::Number.between(1, 10)
   
@@ -115,4 +117,27 @@ n = 0
     Like.create!(product_id: product_id,
               user_id: user_id)
     n += 1
+end
+
+require "csv"
+
+CSV.foreach('db/csv/brand_data.csv', headers: true) do |row|
+  Brand.create(name: row['name']
+                  )
+end
+
+CSV.foreach('db/csv/category_data.csv', headers: true) do |row|
+  Category.create(
+      name: row["name"],
+      main_category_id: row["main_category_id"],
+      sub_category_id: row["sub_category_id"],
+      sub_subcategory_id: row["sub_subcategory_id"]
+  )
+end
+
+CSV.foreach('db/csv/product_size_data.csv', headers: true) do |row|
+  ProductSize.create(
+      name: row["name"],
+      size_category_id: row["size_category_id"]
+  )
 end

@@ -10,8 +10,14 @@ class Product < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   belongs_to :user
 
+  has_many :product_sizes
+  has_many :categories
+  has_many :brands
+  has_many :product_status
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-  belongs_to_active_hash :product_status
-
+  belongs_to_active_hash :category
+  belongs_to_active_hash :status
+  belongs_to_active_hash :prefecture
 end

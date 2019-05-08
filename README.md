@@ -7,31 +7,54 @@
 ### Railsのバージョン
 5.0.7.2
 
+### 使用gem一覧
+devise
+active_hash
+omniauth
+omniauth-facebook
+omniauth-google-oauth2
+kaminari
+ransack
+capistrano
+unicorn
+haml-rails
+font-awasome-rails
+carrierwave
+minni_magick
+dropzone-rails
+factory_bot
+faker
+capybara
+rails-erd
+
+
 # データベース設計
 
 ## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|email|varchar(255)|null: false|
-|encrypted_password|varchar(255)|null:false|
+|email|string|null: false|
+|encrypted_password|string|null:false|
 |nickname|string|index: true, nill: false, unique: true|
 |custmer_id|string| |
 |card_token|string| |
-|uid|string| |
-|provider|string| |
+|remember_created_at|datetime| |
 
 ### Association
 - has_one :user_info, dependent: :destroy, class_name: User_info
-- has_many :products
+- has_one :social_profile
+- has_one :user_image
+- has_many :products, dependent: :destroy,
 - has_many :points
-- has_many :rates
-- has_many :likes, through: products
+- has_many :rates, dependent: :destroy
+- has_many :likes, through: products, dependent: :destroy
+- has_many :liked_posts, through: :likes, source: :product
 - has_many :orders, through: products
 - has_many :comments, through: products
 
 
-## user_infoテーブル
+## user_infosテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -43,16 +66,64 @@
 |state|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
+|tel_number|integer|null: false|
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|inteer|null: false|
 |profile_comment|text| |
 |user_id|string||
-|created_at|datetime||
-|update_at|datetime||
+
+### Assotiaction
+- belongs_to :user, optional: true
+
+## user_imagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|image_url|string||
+|user_id|integer|null: false|
+
+### Assotiaction
+- belongs_to :user, optional: true
+
+
+## social_profilesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|provider|string|null: false|
+|uid|integer|null: false|
+|access_token|string||
+|access_secret|integer||
+|user_id|integer|null: false|
 
 ### Assotiaction
 - belongs_to :user
+
+
+## ratesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|rate|string|null: false|
+|user_id|integer|null: false|
+|rater_it|integer|null: false|
+
+### Association
+- belongs_to :user
+
+
+## likesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|product_id|integer|null :false|
+|user_id|integer|null :false|
+
+### Assosiation
+- belongs_to :product
+- belongs_to :user
+
 
 ## productsテーブル
 
@@ -63,9 +134,13 @@
 |shipping_fee|integer|null: false|
 |state|string|null: false|
 |shipping_day|integer|null: false|
+|shipping_method|integer|null: false|
 |price|integer|null: false|
 |size|string||
 |description|text|null: false, length:{maximum: 1000}|
+|category_id|integer|null: false|
+|brand_id|integer||
+|product_size_id|integer||
 |user_id|integer||
 |sold|boolean|default: false|
 |create_at|datetime||
@@ -74,12 +149,38 @@
 ### Association
 - belongs_to :user
 - has_one :order
-- has_one :category
-- has_one :subcategory
-- has_one :subsubcategory
+- has_meny :categories
+- has_one :product_size
+- has_one :brand
+- has_one :product_status
 - has_many :comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
-- has_many :product_images
+- has_many :product_images, dependent: :destroy
+
+
+## product_imagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|image_url|text|null :false|
+|product_id|integer|null :false|
+
+### Assosiation
+- belongs_to :product
+
+
+## commentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|comment|text|null :false, length:{maximum: 1000}|
+|user_id|integer|null :false|
+|product_id|integer|null: false|
+|delete|boolean|default: false|
+
+### Assosiation
+- belongs_to :product
+- belongs_to :user
 
 
 ## pointsテーブル
@@ -90,20 +191,6 @@
 |user_id|integer|null: false|
 |created_at|datetime||
 |deadline_at|datetime||
-
-### Association
-- belongs_to :user
-
-
-## ratesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|rate|string|null: false|
-|user_id|integer|null: false|
-|rated_it|integer|null: false|
-|created_at|datetime||
-|update_at|datetime||
 
 ### Association
 - belongs_to :user
@@ -124,83 +211,28 @@
 - belongs_to :user
 
 
-## commentsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|comment|text|null :false, length:{maximum: 1000}|
-|user_id|integer|null :false|
-|product_id|integer|null: false|
-|created_at|datetime||
-|update_at|datetime||
-
-### Assosiation
-- belongs_to :product
-- belongs_to :user
-
-
-## likesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|product_id|integer|null :false|
-|user_id|integer|null :false|
-
-### Assosiation
-- belongs_to :product
-- belongs_to :user
-
-
-## product_imagesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|image_url|text|null :false|
-|product_id|integer|null :false|
-
-### Assosiation
-- belongs_to :product
-
-
 ## categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string||
-|product_id|integer|null :false|
+|main_category_id|integer||
+|sub_category_id|integer||
+|sub_subcaterogy_id|integer||
+|size_flg|boolean||
+|brand_flg|boolean||
+|product_size_id|integer||
+|size_category_id|integer||
 
 ### Assosiation
 - belongs_to :product
 
 
-## subcategoriesテーブル
+## Active_hash
 
-|Column|Type|Options|
-|------|----|-------|
-|name|string||
-|product_id|integer|null :false|
-
-### Assosiation
-- belongs_to :product
-
-
-## subsubcategoriesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string||
-|product_id|integer|null :false|
-
-### Assosiation
-- belongs_to :product
-
-
-## brandsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string||
-|product_id|integer|null :false|
-
-### Assosiation
-- belongs_to :product
+- Prefecture
+- Category
+- Status
+- Product_shipping_fee
+- Product_shipping_method
+- Brand

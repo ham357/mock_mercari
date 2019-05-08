@@ -25,6 +25,7 @@ namespace :import do
     end
   end
 end
+<<<<<<< HEAD
 
 # rake import:brands
 namespace :import do
@@ -119,3 +120,5 @@ namespace :import do
     end
   end
 end
+=======
+>>>>>>> ONAGAX/master

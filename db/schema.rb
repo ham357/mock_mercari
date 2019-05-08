@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20190430110827) do
     t.boolean  "size_flg",           default: false, null: false
     t.integer  "size_category_id"
     t.boolean  "brand_flg",          default: false, null: false
+    t.integer  "product_size_id"
+    t.boolean  "size_flag",          default: false, null: false
+    t.boolean  "brand_flag",         default: false, null: false
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.index ["name"], name: "index_categories_on_name", using: :btree
@@ -71,10 +74,10 @@ ActiveRecord::Schema.define(version: 20190430110827) do
   end
 
   create_table "product_sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",          null: false
-    t.integer  "size_category", null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "name",             null: false
+    t.integer  "size_category_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.index ["name"], name: "index_product_sizes_on_name", using: :btree
   end
 
@@ -86,7 +89,6 @@ ActiveRecord::Schema.define(version: 20190430110827) do
     t.integer  "shipping_method",                               null: false
     t.integer  "shipping_day",                                  null: false
     t.integer  "price",                                         null: false
-    t.string   "size"
     t.text     "description",     limit: 65535,                 null: false
     t.integer  "category_id",                                   null: false
     t.integer  "brand_id"
@@ -94,6 +96,7 @@ ActiveRecord::Schema.define(version: 20190430110827) do
     t.boolean  "sold",                          default: false
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
+    t.integer  "product_size_id"
     t.index ["name"], name: "index_products_on_name", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
