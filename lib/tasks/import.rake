@@ -25,7 +25,6 @@ namespace :import do
     end
   end
 end
-<<<<<<< HEAD
 
 # rake import:brands
 namespace :import do
@@ -61,7 +60,7 @@ namespace :import do
     CSV.foreach(path, headers: true) do |row|
       list << {
           name: row["name"],
-          size_category: row["size_category"]
+          product_size_id: row["product_size_id"]
       }
     end
     puts "start to create product_size data"
@@ -120,5 +119,3 @@ namespace :import do
     end
   end
 end
-=======
->>>>>>> ONAGAX/master

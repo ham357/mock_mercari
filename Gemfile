@@ -57,15 +57,12 @@ group :development, :test do
   gem 'takarabako'
   gem 'rails-controller-testing'
   gem 'capybara'
-<<<<<<< HEAD
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'launchy'
   gem 'pry-rails'
   gem 'database_cleaner'
-=======
   gem 'rails-erd'
->>>>>>> ONAGAX/master
 end
 
 group :development do
