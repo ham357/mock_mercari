@@ -17,11 +17,11 @@ class ProductsController < ApplicationController
       @search_rate2 = search_rate(2)
       @search_rate1 = search_rate(1)
       @category_defines = category_define
-      @brand = Brand.find(@product.brand_id).name
-      @status = Status.find(@product.status_id).name unless @product.status_id.nil?
-      @shipping_fee = ShippingFee.find(@product.shipping_fee).name
-      @prefecture = Prefecture.find(@product.state).name
-      @shipping_day = ShippingDay.find(@product.shipping_day).name
+      @brand_name = Brand.find(@product.brand_id).name
+      @status_name = Status.find(@product.status_id).name unless @product.status_id.nil?
+      @shipping_fee_name = ShippingFee.find(@product.shipping_fee).name
+      @prefecture_name = Prefecture.find(@product.state).name
+      @shipping_day_name = ShippingDay.find(@product.shipping_day).name
       @likes = Like.where(product_id: @product.id)
       @comments = Comment.where(product_id: params[:id])
       @comment = Comment.new
@@ -50,17 +50,17 @@ class ProductsController < ApplicationController
       @sub_id = @product.category.sub_category_id
       @subsub_id = @product.category.sub_subcategory_id
       if @sub_id && @subsub_id == nil
-        main = Category.find(@main_id).name
-        sub,subsub = 0
+        main_name = Category.find(@main_id).name
+        sub_name,subsub_name = 0
       elsif @sub == presence && @subsub == nil
-        main = Category.find(@main_id).name
-        sub = Category.find(@sub_id).name
+        main_name = Category.find(@main_id).name
+        sub_name = Category.find(@sub_id).name
       else
-        main = Category.find(@main_id).name
-        sub = Category.find(@sub_id).name
-        subsub = Category.find(@category_id).name
+        main_name = Category.find(@main_id).name
+        sub_name = Category.find(@sub_id).name
+        subsub_name = Category.find(@category_id).name
       end
-      return main, sub, subsub
+      return main_name, sub_name, subsub_name
     end
 
     private

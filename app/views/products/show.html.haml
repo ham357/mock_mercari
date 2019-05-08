@@ -46,23 +46,23 @@
           %tr
             %th ブランド
             %td
-              = link_to "#{@brand}","#",class:"font-blue"
+              = link_to "#{@brand_name}","#",class:"font-blue"
           %tr
             %th 商品の状態
-            %td #{@status}
+            %td #{@status_name}
           %tr
             %th 配送料の負担
-            %td #{@shipping_fee}
+            %td #{@shipping_fee_name}
           %tr
             %th 発送の方法
             %td らくらくメルカリ便
           %tr
             %th 発送元地域
             %td
-              = link_to "#{@prefecture}","#",class:"font-blue"
+              = link_to "#{@prefecture_name}","#",class:"font-blue"
           %tr
             %th 発送日の目安
-            %td #{@shipping_day}
+            %td #{@shipping_day_name}
   .items__container__main__price
     %span.span-price
       = number_to_currency(@product.price, unit: "¥ ")
