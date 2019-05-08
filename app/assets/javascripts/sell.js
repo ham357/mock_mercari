@@ -84,7 +84,7 @@ $(function(){
       <label>配送方法の負担</label>
       <span>必須</span>
       <div class= "sell__container__top__section--form--group--select">
-    <select class="sell__container__top__section--form--group--select--box" name="product[shipping_method]">
+    <select class="sell__container__top__section--form--group--select--box" name="product[shipping_method_id]">
       <option value="">---</option>`
 
       $.each( product_shipping_methods , function(index, product_shipping_method) {

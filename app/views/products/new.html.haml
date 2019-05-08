@@ -52,7 +52,7 @@
                                 = f.label :商品の状態
                                 %span 必須
                             .sell__container__top__section--form--group--select
-                                = f.collection_select :status, ProductStatus.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                = f.collection_select :status_id, ProductStatus.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
                                 %i.fa-chevron-down
                 .sell__container__top__section--form--groups
                     .sell__container__top__section--form--group--sub-head
@@ -64,21 +64,21 @@
                                 = f.label :配送料の負担
                                 %span 必須
                             .sell__container__top__section--form--group--select
-                                = f.collection_select :shipping_fee, ProductShippingFee.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                = f.collection_select :shipping_fee_id, ProductShippingFee.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
                                 %i.fa-chevron-down
                         .sell__container__top__section--form--group
                             .sell__container__top__section--form--group--head
                                 = f.label :発送元の地域
                                 %span 必須
                             .sell__container__top__section--form--group--select
-                                = f.collection_select :state, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                = f.collection_select :state_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
                                 %i.fa-chevron-down
                         .sell__container__top__section--form--group
                             .sell__container__top__section--form--group--head
                                 = f.label :発送までの日数
                                 %span 必須
                             .sell__container__top__section--form--group--select
-                                = f.collection_select :shipping_day, ShippingDay.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                = f.collection_select :shipping_day_id, ShippingDay.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
                                 %i.fa-chevron-down
                 .sell__container__top__section--form--groups
                     .sell__container__top__section--form--group--sub-head
