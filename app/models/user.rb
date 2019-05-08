@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :product
+  has_many :comments, through: :products
+  has_many :rates, dependent: :destroy
 
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
