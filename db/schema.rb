@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190430110827) do
+ActiveRecord::Schema.define(version: 20190508054347) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
@@ -30,9 +30,6 @@ ActiveRecord::Schema.define(version: 20190430110827) do
     t.integer  "main_category_id",                   null: false
     t.integer  "sub_category_id"
     t.integer  "sub_subcategory_id"
-    t.boolean  "size_flg",           default: false, null: false
-    t.integer  "size_category_id"
-    t.boolean  "brand_flg",          default: false, null: false
     t.integer  "product_size_id"
     t.boolean  "size_flag",          default: false, null: false
     t.boolean  "brand_flag",         default: false, null: false
@@ -74,10 +71,10 @@ ActiveRecord::Schema.define(version: 20190430110827) do
   end
 
   create_table "product_sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",             null: false
-    t.integer  "size_category_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "name",            null: false
+    t.integer  "product_size_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["name"], name: "index_product_sizes_on_name", using: :btree
   end
 
