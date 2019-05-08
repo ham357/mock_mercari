@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190508070334) do
+ActiveRecord::Schema.define(version: 20190508095728) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
@@ -30,10 +30,9 @@ ActiveRecord::Schema.define(version: 20190508070334) do
     t.integer  "main_category_id",                   null: false
     t.integer  "sub_category_id"
     t.integer  "sub_subcategory_id"
-    t.boolean  "size_flg",           default: false, null: false
-    t.integer  "size_category_id"
-    t.boolean  "brand_flg",          default: false, null: false
     t.integer  "product_size_id"
+    t.boolean  "size_flag",          default: false, null: false
+    t.boolean  "brand_flag",         default: false, null: false
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.index ["name"], name: "index_categories_on_name", using: :btree
@@ -81,25 +80,25 @@ ActiveRecord::Schema.define(version: 20190508070334) do
   end
 
   create_table "product_sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",             null: false
-    t.integer  "size_category_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "name",            null: false
+    t.integer  "product_size_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["name"], name: "index_product_sizes_on_name", using: :btree
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                                          null: false
-    t.integer  "status_id",                                     null: false
-    t.integer  "shipping_method",                               null: false
-    t.integer  "price",                                         null: false
-    t.text     "description",     limit: 65535,                 null: false
-    t.integer  "category_id",                                   null: false
+    t.string   "name",                                             null: false
+    t.integer  "status_id",                                        null: false
+    t.integer  "shipping_method_id",                               null: false
+    t.integer  "price",                                            null: false
+    t.text     "description",        limit: 65535,                 null: false
+    t.integer  "category_id",                                      null: false
     t.integer  "brand_id"
-    t.integer  "user_id",                                       null: false
-    t.boolean  "sold",                          default: false
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.integer  "user_id",                                          null: false
+    t.boolean  "sold",                             default: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
     t.integer  "product_size_id"
     t.integer  "state_id"
     t.integer  "shipping_day_id"

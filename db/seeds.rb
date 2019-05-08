@@ -95,7 +95,7 @@ end
     status_id: status_id,
     shipping_fee_id: shipping_fee,
     state_id: state,
-    shipping_method: shipping_method,
+    shipping_method_id: shipping_method,
     shipping_day_id: shipping_day,
     price: price,
     product_size_id: product_size_id,

@@ -32,33 +32,33 @@ describe Product, type: :model do
       end
 
       it "商品の状態が無いためエラーになる" do
-        product = build(:product, status: nil,user_id: @user.id)
+        product = build(:product, status_id: nil,user_id: @user.id)
         product.valid?
-        expect(product.errors[:status]).to include("can't be blank")
+        expect(product.errors[:status_id]).to include("can't be blank")
       end
 
       it "商品名が無いためエラーになる" do
-        product = build(:product, shipping_fee: nil,user_id: @user.id)
+        product = build(:product, shipping_fee_id: nil,user_id: @user.id)
         product.valid?
-        expect(product.errors[:shipping_fee]).to include("can't be blank")
+        expect(product.errors[:shipping_fee_id]).to include("can't be blank")
       end
 
       it "発送元が登録されていないためエラーになる" do
-        product = build(:product, state: nil,user_id: @user.id)
+        product = build(:product, state_id: nil,user_id: @user.id)
         product.valid?
-        expect(product.errors[:state]).to include("can't be blank")
+        expect(product.errors[:state_id]).to include("can't be blank")
       end
 
       it "発送方法が登録されていないためエラーになる" do
-        product = build(:product, shipping_method: nil,user_id: @user.id)
+        product = build(:product, shipping_method_id: nil,user_id: @user.id)
         product.valid?
-        expect(product.errors[:shipping_method]).to include("can't be blank")
+        expect(product.errors[:shipping_method_id]).to include("can't be blank")
       end
 
       it "発送日数が登録されていないためエラーになる" do
-        product = build(:product, shipping_day: nil,user_id: @user.id)
+        product = build(:product, shipping_day_id: nil,user_id: @user.id)
         product.valid?
-        expect(product.errors[:shipping_day]).to include("can't be blank")
+        expect(product.errors[:shipping_day_id]).to include("can't be blank")
       end
 
       it "価格が登録されていないためエラーになる" do

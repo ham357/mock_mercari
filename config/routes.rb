@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'sell', to: 'products#new'
   resources :category, only: :index
   resources :product_shipping_methods, only: :index
+  resources :brands, only: :index
   resources :mypages, only: :index
   resources :profiles, only: :index
   resources :cards, only: :index
