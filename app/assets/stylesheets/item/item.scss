@@ -11,6 +11,9 @@
   a:link{
     color:  royalblue;
   }
+  .font-blue{
+    color:  royalblue;
+  }
   &--h1{
     height: 66px;
     font-weight: bold;
@@ -68,13 +71,15 @@
                 }
               }
               #item_main_category{
-                height: 14px;
               }
               #item_sub_category{
-                height: 14px;
               }
               #item_sub_subcategory{
-                height: 14px;
+                max-height: 28px;
+                box-sizing: border-box;
+              }
+              .fa-chevron-right{
+                display: inline-block;
               }
               .category-p{
                 display: inline-block;
@@ -118,6 +123,22 @@
           font-size: 22px;
           font-weight: bold;
           display: inline-block;
+        }
+      }
+      &--a{
+        &--false{
+          background-color: crimson;
+          height: 60px;
+          margin-top: 16px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          h1{
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            display: inline-block;
+          }
         }
       }
     }
@@ -353,14 +374,25 @@
   }
   &__comment{
     width: 620px;
-    height: 214px;
+    height: 100%;
     padding: 24px;
+    .error_explanation{
+      margin-top: 10px;
+      &--ul{
+        li{
+          color: red;
+        }
+      }
+    }
     &__form{
       &--p{
         height: 28px;
         padding: 8px;
         background-color: lemonchiffon;
         line-height: 15px;
+      }
+      .soldout_text_area{
+        background-color: white;
       }
       &--input{
         width: 600px;
@@ -404,7 +436,7 @@
         float: left;
         position: absolute;
         left: 0;
-        top:10px;
+        top: 3px;
       }
       &--p{
         display: inline-block;
@@ -419,7 +451,7 @@
         float: right;
         position: absolute;
         right: 0;
-        top:10px;
+        top: 3px;
       }
       &--p{
         text-align: right;
@@ -467,17 +499,22 @@
   }
 }
 .item__user-product{
-  h2:hover{
-    opacity: 0.8;
-  }
   width:668px;
   margin: 0 auto;
-  &--h2{
-    min-height: 30px;
-    font-size: 20px;
-    margin: 24px 0 8px 0;
-    font-weight: bold;
-    color: royalblue;
+  &__user{
+    &--a{
+      h2{
+        min-height: 30px;
+        font-size: 20px;
+        margin: 24px 0 8px 0;
+        font-weight: bold;
+        color: royalblue;
+      }
+    }
+  }
+
+  h2:hover{
+    opacity: 0.8;
   }
   &__list{
     max-height:700px;

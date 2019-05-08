@@ -130,10 +130,10 @@ rails-erd
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true, length:{maximum: 40}|
-|status|string|null: false|
-|shipping_fee|integer|null: false|
-|state|string|null: false|
-|shipping_day|integer|null: false|
+|status_id|string|null: false|
+|shipping_fee_id|integer|null: false|
+|state_id|string|null: false|
+|shipping_day_id|integer|null: false|
 |shipping_method|integer|null: false|
 |price|integer|null: false|
 |size|string||
@@ -149,10 +149,7 @@ rails-erd
 ### Association
 - belongs_to :user
 - has_one :order
-- has_meny :categories
 - has_one :product_size
-- has_one :brand
-- has_one :product_status
 - has_many :comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :product_images, dependent: :destroy
@@ -232,7 +229,10 @@ rails-erd
 
 - Prefecture
 - Category
+- Brand
 - Status
 - Product_shipping_fee
 - Product_shipping_method
-- Brand
+- Shippin_fee
+- Shipping_day
+- State
