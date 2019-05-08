@@ -46,23 +46,23 @@
           %tr
             %th ブランド
             %td
-              = link_to "#{@brand_name}","#",class:"font-blue"
+              = link_to "#{@product.brand.name}","#",class:"font-blue"
           %tr
             %th 商品の状態
-            %td #{@status_name}
+            %td #{@product.status.name}
           %tr
             %th 配送料の負担
-            %td #{@shipping_fee_name}
+            %td #{@product.shipping_fee.name}
           %tr
             %th 発送の方法
             %td らくらくメルカリ便
           %tr
             %th 発送元地域
             %td
-              = link_to "#{@prefecture_name}","#",class:"font-blue"
+              = link_to "#{@product.state.name}","#",class:"font-blue"
           %tr
             %th 発送日の目安
-            %td #{@shipping_day_name}
+            %td #{@product.shipping_day.name}
   .items__container__main__price
     %span.span-price
       = number_to_currency(@product.price, unit: "¥ ")
@@ -173,7 +173,7 @@
   .item__user-product
     %h2.item__user-product__user
       =link_to "",class: 'item__user-product__user--a' do
-        %h2 #{@brand}の#{@category_defines[0]}その他の出品
+        %h2 #{@product.brand.name}の#{@category_defines[0]}その他の出品
     .item__user-product__list
       - @exclusion_product_brands.each do |product|
         = render partial: "products/product", locals: {product: product}

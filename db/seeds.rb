@@ -93,10 +93,10 @@ end
   Product.create(
     name: name,
     status_id: status_id,
-    shipping_fee: shipping_fee,
-    state: state,
+    shipping_fee_id: shipping_fee,
+    state_id: state,
     shipping_method: shipping_method,
-    shipping_day: shipping_day,
+    shipping_day_id: shipping_day,
     price: price,
     product_size_id: product_size_id,
     description: description,

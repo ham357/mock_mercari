@@ -16,12 +16,7 @@ class ProductsController < ApplicationController
       @search_rate3 = search_rate(3)
       @search_rate2 = search_rate(2)
       @search_rate1 = search_rate(1)
-      @category_defines = category_define
-      @brand_name = Brand.find(@product.brand_id).name
-      @status_name = Status.find(@product.status_id).name unless @product.status_id.nil?
-      @shipping_fee_name = ShippingFee.find(@product.shipping_fee).name
-      @prefecture_name = Prefecture.find(@product.state).name
-      @shipping_day_name = ShippingDay.find(@product.shipping_day).name
+      @category_defines = defined_category
       @likes = Like.where(product_id: @product.id)
       @comments = Comment.where(product_id: params[:id])
       @comment = Comment.new
@@ -44,7 +39,7 @@ class ProductsController < ApplicationController
     end
 
     # カテゴリーごとの名称取得関数（配列で出力）
-    def category_define
+    def defined_category
       @category_id = @product.category_id
       @main_id = @product.category.main_category_id
       @sub_id = @product.category.sub_category_id

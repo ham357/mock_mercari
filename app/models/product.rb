@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  validates_presence_of :name, :status_id, :shipping_fee, :state, :shipping_method, :shipping_day, :price, :description, :user_id
+  validates_presence_of :name, :status_id, :shipping_fee_id, :state_id, :shipping_method, :shipping_day_id, :price, :description, :user_id
   validates :name, length: { maximum: 40 }
   validates :price, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, only_integer: true}
   validates :description, length: { maximum: 100 }
@@ -23,6 +23,10 @@ class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :category
+  belongs_to_active_hash :brand
   belongs_to_active_hash :status
   belongs_to_active_hash :product_status
+  belongs_to_active_hash :shipping_fee
+  belongs_to_active_hash :shipping_day
+  belongs_to_active_hash :state
 end
