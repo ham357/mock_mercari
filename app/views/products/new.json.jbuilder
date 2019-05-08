@@ -6,14 +6,14 @@ json.category do
       json.main_category_id     category.main_category_id
       json.sub_category_id      category.sub_category_id
       json.sub_subcategory_id   category.sub_subcategory_id
-      json.size_flg             category.size_flg
-      json.size_category_id     category.size_category_id
-      json.brand_flg            category.brand_flg
+      json.size_flg             category.size_flag
+      json.product_size_id     category.product_size_id
+      json.brand_flg            category.brand_flag
     end
   end
 end
 
-json.size_category do
+json.product_sizes do
   if @product_sizes.present?
     json.array! @product_sizes do |product_size|
       json.id                   product_size.id

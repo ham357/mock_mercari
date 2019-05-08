@@ -7,13 +7,14 @@ class ProductsController < ApplicationController
     def new
         @product = Product.new
         @product.product_images.build
+        @main_categories = Category.where(sub_category_id: nil)
         render layout: "sell"
     end
 
     def create
         @product = Product.new(product_params)
         if @product.save
-            create_itemimage(@product.id)
+            create_productimage(@product.id)
             respond_to do |format|
                 format.html { redirect_to root_path }
                 format.json
@@ -28,10 +29,10 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-        params.require(:product).permit(:name,:status,:shipping_fee,:state,:shipping_method,:shipping_day,:price,:size,:description,:category_id,:brand_id, product_images_attributes: [:image_url]).merge(user_id:1)
+        params.require(:product).permit(:name,:status,:shipping_fee,:state,:shipping_method,:shipping_day,:price,:product_size_id,:description,:category_id,:brand_id, product_images_attributes: [:image_url]).merge(user_id:1)
     end
 
-    def create_itemimage(product_id)
+    def create_productimage(product_id)
         i = 0
         while params[:product][:product_images_attributes][:image_url][i.to_s].present? do
             image = params[:product][:product_images_attributes][:image_url][i.to_s]

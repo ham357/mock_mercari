@@ -3,9 +3,9 @@ require 'rails_helper'
 feature "出品投稿" do
   background do
       Category.create(name: "レディース", main_category_id: 1)
-      Category.create(name: "トップス", main_category_id: 1, sub_category_id: 1,size_flg: 1, size_category_id: 1, brand_flg: 1)
+      Category.create(name: "トップス", main_category_id: 1, sub_category_id: 1,size_flag: 1, product_size_id: 1, brand_flag: 1)
       Category.create(name: "Tシャツ/カットソー(半袖/袖なし)", main_category_id: 1, sub_category_id: 1, sub_subcategory_id: 1)
-      ProductSize.create(name: "XXX以下", size_category: 1)
+      ProductSize.create(name: "XXX以下", product_size_id: 1)
       ProductShippingFee.create(name: "送料込み(出品者負担)")
       ProductShippingMethod.create(name: "未定", shipping_fee_category: 1)
       FactoryBot.create(:user)
@@ -38,7 +38,7 @@ feature "出品投稿" do
       select 'レディース', from: 'product[category_id]'
       select 'トップス', from: 'product[sub_category_id]'
       select 'Tシャツ/カットソー(半袖/袖なし)', from: 'product[sub_subcategory_id]'
-      select 'XXX以下', from: 'product[size]'
+      select 'XXX以下', from: 'product[product_size_id]'
       select '新品、未使用', from: 'product[status]'
       select '送料込み(出品者負担)', from: 'product[shipping_fee]'
       select '未定', from: 'product[shipping_method]'
@@ -81,7 +81,7 @@ feature "出品投稿" do
       select 'レディース', from: 'product[category_id]'
       select 'トップス', from: 'product[sub_category_id]'
       select 'Tシャツ/カットソー(半袖/袖なし)', from: 'product[sub_subcategory_id]'
-      select 'XXX以下', from: 'product[size]'
+      select 'XXX以下', from: 'product[product_size_id]'
       select '新品、未使用', from: 'product[status]'
       select '送料込み(出品者負担)', from: 'product[shipping_fee]'
       select '未定', from: 'product[shipping_method]'

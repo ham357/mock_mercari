@@ -39,7 +39,7 @@ $(function(){
       <label>サイズ</label>
       <span>必須</span>
       <div class= "sell__container__top__section--form--group--select">
-    <select class="sell__container__top__section--form--group--select--box" name="product[size]">
+    <select class="sell__container__top__section--form--group--select--box" name="product[product_size_id]">
       <option value="">---</option>`
 
       $.each( product_sizes , function(index, product_size) {
@@ -136,8 +136,6 @@ $(function(){
           var size_flg = data['category'][0].size_flg;
           var brand_flg = data['category'][0].brand_flg;
           data['category'].shift();
-          var size_brand_element = selected_group_element.find(".sell__container__top__section--form--group");
-          var size_brand_element_count = size_brand_element.length;
           
           if (data_conunt !== 0){
               if(selected_box_number !== 3){
@@ -155,7 +153,7 @@ $(function(){
                   }
 
                 if(size_flg){
-                    buildSizeSelectBox(data['size_category'],selected_group_element);
+                    buildSizeSelectBox(data['product_sizes'],selected_group_element);
                 }
     
                 }
