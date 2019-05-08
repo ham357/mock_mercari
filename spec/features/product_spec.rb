@@ -39,11 +39,11 @@ feature "出品投稿" do
       select 'トップス', from: 'product[sub_category_id]'
       select 'Tシャツ/カットソー(半袖/袖なし)', from: 'product[sub_subcategory_id]'
       select 'XXX以下', from: 'product[product_size_id]'
-      select '新品、未使用', from: 'product[status]'
-      select '送料込み(出品者負担)', from: 'product[shipping_fee]'
-      select '未定', from: 'product[shipping_method]'
-      select '北海道', from: 'product[state]'
-      select '1~2日で発送', from: 'product[shipping_day]'
+      select '新品、未使用', from: 'product[status_id]'
+      select '送料込み(出品者負担)', from: 'product[shipping_fee_id]'
+      select '未定', from: 'product[shipping_method_id]'
+      select '北海道', from: 'product[state_id]'
+      select '1~2日で発送', from: 'product[shipping_day_id]'
       fill_in 'product[price]', with: 300
       find('[type="submit"]').click
       sleep 5;
@@ -82,11 +82,11 @@ feature "出品投稿" do
       select 'トップス', from: 'product[sub_category_id]'
       select 'Tシャツ/カットソー(半袖/袖なし)', from: 'product[sub_subcategory_id]'
       select 'XXX以下', from: 'product[product_size_id]'
-      select '新品、未使用', from: 'product[status]'
-      select '送料込み(出品者負担)', from: 'product[shipping_fee]'
-      select '未定', from: 'product[shipping_method]'
-      select '北海道', from: 'product[state]'
-      select '1~2日で発送', from: 'product[shipping_day]'
+      select '新品、未使用', from: 'product[status_id]'
+      select '送料込み(出品者負担)', from: 'product[shipping_fee_id]'
+      select '未定', from: 'product[shipping_method_id]'
+      select '北海道', from: 'product[state_id]'
+      select '1~2日で発送', from: 'product[shipping_day_id]'
       fill_in 'product[price]', with: 300
       find('[type="submit"]').click
       sleep 5;
