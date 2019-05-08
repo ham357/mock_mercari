@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190430110827) do
+ActiveRecord::Schema.define(version: 20190508095728) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
@@ -30,12 +30,21 @@ ActiveRecord::Schema.define(version: 20190430110827) do
     t.integer  "main_category_id",                   null: false
     t.integer  "sub_category_id"
     t.integer  "sub_subcategory_id"
-    t.boolean  "size_flg",           default: false, null: false
-    t.integer  "size_category_id"
-    t.boolean  "brand_flg",          default: false, null: false
+    t.integer  "product_size_id"
+    t.boolean  "size_flag",          default: false, null: false
+    t.boolean  "brand_flag",         default: false, null: false
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.index ["name"], name: "index_categories_on_name", using: :btree
+  end
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "comment",         limit: 65535,                 null: false
+    t.integer  "user_id",                                       null: false
+    t.integer  "product_id",                                    null: false
+    t.boolean  "comment_deleted",               default: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -71,31 +80,39 @@ ActiveRecord::Schema.define(version: 20190430110827) do
   end
 
   create_table "product_sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",          null: false
-    t.integer  "size_category", null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "name",            null: false
+    t.integer  "product_size_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["name"], name: "index_product_sizes_on_name", using: :btree
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                                          null: false
-    t.integer  "status",                                        null: false
-    t.integer  "shipping_fee",                                  null: false
-    t.integer  "state",                                         null: false
-    t.integer  "shipping_method",                               null: false
-    t.integer  "shipping_day",                                  null: false
-    t.integer  "price",                                         null: false
-    t.string   "size"
-    t.text     "description",     limit: 65535,                 null: false
-    t.integer  "category_id",                                   null: false
+    t.string   "name",                                             null: false
+    t.integer  "status_id",                                        null: false
+    t.integer  "shipping_method_id",                               null: false
+    t.integer  "price",                                            null: false
+    t.text     "description",        limit: 65535,                 null: false
+    t.integer  "category_id",                                      null: false
     t.integer  "brand_id"
-    t.integer  "user_id",                                       null: false
-    t.boolean  "sold",                          default: false
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.integer  "user_id",                                          null: false
+    t.boolean  "sold",                             default: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.integer  "product_size_id"
+    t.integer  "state_id"
+    t.integer  "shipping_day_id"
+    t.integer  "shipping_fee_id"
     t.index ["name"], name: "index_products_on_name", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
+  end
+
+  create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "rate",       null: false
+    t.integer  "user_id",    null: false
+    t.integer  "rater_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "social_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -5,8 +5,8 @@ class CreateCategories < ActiveRecord::Migration[5.0]
           t.integer      :main_category_id,    null:false
           t.integer      :sub_category_id
           t.integer      :sub_subcategory_id
+          t.integer      :product_size_id
           t.timestamps
     end
   end
 end
-

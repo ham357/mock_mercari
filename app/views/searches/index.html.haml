@@ -1,0 +1,143 @@
+.search__container
+  .search__container__item
+    %h2.search__container__item--h2
+      %p.search__container__item--h2--p
+        - if @products.present?
+          検索結果 #{(@products.offset_value)+1}-#{@products.offset_value+@products.length}件
+        - else
+          検索結果 0 件
+          %h2 該当する商品が見つかりません。商品は毎日増えていますので、メルカリ先生のこれからの作品に期待してください。
+    .search__container__item__r-box
+      = render @products
+    .search__container__item__pagenator
+      = paginate @products unless @products.nil?
+  .search__container__side
+    = form_tag('/searches', method: 'get',class:"search__container__side__form")  do
+      .search__container__side__form__switch
+        .search__container__side__form__switch--wrap
+          = select '',:sort,{},{},class: 'select-default sort-select' do
+            %option{value: 0}並び替え
+            %option{value: 1} 価格の安い順
+            %option{value: 2} 価格の高い順
+            %option{value: 3} 出品の古い順
+            %option{value: 4} 出品の新しい順
+            %option{value: 5} いいね！の多い順
+          %i.fas.fa-chevron-down
+        = submit_tag "",class:'btn-other'
+    .search__container__side__form__dropdown
+      = search_form_for @q, url:searches_path do |f|
+        %h3.search__container__side__form__dropdown--h3
+          詳細検索
+        .search__container__side__form__dropdown__wrap
+          = f.label "", class: "label--default" do
+            %i.fas.fa-plus
+            %span キーワードを追加する
+          = f.text_field :name_or_description_cont, placeholder: '例)値下げ交渉お断り' , class: "input--default"
+        .search__container__side__form__dropdown__wraps
+          = f.label "" do
+            %i.fa.fa-list-ul
+            %span カテゴリーを選択する
+          .search__container__side__form__dropdown__wraps--select
+            = f.select :category_main_category_id_eq,{},{},class: "select--default area1" do
+              %option{value: "",selected: "true"} すべて
+              - @categories.each do |ele|
+                - next if ele.sub_subcategory_id.present?
+                - next if ele.sub_category_id.present?
+                %option{value: "#{ele.id}"}#{ele.name}
+            %i.fas.fa-chevron-down
+          .search__container__side__form__dropdown__wraps--select.area2div
+            = f.select :category_sub_category_id_eq,{},{},class: "select--default area2",disabled: "true" do
+              %option{value: "",selected: "true"}すべて
+              - @categories.each do |ele|
+                - next if ele.sub_subcategory_id.present?
+                - next if ele.sub_category_id.nil?
+                %option{value: "#{ele.sub_category_id}",'data-group': "#{ele.main_category_id}",'subdata-group': "#{ele.sub_category_id}"}#{ele.name}
+            %i.fas.fa-chevron-down
+          .search__container__side__form__dropdown__wraps--select.area3div
+            .checkbox-default.area3.check_box1
+              .checkbox-default.area3.check_box{disabled: "true"}
+              - @categories.each do |ele|
+                - next if ele.sub_category_id.nil?
+                - next if ele.sub_subcategory_id.nil?
+                .checkbox-default.area3.check_box.check_box1{'data-group': "#{ele.main_category_id}",'subdata-group': "#{ele.sub_category_id}"}
+                  = f.check_box :category_sub_subcategory_id_eq_all_any,{id: "#{ele.name}", class: "check_box check_box1", 'data-group': "#{ele.main_category_id}",'subdata-group': "#{ele.sub_category_id}",checked: false},ele.sub_subcategory_id,nil
+                  = f.label "#{ele.name}", for: "#{ele.name}", class: "check_box check_box1", 'data-group': "#{ele.main_category_id}",'subdata-group': "#{ele.sub_category_id}"
+        .search__container__side__form__dropdown__wrap
+          = f.label "" ,class: "label--default" do
+            %i.fa.fa-tag
+            %span ブランド名から探す
+          %input{type: 'text_field', placeholder: '例)シャネル' , class: "input--default brand--input", value: ""}
+          %ul.brand--ul{'data-search': "brand-dom"}
+          = f.text_field :brand_id_eq ,class: 'hidden-brand--input'
+        .search__container__side__form__dropdown__wraps
+          = f.label "",class: "label--default" do
+            %i.fas.fa-text-height
+            %span サイズを指定する
+          = f.select :product_size_id_eq,{},{},class: "select--default size_area1" do
+            %option{value: "",selected: "true"}すべて
+            - @size.each do |ele|
+              - next if ele.size_category_id.present?
+              %option{value: "#{ele.id}",size: "#{ele.id}"}#{ele.name}
+          %i.fas.fa-chevron-down#fa-chevron-down
+          .checkbox-show.size_area2div
+            .checkbox-default.size_area2.check_box2{disabled: "true"}
+            - @size.each do |ele|
+              - next if ele.size_category_id.nil?
+              .checkbox-default.size_area2.check_box.check_box2{'data-group': "#{ele.size_category_id}"}
+                = f.check_box :product_size_id_eq_any,{id: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.size_category_id}",checked: false},ele.id,nil
+                = f.label "#{ele.name}", for: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.size_category_id}"
+        .search__container__side__form__dropdown__price
+          = f.label "",class: "label--default" do
+            %i.fas.fa-dollar-sign
+            %span 価格
+          %select.select--default.price-select
+            %option 選択してください
+            %option{id:"300-"}300 ~ 1000
+            %option{id: "1000-"}1000 ~ 5000
+            %option{id: "5000-"}5000 ~ 10000
+            %option{id: "10000-"}10000 ~ 30000
+            %option{id: "30000-"}30000 ~ 50000
+            %option{id: "50000-"}50000 ~
+          %i.fas.fa-chevron-down
+          = f.number_field :price_gteq, placeholder: '¥ Min' , class: "input--default min"
+          %span ~
+          = f.number_field :price_lteq, placeholder: '¥ Max' , class: "input--default max"
+        .search__container__side__form__dropdown__status
+          = f.label "",class: "label--default"  do
+            %i.fa.fa-star
+            %span 商品の状態
+          .search__container__side__form__dropdown__status--checkbox
+            %label
+              %input{type: 'checkbox',class: "all_check_1" } すべて
+            =f.collection_check_boxes(:status_eq_any, Status.all, :id, :name) do |b|
+              = b.label class: "check_1" do
+                = b.check_box + b.text
+        .search__container__side__form__dropdown__ship
+          = f.label "",class: "label--default" do
+            %i.fas.fa-truck
+            %span 配送料の負担
+          .search__container__side__form__dropdown__ship--checkbox
+            %label
+              %input{type: 'checkbox',class: "all_check_2"} すべて
+            =f.collection_check_boxes(:shipping_fee_eq_any, ShippingFee.all, :id, :name) do |b|
+              = b.label class: "check_2" do
+                = b.check_box + b.text
+        .search__container__side__form__dropdown__sold
+          = f.label "",class: "label--default" do
+            %i.fas.fa-shopping-cart
+            %span 販売状況
+          .search__container__side__form__dropdown__sold--checkbox
+            %label
+              %input{type: 'checkbox',class: "all_check_3"} すべて
+            =f.collection_check_boxes(:sold_eq_any, Sold.all, :id, :name) do |b|
+              = b.label class: "check_3" do
+                = b.check_box + b.text
+        .search__container__side__form__dropdown__sortlinkc
+          = sort_link @q, :price, [:price, 'price asc'],{},id: 'sort_1'
+          = sort_link @q, :price, [:price, 'price desc'],{},id: 'sort_2'
+          = sort_link @q, :crea3ed_at, [:created_at, 'created_at desc'],{},id: 'sort_3'
+          = sort_link @q, :created_at, [:created_at, 'created_at asc'],{},id: 'sort_4'
+          = sort_link @q, :like, [:like_product_id_count, 'like_product_id_count desc'],{},id: 'sort_5'
+        .search__container__side__form__dropdown__btn
+          %input{ value: "クリア", type: 'reset',class: 'btn--default btn-gray'}
+          = f.submit "完了", type: "submit", class: "btn--default btn-red"

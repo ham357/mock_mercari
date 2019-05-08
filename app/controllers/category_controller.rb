@@ -8,7 +8,7 @@ class CategoryController < ApplicationController
       @categories = Category.where(main_category_id:category[0].main_category_id,sub_category_id:category[0].sub_category_id)
     end
 
-    @product_sizes = ProductSize.where(size_category:@categories[0].size_category_id)
+    @product_sizes = ProductSize.where(product_size_id:@categories[0].product_size_id)
     render "products/new"
 
     respond_to do |format|
