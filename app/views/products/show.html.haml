@@ -3,11 +3,11 @@
   .items__container__main
     .items__container__main__wrap#wrap
       %ul#slider
-        - @images.each do |n|
+        - @get_image.each do |n|
           %li.slide-item
-            %img{'data-lazy':"/images/#{@product.product_images[n][:image_url]}", alt:''}
+            = image_tag '','data-lazy': "/images/#{@product.product_images[n][:image_url]}", alt:''
       %ul#thumbnail-list
-        - @images.each do |n|
+        - @get_image.each do |n|
           %li.thumbnail-item
             = image_tag "/images/#{@product.product_images[n][:image_url]}"
     .items__container__main__detail
@@ -20,36 +20,36 @@
               .item-user
                 .item-user-ratings
                   %i.fas.fa-grin
-                  %span #{@good.count}
+                  %span #{@search_rate3.count}
                 .item-user-ratings
                   %i.fas.fa-meh
-                  %span #{@soso.count}
+                  %span #{@search_rate2.count}
                 .item-user-ratings
                   %i.fas.fa-frown
-                  %span #{@bad.count}
+                  %span #{@search_rate1.count}
           %tr
             %th カテゴリー
             %td
               = link_to "#" do
                 #item_main_category.font-blue
-                  %p #{@cate_name[0]}
+                  %p #{@category_defines[0]}
               = link_to "#" do
                 #item_sub_category.font-blue
-                  - unless @cate_name[1].nil?
+                  - unless @category_defines[1].nil?
                     %i.fas.fa-chevron-right
-                    %p.category-p #{@cate_name[1]}
+                    %p.category-p #{@category_defines[1]}
               = link_to "#" do
                 #item_sub_subcategory.font-blue
-                  - unless @cate_name[2].nil?
+                  - unless @category_defines[2].nil?
                     %i.fas.fa-chevron-right
-                    %p.category-p #{@cate_name[2]}
+                    %p.category-p #{@category_defines[2]}
           %tr
             %th ブランド
             %td
               = link_to "#{@brand}","#",class:"font-blue"
           %tr
             %th 商品の状態
-            %td #{@status_id}
+            %td #{@status}
           %tr
             %th 配送料の負担
             %td #{@shipping_fee}
@@ -59,7 +59,7 @@
           %tr
             %th 発送元地域
             %td
-              = link_to "#{@state}","#",class:"font-blue"
+              = link_to "#{@prefecture}","#",class:"font-blue"
           %tr
             %th 発送日の目安
             %td #{@shipping_day}
@@ -83,7 +83,7 @@
       = button_tag '',class: 'item-button item-button-like' do
         %i.far.fa-heart
         %p いいね!
-        %p #{@like.count}
+        %p #{@likes.count}
       = link_to '',class: 'item-button-bad' do
         %i.far.fa-flag
         %p 不適切な商品の報告
@@ -133,6 +133,12 @@
           = f.hidden_field :product_id, value: @product.id
           = f.text_area :comment,{class: 'message__container__comment__form--input'}
           = f.submit 'コメントする',type: 'submit',class: 'message__container__comment__form--btn'
+        - if flash[:error].present?
+          .error_explanation
+            %ul.error_explanation--ul
+              - flash[:error].each do |e|
+                %li
+                  = e
 .item__nav
   %ul.item__nav__ul
     %li.item__nav__ul__prev
@@ -161,12 +167,13 @@
     =link_to "",class: 'item__user-product__user--a' do
       %h2 #{@product.user.nickname}さんのその他の出品
   .item__user-product__list
-    = render @products
-- unless @brand.nil?
+    - @exclusion_products.each do |product|
+      = render partial: "products/product", locals: {product: product}
+- unless @exclusion_product_brands.nil?
   .item__user-product
     %h2.item__user-product__user
       =link_to "",class: 'item__user-product__user--a' do
-        %h2 #{@brand}の#{@cate_name[0]}その他の出品
+        %h2 #{@brand}の#{@category_defines[0]}その他の出品
     .item__user-product__list
-      - @products_brand.each do |product|
+      - @exclusion_product_brands.each do |product|
         = render partial: "products/product", locals: {product: product}

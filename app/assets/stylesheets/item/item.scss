@@ -376,6 +376,14 @@
     width: 620px;
     height: 100%;
     padding: 24px;
+    .error_explanation{
+      margin-top: 10px;
+      &--ul{
+        li{
+          color: red;
+        }
+      }
+    }
     &__form{
       &--p{
         height: 28px;
