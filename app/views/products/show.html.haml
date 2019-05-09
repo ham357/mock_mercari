@@ -91,6 +91,11 @@
       = link_to '', class: 'items__container__main__like__right--safe' do
         %i.fas.fa-lock
         %span あんしん・あんぜんへの取り組み
+.product-change__container
+  .product-change__container__content
+    =link_to "/products/#{@product.id}", class: "      product-change__container__content__btn--gray", method: :delete, data:{confirm:'本当に削除しますか？'} do
+      .product-change__container__content__btn--gray
+        %h1 この商品を削除する
 .message__container
   .message__container__content
     %ul.message__container__content--ul
