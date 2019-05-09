@@ -14,9 +14,9 @@
       = form_for "", class: 'buy__container__item__inner--form' do |f|
         .buy__container__item__inner--form--price
           %p.buy__container__item__inner--form--price--p ¥ 1,000
-          -# product.shipping_method
           %span.buy__container__item__inner--form--price--span 送料込み
         .buy__container__item__inner--form--point
+          -# ポイントがない場合の条件分岐用
           -# %ul.buy__container__item__inner--form--point--not-have
           -#   %li.buy__container__item__inner--form--point--not-have--li
           -#     .buy__container__item__inner--form--point--not-have--li--toggle
