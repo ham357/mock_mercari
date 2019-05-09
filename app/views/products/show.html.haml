@@ -1,0 +1,179 @@
+.items__container
+  .items__container--h1 #{@product.name}
+  .items__container__main
+    .items__container__main__wrap#wrap
+      %ul#slider
+        - @get_image.each do |n|
+          %li.slide-item
+            = image_tag '','data-lazy': "/images/#{@product.product_images[n][:image_url]}", alt:''
+      %ul#thumbnail-list
+        - @get_image.each do |n|
+          %li.thumbnail-item
+            = image_tag "/images/#{@product.product_images[n][:image_url]}"
+    .items__container__main__detail
+      %table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              =link_to "#{@product.user.nickname}", "#",class:'font-blue'
+              .item-user
+                .item-user-ratings
+                  %i.fas.fa-grin
+                  %span #{@search_rate3.count}
+                .item-user-ratings
+                  %i.fas.fa-meh
+                  %span #{@search_rate2.count}
+                .item-user-ratings
+                  %i.fas.fa-frown
+                  %span #{@search_rate1.count}
+          %tr
+            %th カテゴリー
+            %td
+              = link_to "#" do
+                #item_main_category.font-blue
+                  %p #{@category_defines[0]}
+              = link_to "#" do
+                #item_sub_category.font-blue
+                  - unless @category_defines[1].nil?
+                    %i.fas.fa-chevron-right
+                    %p.category-p #{@category_defines[1]}
+              = link_to "#" do
+                #item_sub_subcategory.font-blue
+                  - unless @category_defines[2].nil?
+                    %i.fas.fa-chevron-right
+                    %p.category-p #{@category_defines[2]}
+          %tr
+            %th ブランド
+            %td
+              = link_to "#{@product.brand.name}","#",class:"font-blue"
+          %tr
+            %th 商品の状態
+            %td #{@product.status.name}
+          %tr
+            %th 配送料の負担
+            %td #{@product.shipping_fee.name}
+          %tr
+            %th 発送の方法
+            %td らくらくメルカリ便
+          %tr
+            %th 発送元地域
+            %td
+              = link_to "#{@product.state.name}","#",class:"font-blue"
+          %tr
+            %th 発送日の目安
+            %td #{@product.shipping_day.name}
+  .items__container__main__price
+    %span.span-price
+      = number_to_currency(@product.price, unit: "¥ ")
+    %span.span-tax (税込)
+    %span.span-fee 送料込み
+  .items__container__main__sold
+    -if @product.sold == true
+      .items__container__main__sold--true
+        %h1 売り切れました
+    - else
+      = link_to '#',class:"items__container__main__sold--a" do
+        .items__container__main__sold--a--false
+          %h1 購入画面に進む
+  .items__container__main__description
+    %p #{@product.description}
+  .items__container__main__like
+    .items__container__main__like__left
+      = button_tag '',class: 'item-button item-button-like' do
+        %i.far.fa-heart
+        %p いいね!
+        %p #{@likes.count}
+      = link_to '',class: 'item-button-bad' do
+        %i.far.fa-flag
+        %p 不適切な商品の報告
+    .items__container__main__like__right
+      = link_to '', class: 'items__container__main__like__right--safe' do
+        %i.fas.fa-lock
+        %span あんしん・あんぜんへの取り組み
+.message__container
+  .message__container__content
+    %ul.message__container__content--ul
+      - @comments.each do |ele|
+        %li.message__container__content--ul--li
+          = link_to '#',class: "message__container__content--ul--li--user" do
+            %figure.user_icon
+              .user_icon
+                -if ele.user.user_image.nil?
+                  = image_tag "/images/member_no_image.png"
+                - else
+                  = image_tag "/images/#{ele.user.user_image[:image_url]}"
+            - if ele.comment_deleted == false
+              %p #{ele.user.nickname}
+            - if ele.user_id == @product.user_id
+              .div_seller
+                %p 出品者
+          .message__container__content--ul--li--body
+            .message__container__content--ul--li--body--text
+              - if ele.comment_deleted == true
+                %p 出品者がコメントを削除しました
+              - else
+                %p #{ele.comment}
+            .message__container__content--ul--li--body--time
+              .time-icon-left
+                %i.far.fa-clock
+                %span #{distance_of_time_in_words_to_now(ele.created_at)}前
+              - if ele.comment_deleted == false
+                .time-icon-right
+                  = link_to '#' do
+                    %i.far.fa-flag
+  - if user_signed_in? == true
+    .message__container__comment
+      = form_for(@comment, url: {controller: :comments, action: :create}, class: 'message__container__comment__form') do |f|
+        %p.message__container__comment__form--p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        - if @product.sold == true
+          = f.text_area :comment,{class: 'message__container__comment__form--input.soldout_text_area',disabled: 'disabled'}
+          = f.submit '売り切れの為コメントできません',type: 'submit',class: 'message__container__comment__form--btn',disabled: 'disabled'
+        - else
+          = f.hidden_field :product_id, value: @product.id
+          = f.text_area :comment,{class: 'message__container__comment__form--input'}
+          = f.submit 'コメントする',type: 'submit',class: 'message__container__comment__form--btn'
+        - if flash[:error].present?
+          .error_explanation
+            %ul.error_explanation--ul
+              - flash[:error].each do |e|
+                %li
+                  = e
+.item__nav
+  %ul.item__nav__ul
+    %li.item__nav__ul__prev
+      - unless @product.previous == nil
+        = link_to "#" do
+          %i.fas.fa-chevron-left
+          %p.item__nav__ul__prev--p #{@product.previous.name}
+    %li.item__nav__ul__next
+      - unless @product.next == nil
+        = link_to "#{@product.next.id}" do
+          %p.item__nav__ul__next--p #{@product.next.name}
+          %i.fas.fa-chevron-right
+.item__sns
+  %ul.item__sns--ul
+    %li.item__sns--ul--facebook
+      =link_to '#' do
+        %i.fab.fa-facebook-square
+    %li.item__sns--ul--twitter
+      =link_to '#' do
+        %i.fab.fa-twitter-square
+    %li.item__sns--ul--pintrest
+      =link_to '#' do
+        %i.fab.fa-pinterest-square
+.item__user-product
+  %h2.item__user-product__user
+    =link_to "",class: 'item__user-product__user--a' do
+      %h2 #{@product.user.nickname}さんのその他の出品
+  .item__user-product__list
+    - @exclusion_products.each do |product|
+      = render partial: "products/product", locals: {product: product}
+- unless @exclusion_product_brands.nil?
+  .item__user-product
+    %h2.item__user-product__user
+      =link_to "",class: 'item__user-product__user--a' do
+        %h2 #{@product.brand.name}の#{@category_defines[0]}その他の出品
+    .item__user-product__list
+      - @exclusion_product_brands.each do |product|
+        = render partial: "products/product", locals: {product: product}

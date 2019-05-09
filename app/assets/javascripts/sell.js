@@ -1,11 +1,20 @@
 $(function(){
-  const default_category_group_elements_count = document.getElementsByClassName("sell__container__top__section--form--group--content")[0].children.length;
-  const default_shipping_group_elements_count = document.getElementsByClassName("sell__container__top__section--form--group--content")[1].children.length;
+    if($(".sell__container__top__section--form--group--content").length){
+        var default_category_group_elements_count = document.getElementsByClassName("sell__container__top__section--form--group--content")[0].children.length;
+        var default_shipping_group_elements_count = document.getElementsByClassName("sell__container__top__section--form--group--content")[1].children.length;
+      }
 
-  function buildCategorySelectBox(categories,category_element) {
+  function buildCategorySelectBox(categories,category_element,category_select_box_element_count) {
+
+    if (category_select_box_element_count==1){
+      var ele_name = "product[sub_category_id]";
+    }else{
+      var ele_name = "product[sub_subcategory_id]";
+    }
+    
     
     var html = `<div class= "sell__container__top__section--form--group--select">
-    <select class="sell__container__top__section--form--group--select--box">
+    <select class="sell__container__top__section--form--group--select--box" id= "${ ele_name }" name="product[category_id]">
       <option value="">---</option>`
 
       $.each( categories , function(index, category) {
@@ -30,7 +39,7 @@ $(function(){
       <label>サイズ</label>
       <span>必須</span>
       <div class= "sell__container__top__section--form--group--select">
-    <select class="sell__container__top__section--form--group--select--box">
+    <select class="sell__container__top__section--form--group--select--box" name="product[product_size_id]">
       <option value="">---</option>`
 
       $.each( product_sizes , function(index, product_size) {
@@ -57,7 +66,9 @@ $(function(){
       <label>ブランド</label>
       <span>任意</span>
       <div class="sell__container__top__section--form--group--seach">
-      <input type="serch" name="name" class="sell__container__top__section--form--group--seach--input" placeholder = "例）シャネル">
+      <input type="text" name="product[brand_id]" class="sell__container__top__section--form--group--seach--input" placeholder = "例）シャネル">
+      <div class="sell__container__top__section--form--group--seach--result">
+      </div>
       </div>
       </div>
       </div>`
@@ -73,7 +84,7 @@ $(function(){
       <label>配送方法の負担</label>
       <span>必須</span>
       <div class= "sell__container__top__section--form--group--select">
-    <select class="sell__container__top__section--form--group--select--box">
+    <select class="sell__container__top__section--form--group--select--box" name="product[shipping_method_id]">
       <option value="">---</option>`
 
       $.each( product_shipping_methods , function(index, product_shipping_method) {
@@ -125,8 +136,6 @@ $(function(){
           var size_flg = data['category'][0].size_flg;
           var brand_flg = data['category'][0].brand_flg;
           data['category'].shift();
-          var size_brand_element = selected_group_element.find(".sell__container__top__section--form--group");
-          var size_brand_element_count = size_brand_element.length;
           
           if (data_conunt !== 0){
               if(selected_box_number !== 3){
@@ -136,7 +145,7 @@ $(function(){
                 for(var i=selected_group_elements_count;i>default_category_group_elements_count;i--){
                   selected_group_elements.eq(i-2).remove();
                 }
-                buildCategorySelectBox(data['category'],selected_element);
+                buildCategorySelectBox(data['category'],selected_element,category_select_box_element_count);
           }else{
               if(selected_group_elements_count == default_category_group_elements_count){
                 if(brand_flg){
@@ -144,7 +153,7 @@ $(function(){
                   }
 
                 if(size_flg){
-                    buildSizeSelectBox(data['size_category'],selected_group_element);
+                    buildSizeSelectBox(data['product_sizes'],selected_group_element);
                 }
     
                 }
