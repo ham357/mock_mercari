@@ -18,6 +18,6 @@ Rails.application.routes.draw do
    }
   resources :logouts, only: :index
   resources :searches
-  resources :buys
+  resources :buys, only: :index
   resources :comments, only: :create
 end
