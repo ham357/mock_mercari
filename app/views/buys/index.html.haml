@@ -1,0 +1,93 @@
+%header.regi__header
+  %h1.regi__header--h1
+    = link_to "#", class:"regi__header--a"  do
+      = image_tag "/images/logo.svg", class: "login__header--h1--a--img"
+
+.buy__container
+  %section.buy__container__title
+    %h2.buy__container__title--h2 購入を確定しますか？
+  %section.buy__container__item
+    .buy__container__item__inner
+      %h3
+        %img{src: "/images/m25542760176_1.jpg"}
+      %p.buy__container__item__inner--p NYXリキッドファンデーション
+      = form_for "", class: 'buy__container__item__inner--form' do |f|
+        .buy__container__item__inner--form--price
+          %p.buy__container__item__inner--form--price--p ¥ 1,000
+          %span.buy__container__item__inner--form--price--span 送料込み
+        .buy__container__item__inner--form--point
+          -# ポイントがない場合の条件分岐用
+          -# %ul.buy__container__item__inner--form--point--not-have
+          -#   %li.buy__container__item__inner--form--point--not-have--li
+          -#     .buy__container__item__inner--form--point--not-have--li--toggle
+          -#       %p ポイントはありません
+          %ul.buy__container__item__inner--form--point--ul
+            %li.buy__container__item__inner--form--point--ul--li.hidden_box
+              = label '',{},{for:"label1",class: 'buy__container__item__inner--form--point--ul--li--toggle'} do
+                %p ポイントを使用する
+                %i.fas.fa-chevron-down
+              = check_box '' ,{},{id:"label1",class: 'hidden_box'}
+              %ul.buy__container__item__inner--form--point--ul--li--point.hidden_show
+                %li.point-form
+                  %p 所持ポイント
+                  %span：P 300
+                %li.radio-form
+                  .radiobutton
+                    = f.radio_button :point,'none',{id: 'not_use',class:'radio-btn'}
+                    = f.label "ポイントを使わない",for:"not_use",class:'radio-label'
+                %li.radio-form
+                  .radiobutton
+                    = f.radio_button :point,'300',{id: 'use',class:'radio-btn'}
+                    = f.label "すべてのポイントを使う",for:"use",class:'radio-label'
+                    %span P 300
+                %li.radio-form
+                  .radiobutton
+                    = f.radio_button :point,'300',{id: 'use_part',class:'radio-btn'}
+                    = f.label "一部のポイントを使う",for:"use_part",class:'radio-label'
+                    = f.number_field :point, placeholder:'使うポイントを入力', class: 'input--default'
+        .buy__container__item__inner--form--payment
+          %ul.buy__container__item__inner--form--payment--ul
+            %li.buy__container__item__inner--form--payment--ul--li
+              .buy-price-left
+                %p 支払い金額
+              .buy-price-right
+                %span ¥ 21,300
+        %p.buy__container__item__inner--form--alert 配送先と支払い方法の入力を完了してください
+        = f.submit '購入する', class: 'buy__container__item__inner--form--btn default-btn'
+  %section.buy__container__address
+    .buy__container__address__inner
+      %h3.buy__container__address__inner--h3 配送先
+      %address.buy__container__address__inner--address
+        %p
+        〒190-0021
+        %br
+        東京都 立川市羽衣町 2-7-3 レスポワール立川101 
+        %br
+        翁長 奨
+      = link_to '', class: 'buy__container__address__inner--edit' do
+          %span 変更する
+          %i.fas.fa-chevron-right
+  %section.buy__container__address
+    .buy__container__address__inner
+      %h3.buy__container__address__inner--h3 支払い方法
+      %address.buy__container__address__inner--address
+        %p
+
+        %br
+        &#47;
+        %br
+
+      = link_to '', class: 'buy__container__address__inner--edit' do
+        %span 変更する
+        %i.fas.fa-chevron-right
+
+%footer.regi__footer
+  %nav.regi__footer__nav
+    %ul.regi__footer__nav--ul
+      %li.regi__footer__nav--ul--li プライバシーポリシー
+      %li.regi__footer__nav--ul--li メルカリ利用規約
+      %li.regi__footer__nav--ul--li 特定商取引に関する表記
+  = link_to "#", class:"regi__footer--a"  do
+    = image_tag "/images/logo-gray.svg", class: "regi__footer--a--img"
+  %p.signup__footer--p
+    %small © 2019 Mecrari
