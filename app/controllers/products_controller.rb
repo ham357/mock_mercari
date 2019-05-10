@@ -42,6 +42,12 @@ class ProductsController < ApplicationController
       @exclusion_product_brands = Product.where(brand_id: @product.brand_id).where.not(id: params[:id]).limit(6)
     end
 
+    def destroy
+        @product =  Product.find(params[:id])
+        @product.destroy
+        redirect_to root_path, notice: "削除しました"
+    end
+
     #product_imageの4個分配列作成
     def get_image
       @images = []

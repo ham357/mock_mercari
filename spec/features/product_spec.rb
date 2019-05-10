@@ -97,3 +97,34 @@ feature "出品投稿" do
   end
 
 end
+
+feature "商品削除" do
+  background do
+    Category.create(name: "レディース", main_category_id: 1)
+    Category.create(name: "トップス", main_category_id: 1, sub_category_id: 1,size_flag: 1, product_size_id: 1, brand_flag: 1)
+    category = Category.create(name: "Tシャツ/カットソー(半袖/袖なし)", main_category_id: 1, sub_category_id: 1, sub_subcategory_id: 1)
+    product_size = ProductSize.create(name: "XXX以下", product_size_id: 1)
+    ProductShippingFee.create(name: "送料込み(出品者負担)")
+    ProductShippingMethod.create(name: "未定", shipping_fee_category: 1)
+    brand = Brand.create(name: "ゲラルディーニ")
+    user = FactoryBot.create(:user)
+    product = FactoryBot.create(:product,user_id: user.id,category_id: category.id,product_size_id: product_size.id,brand_id: brand.id)
+    4.times{ FactoryBot.create(:product_image,product_id: product.id) }
+  end
+  scenario "正常に削除できる" do
+    #商品詳細ページを表示
+    visit '/products/1'
+    expect(current_path).to eq '/products/1'
+
+    expect{
+    #「この商品を削除する」をクリック
+    click_on('この商品を削除する')
+    #アラートの表示確認とOKをクリック
+    expect(page.driver.browser.switch_to.alert.text).to eq "本当に削除しますか？"
+    page.driver.browser.switch_to.alert.accept
+    sleep 5
+    }.to change(Product, :count).by(-1)
+    .and change(ProductImage, :count).by(-4)
+  end
+
+end

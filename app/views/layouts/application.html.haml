@@ -11,6 +11,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    = render 'layouts/flash'
     = render partial: "./homes/header"
     = yield
     = render partial: "./homes/app_banner"
