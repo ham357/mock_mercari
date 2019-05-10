@@ -57,7 +57,7 @@ group :development, :test do
   gem 'gimei'
   gem 'takarabako'
   gem 'rails-controller-testing'
-  gem 'capybara'
+  gem 'capybara', '~> 3.15.1'
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'launchy'

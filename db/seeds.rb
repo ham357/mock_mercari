@@ -164,6 +164,6 @@ end
 CSV.foreach('db/csv/product_size_data.csv', headers: true) do |row|
   ProductSize.create(
       name: row["name"],
-      size_category_id: row["size_category_id"]
+      product_size_id: row["product_size_id"]
   )
 end
