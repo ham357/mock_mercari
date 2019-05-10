@@ -1,7 +1,6 @@
 $(function(){
   var preWord = "";
   
-
   function buildBrandSeachBox(brands,brand_search_input) {
 
     var brand_search_result = $(".sell__container__top__section--form--group--seach--result");
