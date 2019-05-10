@@ -58,6 +58,9 @@ group :development, :test do
   gem 'takarabako'
   gem 'rails-controller-testing'
   gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+  gem 'launchy'
   gem 'database_cleaner'
   gem 'rails-erd'
 end
@@ -69,9 +72,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
-  gem 'launchy'
   gem 'pry-rails'
 end
 
