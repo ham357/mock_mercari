@@ -34,4 +34,14 @@ describe ProductsController, type: :controller do
       end
     end
   end
+
+  describe '#destroy' do
+    it "商品が削除されているか" do
+      product = create(:product,user_id:user.id)
+      4.times{ create(:product_image, product_id: product.id) }
+      expect{
+        delete :destroy, id: product
+      }.to change(Product,:count).by(-1)
+    end
+  end
 end
