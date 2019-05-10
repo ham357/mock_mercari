@@ -1,2 +1,0 @@
-class CardCreatesController < ApplicationController
-end

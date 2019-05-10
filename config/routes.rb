@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   resources :brands, only: :index
   resources :mypages, only: :index
   resources :profiles, only: :index
-  resources :cards, only: :index
-  resources :card_creates, only: :index
+  resources :cards, only: [:index,:new] do
+    collection do
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
   resources :identifacations, only: :index
   resources :signup_sns, only: :index
   devise_for :users, controllers:{

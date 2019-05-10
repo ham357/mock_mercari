@@ -43,6 +43,7 @@ gem 'omniauth-google-oauth2'
 gem 'kaminari', '~> 0.17.0'
 gem 'ransack'
 gem 'jquery-turbolinks'
+gem 'payjp'
 
 group :development, :test do
   gem 'capistrano'
