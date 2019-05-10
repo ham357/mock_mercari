@@ -3,7 +3,6 @@
         %h2 クレジットカード情報入力
         = form_tag('/cards/pay',method: :post, id:'charge-form',class:'ccreate__container__top__form') do
             .ccreate__container__top__form__content
-                %script{src: "https://checkout.pay.jp/",class: "payjp-button" ,'data-key': "pk_test_6faf86f445973c6b924f6e01"}
                 .ccreate__container__top__form__content--group
                     %label{for: "payment_card_no", class: "input--label"} カード番号
                     %span.require 必須

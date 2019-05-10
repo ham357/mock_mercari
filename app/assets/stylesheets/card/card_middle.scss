@@ -25,6 +25,7 @@
                     padding:64px;
                     border-top: 1px solid $subBackColor;
                     background-color: white;
+                    position: relative;
                     &__title{
                         height: 16px;
                         &--list{
@@ -54,8 +55,21 @@
                                         width: 100%;
                                         height: 20px;
                                         margin: 0;
-                                        i{
-                                            font-size: 20px;
+                                        #visa{
+                                            width: 49px;
+                                            height: 20px;
+                                        }
+                                        #master{
+                                            width: 34px;
+                                            height: 20px;
+                                        }
+                                        #saison{
+                                            width: 30px;
+                                            height: 20px;
+                                        }
+                                        #jcb{
+                                            width: 32px;
+                                            height: 20px;
                                         }
                                     }
                                     &--num{
@@ -118,6 +132,9 @@
                     &__not{
                         width: 100%;
                         height: 17px;
+                        position: absolute;
+                        bottom: 96px;
+                        right: 64px;
                         p{
                             height: 17px;
                             margin-top: 40px;

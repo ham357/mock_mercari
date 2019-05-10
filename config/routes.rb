@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :cards, only: [:index,:new] do
     collection do
       post 'pay', to: 'cards#pay'
-      post 'delete', to: 'cards#delete'
+      delete 'delete', to: 'cards#delete'
     end
   end
   resources :identifacations, only: :index
