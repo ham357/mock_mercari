@@ -5,12 +5,12 @@ class OrdersController < ApplicationController
   def index
     @product =  Product.find(params[:product_id])
     @user = User.find(current_user.id)
-    @points = Point.all_point(@user.id)
+    @points = Point.where(user_id: current_user.id).first
     @order = Order.new
     @card_infomation = payjp
     @new_product = Product.new
     gon.price = @product.price
-    gon.points = @points
+    gon.points = @points.point
   end
 
   def show
@@ -23,8 +23,6 @@ class OrdersController < ApplicationController
     @order = Order.new(payment_info)
     @order.product_id =  @product.id
     @order.user_id = current_user.id
-    if @order.payment_price != @product.price
-    end
     @product.with_lock do
       @card = Card.where(user_id: current_user.id).first
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -32,16 +30,26 @@ class OrdersController < ApplicationController
       charge = Payjp::Charge.create(
         amount: @order.payment_price,
         customer: customer,
-        currency: 'jpy'
-      )
+        currency: 'jpy')
       @order.purchase_amount = charge['id']
       if @order.save
+        offset_points(@order.point)
         @product.sold = "1"
         @product.save
         redirect_to action: 'show', product_id: @product.id,id: @order.id
       end
     end
+  end
 
+  # ポイントを全額使った場合は消去、一部分なら数値を減少
+  def offset_points(used_point)
+    @points = Point.where(user_id: current_user.id).first
+    if @points.point - used_point == 0
+      @points.delete
+    else
+      @points.point = @points.point - used_point
+      @points.save
+    end
   end
 
   def payjp

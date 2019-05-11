@@ -4,12 +4,13 @@ $(function(){
     var totalPrice = price
     var points = gon.points
     var priceSpan = $(".buy-price-right-span").html();
-    // totalPrice = totalPrice * 10;
     $(function(){
       $('input[name=point]').change(function(){
         var select = $('input[name=point]:checked').attr('id')
-        console.log(select)
+        $(".buy__container__item__inner--form--alert").html("");
+        $('.buy__container__item__inner--form--btn').prop('disabled', false);
         if (select  == 'use'){
+          totalPrice = price
           totalPrice = totalPrice - points
           $('.use_part_input').prop('disabled', true);
           $('.use_part_input').val("")
@@ -32,9 +33,19 @@ $(function(){
       $('.use_part_input').keyup(function(e){
         var inputPrice = $(this).val();
         if (inputPrice > 0){
-          totalPrice = totalPrice - inputPrice
+          totalPrice = price - inputPrice
         }else{
           totalPrice = price
+        }
+        if (inputPrice > gon.points){
+          $('.buy__container__item__inner--form--btn').prop('disabled', true);
+          $(".buy__container__item__inner--form--alert").html("ポイント所持分を超えております");
+        }else if(inputPrice > gon.price ){
+          $('.buy__container__item__inner--form--btn').prop('disabled', true);
+          $(".buy__container__item__inner--form--alert").html("商品価格以下にしてください");
+        }else{
+          $('.buy__container__item__inner--form--btn').prop('disabled', false);
+          $(".buy__container__item__inner--form--alert").html("");
         }
         var totalPriceStr = String('¥  '+ totalPrice).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
         $(".buy-price-right-span").html(totalPriceStr);

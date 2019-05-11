@@ -32,16 +32,16 @@
                 %ul.buy__container__item__inner--form--point--ul--li--point.hidden_show
                   %li.point-form
                     %p 所持ポイント
-                    %span：P #{@points}
+                    %span：P #{@points.point}
                   %li.radio-form
                     .radiobutton
                       = f.radio_button :point,'',{id: 'not_use',class:'radio-btn',name:'point',checked: 'true'}
                       = f.label "ポイントを使わない",for:"not_use",class:'radio-label'
                   %li.radio-form
                     .radiobutton
-                      = f.radio_button :point,"#{@points}",{id: 'use',class:'radio-btn',name:'point'}
+                      = f.radio_button :point,"#{@points.point}",{id: 'use',class:'radio-btn',name:'point'}
                       = f.label "すべてのポイントを使う",for:"use",class:'radio-label'
-                      %span P #{@points}
+                      %span P #{@points.point}
                   %li.radio-form
                     .radiobutton
                       = f.radio_button :point,'00',{id: 'use_part',class:'radio-btn',name:'point'}
@@ -55,10 +55,12 @@
               .buy-price-right
                 %span.buy-price-right-span
                   = number_to_currency(@product.price, unit: "¥ ")
-              -# ポイントを差し引いた分の差額を↑に表示し、↓で値を送信（valueはjsで変える)
               = f.hidden_field :payment_price, value: @product.price,class:'price_checker'
               = f.hidden_field :point, value: '',class:'point_checker'
-        %p.buy__container__item__inner--form--alert 配送先と支払い方法の入力を完了してください
+        - if @user.user_info.postal_code.nil? || @card_infomation.nil?
+          %p.buy__container__item__inner--form--alert 配送先と支払い方法の入力を完了してください
+        -else
+          %p.buy__container__item__inner--form--alert
         = f.submit '購入する', class: 'buy__container__item__inner--form--btn default-btn'
   %section.buy__container__address
     .buy__container__address__inner
