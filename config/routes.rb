@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'products#index'
   resources :products do
-    resources :buys
+    resources :orders
   end
   get 'sell', to: 'products#new'
   resources :category, only: :index
@@ -24,6 +24,5 @@ Rails.application.routes.draw do
    }
   resources :logouts, only: :index
   resources :searches
-  resources :buys, only: :index
   resources :comments, only: :create
 end

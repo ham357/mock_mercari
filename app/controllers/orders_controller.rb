@@ -1,4 +1,4 @@
-class BuysController < ApplicationController
+class OrdersController < ApplicationController
   require "payjp"
   before_action :authenticate_user!
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190510074419) do
+ActiveRecord::Schema.define(version: 20190511021123) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 20190510074419) do
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_likes_on_product_id", using: :btree
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "product_id",      null: false
+    t.integer  "user_id",         null: false
+    t.string   "purchase_amount", null: false
+    t.boolean  "convert_cash",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
