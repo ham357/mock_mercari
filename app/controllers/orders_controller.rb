@@ -11,6 +11,8 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @product =  Product.find(params[:product_id])
+    @user = User.find(current_user.id)
   end
 
   def create
@@ -34,7 +36,7 @@ class OrdersController < ApplicationController
       if @order.save
         @product.sold = "1"
         @product.save
-        redirect_to action: "show"
+        redirect_to action: 'show', product_id: @product.id,id: @order.id
       end
     end
   end
