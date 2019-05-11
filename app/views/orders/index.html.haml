@@ -17,7 +17,7 @@
             = number_to_currency(@product.price, unit: "¥ ")
           %span.buy__container__item__inner--form--price--span #{@product.shipping_fee.name}
         .buy__container__item__inner--form--point
-          - if @points == 0
+          - unless @points.present?
             %ul.buy__container__item__inner--form--point--not-have
               %li.buy__container__item__inner--form--point--not-have--li
                 .buy__container__item__inner--form--point--not-have--li--toggle

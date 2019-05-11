@@ -24,6 +24,10 @@ $(function(){
           $('.use_part_input').val("")
           $('.point_checker').val('0')
         }
+        if(totalPrice < 50){
+          $('.buy__container__item__inner--form--btn').prop('disabled', true)
+          $(".buy__container__item__inner--form--alert").html("50円以下の決済不可")
+        }
         var totalPriceStr = String('¥  '+ totalPrice).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
         $(".buy-price-right-span").html(totalPriceStr);
         $(".price_checker").val(totalPrice);
@@ -43,6 +47,9 @@ $(function(){
         }else if(inputPrice > gon.price ){
           $('.buy__container__item__inner--form--btn').prop('disabled', true);
           $(".buy__container__item__inner--form--alert").html("商品価格以下にしてください");
+        }else if(totalPrice < 50){
+          $('.buy__container__item__inner--form--btn').prop('disabled', true);
+          $(".buy__container__item__inner--form--alert").html("50円以下の決済不可");
         }else{
           $('.buy__container__item__inner--form--btn').prop('disabled', false);
           $(".buy__container__item__inner--form--alert").html("");

@@ -5,12 +5,12 @@ class OrdersController < ApplicationController
   def index
     @product =  Product.find(params[:product_id])
     @user = User.find(current_user.id)
-    @points = Point.where(user_id: current_user.id).first
+    @points = Point.where(user_id: current_user.id).first if @user.points.present?
     @order = Order.new
     @card_infomation = payjp
     @new_product = Product.new
     gon.price = @product.price
-    gon.points = @points.point
+    gon.points = @points.point if @points.present?
   end
 
   def show
@@ -23,20 +23,33 @@ class OrdersController < ApplicationController
     @order = Order.new(payment_info)
     @order.product_id =  @product.id
     @order.user_id = current_user.id
-    @product.with_lock do
+    if @order.payment_price < 50
+      flash.now[:alert] = "50円以下の決済不可"
+      render :index
+    end
+      @product.with_lock do
       @card = Card.where(user_id: current_user.id).first
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
-      charge = Payjp::Charge.create(
+      if charge = Payjp::Charge.create(
         amount: @order.payment_price,
         customer: customer,
         currency: 'jpy')
-      @order.purchase_amount = charge['id']
+        @order.purchase_amount = charge['id']
+      else
+        flash.now[:alert] = "Payjpエラー"
+        render :index
+      end
       if @order.save
-        offset_points(@order.point)
+        unless @order.point == nil
+          offset_points(@order.point)
+        end
         @product.sold = "1"
         @product.save
         redirect_to action: 'show', product_id: @product.id,id: @order.id
+      else
+        flash.now[:alert] = "購入に失敗しました"
+        render :index
       end
     end
   end
