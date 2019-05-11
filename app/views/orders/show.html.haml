@@ -1,6 +1,6 @@
 %header.regi__header
   %h1.regi__header--h1
-    = link_to "#", class:"regi__header--a"  do
+    = link_to "/", class:"regi__header--a"  do
       = image_tag "/images/logo.svg", class: "login__header--h1--a--img"
 
 .bought__conteiner
@@ -19,7 +19,7 @@
       %p.buy__container__item__inner--p #{@product.name}
   %section.bought__conteiner__price
     %p.buy__container__item__inner--form--price--p
-      = number_to_currency(@product.price, unit: "¥ ")
+      = number_to_currency(@product.order.payment_price, unit: "¥ ")
     %span.buy__container__item__inner--form--price--span #{@product.shipping_fee.name}
   %section.bought__conteiner__bottom
     %address.bought__conteiner__bottom--address

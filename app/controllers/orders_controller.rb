@@ -5,9 +5,12 @@ class OrdersController < ApplicationController
   def index
     @product =  Product.find(params[:product_id])
     @user = User.find(current_user.id)
+    @points = Point.all_point(@user.id)
     @order = Order.new
     @card_infomation = payjp
     @new_product = Product.new
+    gon.price = @product.price
+    gon.points = @points
   end
 
   def show
@@ -21,7 +24,6 @@ class OrdersController < ApplicationController
     @order.product_id =  @product.id
     @order.user_id = current_user.id
     if @order.payment_price != @product.price
-      redirect_to root_path
     end
     @product.with_lock do
       @card = Card.where(user_id: current_user.id).first
@@ -39,6 +41,7 @@ class OrdersController < ApplicationController
         redirect_to action: 'show', product_id: @product.id,id: @order.id
       end
     end
+
   end
 
   def payjp
@@ -54,6 +57,6 @@ class OrdersController < ApplicationController
   private
 
   def payment_info
-    params.require(:order).permit(:payment_price)
+    params.require(:order).permit(:payment_price, :point)
   end
 end

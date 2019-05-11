@@ -202,6 +202,8 @@ rails-erd
 |point_id|integer||
 |purchase_amount|string|null: false|
 |convert_cash|boolean|default: false|
+|payment_price|integer|null: false|
+|point|integer||
 |created_at|datetime||
 
 ### Association

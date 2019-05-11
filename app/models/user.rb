@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_many :rates, dependent: :destroy
   has_many :cards, dependent: :destroy
   has_many :orders, through: :products
+  has_many :points, dependent: :destroy
 
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
