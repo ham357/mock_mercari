@@ -133,7 +133,7 @@
       = form_for(@comment, url: {controller: :comments, action: :create}, class: 'message__container__comment__form') do |f|
         %p.message__container__comment__form--p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         - if @product.sold == true
-          = f.text_area :comment,{class: 'message__container__comment__form--input.soldout_text_area',disabled: 'disabled'}
+          = f.text_area :comment,{class: 'message__container__comment__form--input',disabled: 'disabled'}
           = f.submit '売り切れの為コメントできません',type: 'submit',class: 'message__container__comment__form--btn',disabled: 'disabled'
         - else
           = f.hidden_field :product_id, value: @product.id
@@ -149,12 +149,12 @@
   %ul.item__nav__ul
     %li.item__nav__ul__prev
       - unless @product.previous == nil
-        = link_to "#" do
+        = link_to "#{@product.previous.id}",data: {"turbolinks" => false} do
           %i.fas.fa-chevron-left
           %p.item__nav__ul__prev--p #{@product.previous.name}
     %li.item__nav__ul__next
       - unless @product.next == nil
-        = link_to "#{@product.next.id}" do
+        = link_to "#{@product.next.id}",data: {"turbolinks" => false} do
           %p.item__nav__ul__next--p #{@product.next.name}
           %i.fas.fa-chevron-right
 .item__sns
