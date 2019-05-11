@@ -11,7 +11,7 @@
       %h3
         = image_tag "#{@product.product_images[0][:image_url]}"
       %p.buy__container__item__inner--p #{@product.name}
-      = form_for "", class: 'buy__container__item__inner--form' do |f|
+      = form_for @order,url: {action: 'create'}, class: 'buy__container__item__inner--form' do |f|
         .buy__container__item__inner--form--price
           %p.buy__container__item__inner--form--price--p
             = number_to_currency(@product.price, unit: "¥ ")
@@ -54,6 +54,8 @@
               .buy-price-right
                 %span
                   = number_to_currency(@product.price, unit: "¥ ")
+              -# ポイントを差し引いた分の差額を↑に表示し、↓で値を送信（valueはjsで変える)
+              = f.hidden_field :payment_price, value: @product.price
         %p.buy__container__item__inner--form--alert 配送先と支払い方法の入力を完了してください
         = f.submit '購入する', class: 'buy__container__item__inner--form--btn default-btn'
   %section.buy__container__address

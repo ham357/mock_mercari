@@ -1,5 +1,5 @@
 %section.items-box
-  = link_to "https://item.mercari.com/jp/m67684181775/" do
+  = link_to product_path(product.id) do
     %figure.items-box__photo
       = image_tag product_image(product), alt: product.name
     .items-box__body
