@@ -2,7 +2,7 @@ require 'rails_helper'
 describe OrdersController, type: :controller do
   describe 'GET #index' do
     before do
-      user = FactoryBot.create(:user)
+      user = create(:user)
       @product = create(:product, user_id: user.id)
       sign_in user
     end
@@ -13,7 +13,7 @@ describe OrdersController, type: :controller do
   end
   describe '#show' do
     before do
-      user = FactoryBot.create(:user)
+      user = create(:user)
       @product = create(:product, user_id: user.id)
       sign_in user
     end
@@ -25,7 +25,7 @@ describe OrdersController, type: :controller do
   end
   describe '#create' do
     before do
-      user = FactoryBot.create(:user)
+      user = create(:user)
       @product = create(:product, user_id: user.id)
       @card = create(:card,user_id: user.id)
       @point = create(:point, user_id: user.id)
