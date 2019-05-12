@@ -48,6 +48,42 @@ class ProductsController < ApplicationController
         redirect_to root_path, notice: "削除しました"
     end
 
+    def edit
+        @product = Product.find(params[:id])
+        @product_images = ProductImage.where(product_id: @product.id)
+        @category_id = @product.category_id
+        main_category_id = @product.category.main_category_id
+        sub_category_id = @product.category.sub_category_id
+        subsub_id = @product.category.sub_subcategory_id
+        @main_categories = Category.where(sub_category_id: nil)
+        @sub_categories = Category.where(main_category_id: main_category_id,sub_subcategory_id: nil).where.not(sub_category_id: nil)
+        @sub_subcategories = Category.where(main_category_id: main_category_id,sub_category_id: sub_category_id).where.not(sub_subcategory_id: nil)
+        render layout: "sell"
+    end
+
+    def update
+        @product = Product.find(params[:id])
+        if @product.update(product_params)
+            update_productimage(@product)
+            respond_to do |format|
+                format.html { redirect_to root_path }
+                format.json
+            end
+        else
+            @category_id = @product.category_id
+            main_category_id = @product.category.main_category_id
+            sub_category_id = @product.category.sub_category_id
+            subsub_id = @product.category.sub_subcategory_id
+            @main_categories = Category.where(sub_category_id: nil)
+            @sub_categories = Category.where(main_category_id: main_category_id,sub_subcategory_id: nil).where.not(sub_category_id: nil)
+            @sub_subcategories = Category.where(main_category_id: main_category_id,sub_category_id: sub_category_id).where.not(sub_subcategory_id: nil)    
+            respond_to do |format|
+                format.html{render action: 'edit'}
+                format.json
+            end
+        end
+    end
+
     #product_imageの4個分配列作成
     def get_image
       @images = []
@@ -98,6 +134,22 @@ class ProductsController < ApplicationController
             image = params[:product][:product_images_attributes][:image_url][i.to_s]
             ProductImage.create(product_id: product_id, image_url: image)
             i += 1
+        end
+    end
+
+    
+    def update_productimage(product)
+        if params[:DeletedImageUrls].present?
+            product_image = product.product_images.find_by(image_url: params[:DeletedImageUrls])
+            product_image.destroy
+        end
+        if params[:product][:product_images_attributes].present?
+            i = 0
+            while params[:product][:product_images_attributes][:image_url][i.to_s].present? do
+                image = params[:product][:product_images_attributes][:image_url][i.to_s]
+                ProductImage.create(product_id: product.id, image_url: image)
+                i += 1
+            end
         end
     end
 
