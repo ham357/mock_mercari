@@ -11,12 +11,6 @@ class CardsController < ApplicationController
         end
     end
 
-    def create
-    end
-
-    def new
-    end
-
     def pay
         Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
         customer = Payjp::Customer.create(card: params[:payjpToken])
@@ -31,7 +25,6 @@ class CardsController < ApplicationController
     end
 
     def delete
-        binding.pry
         @card = Card.where(user_id: current_user.id).first
         Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
         customer = Payjp::Customer.retrieve(@card.customer_id)

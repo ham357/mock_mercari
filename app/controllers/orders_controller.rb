@@ -1,25 +1,23 @@
 class OrdersController < ApplicationController
   require "payjp"
   before_action :authenticate_user!
+  before_action :now_product_user, only: %i[index show create]
 
   def index
-    @product =  Product.find(params[:product_id])
-    @user = User.find(current_user.id)
-    @points = Point.where(user_id: current_user.id).first if @user.points.present?
+    if @user.points.present?
+      @points = Point.where(user_id: current_user.id).first
+      gon.points = @points.point
+    end
     @order = Order.new
-    @card_infomation = payjp
     @new_product = Product.new
+    @card_infomation = payjp
     gon.price = @product.price
-    gon.points = @points.point if @points.present?
   end
 
   def show
-    @product =  Product.find(params[:product_id])
-    @user = User.find(current_user.id)
   end
 
   def create
-    @product =  Product.find(params[:product_id])
     @order = Order.new(payment_info)
     @order.product_id =  @product.id
     @order.user_id = current_user.id
@@ -76,6 +74,11 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def now_product_user
+    @product =  Product.find(params[:product_id])
+    @user = User.find(current_user.id)
+  end
 
   def payment_info
     params.require(:order).permit(:payment_price, :point)

@@ -43,7 +43,7 @@ $(function(){
         }
         if (inputPrice > gon.points){
           $('.buy__container__item__inner--form--btn').prop('disabled', true);
-          $(".buy__container__item__inner--form--alert").html("ポイント所持分を超えております");
+          $(".buy__container__item__inner--form--alert").html("ポイント所持分を超えてます");
         }else if(inputPrice > gon.price ){
           $('.buy__container__item__inner--form--btn').prop('disabled', true);
           $(".buy__container__item__inner--form--alert").html("商品価格以下にしてください");
