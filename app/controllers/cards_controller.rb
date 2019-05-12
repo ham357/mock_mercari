@@ -21,9 +21,9 @@ class CardsController < ApplicationController
                             customer_id: customer.id,
                             card_id: customer.default_card)
         if @card.save
-        redirect_to cards_path
+            redirect_to cards_path
         else
-        redirect_to pay_cards_path
+            redirect_to pay_cards_path
         end
     end
 
@@ -34,5 +34,5 @@ class CardsController < ApplicationController
         customer.delete
         @card.delete
         redirect_to cards_path
-      end
+    end
 end
