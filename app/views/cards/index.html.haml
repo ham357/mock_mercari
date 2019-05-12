@@ -7,10 +7,10 @@
                     .card__container__top__section__info__title--list
                         %h3 クレジットカード一覧
                     %ul.card__container__top__section__info__title--list--card
-                        -# テンプレートで条件分岐かつeachで取り出す
-                        -# = render partial: "cards"
-                -# テンプレートで条件分岐(if user.card_token)
-                = render partial: "add"
+                        - if @card.present?
+                            = render partial: "cards"
+                - if @card.nil?
+                    = render partial: "add"
                 .card__container__top__section__info__not
                     %p.card__container__top__info__not--p
                         = link_to "支払い方法について", '#'

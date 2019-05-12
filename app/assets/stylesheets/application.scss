@@ -12,6 +12,7 @@
 @import "./home/footer";
 @import "./home/footer-single";
 @import "./mixin";
+@import './mixin/card_images';
 @import "./mypage/valiable";
 @import "./mypage/mypage_middle";
 @import "./mypage/mypage_large";
@@ -42,9 +43,10 @@
 @import "./logout/logout_small";
 @import "./result/result_large";
 @import "./result/result_items_box";
-@import "./buy/buy";
+@import "./order/order.scss";
 @import "./item/item.scss";
 @import "./item/item_items_box";
+@import "./order/show";
 @import "./slick-theme";
 @import "./slick";
 @import "font-awesome";

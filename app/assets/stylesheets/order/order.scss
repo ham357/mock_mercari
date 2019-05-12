@@ -226,23 +226,25 @@
   }
   &__address{
     width: 525px;
-    height: 103px;
+    min-height: 103px;
     padding: 24px 87.5px 0 87.5px;
     margin-top: 40px;
     border-top: 1px solid #f5f5f5;
     &__inner{
       width: 320px;
       height: 103px;
-      margin: 0 auto;
+      margin: 0 auto 40px auto;
       display: block;
       &--h3{
         font-weight: bold;
       }
       &--address{
         margin-top: 8px;
+        min-height: 51px;
         p{
           font-size: 12px;
         }
+        @include card_images;
       }
       &--edit{
         display: flex;

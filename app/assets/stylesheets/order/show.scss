@@ -1,0 +1,91 @@
+.bought__conteiner{
+  width: 700px;
+  height: 100%;
+  margin: 30px auto;
+  background-color: white;
+  &__attention{
+    height: 80px;
+    background-color: blanchedalmond;
+    padding: 38px 16px 30px 16px;
+    &--top{
+      width: 100%;
+      text-align: center;
+      .fa-clock{
+        color: crimson;
+        font-size:35px;
+        display: inline-block;
+      }
+      h1{
+        color: crimson;
+        font-size: 20px;
+        display: inline-block;
+        margin-left: 5px;
+      }
+    }
+    &--bottom{
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+  &__title{
+    padding: 32px 16px;
+    height: 33px;
+    &--h2{
+      font-weight: bold;
+      font-size: 25px;
+      text-align: center;
+    }
+  }
+  &__item{
+    width: 525px;
+    padding: 24px 87.5px 0 87.5px;
+    border-top: 1px solid #f5f5f5;
+    &__inner{
+      width: 320px;
+      margin: 0 auto;
+      h3{
+        width: 320px;
+        height: 148px;
+        display: block;
+        text-align: center;
+        img{
+          width: 148px;
+          height: 148px;
+        }
+      }
+    }
+  }
+  &__price{
+    margin-top: 20px;
+    width: 525px;
+    padding: 40px 87.5px 0 87.5px;
+    border-top: 1px solid #f5f5f5;
+    display: flex;
+    justify-content: center;
+    &--p{
+      font-weight: bold;
+      font-size: 28px;
+      display: inline-block;
+    }
+  }
+  &__bottom{
+    width: 525px;
+    min-height: 103px;
+    padding: 24px 87.5px 0 87.5px;
+    margin-top: 40px;
+    border-top: 1px solid #f5f5f5;
+    &--address{
+      width: 320px;
+      height: 103px;
+      margin: 0 auto 40px auto;
+      display: block;
+      &--h3{
+        font-weight: bold;
+      }
+      p{
+        margin-top: 8px;
+        font-size: 12px;
+      }
+    }
+  }
+}

@@ -1,15 +1,21 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'products#index'
-  resources :products
+  resources :products do
+    resources :orders, only: [:index,:show,:create]
+  end
   get 'sell', to: 'products#new'
   resources :category, only: :index
   resources :product_shipping_methods, only: :index
   resources :brands, only: :index
   resources :mypages, only: :index
   resources :profiles, only: :index
-  resources :cards, only: :index
-  resources :card_creates, only: :index
+  resources :cards, only: [:index,:new] do
+    collection do
+      post 'pay', to: 'cards#pay'
+      delete 'delete', to: 'cards#delete'
+    end
+  end
   resources :identifacations, only: :index
   resources :signup_sns, only: :index
   devise_for :users, controllers:{
@@ -18,6 +24,5 @@ Rails.application.routes.draw do
    }
   resources :logouts, only: :index
   resources :searches
-  resources :buys, only: :index
   resources :comments, only: :create
 end
