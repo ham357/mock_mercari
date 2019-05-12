@@ -4,11 +4,14 @@ $(function(){
     var totalPrice = price
     var points = gon.points
     var priceSpan = $(".buy-price-right-span").html();
+    var btnDisableTrue = $('.buy__container__item__inner--form--btn').prop('disabled', true)
+    var btnDisableFalse = $('.buy__container__item__inner--form--btn').prop('disabled', false);
+    var cantPaymentFifty = $(".buy__container__item__inner--form--alert").html("50円以下の決済不可")
     $(function(){
       $('input[name=point]').change(function(){
         var select = $('input[name=point]:checked').attr('id')
         $(".buy__container__item__inner--form--alert").html("");
-        $('.buy__container__item__inner--form--btn').prop('disabled', false);
+        btnDisableFalse
         if (select  == 'use'){
           totalPrice = price
           totalPrice = totalPrice - points
@@ -25,8 +28,8 @@ $(function(){
           $('.point_checker').val('0')
         }
         if(totalPrice < 50){
-          $('.buy__container__item__inner--form--btn').prop('disabled', true)
-          $(".buy__container__item__inner--form--alert").html("50円以下の決済不可")
+          btnDisableTrue
+          cantPaymentFifty
         }
         var totalPriceStr = String('¥  '+ totalPrice).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
         $(".buy-price-right-span").html(totalPriceStr);
@@ -42,16 +45,16 @@ $(function(){
           totalPrice = price
         }
         if (inputPrice > gon.points){
-          $('.buy__container__item__inner--form--btn').prop('disabled', true);
+          btnDisableTrue
           $(".buy__container__item__inner--form--alert").html("ポイント所持分を超えてます");
         }else if(inputPrice > gon.price ){
-          $('.buy__container__item__inner--form--btn').prop('disabled', true);
+          btnDisableTrue
           $(".buy__container__item__inner--form--alert").html("商品価格以下にしてください");
         }else if(totalPrice < 50){
-          $('.buy__container__item__inner--form--btn').prop('disabled', true);
-          $(".buy__container__item__inner--form--alert").html("50円以下の決済不可");
+          btnDisableTrue
+          cantPaymentFifty
         }else{
-          $('.buy__container__item__inner--form--btn').prop('disabled', false);
+          btnDisableFalse
           $(".buy__container__item__inner--form--alert").html("");
         }
         var totalPriceStr = String('¥  '+ totalPrice).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
