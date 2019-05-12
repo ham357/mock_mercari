@@ -244,18 +244,7 @@
         p{
           font-size: 12px;
         }
-        #visa{
-          width: 49px;
-          height: 20px;
-        }
-        #master{
-            width: 34px;
-            height: 20px;
-        }
-        #jcb{
-            width: 32px;
-            height: 20px;
-        }
+        @include card_images;
       }
       &--edit{
         display: flex;
