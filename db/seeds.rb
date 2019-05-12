@@ -157,7 +157,8 @@ CSV.foreach('db/csv/category_data.csv', headers: true) do |row|
       name: row["name"],
       main_category_id: row["main_category_id"],
       sub_category_id: row["sub_category_id"],
-      sub_subcategory_id: row["sub_subcategory_id"]
+      sub_subcategory_id: row["sub_subcategory_id"],
+      pre_category_id: row["pre_category_id"]
   )
 end
 
