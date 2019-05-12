@@ -10,6 +10,7 @@ class Product < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_one :order
 
   def previous
     Product.where("id < ?", self.id).order("id DESC").first

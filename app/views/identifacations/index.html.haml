@@ -11,9 +11,9 @@
                 %p.identifi__container__top__section--form--top--p
                     = link_to "本人確認書類のアップロードについて", '#'
                     %i.fas.fa-chevron-right
-            = render partial: "user", locals: { label:'お名前', value: '翁長 奨' }
-            = render partial: "user", locals: { label:'お名前カナ', value: 'オナガ ショウ' }
-            = render partial: "user", locals: { label:'誕生日', value: '1986/06/10' }
+            = render partial: "user", locals: { label:'お名前', value: "#{@user.user_info.first_name + ' ' + @user.user_info.last_name}" }
+            = render partial: "user", locals: { label:'お名前カナ', value: "#{@user.user_info.kana_first_name + ' ' + @user.user_info.kana_last_name}" }
+            = render partial: "user", locals: { label:'誕生日', value: "#{@user.user_info.birth_year}/#{@user.user_info.birth_month}/#{@user.user_info.birth_day}" }
             .identifi__container__top__section--form--groupf
                 %label{for: "zip_code"} 郵便番号
                 %span.arbitrary 任意
