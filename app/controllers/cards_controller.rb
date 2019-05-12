@@ -11,6 +11,9 @@ class CardsController < ApplicationController
         end
     end
 
+    def new
+    end
+
     def pay
         Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
         customer = Payjp::Customer.create(card: params[:payjpToken])

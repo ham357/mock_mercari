@@ -73,7 +73,7 @@
       .items__container__main__sold--true
         %h1 売り切れました
     - else
-      = link_to product_orders_path(params[:id]),class:"items__container__main__sold--a" do
+      = link_to product_orders_path(params[:id]),data: {"turbolinks" => false},class:"items__container__main__sold--a" do
         .items__container__main__sold--a--false
           %h1 購入画面に進む
   .items__container__main__description

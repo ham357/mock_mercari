@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :brands, only: :index
   resources :mypages, only: :index
   resources :profiles, only: :index
-  resources :cards, only: [:index] do
+  resources :cards, only: [:index,:new] do
     collection do
       post 'pay', to: 'cards#pay'
       delete 'delete', to: 'cards#delete'
