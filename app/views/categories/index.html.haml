@@ -1,0 +1,23 @@
+.category__main
+  .cateogry__main__title
+    %h2.category__main__title--h2 カテゴリー一覧
+  .category__main__main_categories
+    - @main_categories.each do |ele|
+      = link_to "#root_category-#{ele.id}", class: "caterogy-root" do
+        %p #{ele.name}
+  .category__main__list
+    .category__main__list__box
+      .category__main__list__box__title
+        %h3.category__main__list__box__title--h3 レディース
+      .category__main__list__box__inner
+        %p.category__main__list__box__inner--p すべて
+        .category__main__list__box__inner--sub_category
+          %h4.category__main__list__box__inner--sub_category--h4 トップス
+        .category__main__list__box__inner--sub-subcategory
+          .category__main__list__box__inner--sub-subcategory--name
+            = link_to "#",class: ".category__main__list__box__inner--sub-subcategory--name--a" do
+              %p すべて
+         .category__main__list__box__inner--sub-subcategory
+          .category__main__list__box__inner--sub-subcategory--name
+            = link_to "#",class: ".category__main__list__box__inner--sub-subcategory--name--a" do
+              %p Tシャツ/カットソー(半袖/袖なし)
