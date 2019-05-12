@@ -16,10 +16,21 @@ $(function(){
     init: function(){
       myDropzone = this
       $('form').submit(function(e){
+      　if(document.URL.match("sell")) {
         e.preventDefault();
+      }
+        setTimeout(function () {}, "5000");
         myDropzone.processQueue();
         $('.dz-remove').text('削除');
       })
+    this.on("removedfile", function (file) {
+      if (file.url && file.url.trim().length > 0) {
+          $("<input type='hidden'>").attr({
+              id: 'DeletedImageUrls',
+              name: 'DeletedImageUrls'
+          }).val(file.name).appendTo('#item-dropzone');
+      }
+  });
     },
     drop: function(){
       $(document).ready();
@@ -82,8 +93,14 @@ $(function(){
     }
   });
 
-  $('#product_price').on('keyup', function(){
-    var price = $(this).val();
+  if($("#product_price").length){
+    window.onload = displayComminssionAndBenefit();
+  }
+
+  $('#product_price').on('keyup', displayComminssionAndBenefit)
+
+  function displayComminssionAndBenefit(){
+    var price = $('#product_price').val();
     var commission = Math.round(price * 0.1)
     var benefit = Math.round(price - commission)
     if (price >= 300) {
@@ -93,7 +110,8 @@ $(function(){
       $('#commission').text("-")
       $('#benefit').text("-")
     }
-  })
+  }
+
   $('input[type=file]').on('change', function(){
     var count = 100 - ($('.dz-preview').length * 22) + "%"
       $('.dz-message').css('width', count);
