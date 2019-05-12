@@ -21,9 +21,9 @@ class CardsController < ApplicationController
                             customer_id: customer.id,
                             card_id: customer.default_card)
         if @card.save
-        redirect_to action: "index"
+        redirect_to cards_path
         else
-        redirect_to action: "pay"
+        redirect_to pay_cards_path
         end
     end
 
@@ -33,6 +33,6 @@ class CardsController < ApplicationController
         customer = Payjp::Customer.retrieve(@card.customer_id)
         customer.delete
         @card.delete
-        redirect_to action: "index"
+        redirect_to cards_path
       end
 end
