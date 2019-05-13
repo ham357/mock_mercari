@@ -53,7 +53,7 @@ class ProductsController < ApplicationController
         @product_images = ProductImage.where(product_id: @product.id)
         @category_id = @product.category_id
         @main_categories = Category.where(sub_category_id: nil)
-        @sub_categories = Category.where(main_category_id: @product.category.main_category_id,sub_subcategory_id: nil).where.not(sub_category_id: nil)
+        @sub_categories = Category.sub_category_search(@product.category.main_category_id)
         @sub_subcategories = Category.where(main_category_id: @product.category.main_category_id,sub_category_id: @product.category.sub_category_id).where.not(sub_subcategory_id: nil)
         render layout: "sell"
     end
@@ -69,7 +69,7 @@ class ProductsController < ApplicationController
         else
             @category_id = @product.category_id
             @main_categories = Category.where(sub_category_id: nil)
-            @sub_categories = Category.where(main_category_id: @product.category.main_category_id,sub_subcategory_id: nil).where.not(sub_category_id: nil)
+            @sub_categories = Category.sub_category_search(@product.category.main_category_id)
             @sub_subcategories = Category.where(main_category_id: @product.category.main_category_id,sub_category_id: @product.category.sub_category_id).where.not(sub_subcategory_id: nil)    
             respond_to do |format|
                 format.html{render edit_product_path}
