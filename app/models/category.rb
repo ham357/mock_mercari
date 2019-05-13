@@ -3,9 +3,7 @@ class Category < ApplicationRecord
   has_one :product_size
 
   belongs_to :parent, class_name: :Category
-  has_many :children,class_name: :Category, foreign_key: :main_category_id
-
-  def self.get_array_subsub(main,sub)
-    array = Category.where(main_category_id: main).where(sub_category_id: sub)
-  end
+  belongs_to :grand_children, class_name: :Category
+  has_many :children,class_name: :Category, foreign_key: :pre_category_id
+  has_many :grand_children,class_name: :Category, foreign_key: :pre_precategory_id
 end

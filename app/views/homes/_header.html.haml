@@ -19,7 +19,7 @@
       = s.text_field :name_cont, placeholder: '何をお探しですか？',type: "search",class: "input--default"
       %i.fa-search
   %nav.header--sp__nav
-    = link_to "#", data: {category: "NAVIGATION", label: "sp_header_nav_カテゴリから探す"} do
+    = link_to categories_path, data: {category: "NAVIGATION", label: "sp_header_nav_カテゴリから探す"} do
       %i.fa-list-ul.header--sp__cat-brand-icon
       %span カテゴリから探す
     = link_to "#", data: {category: "NAVIGATION", label: "sp_header_nav_ブランドから探す"} do
@@ -39,7 +39,7 @@
         %ul.header--pc__nav
           %li
             %h2
-              = link_to "#", class: 'header--pc__nav--root list-parent' do
+              = link_to categories_path, class: 'header--pc__nav--root list-parent' do
                 %i.fa.fa-list-ul.header--pc__cat-brand-icon
                 %span カテゴリーから探す
             %ul.header--pc__nav--parent-wrap{"data-mega": "1"}
@@ -48,17 +48,14 @@
                   %h3
                     = link_to "#{main_category.name}", category_path(main_category.id)
                   %ul.header--pc__nav--child-wrap{"data-mega": "2"}
-                    - Category.where('pre_category_id = ? AND sub_subcategory_id is null',main_category.id).each do |sub_category|
+                    - main_category.children.each_with_index do |sub_category,i|
                       %li.header--pc__nav--child
                         = link_to "#{sub_category.name}", category_path(sub_category.id)
                         %ul.header--pc__nav--grand-child-wrap{"data-mega": "3"}
-                          -Category.where('main_category_id = ? AND sub_category_id = ?',main_category.id,sub_category.sub_category_id).limit(20).each do |sub_subcategory|
+                          - main_category.children[i].grand_children.limit(19).each do |sub_subcategory|
                             - if sub_subcategory.id != sub_category.id
                               %li.header--pc__nav--grand-child
                                 = link_to "#{sub_subcategory.name}", category_path(sub_subcategory.id)
-                -# %li.header--pc__nav--nochild
-                -#   %h3
-                -#     = link_to "カテゴリー一覧", "https://www.mercari.com/jp/category/"
           %li
             %h2
               = link_to "https://www.mercari.com/jp/brand/", class: 'header--pc__nav--root list-parent' do

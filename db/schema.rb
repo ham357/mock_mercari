@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20190512173436) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "pre_category_id"
+    t.integer  "pre_precategory_id"
     t.index ["name"], name: "index_categories_on_name", using: :btree
   end
 

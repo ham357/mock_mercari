@@ -3,7 +3,7 @@
     %h2.category__main__title--h2 カテゴリー一覧
   .category__main__categories
     - @main_categories.each do |ele|
-      = link_to "#root_category-#{ele.id}", class: "category-root" do
+      = link_to category_path(ele.id), class: "category-root" do
         %p #{ele.name}
   - @main_categories.each do |main_category|
     .category__main__list
@@ -13,11 +13,11 @@
         .category__main__list__box__inner
           = link_to category_path(main_category.id) do
             %p.category__main__list__box__inner--p すべて
-          - Category.where('pre_category_id = ? AND sub_subcategory_id is null',main_category.id).each do |sub_category|
+          - main_category.children.each_with_index do |sub_category,i|
             .category__main__list__box__inner--sub_category
               %h4.category__main__list__box__inner--sub_category--h4 #{sub_category.name}
             .category__main__list__box__inner--sub-subcategory
-              -Category.where('main_category_id = ? AND sub_category_id = ?',main_category.id,sub_category.sub_category_id).each do |sub_subcategory|
+              - main_category.children[i].grand_children.each do |sub_subcategory|
                 - if sub_subcategory.id == sub_category.id
                   .category__main__list__box__inner--sub-subcategory--name
                     = link_to category_path(sub_subcategory.id),class: ".category__main__list__box__inner--sub-subcategory--name--a" do
@@ -26,3 +26,5 @@
                   .category__main__list__box__inner--sub-subcategory--name
                     = link_to category_path(sub_subcategory.id),class: ".category__main__list__box__inner--sub-subcategory--name--a" do
                       %p #{sub_subcategory.name}
+
+
