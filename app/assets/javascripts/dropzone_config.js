@@ -19,7 +19,6 @@ $(function(){
       　if(document.URL.match("sell")) {
         e.preventDefault();
       }
-        setTimeout(function () {}, "5000");
         myDropzone.processQueue();
         $('.dz-remove').text('削除');
       })
