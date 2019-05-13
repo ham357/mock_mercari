@@ -52,12 +52,9 @@ class ProductsController < ApplicationController
         @product = Product.find(params[:id])
         @product_images = ProductImage.where(product_id: @product.id)
         @category_id = @product.category_id
-        main_category_id = @product.category.main_category_id
-        sub_category_id = @product.category.sub_category_id
-        subsub_id = @product.category.sub_subcategory_id
         @main_categories = Category.where(sub_category_id: nil)
-        @sub_categories = Category.where(main_category_id: main_category_id,sub_subcategory_id: nil).where.not(sub_category_id: nil)
-        @sub_subcategories = Category.where(main_category_id: main_category_id,sub_category_id: sub_category_id).where.not(sub_subcategory_id: nil)
+        @sub_categories = Category.where(main_category_id: @product.category.main_category_id,sub_subcategory_id: nil).where.not(sub_category_id: nil)
+        @sub_subcategories = Category.where(main_category_id: @product.category.main_category_id,sub_category_id: @product.category.sub_category_id).where.not(sub_subcategory_id: nil)
         render layout: "sell"
     end
 
@@ -71,12 +68,9 @@ class ProductsController < ApplicationController
             end
         else
             @category_id = @product.category_id
-            main_category_id = @product.category.main_category_id
-            sub_category_id = @product.category.sub_category_id
-            subsub_id = @product.category.sub_subcategory_id
             @main_categories = Category.where(sub_category_id: nil)
-            @sub_categories = Category.where(main_category_id: main_category_id,sub_subcategory_id: nil).where.not(sub_category_id: nil)
-            @sub_subcategories = Category.where(main_category_id: main_category_id,sub_category_id: sub_category_id).where.not(sub_subcategory_id: nil)    
+            @sub_categories = Category.where(main_category_id: @product.category.main_category_id,sub_subcategory_id: nil).where.not(sub_category_id: nil)
+            @sub_subcategories = Category.where(main_category_id: @product.category.main_category_id,sub_category_id: @product.category.sub_category_id).where.not(sub_subcategory_id: nil)    
             respond_to do |format|
                 format.html{render edit_product_path}
                 format.json
