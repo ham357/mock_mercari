@@ -11,16 +11,18 @@
         .category__main__list__box__title
           %h3.category__main__list__box__title--h3 #{main_category.name}
         .category__main__list__box__inner
-          %p.category__main__list__box__inner--p すべて
+          = link_to category_path(main_category.id) do
+            %p.category__main__list__box__inner--p すべて
           - Category.where('pre_category_id = ? AND sub_subcategory_id is null',main_category.id).each do |sub_category|
             .category__main__list__box__inner--sub_category
               %h4.category__main__list__box__inner--sub_category--h4 #{sub_category.name}
             .category__main__list__box__inner--sub-subcategory
-              .category__main__list__box__inner--sub-subcategory--name
-                = link_to "#",class: ".category__main__list__box__inner--sub-subcategory--name--a" do
-                  %p すべて
               -Category.where('main_category_id = ? AND sub_category_id = ?',main_category.id,sub_category.sub_category_id).each do |sub_subcategory|
-                .category__main__list__box__inner--sub-subcategory--name
-                  = link_to "#",class: ".category__main__list__box__inner--sub-subcategory--name--a" do
-                    %p #{sub_subcategory.name}
--# Category.where('pre_category_id = ? AND sub_subcategory_id is null',main_category.id)
+                - if sub_subcategory.id == sub_category.id
+                  .category__main__list__box__inner--sub-subcategory--name
+                    = link_to category_path(sub_subcategory.id),class: ".category__main__list__box__inner--sub-subcategory--name--a" do
+                      %p すべて
+                -else
+                  .category__main__list__box__inner--sub-subcategory--name
+                    = link_to category_path(sub_subcategory.id),class: ".category__main__list__box__inner--sub-subcategory--name--a" do
+                      %p #{sub_subcategory.name}
