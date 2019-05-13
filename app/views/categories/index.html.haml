@@ -17,6 +17,9 @@
             .category__main__list__box__inner--sub_category
               %h4.category__main__list__box__inner--sub_category--h4 #{sub_category.name}
             .category__main__list__box__inner--sub-subcategory
+              .category__main__list__box__inner--sub-subcategory--name
+                = link_to category_path(sub_category.id),class: ".category__main__list__box__inner--sub-subcategory--name--a" do
+                  %p すべて
               - main_category.children[i].grand_children.each do |sub_subcategory|
                 - if sub_subcategory.id == sub_category.id
                   .category__main__list__box__inner--sub-subcategory--name

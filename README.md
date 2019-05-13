@@ -235,9 +235,15 @@ rails-erd
 |brand_flg|boolean||
 |product_size_id|integer||
 |size_category_id|integer||
+|pre_category_id|integer||
+|pre_precategory_id|integer||
 
 ### Assosiation
 - belongs_to :product
+- belongs_to :parent, class_name: :Category
+- belongs_to :grand_children, class_name: :Category
+- has_many :children,class_name: :Category, foreign_key: :pre_category_id
+- has_many :grand_children,class_name: :Category, foreign_key: :pre_precategory_id
 
 
 ## Active_hash
