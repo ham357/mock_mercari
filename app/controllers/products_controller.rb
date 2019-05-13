@@ -2,7 +2,8 @@ class ProductsController < ApplicationController
   before_action :now_product, only: %i[show search_rate category_define]
 
     def index
-        @products = Product.all
+        @products = Product.all.limit(48)
+        @main_categories = Category.eager_load(children: :children).where(sub_category_id: nil)
     end
 
     def new

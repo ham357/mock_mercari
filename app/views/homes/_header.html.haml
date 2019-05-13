@@ -1,7 +1,7 @@
 %header.header--sp
   .header--sp__inner
     %h1.header--sp__logo
-      = link_to "#" do
+      = link_to "/" do
         = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3403318254", alt: "mercari"
     .header--sp__user-nav
       = link_to "#", class: 'header--sp__user-icon' do
@@ -43,18 +43,22 @@
                 %i.fa.fa-list-ul.header--pc__cat-brand-icon
                 %span カテゴリーから探す
             %ul.header--pc__nav--parent-wrap{"data-mega": "1"}
-              %li.header--pc__nav--parent
-                %h3
-                  = link_to "レディース", "https://www.mercari.com/jp/category/1/"
-                %ul.header--pc__nav--child-wrap{"data-mega": "2"}
-                  %li.header--pc__nav--child
-                    = link_to "トップス", "https://www.mercari.com/jp/category/11/"
-                    %ul.header--pc__nav--grand-child-wrap{"data-mega": "3"}
-                      %li.header--pc__nav--grand-child
-                        = link_to "Tシャツ/カットソー(半袖/袖なし)", "https://www.mercari.com/jp/category/119/"
-              %li.header--pc__nav--nochild
-                %h3
-                  = link_to "カテゴリー一覧", "https://www.mercari.com/jp/category/"
+              - @main_categories.each do |main_category|
+                %li.header--pc__nav--parent
+                  %h3
+                    = link_to "#{main_category.name}", category_path(main_category.id)
+                  %ul.header--pc__nav--child-wrap{"data-mega": "2"}
+                    - Category.where('pre_category_id = ? AND sub_subcategory_id is null',main_category.id).each do |sub_category|
+                      %li.header--pc__nav--child
+                        = link_to "#{sub_category.name}", category_path(sub_category.id)
+                        %ul.header--pc__nav--grand-child-wrap{"data-mega": "3"}
+                          -Category.where('main_category_id = ? AND sub_category_id = ?',main_category.id,sub_category.sub_category_id).limit(20).each do |sub_subcategory|
+                            - if sub_subcategory.id != sub_category.id
+                              %li.header--pc__nav--grand-child
+                                = link_to "#{sub_subcategory.name}", category_path(sub_subcategory.id)
+                -# %li.header--pc__nav--nochild
+                -#   %h3
+                -#     = link_to "カテゴリー一覧", "https://www.mercari.com/jp/category/"
           %li
             %h2
               = link_to "https://www.mercari.com/jp/brand/", class: 'header--pc__nav--root list-parent' do

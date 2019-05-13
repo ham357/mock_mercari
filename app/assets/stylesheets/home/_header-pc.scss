@@ -225,7 +225,8 @@
       display: none;
       width: 224px;
       &>a {
-        padding: 8px 16px;
+        font-size: 12px;
+        padding: 4.5px 16px;
       }
       &-wrap {
         position: absolute;
@@ -241,7 +242,8 @@
       display: none;
       width: 320px;
       &>a {
-        padding: 8px 16px
+        font-size: 12px;
+        padding: 4.5px 16px;
       }
       &-wrap {
         position: absolute;
