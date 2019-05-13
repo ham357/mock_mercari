@@ -34,13 +34,15 @@ ActiveRecord::Schema.define(version: 20190511064347) do
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",               null: false
-    t.integer  "main_category_id",   null: false
+    t.string   "name",                               null: false
+    t.integer  "main_category_id",                   null: false
     t.integer  "sub_category_id"
     t.integer  "sub_subcategory_id"
     t.integer  "product_size_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.boolean  "size_flag",          default: false, null: false
+    t.boolean  "brand_flag",         default: false, null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.index ["name"], name: "index_categories_on_name", using: :btree
   end
 
@@ -115,10 +117,7 @@ ActiveRecord::Schema.define(version: 20190511064347) do
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                             null: false
     t.integer  "status_id",                                        null: false
-    t.integer  "shipping_fee_id",                                  null: false
-    t.integer  "state_id",                                         null: false
     t.integer  "shipping_method_id",                               null: false
-    t.integer  "shipping_day_id",                                  null: false
     t.integer  "price",                                            null: false
     t.text     "description",        limit: 65535,                 null: false
     t.integer  "category_id",                                      null: false
@@ -128,6 +127,9 @@ ActiveRecord::Schema.define(version: 20190511064347) do
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
     t.integer  "product_size_id"
+    t.integer  "state_id"
+    t.integer  "shipping_day_id"
+    t.integer  "shipping_fee_id"
     t.index ["name"], name: "index_products_on_name", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
