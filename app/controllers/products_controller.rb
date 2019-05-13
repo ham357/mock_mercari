@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :now_product, only: %i[show search_rate category_define]
 
     def index
-        @products = Product.all
+        @products = Product.all.limit(48)
     end
 
     def new

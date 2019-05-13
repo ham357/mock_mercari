@@ -1,0 +1,7 @@
+.category-item__container
+  .category-item__container__title
+    %h1.category-item__container__title--h1 #{@category.name}の商品一覧
+  .search__container__item__r-box
+    = render @products
+  .search__container__item__pagenator
+    = paginate @products unless @products.nil?
