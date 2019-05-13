@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   resources :logouts, only: :index
   resources :searches
   resources :comments, only: :create
+  resources :categories, only: [:index,:show]
 end
