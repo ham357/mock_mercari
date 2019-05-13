@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
         else
             @product.product_images.build
             respond_to do |format|
-                format.html{render action: 'new'}
+                format.html{render new_product_path}
                 format.json
             end
         end
@@ -66,7 +66,7 @@ class ProductsController < ApplicationController
         if @product.update(product_params)
             update_productimage(@product)
             respond_to do |format|
-                format.html { redirect_to root_path }
+                format.html { redirect_to root_path , notice: "更新しました"}
                 format.json
             end
         else
@@ -78,7 +78,7 @@ class ProductsController < ApplicationController
             @sub_categories = Category.where(main_category_id: main_category_id,sub_subcategory_id: nil).where.not(sub_category_id: nil)
             @sub_subcategories = Category.where(main_category_id: main_category_id,sub_category_id: sub_category_id).where.not(sub_subcategory_id: nil)    
             respond_to do |format|
-                format.html{render action: 'edit'}
+                format.html{render edit_product_path}
                 format.json
             end
         end
@@ -125,7 +125,7 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-        params.require(:product).permit(:name,:status_id,:shipping_fee_id,:state_id,:shipping_method_id,:shipping_day_id,:price,:product_size_id,:description,:category_id,:brand_id, product_images_attributes: [:image_url]).merge(user_id:1)
+        params.require(:product).permit(:name,:status_id,:shipping_fee_id,:state_id,:shipping_method_id,:shipping_day_id,:price,:product_size_id,:description,:category_id,:brand_id, product_images_attributes: [:image_url]).merge(user_id: current_user.id)
     end
 
     def create_productimage(product_id)
