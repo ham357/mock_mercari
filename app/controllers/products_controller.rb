@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
         else
             @product.product_images.build
             respond_to do |format|
-                format.html{render action: 'new'}
+                format.html{render new_product_path}
                 format.json
             end
         end
@@ -46,6 +46,36 @@ class ProductsController < ApplicationController
         @product =  Product.find(params[:id])
         @product.destroy
         redirect_to root_path, notice: "削除しました"
+    end
+
+    def edit
+        @product = Product.find(params[:id])
+        @product_images = ProductImage.where(product_id: @product.id)
+        @category_id = @product.category_id
+        @main_categories = Category.where(sub_category_id: nil)
+        @sub_categories = Category.sub_category_search(@product.category.main_category_id)
+        @sub_subcategories = Category.where(main_category_id: @product.category.main_category_id,sub_category_id: @product.category.sub_category_id).where.not(sub_subcategory_id: nil)
+        render layout: "sell"
+    end
+
+    def update
+        @product = Product.find(params[:id])
+        if @product.update(product_params)
+            update_productimage(@product)
+            respond_to do |format|
+                format.html { redirect_to root_path , notice: "更新しました"}
+                format.json
+            end
+        else
+            @category_id = @product.category_id
+            @main_categories = Category.where(sub_category_id: nil)
+            @sub_categories = Category.sub_category_search(@product.category.main_category_id)
+            @sub_subcategories = Category.where(main_category_id: @product.category.main_category_id,sub_category_id: @product.category.sub_category_id).where.not(sub_subcategory_id: nil)    
+            respond_to do |format|
+                format.html{render edit_product_path}
+                format.json
+            end
+        end
     end
 
     #product_imageの4個分配列作成
@@ -89,7 +119,7 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-        params.require(:product).permit(:name,:status_id,:shipping_fee_id,:state_id,:shipping_method_id,:shipping_day_id,:price,:product_size_id,:description,:category_id,:brand_id, product_images_attributes: [:image_url]).merge(user_id:1)
+        params.require(:product).permit(:name,:status_id,:shipping_fee_id,:state_id,:shipping_method_id,:shipping_day_id,:price,:product_size_id,:description,:category_id,:brand_id, product_images_attributes: [:image_url]).merge(user_id: current_user.id)
     end
 
     def create_productimage(product_id)
@@ -98,6 +128,22 @@ class ProductsController < ApplicationController
             image = params[:product][:product_images_attributes][:image_url][i.to_s]
             ProductImage.create(product_id: product_id, image_url: image)
             i += 1
+        end
+    end
+
+    
+    def update_productimage(product)
+        if params[:DeletedImageUrls].present?
+            product_image = product.product_images.find_by(image_url: params[:DeletedImageUrls])
+            product_image.destroy
+        end
+        if params[:product][:product_images_attributes].present?
+            i = 0
+            while params[:product][:product_images_attributes][:image_url][i.to_s].present? do
+                image = params[:product][:product_images_attributes][:image_url][i.to_s]
+                ProductImage.create(product_id: product.id, image_url: image)
+                i += 1
+            end
         end
     end
 
