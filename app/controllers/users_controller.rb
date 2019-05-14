@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(strong_params)
     @user.save!
+    sign_in @user
     redirect_to root_path(@user)
   end
 

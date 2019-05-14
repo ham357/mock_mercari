@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       delete 'delete', to: 'cards#delete'
     end
   end
-  resources :identifacations, only: :index
+  resources :identifacations, only: [:index, :update]
   resources :signup_sns, only: :index
   devise_for :users, controllers:{
    registrations: 'users',
@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   resources :searches
   resources :comments, only: :create
   resources :categories, only: [:index,:show]
+  resources :user_infos, only: [:update]
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190512173436) do
+ActiveRecord::Schema.define(version: 20190514112049) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
@@ -166,7 +166,6 @@ ActiveRecord::Schema.define(version: 20190512173436) do
     t.string  "kana_first_name",               null: false
     t.string  "kana_last_name",                null: false
     t.integer "postal_code"
-    t.string  "state"
     t.string  "city"
     t.string  "address"
     t.integer "tel_number"
@@ -175,6 +174,8 @@ ActiveRecord::Schema.define(version: 20190512173436) do
     t.integer "birth_day",                     null: false
     t.text    "profile_comment", limit: 65535
     t.integer "user_id",                       null: false
+    t.string  "address2"
+    t.integer "state_id"
     t.index ["user_id"], name: "index_user_infos_on_user_id", using: :btree
   end
 
