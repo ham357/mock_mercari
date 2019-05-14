@@ -30,15 +30,15 @@
           %tr
             %th カテゴリー
             %td
-              = link_to "#" do
+              = link_to category_path(@main_id) do
                 #item_main_category.font-blue
                   %p #{@category_defines[0]}
-              = link_to "#" do
+              = link_to category_path(@sub_id) do
                 #item_sub_category.font-blue
                   - unless @category_defines[1].nil?
                     %i.fas.fa-chevron-right
                     %p.category-p #{@category_defines[1]}
-              = link_to "#" do
+              = link_to category_path(@category_id) do
                 #item_sub_subcategory.font-blue
                   - unless @category_defines[2].nil?
                     %i.fas.fa-chevron-right
