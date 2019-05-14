@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190512173436) do
+ActiveRecord::Schema.define(version: 20190514112049) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
@@ -34,15 +34,13 @@ ActiveRecord::Schema.define(version: 20190512173436) do
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                               null: false
-    t.integer  "main_category_id",                   null: false
+    t.string   "name",               null: false
+    t.integer  "main_category_id",   null: false
     t.integer  "sub_category_id"
     t.integer  "sub_subcategory_id"
     t.integer  "product_size_id"
-    t.boolean  "size_flag",          default: false, null: false
-    t.boolean  "brand_flag",         default: false, null: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "pre_category_id"
     t.integer  "pre_precategory_id"
     t.index ["name"], name: "index_categories_on_name", using: :btree
@@ -119,7 +117,10 @@ ActiveRecord::Schema.define(version: 20190512173436) do
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                             null: false
     t.integer  "status_id",                                        null: false
+    t.integer  "shipping_fee_id",                                  null: false
+    t.integer  "state_id",                                         null: false
     t.integer  "shipping_method_id",                               null: false
+    t.integer  "shipping_day_id",                                  null: false
     t.integer  "price",                                            null: false
     t.text     "description",        limit: 65535,                 null: false
     t.integer  "category_id",                                      null: false
@@ -129,9 +130,6 @@ ActiveRecord::Schema.define(version: 20190512173436) do
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
     t.integer  "product_size_id"
-    t.integer  "state_id"
-    t.integer  "shipping_day_id"
-    t.integer  "shipping_fee_id"
     t.index ["name"], name: "index_products_on_name", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
@@ -168,7 +166,6 @@ ActiveRecord::Schema.define(version: 20190512173436) do
     t.string  "kana_first_name",               null: false
     t.string  "kana_last_name",                null: false
     t.integer "postal_code"
-    t.string  "state"
     t.string  "city"
     t.string  "address"
     t.integer "tel_number"
@@ -177,6 +174,8 @@ ActiveRecord::Schema.define(version: 20190512173436) do
     t.integer "birth_day",                     null: false
     t.text    "profile_comment", limit: 65535
     t.integer "user_id",                       null: false
+    t.string  "address2"
+    t.integer "state_id"
     t.index ["user_id"], name: "index_user_infos_on_user_id", using: :btree
   end
 

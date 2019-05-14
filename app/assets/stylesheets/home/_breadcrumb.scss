@@ -1,0 +1,28 @@
+.breadcrumbs{
+   &__container{
+    display: block;
+    padding: 15px;
+    border: 1px solid #f5f5f5;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 14px;
+    line-height: 1.2;
+    a{
+      margin: 0 8px;
+    }
+    span{
+      margin: 0 8px;
+      font-weight: 600;
+    }
+  }
+
+  &__inner{
+    margin: 0 auto;
+    @media screen and (min-width: 1068px) {
+      width: 1020px;
+    }
+    @media screen and (min-width: 768px) and (max-width:1067px){
+      width: 700px;
+    }
+  }
+}
