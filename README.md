@@ -38,7 +38,6 @@ rails-erd
 |encrypted_password|string|null:false|
 |nickname|string|index: true, nill: false, unique: true|
 |custmer_id|string| |
-|card_token|string| |
 |remember_created_at|datetime| |
 
 ### Association
@@ -52,6 +51,7 @@ rails-erd
 - has_many :liked_posts, through: :likes, source: :product
 - has_many :orders, through: products
 - has_many :comments, through: products
+- has_many :cards, dependent: destory
 
 
 ## user_infosテーブル
@@ -197,14 +197,29 @@ rails-erd
 
 |Column|Type|Options|
 |------|----|-------|
-|product_id|integer||
-|user_id|integer||
+|product_id|integer|null: false|
+|user_id|integer|null: false|
 |point_id|integer||
+|purchase_amount|string|null: false|
 |convert_cash|boolean|default: false|
+|payment_price|integer|null: false|
+|point|integer||
 |created_at|datetime||
 
 ### Association
 - belongs_to :product
+- belongs_to :user
+
+
+## cardsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false|
+|customer_id|string|null: false|
+|card_id|string|null: false|
+
+### Association
 - belongs_to :user
 
 
@@ -220,9 +235,15 @@ rails-erd
 |brand_flg|boolean||
 |product_size_id|integer||
 |size_category_id|integer||
+|pre_category_id|integer||
+|pre_precategory_id|integer||
 
 ### Assosiation
 - belongs_to :product
+- belongs_to :parent, class_name: :Category
+- belongs_to :grand_children, class_name: :Category
+- has_many :children,class_name: :Category, foreign_key: :pre_category_id
+- has_many :grand_children,class_name: :Category, foreign_key: :pre_precategory_id
 
 
 ## Active_hash

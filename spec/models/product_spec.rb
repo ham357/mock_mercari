@@ -12,18 +12,18 @@ describe Product, type: :model do
         product = build(:product, user_id: @user.id)
         expect(product).to be_valid
       end
-      
+
       it "商品名が39文字で登録できる" do
         product = build(:product, name:  "#{'a' * 39}",user_id: @user.id)
         expect(product).to be_valid
       end
-      
+
       it "説明文が100文字より少ない" do
         product = build(:product, description:  "#{'a' * 99}",user_id: @user.id)
         expect(product).to be_valid
       end
     end
-    
+
     context 'can not save' do
       it "商品名が無いためエラーになる" do
         product = build(:product, name: nil,user_id: @user.id)

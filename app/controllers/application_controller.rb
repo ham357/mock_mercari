@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_search
+  before_action  :get_category_data
 
   protected
 
@@ -32,6 +33,10 @@ class ApplicationController < ActionController::Base
   def set_search
     @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true)
+  end
+
+  def get_category_data
+    @main_categories = Category.eager_load(children: {children: :grand_children}).where(sub_category_id: nil)
   end
 
 end

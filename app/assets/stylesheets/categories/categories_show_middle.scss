@@ -1,0 +1,12 @@
+.category-item__container{
+  width: 1024px;
+  margin: 0 auto 50px auto;
+  &__title{
+    height: 30px;
+    margin: 24px 0 8px 13px;
+    &--h1{
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+}

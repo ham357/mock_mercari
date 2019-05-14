@@ -1,0 +1,43 @@
+%header.regi__header
+  %h1.regi__header--h1
+    = link_to "/", class:"regi__header--a"  do
+      = image_tag "/images/logo.svg", class: "login__header--h1--a--img"
+
+.bought__conteiner
+  %section.bought__conteiner__attention
+    .bought__conteiner__attention--top
+      %i.far.fa-clock
+      %h1 発送をお待ち下さい
+    .bought__conteiner__attention--bottom
+      %p 出品者からの発送通知をお待ち下さい
+  %section.bought__conteiner__title
+    %h2.bought__conteiner__title--h2 購入完了しました
+  %section.bought__conteiner__item
+    .bought__conteiner__item__inner
+      %h3
+        = image_tag "#{@product.product_images[0][:image_url]}"
+      %p.buy__container__item__inner--p #{@product.name}
+  %section.bought__conteiner__price
+    %p.buy__container__item__inner--form--price--p
+      = number_to_currency(@product.order.payment_price, unit: "¥ ")
+    %span.buy__container__item__inner--form--price--span #{@product.shipping_fee.name}
+  %section.bought__conteiner__bottom
+    %address.bought__conteiner__bottom--address
+      %h3.bought__conteiner__bottom--address--h3 配送先
+      %p
+      〒#{@user.user_info.postal_code}
+      %br
+      #{@user.user_info.state}#{@user.user_info.city}#{@user.user_info.address}
+      %br
+      #{@user.user_info.first_name} #{@user.user_info.last_name}
+
+%footer.regi__footer
+  %nav.regi__footer__nav
+    %ul.regi__footer__nav--ul
+      %li.regi__footer__nav--ul--li プライバシーポリシー
+      %li.regi__footer__nav--ul--li メルカリ利用規約
+      %li.regi__footer__nav--ul--li 特定商取引に関する表記
+  = link_to "#", class:"regi__footer--a"  do
+    = image_tag "/images/logo-gray.svg", class: "regi__footer--a--img"
+  %p.signup__footer--p
+    %small © 2019 Mecrari
