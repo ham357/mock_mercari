@@ -65,6 +65,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'database_cleaner'
   gem 'rails-erd'
+  gem 'gretel'
 end
 
 group :development do
