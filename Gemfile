@@ -65,7 +65,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'database_cleaner'
   gem 'rails-erd'
-  gem 'gretel'
 end
 
 group :development do
@@ -98,3 +97,6 @@ gem 'mini_magick'
 
 # Dropzone.js
 gem 'dropzonejs-rails'
+
+# パンくずリスト
+gem 'gretel'
