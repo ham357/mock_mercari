@@ -94,10 +94,10 @@
           = link_to "https://www.mercari.com/" do
             United States
   .footer__bottom
-    = link_to "https://www.mercari.com/jp/" , class: 'footer__logo'do
+    = link_to "./" , class: 'footer__logo'do
       = image_tag "/images/logo-white.svg", height: "33", width: "124", alt: "mercari"
     %span.footer__copyright
       %small © 2019 Mercari
-= link_to "https://www.mercari.com/jp/sell/", class: "footer__sell-btn" do
+= link_to sell_path, class: "footer__sell-btn" do
   %div 出品
   %i.fa-camera

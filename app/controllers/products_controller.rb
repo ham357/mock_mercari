@@ -98,10 +98,10 @@ class ProductsController < ApplicationController
       @main_id = @product.category.main_category_id
       @sub_id = @product.category.sub_category_id
       @subsub_id = @product.category.sub_subcategory_id
-      if @sub_id && @subsub_id == nil
+      if @subsub_id == nil
         main_name = Category.find(@main_id).name
-        sub_name,subsub_name = 0
-      elsif @sub == presence && @subsub == nil
+        sub_name,subsub_name = nil
+      elsif  @sub_id == nil
         main_name = Category.find(@main_id).name
         sub_name = Category.find(@sub_id).name
       else
