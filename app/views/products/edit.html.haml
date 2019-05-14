@@ -8,13 +8,13 @@
         %section.sell__container__top__section
             %h2 商品の情報を入力
         .sell__container__top__section--form    
-            = form_for @product, html: {class: 'dropzone', id: 'item-dropzone'} do |f|
+            = form_for @product, action: "update", html: {class: 'dropzone', id: 'item-dropzone',method: "patch"} do |f|
                 .sell__container__top__section--form--uploader
                     %h3.sell__container__top__section--form--uploader--head 
                         出品画像
                         %span 必須  
                     %p 最大10枚までアップロードできます
-                    = f.fields_for :product_images do |image|
+                    = f.fields_for @product.product_images do |image|
                         .dropzone
                             #dz-previews
                             .dz-message.needsclick
@@ -43,7 +43,13 @@
                                 = f.label :カテゴリー
                                 %span 必須
                             .sell__container__top__section--form--group--select
-                                = f.collection_select :category_id, Category.where(sub_category_id: nil), :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                = f.collection_select :category_id, @main_categories, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                %i.fa-chevron-down
+                            .sell__container__top__section--form--group--select
+                                = f.collection_select :category_id, @sub_categories, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                %i.fa-chevron-down
+                            .sell__container__top__section--form--group--select
+                                = f.collection_select :category_id, @sub_subcategories, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
                                 %i.fa-chevron-down
                         .sell__container__top__section--form--group
                             .sell__container__top__section--form--group--head
@@ -121,8 +127,8 @@
                                     = link_to "加盟店規約", "https://www.mercari.com/jp/seller_terms/",target: "_blank"
                                     に同意したことになります。
                             .sell__container__top__section--form--groupb
-                                %button.btn--red{type: "submit"} 出品する
-                                %button.btn--gray もどる
+                                %button.btn--red{type: "submit"} 変更する
+                                %button.btn--gray キャンセル
 %footer.single-footer
     %nav
         %ul

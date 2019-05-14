@@ -95,6 +95,10 @@
 - if @product.user_id == current_user.id
   .product-change__container
     .product-change__container__content
+      =link_to edit_product_path, class: "      product-change__container__content__btn--red" do
+        .product-change__container__content__btn--red
+          %h1 商品の編集
+      %p or
       =link_to "/products/#{@product.id}", class: "      product-change__container__content__btn--gray", method: :delete, data:{confirm:'本当に削除しますか？'} do
         .product-change__container__content__btn--gray
           %h1 この商品を削除する
