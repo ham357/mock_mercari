@@ -275,18 +275,37 @@
   background-color: white;
   &__content{
     padding: 1px 24px 24px 24px;
-    &__btn--gray{
-          background-color: #aaa;
-          margin-top: 16px;
-          line-height: 48px;
-          justify-content: center;
-          align-items: center;
-          color: white;
-          font-size: 14px;
-          h1{
-            text-align: center;
-          }
+    p{
+      margin-top: 16px;
+      text-align: center;
+    }
+    &__btn{
+      &--red{
+        background-color: crimson;
+        margin-top: 16px;
+        line-height: 48px;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 14px;
+        h1{
+          text-align: center;
         }
+      }
+      &--gray{
+        background-color: #aaa;
+        margin-top: 16px;
+        line-height: 48px;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 14px;
+        h1{
+          text-align: center;
+        }
+      }
+    }
+    
       }
     }
 
