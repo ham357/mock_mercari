@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(strong_params)
     @user.save!
     sign_in @user
-    redirect_to root_path(@user)
+    redirect_to root_path(@user), notice: "ユーザー情報を登録しました (ログイン済み)"
   end
 
   private
