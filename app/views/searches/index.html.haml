@@ -76,16 +76,16 @@
           = f.select :product_size_id_eq,{},{},class: "select--default size_area1" do
             %option{value: "",selected: "true"}すべて
             - @size.each do |ele|
-              - next if ele.size_category_id.present?
+              - next if ele.product_size_id.present?
               %option{value: "#{ele.id}",size: "#{ele.id}"}#{ele.name}
           %i.fas.fa-chevron-down#fa-chevron-down
           .checkbox-show.size_area2div
             .checkbox-default.size_area2.check_box2{disabled: "true"}
             - @size.each do |ele|
-              - next if ele.size_category_id.nil?
-              .checkbox-default.size_area2.check_box.check_box2{'data-group': "#{ele.size_category_id}"}
-                = f.check_box :product_size_id_eq_any,{id: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.size_category_id}",checked: false},ele.id,nil
-                = f.label "#{ele.name}", for: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.size_category_id}"
+              - next if ele.product_size_id.nil?
+              .checkbox-default.size_area2.check_box.check_box2{'data-group': "#{ele.product_size_id}"}
+                = f.check_box :product_size_id_eq_any,{id: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.product_size_id}",checked: false},ele.id,nil
+                = f.label "#{ele.name}", for: "#{ele.name}", class: "check_box check_box2", 'data-group': "#{ele.product_size_id}"
         .search__container__side__form__dropdown__price
           = f.label "",class: "label--default" do
             %i.fas.fa-dollar-sign
@@ -109,7 +109,7 @@
           .search__container__side__form__dropdown__status--checkbox
             %label
               %input{type: 'checkbox',class: "all_check_1" } すべて
-            =f.collection_check_boxes(:status_eq_any, Status.all, :id, :name) do |b|
+            =f.collection_check_boxes(:status_id_eq_any, Status.all, :id, :name) do |b|
               = b.label class: "check_1" do
                 = b.check_box + b.text
         .search__container__side__form__dropdown__ship
@@ -119,7 +119,7 @@
           .search__container__side__form__dropdown__ship--checkbox
             %label
               %input{type: 'checkbox',class: "all_check_2"} すべて
-            =f.collection_check_boxes(:shipping_fee_eq_any, ShippingFee.all, :id, :name) do |b|
+            =f.collection_check_boxes(:shipping_fee_id_eq_any, ShippingFee.all, :id, :name) do |b|
               = b.label class: "check_2" do
                 = b.check_box + b.text
         .search__container__side__form__dropdown__sold
