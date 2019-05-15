@@ -8,10 +8,10 @@ end
 CSV.foreach('db/csv/category_data.csv', headers: true) do |row|
   Category.create(
       name: row["name"],
-      main_category_id: row["main_category_id"],
-      sub_category_id: row["sub_category_id"],
+      main_category_id:   row["main_category_id"],
+      sub_category_id:    row["sub_category_id"],
       sub_subcategory_id: row["sub_subcategory_id"],
-      pre_category_id: row["pre_category_id"],
+      pre_category_id:    row["pre_category_id"],
       pre_precategory_id: row["pre_precategory_id"]
   )
 end
