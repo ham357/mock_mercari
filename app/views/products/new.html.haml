@@ -69,7 +69,7 @@
                                 = f.label :発送元の地域
                                 %span 必須
                             .sell__container__top__section--form--group--select
-                                = f.collection_select :state, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                = f.collection_select :state_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
                                 %i.fa-chevron-down
                         .sell__container__top__section--form--group
                             .sell__container__top__section--form--group--head

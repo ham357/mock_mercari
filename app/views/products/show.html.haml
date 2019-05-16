@@ -4,13 +4,15 @@
   .items__container__main
     .items__container__main__wrap#wrap
       %ul#slider
-        - @get_image.each do |n|
+        - @get_image.each_with_index do |n,i|
           %li.slide-item
-            = image_tag '','data-lazy': "/images/#{@product.product_images[n][:image_url]}", alt:''
+            = image_tag '','data-lazy': "/images/#{@product.product_images[i][:image_url]}", alt:''
+          - break if i== 3
       %ul#thumbnail-list
-        - @get_image.each do |n|
+        - @get_image.each_with_index do |n,i|
           %li.thumbnail-item
-            = image_tag "/images/#{@product.product_images[n][:image_url]}"
+            = image_tag "/images/#{@product.product_images[i][:image_url]}"
+          - break if i== 3
     .items__container__main__detail
       %table
         %tbody
@@ -47,7 +49,8 @@
           %tr
             %th ブランド
             %td
-              = link_to "#{@product.brand.name}","#",class:"font-blue"
+              - if @product.brand.presence
+                = link_to "#{@product.brand.name}","#",class:"font-blue"
           %tr
             %th 商品の状態
             %td #{@product.status.name}
@@ -183,9 +186,10 @@
       = render partial: "products/product", locals: {product: product}
 - unless @exclusion_product_brands.nil?
   .item__user-product
-    %h2.item__user-product__user
-      =link_to "",class: 'item__user-product__user--a' do
-        %h2 #{@product.brand.name}の#{@category_defines[0]}その他の出品
-    .item__user-product__list
-      - @exclusion_product_brands.each do |product|
-        = render partial: "products/product", locals: {product: product}
+    - if @product.brand.presence
+      %h2.item__user-product__user
+        =link_to "",class: 'item__user-product__user--a' do
+          %h2 #{@product.brand.name}の#{@category_defines[0]}その他の出品
+      .item__user-product__list
+        - @exclusion_product_brands.each do |product|
+          = render partial: "products/product", locals: {product: product}
