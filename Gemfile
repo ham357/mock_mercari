@@ -97,3 +97,6 @@ gem 'mini_magick'
 
 # Dropzone.js
 gem 'dropzonejs-rails'
+
+# パンくずリスト
+gem 'gretel'

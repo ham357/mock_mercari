@@ -27,7 +27,7 @@
   kana_first_name             = gimei.first.katakana
   kana_last_name              = gimei.last.katakana
   postal_code                 = Faker::Address.postcode
-  state                       = address.prefecture.to_s
+  state                       = Faker::Number.between(1, 47)
   city                        = address.city.to_s
   address                     = address.town.to_s.to_s
   tel_number                  = Faker::PhoneNumber.phone_number
@@ -42,7 +42,7 @@
                     kana_first_name: kana_first_name,
                     kana_last_name: kana_last_name,
                     postal_code: postal_code,
-                    state: state,
+                    state_id: state,
                     city: city,
                     address: address,
                     tel_number: tel_number,
