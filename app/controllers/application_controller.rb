@@ -47,8 +47,8 @@ class ApplicationController < ActionController::Base
 
   def payment_price
     if user_signed_in?
-      @product = Product.where(user_id: current_user.id)
-      if @product.present?
+      @products = Product.where(user_id: current_user.id)
+      if @product == presence
         @payment_price =  @product.inject(0){ |sum, product|
                   sum + product.order.payment_price
                   }
