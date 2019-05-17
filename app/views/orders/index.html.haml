@@ -14,7 +14,7 @@
       = form_for @order,url: {action: 'create'}, class: 'buy__container__item__inner--form' do |f|
         .buy__container__item__inner--form--price
           %p.buy__container__item__inner--form--price--p
-            = number_to_currency(@product.price, unit: "¥ ")
+            = converting_to_jpy(@product.price)
           %span.buy__container__item__inner--form--price--span #{@product.shipping_fee.name}
         .buy__container__item__inner--form--point
           - unless @points.present?
