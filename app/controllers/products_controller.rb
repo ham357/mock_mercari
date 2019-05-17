@@ -81,8 +81,8 @@ class ProductsController < ApplicationController
     #product_imageの4個分配列作成
     def get_image
       @images = []
-      for n in 0..3 do
-        @images <<  @product.product_images[n][:image_url]
+      @product.product_images.each do |product|
+        @images <<  product.image_url
       end
     end
 

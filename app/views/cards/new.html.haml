@@ -1,7 +1,7 @@
 .ccreate__container
     %section.ccreate__container__top
         %h2 クレジットカード情報入力
-        = form_tag('pay_cards_path',method: :post, id:'charge-form',class:'ccreate__container__top__form') do
+        = form_tag(pay_cards_path,method: :post, id:'charge-form',class:'ccreate__container__top__form') do
             .ccreate__container__top__form__content
                 .ccreate__container__top__form__content--group
                     %label{for: "payment_card_no", class: "input--label"} カード番号

@@ -98,6 +98,6 @@
       = image_tag "/images/logo-white.svg", height: "33", width: "124", alt: "mercari"
     %span.footer__copyright
       %small © 2019 Mercari
-= link_to sell_path, class: "footer__sell-btn" do
+= link_to sell_path, class: "footer__sell-btn",data: {"turbolinks" => false} do
   %div 出品
   %i.fa-camera

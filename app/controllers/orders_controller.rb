@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   before_action :now_product_user, only: %i[index show create]
 
   def index
+    redirect_to root_path if @product.sold == true
     if @user.points.present?
       @points = Point.where(user_id: current_user.id).first
       gon.points = @points.point
@@ -15,6 +16,8 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find_by(product_id: params[:product_id])
+    redirect_to root_path unless @product.sold == true && @order.user_id == current_user.id
   end
 
   def create

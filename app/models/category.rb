@@ -1,6 +1,5 @@
 class Category < ApplicationRecord
   validates :name, presence: true
-  has_one :product_size
 
   belongs_to :parent, class_name: :Category
   belongs_to :grand_children, class_name: :Category

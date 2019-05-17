@@ -3,7 +3,7 @@ class IdentifacationsController < ApplicationController
 
     def index
         @user = User.find(current_user.id)
-        @user_info = UserInfo.find(@user)
+        @user_info = UserInfo.find_by(user_id: @user.id)
     end
 
 end
