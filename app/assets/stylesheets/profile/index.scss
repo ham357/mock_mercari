@@ -1,0 +1,152 @@
+.user__container{
+  width: 700px;
+  height: 545px;
+  margin: 40px auto 40px auto;
+  background-color: white;
+  &__profile{
+      height: 273px;
+      padding-top: 50px;
+      background-image:url('user_bg.jpg');
+      &__box{
+          &--a{
+              &--image{
+                  height: 180px;
+                  width: 180px;
+                  background-image: url('member_noimage.png');
+                  border-radius: 50%;
+                  background-size: cover;
+                  margin: 0 auto 0 auto;
+              }
+              &--name{
+                  h2{
+                      width: 700px;
+                      height: 25px;
+                      margin: 8px 0 16px 0 ;
+                      text-align: center;
+                      font-size: 18px;
+                  }
+              }
+          }
+          &--like{
+              width: 580px;
+              height: 14px;
+              padding-bottom: 30px;
+              margin: 0 auto 0 auto;
+              text-align: center;
+              #left{
+                  font-weight: bold;
+                  margin-right: 12px;
+              }
+              #right{
+                  font-weight: bold;
+                  margin-left: 12px;
+              }
+          }
+      }
+  }
+  &__rate{
+      height: 50px;
+      background-color: white;
+      &--face{
+          width: 700px;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &--good{
+              width: 100px;
+              height: 28px;
+              padding-right: 30px;
+              i{
+                  color: hotpink;
+                  font-size: 25px;
+              }
+              &--count{
+                  display: inline-block;
+                  width: 60px;
+                  height: 28px;
+                  text-align: center;
+                  margin-left: 11px;
+                  span{
+                      font-size: 18px;
+                  }
+              }
+          }
+          &--normal{
+              width: 100px;
+              height: 28px;
+              padding-right: 30px;
+              i{
+                  color: sandybrown;
+                  font-size: 25px;
+              }
+              &--count{
+                  display: inline-block;
+                  width: 60px;
+                  height: 28px;
+                  text-align: center;
+                  margin-left: 11px;
+                  span{
+                      font-size: 18px;
+                  }
+              }
+          }
+          &--bad{
+              width: 100px;
+              height: 28px;
+              padding-right: 30px;
+              i{
+                  color: deepskyblue;
+                  font-size: 25px;
+              }
+              &--count{
+                  display: inline-block;
+                  width: 60px;
+                  height: 28px;
+                  text-align: center;
+                  margin-left: 11px;
+                  span{
+                      font-size: 18px;
+                  }
+              }
+          }
+      }
+  }
+  &__sns{
+      height: 68px;
+      background-color: white;
+      padding: 32px 0 24px 0;
+      margin: 24px auto 24px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &--facebook{
+          width:44px;
+          height:44px;
+          font-size:44px;
+          margin: 0 8px 8px 0;
+          i{
+              color: #385185;
+          }
+      }
+      &--twitter{
+          width:44px;
+          height:44px;
+          font-size:44px;
+          margin: 0 8px 8px 0;
+          i{
+              color: #5D9DC9;
+          }
+      }
+      &--line{
+          width:44px;
+          height:44px;
+          font-size:44px;
+          margin: 0 8px 8px 0;
+          i{
+              color: #00C137;
+          }
+      }
+  }
+
+}

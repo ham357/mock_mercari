@@ -6,6 +6,11 @@ class ProfilesController < ApplicationController
         @user_info = UserInfo.find_by(user_id: @user.id)
     end
 
+    def edit
+        @user = User.find(current_user.id)
+        @user_info = UserInfo.find_by(user_id: @user.id)
+    end
+
     def update
         @user = User.find(current_user.id)
         if @user.update(strong_params)
