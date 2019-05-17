@@ -27,7 +27,7 @@
       %p
       〒#{@user.user_info.postal_code}
       %br
-      #{@user.user_info.state}#{@user.user_info.city}#{@user.user_info.address}
+      #{@user.user_info.state.name}#{@user.user_info.city}#{@user.user_info.address}
       %br
       #{@user.user_info.first_name} #{@user.user_info.last_name}
 
