@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(strong_params)
     @user.save!
+    @user_image = UserImage.new(user_id: @user.id,image_url: 'member_no_image.png')
+    @user_image.save!
     sign_in @user
     redirect_to root_path(@user), notice: "ユーザー情報を登録しました (ログイン済み)"
   end

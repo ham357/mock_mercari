@@ -53,6 +53,10 @@ class User < ApplicationRecord
           provider: provider,
           user_id: user.id
           )
+          UserInfo.create(
+            user_id: user.id,
+            image_url: 'member_no_image.png'
+          )
       end
     end
     return user
