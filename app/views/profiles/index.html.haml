@@ -32,7 +32,7 @@
             = render partial: "top_tab", locals: { url:'#', contents: '売上・振込申請' }
             = render partial: "tab", locals: { url:'#', contents: 'ポイント' }
             %h3 設定
-            = render partial: "active_tab", locals: { url:'#', contents: 'プロフィール' }
+            = render partial: "active_tab", locals: { url:profiles_path, contents: 'プロフィール' }
             = render partial: "tab", locals: { url:'#', contents: '発送元・お届け先住所変更' }
             = render partial: "tab", locals: { url:'#', contents: '支払い方法' }
             = render partial: "tab", locals: { url:'#', contents: 'メール / パスワード'  }

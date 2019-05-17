@@ -17,7 +17,7 @@
           %tr
             %th 出品者
             %td
-              =link_to "#{@product.user.nickname}", "#",class:'font-blue'
+              =link_to "#{@product.user.nickname}", user_path(@product.user),class:'font-blue'
               .item-user
                 .item-user-ratings
                   %i.fas.fa-grin
@@ -177,7 +177,7 @@
         %i.fab.fa-pinterest-square
 .item__user-product
   %h2.item__user-product__user
-    =link_to "",class: 'item__user-product__user--a' do
+    =link_to user_path(@product.user),class: 'item__user-product__user--a' do
       %h2 #{@product.user.nickname}さんのその他の出品
   .item__user-product__list
     - @exclusion_products.each do |product|

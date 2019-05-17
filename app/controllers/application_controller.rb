@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_search
   before_action  :get_category_data
+  before_action  :Point
+  before_action  :payment_price
 
   protected
 
@@ -37,6 +39,19 @@ class ApplicationController < ActionController::Base
 
   def get_category_data
     @main_categories = Category.eager_load(children: {children: :grand_children}).where(sub_category_id: nil)
+  end
+
+  def Point
+    @point = Point.find_by(user_id: current_user.id)
+  end
+
+  def payment_price
+    @product = Product.where(user_id: current_user.id)
+    if @product.present?
+      @payment_price =  @product.inject(0){ |sum, product|
+                sum + product.order.payment_price
+                }
+    end
   end
 
 end
