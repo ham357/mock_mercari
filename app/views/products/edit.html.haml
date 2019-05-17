@@ -43,10 +43,10 @@
                                 = f.label :カテゴリー
                                 %span 必須
                             .sell__container__top__section--form--group--select
-                                = f.collection_select :category_id, @main_categories, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                = f.collection_select :category_id, @main_categories, :id, :name, {prompt: "---",selected: @product.category.main_category_id}, {class: 'sell__container__top__section--form--group--select--box'}
                                 %i.fa-chevron-down
                             .sell__container__top__section--form--group--select
-                                = f.collection_select :category_id, @sub_categories, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
+                                = f.collection_select :category_id, @sub_categories, :id, :name, {prompt: "---",selected: @product.category.sub_category_id}, {class: 'sell__container__top__section--form--group--select--box'}
                                 %i.fa-chevron-down
                             .sell__container__top__section--form--group--select
                                 = f.collection_select :category_id, @sub_subcategories, :id, :name, {prompt: "---"}, {class: 'sell__container__top__section--form--group--select--box'}
