@@ -6,15 +6,15 @@
   &__profile{
       height: 273px;
       padding-top: 50px;
-      background-image:url('user_bg.jpg');
+      background-image:url('../images/user-bg.jpg');
+      background-size: cover;
       &__box{
           &--a{
               &--image{
                   height: 180px;
                   width: 180px;
-                  background-image: url('member_noimage.png');
                   border-radius: 50%;
-                  background-size: cover;
+                  display: block;
                   margin: 0 auto 0 auto;
               }
               &--name{
@@ -60,6 +60,7 @@
               i{
                   color: hotpink;
                   font-size: 25px;
+                  font-family: "Font Awesome 5 Free";
               }
               &--count{
                   display: inline-block;
@@ -79,6 +80,7 @@
               i{
                   color: sandybrown;
                   font-size: 25px;
+                  font-family: "Font Awesome 5 Free";
               }
               &--count{
                   display: inline-block;
@@ -98,6 +100,7 @@
               i{
                   color: deepskyblue;
                   font-size: 25px;
+                  font-family: "Font Awesome 5 Free";
               }
               &--count{
                   display: inline-block;
@@ -145,6 +148,8 @@
           margin: 0 8px 8px 0;
           i{
               color: #00C137;
+              font-weight: 400;
+              font-family: "Font Awesome 5 Free";
           }
       }
   }
