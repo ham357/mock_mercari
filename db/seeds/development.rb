@@ -71,7 +71,7 @@ end
 
   name                  = Takarabako.open
   status_id             = Faker::Number.within(1..5)
-  shipping_fee          = Faker::Number.within(0..1)
+  shipping_fee          = Faker::Number.within(1..2)
   state                 = Faker::Number.within(1..47)
   shipping_method       = Faker::Number.within(0..3)
   shipping_day          = Faker::Number.within(1..3)
