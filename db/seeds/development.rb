@@ -10,7 +10,7 @@
                password_confirmation: password)
 
 }
-  
+
 (1..20).each do |n|
   gimei = Gimei.name
   address = Gimei.address
@@ -29,7 +29,7 @@
   birth_day                   = Faker::Number.between(1, 31)
   profile_comment             = Faker::Lorem.paragraph
   user_id                     = n
-  
+
   UserInfo.create!(first_name: first_name,
                     last_name: last_name,
                     kana_first_name: kana_first_name,
@@ -65,7 +65,7 @@ end
 end
 
 
-100.times{
+20.times{
   address = Gimei.address
   category   = %w[33 442 99 171]
 
@@ -99,7 +99,7 @@ end
     sold: sold)
   }
 
-(1..100).each do |n|
+(1..20).each do |n|
   image_url          = File.open("#{Rails.root}/public/images/mock_image.jpg")
   product_id         = n
 
@@ -118,7 +118,7 @@ end
 end
 
 
-100.times{
+20.times{
   image_url          = File.open("#{Rails.root}/public/images/mock_image.jpg")
   product_id         = Faker::Number.between(1, 10)
   

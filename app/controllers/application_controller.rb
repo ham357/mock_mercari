@@ -42,15 +42,17 @@ class ApplicationController < ActionController::Base
   end
 
   def Point
-    @point = Point.find_by(user_id: current_user.id)
+      @point = Point.find_by(user_id: current_user.id) if user_signed_in?
   end
 
   def payment_price
-    @product = Product.where(user_id: current_user.id)
-    if @product.present?
-      @payment_price =  @product.inject(0){ |sum, product|
-                sum + product.order.payment_price
-                }
+    if user_signed_in?
+      @product = Product.where(user_id: current_user.id)
+      if @product.present?
+        @payment_price =  @product.inject(0){ |sum, product|
+                  sum + product.order.payment_price
+                  }
+      end
     end
   end
 
