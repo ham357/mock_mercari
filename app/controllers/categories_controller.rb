@@ -5,7 +5,16 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @products = Product.where(category_id: params[:id]).page(params[:page]).per(48)
-    # カテゴリー詳細ページ
+    @all_products = Product.all
+
+    if (params[:id]).to_i <= 13
+      @select_categories = @all_products.select{ |o| o.category.sub_category_id == (params[:id].to_i)}
+    elsif (params[:id]) < 14 && @category.sub_subcategory_id ==nil
+      @select_categories = @all_products.select{ |o| o.category.pre_precategory == (params[:id].to_i)}
+    else
+      @select_categories = Product.where(category_id: params[:id])
+    end
+
+    @products = @select_categories
   end
 end

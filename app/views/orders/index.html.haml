@@ -54,7 +54,7 @@
                 %p 支払い金額
               .buy-price-right
                 %span.buy-price-right-span
-                  = number_to_currency(@product.price, unit: "¥ ")
+                  = converting_to_jpy(@product.price)
               = f.hidden_field :payment_price, value: @product.price,class:'price_checker'
               = f.hidden_field :point, value: '',class:'point_checker'
         - if @user.user_info.postal_code.nil? || @card_infomation.nil?
