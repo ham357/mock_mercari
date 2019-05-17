@@ -9,7 +9,7 @@
   %section.buy__container__item
     .buy__container__item__inner
       %h3
-        = image_tag "#{@product.product_images[0][:image_url]}"
+        = image_tag "#{@product.product_images.first.image_url.url}"
       %p.buy__container__item__inner--p #{@product.name}
       = form_for @order,url: {action: 'create'}, class: 'buy__container__item__inner--form' do |f|
         .buy__container__item__inner--form--price

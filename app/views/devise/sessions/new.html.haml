@@ -7,7 +7,7 @@
   .login__container__panel
     .login__container__panel__no-account
       %p アカウントをお持ちでない方はこちら
-      = link_to new_user_registration_path, class: "login__container__panel__no-account--a" do
+      = link_to new_user_registration_path, class: "login__container__panel__no-account--a",data: {"turbolinks" => false} do
         %p 新規会員登録
     .login__container__panel__inner
       .login__container__panel__inner__fb

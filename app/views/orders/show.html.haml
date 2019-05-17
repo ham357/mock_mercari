@@ -15,7 +15,7 @@
   %section.bought__conteiner__item
     .bought__conteiner__item__inner
       %h3
-        = image_tag "#{@product.product_images[0][:image_url]}"
+        = image_tag "#{@product.product_images.first.image_url.url}"
       %p.buy__container__item__inner--p #{@product.name}
   %section.bought__conteiner__price
     %p.buy__container__item__inner--form--price--p

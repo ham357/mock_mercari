@@ -140,8 +140,8 @@
         - else
           %ul.header--pc__user-nav
             %li.header--pc__user-nav-sign_in
-              = link_to user_session_path do
+              = link_to user_session_path,data: {"turbolinks" => false} do
                 %p.header--pc__user-nav-sign_in-p ログイン
             %li.header--pc__user-nav-sign_up
-              = link_to signup_sns_path do
+              = link_to signup_sns_path,data: {"turbolinks" => false} do
                 %p.header--pc__user-nav-sign_up-p 新規会員登録
