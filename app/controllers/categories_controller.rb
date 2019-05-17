@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
 
     if (params[:id]).to_i <= 13
       @select_categories = @all_products.select{ |o| o.category.sub_category_id == (params[:id].to_i)}
-    elsif (params[:id]) < 14 && @category.sub_subcategory_id ==nil
+    elsif (params[:id]).to_i < 14 && @category.sub_subcategory_id ==nil
       @select_categories = @all_products.select{ |o| o.category.pre_precategory == (params[:id].to_i)}
     else
       @select_categories = Product.where(category_id: params[:id])

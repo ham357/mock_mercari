@@ -6,7 +6,6 @@ $(function(){
     var priceSpan = $(".buy-price-right-span").html();
     var btnDisableTrue = $('.buy__container__item__inner--form--btn').prop('disabled', true)
     var btnDisableFalse = $('.buy__container__item__inner--form--btn').prop('disabled', false);
-    var cantPaymentFifty = $(".buy__container__item__inner--form--alert").html("50円以下の決済不可")
     $(function(){
       $('input[name=point]').change(function(){
         var select = $('input[name=point]:checked').attr('id')
@@ -28,8 +27,8 @@ $(function(){
           $('.point_checker').val('0')
         }
         if(totalPrice < 50){
-          btnDisableTrue
-          cantPaymentFifty
+          $('.buy__container__item__inner--form--btn').prop('disabled', true)
+          $(".buy__container__item__inner--form--alert").html("50円以下の決済不可")
         }
         var totalPriceStr = String('¥  '+ totalPrice).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
         $(".buy-price-right-span").html(totalPriceStr);
@@ -44,17 +43,18 @@ $(function(){
         }else{
           totalPrice = price
         }
+        $('.buy__container__item__inner--form--btn').prop('disabled', false);
         if (inputPrice > gon.points){
-          btnDisableTrue
+          $('.buy__container__item__inner--form--btn').prop('disabled', true)
           $(".buy__container__item__inner--form--alert").html("ポイント所持分を超えてます");
         }else if(inputPrice > gon.price ){
-          btnDisableTrue
+          $('.buy__container__item__inner--form--btn').prop('disabled', true)
           $(".buy__container__item__inner--form--alert").html("商品価格以下にしてください");
         }else if(totalPrice < 50){
-          btnDisableTrue
-          cantPaymentFifty
+          $(".buy__container__item__inner--form--alert").html("50円以下の決済不可")
+          $('.buy__container__item__inner--form--btn').prop('disabled', true)
         }else{
-          btnDisableFalse
+          $('.buy__container__item__inner--form--btn').prop('disabled', false);
           $(".buy__container__item__inner--form--alert").html("");
         }
         var totalPriceStr = String('¥  '+ totalPrice).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');

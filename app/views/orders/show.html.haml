@@ -19,7 +19,7 @@
       %p.buy__container__item__inner--p #{@product.name}
   %section.bought__conteiner__price
     %p.buy__container__item__inner--form--price--p
-      = converting_to_jpy(@product.price)
+      = converting_to_jpy(@order.payment_price)
     %span.buy__container__item__inner--form--price--span #{@product.shipping_fee.name}
   %section.bought__conteiner__bottom
     %address.bought__conteiner__bottom--address
