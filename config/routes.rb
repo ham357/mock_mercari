@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :product_shipping_methods, only: :index
   resources :brands, only: :index
   resources :mypages, only: :index
-  resources :profiles, only: :index
+  resources :profiles, only: [:index, :update]
   resources :cards, only: [:index,:new] do
     collection do
       post 'pay', to: 'cards#pay'
@@ -27,4 +27,5 @@ Rails.application.routes.draw do
   resources :comments, only: :create
   resources :categories, only: [:index,:show]
   resources :user_infos, only: [:update]
+  resources :users, only: :show
 end
