@@ -59,7 +59,8 @@
                 .ccreate__container__top__form__content--code
                     %label{for: "payment_card_no", class: "input--label"} セキュリティコード
                     %span.require 必須
-                    %input.input--default{name: 'cvc',type: "text", id: "cvc", placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default"}
+                    %input.input--default{name: 'cvc',type: "text", id: "cvc", placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default",
+                    pattern: "^[0-9]+$", maxlength: '4'}
                 .ccreate__container__top__form__content--sequ
                     .ccreate__container__top__form__content--sequ--text
                         %i.fas.fa-question-circle
