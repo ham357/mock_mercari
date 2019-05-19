@@ -6,7 +6,7 @@
                 .ccreate__container__top__form__content--group
                     %label{for: "payment_card_no", class: "input--label"} カード番号
                     %span.require 必須
-                    %input.input--default{type: "text", id: "card_number", placeholder: "半角数字のみ", 'data-input-type': "card", class: "input-default"}
+                    %input.input--default{type: "text", id: "card_number", placeholder: "半角数字のみ", 'data-input-type': "card", class: "input-default", pattern: "^[0-9]+$", maxlength: '16'}
                     %ul.ccreate__container__top__form__content--group--brand
                         %li.ccreate__container__top__form__content--group--brand--list
                             %img{ src:"/images/visa.svg", id: "visa"}
