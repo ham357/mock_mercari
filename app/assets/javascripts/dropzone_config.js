@@ -39,8 +39,6 @@ $(function(){
       if ($('.error')){
         $('.error').find().remove();
       }
-      console.log(files.length);
-      console.log($('.dz-preview').length);
       $(document).ready();
       $('#dz-preview').append(`<div class="dz-preview"><div class="dz-image"><img data-dz-thumbnail /></div><a class="dz-edit">編集</a></div>`)
 
