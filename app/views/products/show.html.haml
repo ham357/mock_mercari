@@ -35,7 +35,7 @@
                 #item_main_category.font-blue
                   %p #{@category_defines[0]}
               - unless @category_defines[1].nil?
-                = link_to category_path(@sub_id) do
+                = link_to category_path(@category_defines[3].to_i) do
                   #item_sub_category.font-blue
                     %i.fas.fa-chevron-right
                     %p.category-p #{@category_defines[1]}
