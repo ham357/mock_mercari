@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190508095728) do
+ActiveRecord::Schema.define(version: 20190516124359) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
@@ -25,16 +25,26 @@ ActiveRecord::Schema.define(version: 20190508095728) do
     t.index ["name"], name: "index_brands_on_name", using: :btree
   end
 
+  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",     null: false
+    t.string   "customer_id", null: false
+    t.string   "card_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                               null: false
-    t.integer  "main_category_id",                   null: false
+    t.string   "name",               null: false
+    t.integer  "main_category_id",   null: false
     t.integer  "sub_category_id"
     t.integer  "sub_subcategory_id"
     t.integer  "product_size_id"
-    t.boolean  "size_flag",          default: false, null: false
-    t.boolean  "brand_flag",         default: false, null: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "pre_category_id"
+    t.integer  "pre_precategory_id"
+    t.boolean  "size_flag"
+    t.boolean  "brand_flag"
     t.index ["name"], name: "index_categories_on_name", using: :btree
   end
 
@@ -54,6 +64,25 @@ ActiveRecord::Schema.define(version: 20190508095728) do
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_likes_on_product_id", using: :btree
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "product_id",                      null: false
+    t.integer  "user_id",                         null: false
+    t.string   "purchase_amount",                 null: false
+    t.boolean  "convert_cash",    default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "payment_price",                   null: false
+    t.integer  "point"
+  end
+
+  create_table "points", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "point",       null: false
+    t.integer  "user_id",     null: false
+    t.datetime "deadline_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -90,7 +119,10 @@ ActiveRecord::Schema.define(version: 20190508095728) do
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                             null: false
     t.integer  "status_id",                                        null: false
+    t.integer  "shipping_fee_id",                                  null: false
+    t.integer  "state_id",                                         null: false
     t.integer  "shipping_method_id",                               null: false
+    t.integer  "shipping_day_id",                                  null: false
     t.integer  "price",                                            null: false
     t.text     "description",        limit: 65535,                 null: false
     t.integer  "category_id",                                      null: false
@@ -100,9 +132,6 @@ ActiveRecord::Schema.define(version: 20190508095728) do
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
     t.integer  "product_size_id"
-    t.integer  "state_id"
-    t.integer  "shipping_day_id"
-    t.integer  "shipping_fee_id"
     t.index ["name"], name: "index_products_on_name", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
@@ -139,7 +168,6 @@ ActiveRecord::Schema.define(version: 20190508095728) do
     t.string  "kana_first_name",               null: false
     t.string  "kana_last_name",                null: false
     t.integer "postal_code"
-    t.string  "state"
     t.string  "city"
     t.string  "address"
     t.integer "tel_number"
@@ -148,6 +176,8 @@ ActiveRecord::Schema.define(version: 20190508095728) do
     t.integer "birth_day",                     null: false
     t.text    "profile_comment", limit: 65535
     t.integer "user_id",                       null: false
+    t.string  "address2"
+    t.integer "state_id"
     t.index ["user_id"], name: "index_user_infos_on_user_id", using: :btree
   end
 

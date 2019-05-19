@@ -42,7 +42,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'kaminari', '~> 0.17.0'
 gem 'ransack'
-gem 'jquery-turbolinks'
+gem 'payjp'
+gem 'gon'
 
 group :development, :test do
   gem 'capistrano'
@@ -57,7 +58,7 @@ group :development, :test do
   gem 'gimei'
   gem 'takarabako'
   gem 'rails-controller-testing'
-  gem 'capybara'
+  gem 'capybara', '~> 3.15.1'
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'launchy'
@@ -73,7 +74,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'pry-rails'
 end
 
 group :production do
@@ -97,3 +97,6 @@ gem 'mini_magick'
 
 # Dropzone.js
 gem 'dropzonejs-rails'
+
+# パンくずリスト
+gem 'gretel'

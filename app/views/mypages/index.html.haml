@@ -1,10 +1,11 @@
+- breadcrumb :mypage
 .mypage__container
     .mypage__container__top
         %section.mypage__container__top--icon
-            = link_to "#" do
+            = link_to user_path(current_user) do
                 %figure
                     %img{src:"/images/member_no_image.png", witdh: '60px' ,height: '60px'}
-                %h2 ONAGAX
+                %h2 #{current_user.nickname}
                 .mypage__container__top--icon--value
                     .mypage__container__top--icon--value--eva 評価
                     %span 0
@@ -54,11 +55,11 @@
             = render partial: "top_tab", locals: { url:'#', contents: '売上・振込申請' }
             = render partial: "tab", locals: { url:'#', contents: 'ポイント' }
             %h3 設定
-            = render partial: "top_tab", locals: { url:'#', contents: 'プロフィール' }
+            = render partial: "top_tab", locals: { url:profiles_path, contents: 'プロフィール' }
             = render partial: "tab", locals: { url:'#', contents: '発送元・お届け先住所変更' }
             = render partial: "tab", locals: { url:'#', contents: '支払い方法' }
             = render partial: "tab", locals: { url:'#', contents: 'メール / パスワード'  }
             = render partial: "tab", locals: { url:'#', contents: '本人情報' }
             = render partial: "tab", locals: { url:'#', contents: '電話番号の確認' }
-            = render partial: "tab", locals: { url:'#', contents: 'ログアウト' }
+            = render partial: "tab", locals: { url:logouts_path, contents: 'ログアウト' }
 

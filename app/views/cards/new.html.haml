@@ -1,12 +1,12 @@
 .ccreate__container
     %section.ccreate__container__top
         %h2 クレジットカード情報入力
-        %form.ccreate__container__top__form
+        = form_tag(pay_cards_path,method: :post, id:'charge-form',class:'ccreate__container__top__form') do
             .ccreate__container__top__form__content
                 .ccreate__container__top__form__content--group
                     %label{for: "payment_card_no", class: "input--label"} カード番号
                     %span.require 必須
-                    %input.input--default{type: "text", value_id: "payment_card_no", placeholder: "半角数字のみ", 'data-input-type': "card", class: "input-default"}
+                    %input.input--default{type: "text", id: "card_number", placeholder: "半角数字のみ", 'data-input-type': "card", class: "input-default"}
                     %ul.ccreate__container__top__form__content--group--brand
                         %li.ccreate__container__top__form__content--group--brand--list
                             %img{ src:"/images/visa.svg", id: "visa"}
@@ -26,7 +26,7 @@
                     %label{for: "payment_card_no", class: "input--label"} 有効期限
                     %span.require 必須
                     .ccreate__container__top__form__content--expire--wrap
-                        %select{id:"payment_card_expire_mm", class: "select-default"}
+                        %select{name:"exp_month", class: "select-default",id: 'exp_month'}
                             %option{value: "01"} 01
                             %option{value: "02"} 02
                             %option{value: "03"} 03
@@ -42,31 +42,31 @@
                         %i.fas.fa-chevron-down
                     %span.select-month 月
                     .ccreate__container__top__form__content--expire--wrap
-                        %select{id:"payment_card_expire_yy", class: "select-default"}
-                            %option{value: "19"} 19
-                            %option{value: "20"} 20
-                            %option{value: "21"} 21
-                            %option{value: "22"} 22
-                            %option{value: "23"} 23
-                            %option{value: "24"} 24
-                            %option{value: "25"} 25
-                            %option{value: "26"} 26
-                            %option{value: "27"} 27
-                            %option{value: "28"} 28
-                            %option{value: "29"} 29
+                        %select{name:"exp_year", class: "select-default", id: 'exp_year'}
+                            %option{value: "2019"}19
+                            %option{value: "2020"}20
+                            %option{value: "2021"}21
+                            %option{value: "2022"}22
+                            %option{value: "2023"}23
+                            %option{value: "2024"}24
+                            %option{value: "2025"}25
+                            %option{value: "2026"}26
+                            %option{value: "2027"}27
+                            %option{value: "2028"}28
+                            %option{value: "2029"}29
                         %i.fas.fa-chevron-down
                     %span.select-yeah 年
                 .ccreate__container__top__form__content--code
                     %label{for: "payment_card_no", class: "input--label"} セキュリティコード
                     %span.require 必須
-                    %input.input--default{type: "text", value_id: "payment_card_security_code", placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default"}
+                    %input.input--default{name: 'cvc',type: "text", id: "cvc", placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default"}
                 .ccreate__container__top__form__content--sequ
                     .ccreate__container__top__form__content--sequ--text
                         %i.fas.fa-question-circle
                         %p.sequ_box カード裏面の番号とは？
                         .arrow_box
                             %p カードの裏面をご参照ください。
-                %button{type: "button", class: "btn-default",  href: "#"} 追加する
+                %button{type: "submit", class: "btn-default",id: "submit-button",  href: "#"} 追加する
     .ccreate__container__navi
         %ul.ccreate__container__navi--list
             -# renderで部分テンプレート 条件分岐未実装
@@ -89,7 +89,7 @@
             = render partial: "top_tab", locals: { url:'#', contents: '売上・振込申請' }
             = render partial: "tab", locals: { url:'#', contents: 'ポイント' }
             %h3 設定
-            = render partial: "top_tab", locals: { url:'#', contents: 'プロフィール' }
+            = render partial: "top_tab", locals: { url:profiles_path, contents: 'プロフィール' }
             = render partial: "tab", locals: { url:'#', contents: '発送元・お届け先住所変更' }
             = render partial: "active_tab", locals: { url:'#', contents: '支払い方法' }
             = render partial: "tab", locals: { url:'#', contents: 'メール / パスワード'  }

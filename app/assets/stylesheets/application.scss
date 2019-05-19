@@ -1,9 +1,11 @@
 @import "./reset";
 @import "./initialize";
+@import "./flash-box.scss";
 @import "./home/icons.scss";
 @import "./home/header-sp";
 @import "./home/header-single";
 @import "./home/header-pc";
+@import "./home/breadcrumb";
 @import "./home/main-container";
 @import "./home/items_box";
 @import "./home/mypage";
@@ -11,6 +13,7 @@
 @import "./home/footer";
 @import "./home/footer-single";
 @import "./mixin";
+@import './mixin/card_images';
 @import "./mypage/valiable";
 @import "./mypage/mypage_middle";
 @import "./mypage/mypage_large";
@@ -18,6 +21,7 @@
 @import "./profile/profile_middle";
 @import "./profile/profile_small";
 @import "./profile/profile_large";
+@import "./profile/index";
 @import "./card/card_small";
 @import "./card/card_middle";
 @import "./card/card_large";
@@ -41,8 +45,12 @@
 @import "./logout/logout_small";
 @import "./result/result_large";
 @import "./result/result_items_box";
+@import "./order/order.scss";
 @import "./item/item.scss";
 @import "./item/item_items_box";
+@import "./order/show";
+@import "./categories/categories_middle";
+@import "./categories/categories_show_middle";
 @import "./slick-theme";
 @import "./slick";
 @import "font-awesome";

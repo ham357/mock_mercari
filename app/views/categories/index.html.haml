@@ -1,0 +1,34 @@
+- breadcrumb :categories
+.category__main
+  .cateogry__main__title
+    %h2.category__main__title--h2 カテゴリー一覧
+  .category__main__categories
+    - @main_categories.each do |ele|
+      = link_to category_path(ele.id), class: "category-root" do
+        %p #{ele.name}
+  - @main_categories.each do |main_category|
+    .category__main__list
+      .category__main__list__box
+        .category__main__list__box__title
+          %h3.category__main__list__box__title--h3 #{main_category.name}
+        .category__main__list__box__inner
+          = link_to category_path(main_category.id) do
+            %p.category__main__list__box__inner--p すべて
+          - main_category.children.each_with_index do |sub_category,i|
+            .category__main__list__box__inner--sub_category
+              %h4.category__main__list__box__inner--sub_category--h4 #{sub_category.name}
+            .category__main__list__box__inner--sub-subcategory
+              .category__main__list__box__inner--sub-subcategory--name
+                = link_to category_path(sub_category.id),class: ".category__main__list__box__inner--sub-subcategory--name--a" do
+                  %p すべて
+              - main_category.children[i].grand_children.each do |sub_subcategory|
+                - if sub_subcategory.id == sub_category.id
+                  .category__main__list__box__inner--sub-subcategory--name
+                    = link_to category_path(sub_subcategory.id),class: ".category__main__list__box__inner--sub-subcategory--name--a" do
+                      %p すべて
+                -else
+                  .category__main__list__box__inner--sub-subcategory--name
+                    = link_to category_path(sub_subcategory.id),class: ".category__main__list__box__inner--sub-subcategory--name--a" do
+                      %p #{sub_subcategory.name}
+
+

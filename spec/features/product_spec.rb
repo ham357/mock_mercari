@@ -8,10 +8,13 @@ feature "出品投稿" do
       ProductSize.create(name: "XXX以下", product_size_id: 1)
       ProductShippingFee.create(name: "送料込み(出品者負担)")
       ProductShippingMethod.create(name: "未定", shipping_fee_category: 1)
-      FactoryBot.create(:user)
   end
   scenario "正常に出品できる", js: true do
+    user = FactoryBot.create(:user)
 
+    #ログイン処理
+    sign_in user
+    visit root_path
     # #出品フォームを表示
     visit sell_path
     expect(current_path).to eq sell_path
@@ -54,7 +57,11 @@ feature "出品投稿" do
   end
 
   scenario "必須項目(商品名)が無いため、出品できない", js: true do
+    user = FactoryBot.create(:user)
 
+    #ログイン処理
+    sign_in user
+    visit root_path
     # #出品フォームを表示
     visit sell_path
     expect(current_path).to eq sell_path
@@ -96,4 +103,66 @@ feature "出品投稿" do
 
   end
 
+end
+
+feature "商品削除" do
+  background do
+    Category.create(name: "レディース", main_category_id: 1)
+    Category.create(name: "トップス", main_category_id: 1, sub_category_id: 1,size_flag: 1, product_size_id: 1, brand_flag: 1)
+    category = Category.create(name: "Tシャツ/カットソー(半袖/袖なし)", main_category_id: 1, sub_category_id: 1, sub_subcategory_id: 1)
+    product_size = ProductSize.create(name: "XXX以下", product_size_id: 1)
+    ProductShippingFee.create(name: "送料込み(出品者負担)")
+    ProductShippingMethod.create(name: "未定", shipping_fee_category: 1)
+    brand = Brand.create(name: "ゲラルディーニ")
+    user = FactoryBot.create(:user)
+    product = FactoryBot.create(:product,user_id: user.id,category_id: category.id,product_size_id: product_size.id,brand_id: brand.id)
+    4.times{ FactoryBot.create(:product_image,product_id: product.id) }
+    #ログイン処理
+    sign_in user
+    visit root_path
+    #商品詳細ページを表示
+    visit product_path(user.id)
+    expect(current_path).to eq product_path(user.id)
+  end
+  scenario "正常に削除できる" do
+
+    expect{
+    #「この商品を削除する」をクリック
+    click_on('この商品を削除する')
+    #アラートの表示確認とOKをクリック
+    expect(page.driver.browser.switch_to.alert.text).to eq "本当に削除しますか？"
+    page.driver.browser.switch_to.alert.accept
+    sleep 5
+    }.to change(Product, :count).by(-1)
+    .and change(ProductImage, :count).by(-4)
+  end
+end
+
+feature "商品更新" do
+  scenario "正常に更新できる" do
+    Category.create(name: "レディース", main_category_id: 1)
+    Category.create(name: "トップス", main_category_id: 1, sub_category_id: 1,size_flag: 1, product_size_id: 1, brand_flag: 1)
+    category = Category.create(name: "Tシャツ/カットソー(半袖/袖なし)", main_category_id: 1, sub_category_id: 1, sub_subcategory_id: 1)
+    product_size = ProductSize.create(name: "XXX以下", product_size_id: 1)
+    ProductShippingFee.create(name: "送料込み(出品者負担)")
+    ProductShippingMethod.create(name: "未定", shipping_fee_category: 1)
+    brand = Brand.create(name: "ゲラルディーニ")
+    user = FactoryBot.create(:user)
+    product = FactoryBot.create(:product,user_id: user.id,category_id: category.id,product_size_id: product_size.id,brand_id: brand.id,price: 999)
+    4.times{ FactoryBot.create(:product_image,product_id: product.id) }
+    #ログイン処理
+    sign_in user
+    visit root_path
+    #編集ページを表示
+    visit edit_product_path(user.id)
+    expect(current_path).to eq edit_product_path(user.id)
+    #価格を更新
+    fill_in "product[price]",    with: 99999
+    #「変更する」をクリック
+    expect{
+    click_on('変更する')
+    product.reload
+    }.to change{ product.price }.from(999).to(99999)
+    expect(current_path).to eq root_path
+  end
 end

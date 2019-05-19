@@ -10,6 +10,7 @@ class Product < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_one :order
 
   def previous
     Product.where("id < ?", self.id).order("id DESC").first
@@ -24,8 +25,9 @@ class Product < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :category
   belongs_to_active_hash :brand
-  belongs_to_active_hash :product_status
+  belongs_to_active_hash :status
   belongs_to_active_hash :shipping_fee
   belongs_to_active_hash :shipping_day
+  belongs_to_active_hash :shipping_method
   belongs_to_active_hash :state
 end

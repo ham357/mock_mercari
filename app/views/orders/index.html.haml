@@ -1,0 +1,129 @@
+%header.regi__header
+  %h1.regi__header--h1
+    = link_to "/", class:"regi__header--a"  do
+      = image_tag "/images/logo.svg", class: "login__header--h1--a--img"
+
+.buy__container
+  %section.buy__container__title
+    %h2.buy__container__title--h2 購入を確定しますか？
+  %section.buy__container__item
+    .buy__container__item__inner
+      %h3
+        = image_tag "#{@product.product_images.first.image_url.url}"
+      %p.buy__container__item__inner--p #{@product.name}
+      = form_for @order,url: {action: 'create'}, class: 'buy__container__item__inner--form' do |f|
+        .buy__container__item__inner--form--price
+          %p.buy__container__item__inner--form--price--p
+            = converting_to_jpy(@product.price)
+          %span.buy__container__item__inner--form--price--span #{@product.shipping_fee.name}
+        .buy__container__item__inner--form--point
+          - unless @points.present?
+            %ul.buy__container__item__inner--form--point--not-have
+              %li.buy__container__item__inner--form--point--not-have--li
+                .buy__container__item__inner--form--point--not-have--li--toggle
+                  %p ポイントはありません
+          -else
+            %ul.buy__container__item__inner--form--point--ul
+              %li.buy__container__item__inner--form--point--ul--li.hidden_box
+                = label '',{},{for:"label1",class: 'buy__container__item__inner--form--point--ul--li--toggle'} do
+                  %p ポイントを使用する
+                  %i.fas.fa-chevron-down
+                = check_box '' ,{},{id:"label1",class: 'hidden_box'}
+                %ul.buy__container__item__inner--form--point--ul--li--point.hidden_show
+                  %li.point-form
+                    %p 所持ポイント
+                    %span：P #{@points.point}
+                  %li.radio-form
+                    .radiobutton
+                      = f.radio_button :point,'',{id: 'not_use',class:'radio-btn',name:'point',checked: 'true'}
+                      = f.label "ポイントを使わない",for:"not_use",class:'radio-label'
+                  %li.radio-form
+                    .radiobutton
+                      = f.radio_button :point,"#{@points.point}",{id: 'use',class:'radio-btn',name:'point'}
+                      = f.label "すべてのポイントを使う",for:"use",class:'radio-label'
+                      %span P #{@points.point}
+                  %li.radio-form
+                    .radiobutton
+                      = f.radio_button :point,'00',{id: 'use_part',class:'radio-btn',name:'point'}
+                      = f.label "一部のポイントを使う",for:"use_part",class:'radio-label'
+                      = number_field  '',{},{placeholder:'使うポイントを入力',class: 'input--default use_part_input',disabled: 'disabled'}
+        .buy__container__item__inner--form--payment
+          %ul.buy__container__item__inner--form--payment--ul
+            %li.buy__container__item__inner--form--payment--ul--li
+              .buy-price-left
+                %p 支払い金額
+              .buy-price-right
+                %span.buy-price-right-span
+                  = converting_to_jpy(@product.price)
+              = f.hidden_field :payment_price, value: @product.price,class:'price_checker'
+              = f.hidden_field :point, value: '',class:'point_checker'
+        - if @user.user_info.postal_code.nil? || @card_infomation.nil?
+          %p.buy__container__item__inner--form--alert 配送先と支払い方法の入力を完了してください
+        -else
+          %p.buy__container__item__inner--form--alert
+        = f.submit '購入する', class: 'buy__container__item__inner--form--btn default-btn'
+  %section.buy__container__address
+    .buy__container__address__inner
+      %h3.buy__container__address__inner--h3 配送先
+      - if @user.user_info.postal_code.nil?
+        %address.buy__container__address__inner--address
+          %h3
+
+          %p
+
+          %br
+          &#47;
+          %br
+        = link_to '/identifacations', class: 'buy__container__address__inner--edit' do
+          %span 変更する
+          %i.fas.fa-chevron-right
+      -else
+        %address.buy__container__address__inner--address
+          %p
+          〒#{@user.user_info.postal_code}
+          %br
+          #{@user.user_info.state.name}#{@user.user_info.city}#{@user.user_info.address}
+          %br
+          #{@user.user_info.first_name} #{@user.user_info.last_name}
+        = link_to '/identifacations', class: 'buy__container__address__inner--edit' do
+          %span 変更する
+          %i.fas.fa-chevron-right
+  %section.buy__container__address
+    .buy__container__address__inner
+      %h3.buy__container__address__inner--h3 支払い方法
+      - if @card_infomation.nil?
+        %address.buy__container__address__inner--address
+          %h3
+
+          %p
+
+          %br
+          &#47;
+          %br
+        = link_to '/cards', class: 'buy__container__address__inner--edit' do
+          %span 変更する
+          %i.fas.fa-chevron-right
+      -else
+        %address.buy__container__address__inner--address
+          %p #{"**** **** **** " + @card_infomation.last4}
+          %p #{@card_infomation.exp_month.to_s+"/"+@card_infomation.exp_year.to_s.slice(2,3)}
+          - if @card_infomation.brand == 'Visa'
+            = image_tag '/images/visa.svg', id: "visa"
+          - elsif @card_infomation.brand == 'MasterCard'
+            = image_tag '/images/master-card.svg', id: 'master'
+          -elsif @card_infomation.brand == 'JCB'
+            = image_tag '/images/jcb.svg"', id: 'jcb'
+        = link_to '/cards', class: 'buy__container__address__inner--edit' do
+          %span 変更する
+          %i.fas.fa-chevron-right
+
+%footer.regi__footer
+  %nav.regi__footer__nav
+    %ul.regi__footer__nav--ul
+      %li.regi__footer__nav--ul--li プライバシーポリシー
+      %li.regi__footer__nav--ul--li メルカリ利用規約
+      %li.regi__footer__nav--ul--li 特定商取引に関する表記
+  = link_to "#", class:"regi__footer--a"  do
+    = image_tag "/images/logo-gray.svg", class: "regi__footer--a--img"
+  %p.signup__footer--p
+    %small © 2019 Mecrari

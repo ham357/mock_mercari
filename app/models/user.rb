@@ -16,9 +16,15 @@ class User < ApplicationRecord
   has_many :liked_posts, through: :likes, source: :product
   has_many :comments, through: :products
   has_many :rates, dependent: :destroy
+  has_many :cards, dependent: :destroy
+  has_many :orders, through: :products
+  has_many :points, dependent: :destroy
 
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :state
 
   def self.find_oauth(auth)
     uid = auth.uid
@@ -46,6 +52,10 @@ class User < ApplicationRecord
           uid: uid,
           provider: provider,
           user_id: user.id
+          )
+          UserInfo.create(
+            user_id: user.id,
+            image_url: 'member_no_image.png'
           )
       end
     end

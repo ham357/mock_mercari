@@ -1,0 +1,36 @@
+.user__container
+  .user__container__profile
+    .user__container__profile__box
+      %a.user__container__profile__box--a{href: '#'}
+        = image_tag "#{@user.user_image.image_url}",class: "user__container__profile__box--a--image"
+        .user__container__profile__box--a--name
+          %h2 #{@user.nickname}
+    .user__container__profile__box--like
+      %span#left 評価  #{@valution}
+      %span#right 出品数 #{@product.count}
+    .user__container__rate
+      .user__container__rate--face
+        .user__container__rate--face--good
+          %i.fas.fa-grin
+          .user__container__rate--face--good--count
+            %span #{@search_rate3.count}
+        .user__container__rate--face--normal
+          %i.fas.fa-meh
+          .user__container__rate--face--normal--count
+            %span #{@search_rate2.count}
+        .user__container__rate--face--bad
+          %i.fas.fa-frown
+          .user__container__rate--face--bad--count
+            %span #{@search_rate1.count}
+    .user__container__sns
+      .user__container__sns--facebook
+        %i.fab.fa-facebook-square
+      .user__container__sns--twitter
+        %i.fab.fa-twitter-square
+.item__user-product
+  %h2.item__user-product__user
+    =link_to "",class: 'item__user-product__user--a' do
+      %h2 #{@user.nickname}さんの出品リスト
+  .item__user-product__list
+    - @exclusion_products.each do |product|
+      = render partial: "products/product", locals: {product: product}

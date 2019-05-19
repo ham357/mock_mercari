@@ -1,22 +1,23 @@
+- breadcrumb :product, @product
 .items__container
   .items__container--h1 #{@product.name}
   .items__container__main
     .items__container__main__wrap#wrap
       %ul#slider
-        - @get_image.each do |n|
+        - @product.product_images.each do |n|
           %li.slide-item
-            = image_tag '','data-lazy': "/images/#{@product.product_images[n][:image_url]}", alt:''
+            = image_tag '','data-lazy': "#{n.image_url.url}", alt:''
       %ul#thumbnail-list
-        - @get_image.each do |n|
+        - @product.product_images.each do |n|
           %li.thumbnail-item
-            = image_tag "/images/#{@product.product_images[n][:image_url]}"
+            = image_tag "#{n.image_url.url}"
     .items__container__main__detail
       %table
         %tbody
           %tr
             %th 出品者
             %td
-              =link_to "#{@product.user.nickname}", "#",class:'font-blue'
+              =link_to "#{@product.user.nickname}", user_path(@product.user),class:'font-blue'
               .item-user
                 .item-user-ratings
                   %i.fas.fa-grin
@@ -30,23 +31,24 @@
           %tr
             %th カテゴリー
             %td
-              = link_to "#" do
+              = link_to category_path(@main_id) do
                 #item_main_category.font-blue
                   %p #{@category_defines[0]}
-              = link_to "#" do
-                #item_sub_category.font-blue
-                  - unless @category_defines[1].nil?
+              - unless @category_defines[1].nil?
+                = link_to category_path(@sub_id) do
+                  #item_sub_category.font-blue
                     %i.fas.fa-chevron-right
                     %p.category-p #{@category_defines[1]}
-              = link_to "#" do
-                #item_sub_subcategory.font-blue
-                  - unless @category_defines[2].nil?
+              - unless @category_defines[2].nil?
+                = link_to category_path(@category_id) do
+                  #item_sub_subcategory.font-blue
                     %i.fas.fa-chevron-right
                     %p.category-p #{@category_defines[2]}
           %tr
             %th ブランド
             %td
-              = link_to "#{@product.brand.name}","#",class:"font-blue"
+              - if @product.brand.presence
+                = link_to "#{@product.brand.name}","#",class:"font-blue"
           %tr
             %th 商品の状態
             %td #{@product.status.name}
@@ -55,7 +57,7 @@
             %td #{@product.shipping_fee.name}
           %tr
             %th 発送の方法
-            %td らくらくメルカリ便
+            %td #{@product.shipping_method.name}
           %tr
             %th 発送元地域
             %td
@@ -65,7 +67,7 @@
             %td #{@product.shipping_day.name}
   .items__container__main__price
     %span.span-price
-      = number_to_currency(@product.price, unit: "¥ ")
+      = converting_to_jpy(@product.price)
     %span.span-tax (税込)
     %span.span-fee 送料込み
   .items__container__main__sold
@@ -73,7 +75,7 @@
       .items__container__main__sold--true
         %h1 売り切れました
     - else
-      = link_to '#',class:"items__container__main__sold--a" do
+      = link_to product_orders_path(params[:id]),data: {"turbolinks" => false},class:"items__container__main__sold--a" do
         .items__container__main__sold--a--false
           %h1 購入画面に進む
   .items__container__main__description
@@ -91,6 +93,17 @@
       = link_to '', class: 'items__container__main__like__right--safe' do
         %i.fas.fa-lock
         %span あんしん・あんぜんへの取り組み
+- if user_signed_in?
+  - if @product.user_id == current_user.id
+    .product-change__container
+      .product-change__container__content
+        =link_to edit_product_path, class: "      product-change__container__content__btn--red",data: {"turbolinks" => false} do
+          .product-change__container__content__btn--red
+            %h1 商品の編集
+        %p or
+        =link_to "/products/#{@product.id}", class: "      product-change__container__content__btn--gray", method: :delete, data:{confirm:'本当に削除しますか？'} do
+          .product-change__container__content__btn--gray
+            %h1 この商品を削除する
 .message__container
   .message__container__content
     %ul.message__container__content--ul
@@ -127,7 +140,7 @@
       = form_for(@comment, url: {controller: :comments, action: :create}, class: 'message__container__comment__form') do |f|
         %p.message__container__comment__form--p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         - if @product.sold == true
-          = f.text_area :comment,{class: 'message__container__comment__form--input.soldout_text_area',disabled: 'disabled'}
+          = f.text_area :comment,{class: 'message__container__comment__form--input',disabled: 'disabled'}
           = f.submit '売り切れの為コメントできません',type: 'submit',class: 'message__container__comment__form--btn',disabled: 'disabled'
         - else
           = f.hidden_field :product_id, value: @product.id
@@ -143,12 +156,12 @@
   %ul.item__nav__ul
     %li.item__nav__ul__prev
       - unless @product.previous == nil
-        = link_to "#" do
+        = link_to "#{@product.previous.id}",data: {"turbolinks" => false} do
           %i.fas.fa-chevron-left
           %p.item__nav__ul__prev--p #{@product.previous.name}
     %li.item__nav__ul__next
       - unless @product.next == nil
-        = link_to "#{@product.next.id}" do
+        = link_to "#{@product.next.id}",data: {"turbolinks" => false} do
           %p.item__nav__ul__next--p #{@product.next.name}
           %i.fas.fa-chevron-right
 .item__sns
@@ -164,16 +177,17 @@
         %i.fab.fa-pinterest-square
 .item__user-product
   %h2.item__user-product__user
-    =link_to "",class: 'item__user-product__user--a' do
+    =link_to user_path(@product.user),class: 'item__user-product__user--a' do
       %h2 #{@product.user.nickname}さんのその他の出品
   .item__user-product__list
     - @exclusion_products.each do |product|
       = render partial: "products/product", locals: {product: product}
 - unless @exclusion_product_brands.nil?
   .item__user-product
-    %h2.item__user-product__user
-      =link_to "",class: 'item__user-product__user--a' do
-        %h2 #{@product.brand.name}の#{@category_defines[0]}その他の出品
-    .item__user-product__list
-      - @exclusion_product_brands.each do |product|
-        = render partial: "products/product", locals: {product: product}
+    - if @product.brand.presence
+      %h2.item__user-product__user
+        =link_to "",class: 'item__user-product__user--a' do
+          %h2 #{@product.brand.name}の#{@category_defines[0]}その他の出品
+      .item__user-product__list
+        - @exclusion_product_brands.each do |product|
+          = render partial: "products/product", locals: {product: product}
