@@ -28,5 +28,6 @@ class Product < ApplicationRecord
   belongs_to_active_hash :status
   belongs_to_active_hash :shipping_fee
   belongs_to_active_hash :shipping_day
+  belongs_to_active_hash :shipping_method
   belongs_to_active_hash :state
 end

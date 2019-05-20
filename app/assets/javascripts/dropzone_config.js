@@ -1,26 +1,79 @@
 $(function(){
   Dropzone.autoDiscover = false;
-
+  var dropflg = 0;
     $("#item-dropzone").dropzone({
     paramName : "product[product_images_attributes][image_url]",
-    maxFiles: 10,
+    maxFiles: 11,
     maxFilesize: 2,
     parallelUploads: 10,
     maxThumbnailFilesize: 10,
     addRemoveLinks: true,
     uploadMultiple: true,
     autoProcessQueue: false,
+    acceptedFiles:'.jpg, .png, .jpeg, .gif',
     dictRemoveFile:'削除',
     previewsContainer: '#dz-previews',
     previewTemplate:`<div class="dz-preview"><div class="dz-image"><img data-dz-thumbnail /></div><a class="dz-edit">編集</a></div>`,
     init: function(){
       myDropzone = this
       $('form').submit(function(e){
-      　if(document.URL.match("sell")) {
-        e.preventDefault();
-      }
-        myDropzone.processQueue();
-        $('.dz-remove').text('削除');
+        　if(document.URL.match("sell")) {
+          $(".error").remove();
+          var errflg = 0; 
+          if (myDropzone.files.length == 0) {
+            $(".dz-message").after(`<p class="error">画像がありません</p>`);
+            errflg = 1; 
+          }
+          if ($("input[name='product[name]']").val() == '') {
+            $("input[name='product[name]']").after(`<p class="error">入力してください</p>`);
+            errflg = 1; 
+          }
+          if ($("textarea[name='product[description]']").val() == '') {
+            $("textarea[name='product[description]']").after(`<p class="error">入力してください</p>`);
+            errflg = 1; 
+          }
+          if ($("[name='product[category_id]'] option:selected").val() == '') {
+            $("[name='product[category_id]']").after(`<p class="error">選択してください
+            </p>`);
+            errflg = 1; 
+          }
+          if ($("[name='product[status_id]'] option:selected").val() == '') {
+            $("[name='product[status_id]']").after(`<p class="error">選択してください
+            </p>`);            
+            errflg = 1; 
+          }
+          if ($("[name='product[shipping_fee_id]'] option:selected").val() == '') {
+            $("[name='product[shipping_fee_id]']").after(`<p class="error">選択してください
+            </p>`);
+            errflg = 1; 
+          }
+          if ($("[name='product[shipping_method_id]'] option:selected").val() == '') {
+            $("[name='product[shipping_method_id]").after(`<p class="error">選択してください
+            </p>`);
+            errflg = 1; 
+          }
+          if ($("[name='product[state_id]'] option:selected").val() == '') {
+            $("[name='product[state_id]']").after(`<p class="error">選択してください
+            </p>`);            
+            errflg = 1; 
+          }
+          if ($("[name='product[shipping_day_id]'] option:selected").val() == '') {
+            $("[name='product[shipping_day_id]']").after(`<p class="error">選択してください
+            </p>`);            
+            errflg = 1; 
+          }
+          if ($("input[name='product[price]']").val() == '' || $("input[name='product[price]']").val() < 300 || $("input[name='product[price]']").val() > 9999999) {
+            $(".sell__container__top__section--form--group--content--price--group--input-top").after(`<p class="error">300以上9999999以下で入力してください</p>`);
+            errflg = 1; 
+          }
+          if (errflg == 0){
+            e.preventDefault();
+            myDropzone.processQueue();
+            $('.dz-remove').text('削除');
+          }else{
+            return false;
+          }
+        }
       })
     this.on("removedfile", function (file) {
       if (file.url && file.url.trim().length > 0) {
@@ -32,17 +85,30 @@ $(function(){
   });
     },
     drop: function(){
+      dropflg = 1;
+    },
+    addedfiles: function(files){
+      $(".error").remove();
       $(document).ready();
       $('#dz-preview').append(`<div class="dz-preview"><div class="dz-image"><img data-dz-thumbnail /></div><a class="dz-edit">編集</a></div>`)
 
-      if (($('.dz-preview').length + 1) < 5){
-      var count = 100 - (($('.dz-preview').length + 1) * 20) + "%"
-    }else if (($('.dz-preview').length + 1) >= 10){
+      if(dropflg==1){
+        var total_images = $('.dz-preview').length + files.length
+        dropflg = 0;
+      }else{
+        var total_images = $('.dz-preview').length
+      }
+
+      if (total_images < 5){
+      var count = 100 - total_images * 20 + "%" 
+    }else if (total_images >= 10){
       $('.dz-message').hide();
     }else{
-      var count = 100 - (($('.dz-preview').length - 4 ) * 20) + "%"
+      var count = 100 - (total_images - 5 ) * 20 + "%"
     }
-    $('.dz-message').css('width', count);
+    setTimeout(function(){
+      $('.dz-message').css('width', count);
+  },10);
 
     },
     success: function(file, response){
@@ -53,8 +119,9 @@ $(function(){
 
       if (($('.dz-preview').length - 1) < 5){
         var count = 100 - (($('.dz-preview').length - 1) * 20) + "%"
-      }else if (($('.dz-preview').length + 1) >= 10){
+      }else if (($('.dz-preview').length + 1) > 10){
         $('.dz-message').show();
+        var count = 100 - (($('.dz-preview').length - 6) * 20) + "%"
       }else{
         var count = 100 - (($('.dz-preview').length - 6) * 20) + "%"
       }
@@ -62,33 +129,11 @@ $(function(){
       var previewElement;
       return (previewElement = file.previewElement) != null ? (previewElement.parentNode.removeChild(file.previewElement)) : (void 0);
     },
-    complete: function(obj){
-      var xhr = obj.xhr
-      var response = obj.xhr.response
-      var error = JSON.parse(xhr.responseText)
-      if (error.error_name == "" &&
-          error.error_description == "" &&
-          error.error_category == "" &&
-          error.error_state == "" &&
-          error.error_price == "" &&
-          error.error_delivery_cost == "" &&
-          error.error_delivery_prefecture == "") {
-        window.location.href = error.root_path
-      } else {
-        $('.item_name').append(`<p class="error"> ${error.error_name} </p>`);
-        $('.item_description').append(`<p class="error"> ${error.error_description} </p>`);
-        $('.item_category').append(`<p class="error"> ${error.error_category} </p>`);
-        $('.item_state').append(`<p class="error"> ${error.error_state} </p>`);
-        $('.item_cost').append(`<p class="error"> ${error.error_delivery_cost} </p>`);
-        $('.item_prefecture').append(`<p class="error"> ${error.error_delivery_prefecture} </p>`);
-        $('.item_date').append(`<p class="error"> ${error.error_delivery_date} </p>`);
-        $('.item_price__right').append(`<p class="error"> ${error.error_price} </p>`);
-        $('.item_new__delivery').css('min-height', '340px')
-        $('.item_price').css('min-height', '100px')
-      }
-    },
     error: function(){
       alert('error');
+    },
+    maxfilesreached	: function(){
+      $('.sell__container__top__section--form--uploader').append(`<p class="error"> アップロードできる画像は10枚までです。</p>`);
     }
   });
 

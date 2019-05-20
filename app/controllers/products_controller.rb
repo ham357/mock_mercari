@@ -40,7 +40,8 @@ class ProductsController < ApplicationController
       @comment = Comment.new
       @exclusion_products = Product.where(user_id: @product.user_id).where.not(id: params[:id]).limit(6)
       @exclusion_product_brands = Product.where(brand_id: @product.brand_id).where.not(id: params[:id]).limit(6)
-    end
+      user_signed_in? ? @user_id = current_user.id : @user_id = 0
+end
 
     def destroy
         @product =  Product.find(params[:id])
@@ -81,8 +82,8 @@ class ProductsController < ApplicationController
     #product_imageの4個分配列作成
     def get_image
       @images = []
-      for n in 0..3 do
-        @images <<  @product.product_images[n][:image_url]
+      @product.product_images.each do |product|
+        @images <<  product.image_url
       end
     end
 
@@ -100,16 +101,17 @@ class ProductsController < ApplicationController
       @subsub_id = @product.category.sub_subcategory_id
       if @subsub_id == nil
         main_name = Category.find(@main_id).name
-        sub_name,subsub_name = nil
+        sub = Category.find_by(main_category_id: @main_id,sub_category_id: @sub_id, sub_subcategory_id: nil)
+        subsub_name = nil
       elsif  @sub_id == nil
         main_name = Category.find(@main_id).name
-        sub_name = Category.find(@sub_id).name
+        sub, subsub_name = nil
       else
         main_name = Category.find(@main_id).name
-        sub_name = Category.find(@sub_id).name
+        sub = Category.find_by(main_category_id: @main_id,sub_category_id: @sub_id, sub_subcategory_id: nil)
         subsub_name = Category.find(@category_id).name
       end
-      return main_name, sub_name, subsub_name
+      return main_name, sub.name, subsub_name,sub.id
     end
 
     private

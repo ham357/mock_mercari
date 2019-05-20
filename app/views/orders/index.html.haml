@@ -9,12 +9,12 @@
   %section.buy__container__item
     .buy__container__item__inner
       %h3
-        = image_tag "#{@product.product_images[0][:image_url]}"
+        = image_tag "#{@product.product_images.first.image_url.url}"
       %p.buy__container__item__inner--p #{@product.name}
       = form_for @order,url: {action: 'create'}, class: 'buy__container__item__inner--form' do |f|
         .buy__container__item__inner--form--price
           %p.buy__container__item__inner--form--price--p
-            = number_to_currency(@product.price, unit: "¥ ")
+            = converting_to_jpy(@product.price)
           %span.buy__container__item__inner--form--price--span #{@product.shipping_fee.name}
         .buy__container__item__inner--form--point
           - unless @points.present?
@@ -54,14 +54,14 @@
                 %p 支払い金額
               .buy-price-right
                 %span.buy-price-right-span
-                  = number_to_currency(@product.price, unit: "¥ ")
+                  = converting_to_jpy(@product.price)
               = f.hidden_field :payment_price, value: @product.price,class:'price_checker'
               = f.hidden_field :point, value: '',class:'point_checker'
         - if @user.user_info.postal_code.nil? || @card_infomation.nil?
           %p.buy__container__item__inner--form--alert 配送先と支払い方法の入力を完了してください
         -else
           %p.buy__container__item__inner--form--alert
-        = f.submit '購入する', class: 'buy__container__item__inner--form--btn default-btn'
+          = f.submit '購入する', class: 'buy__container__item__inner--form--btn default-btn'
   %section.buy__container__address
     .buy__container__address__inner
       %h3.buy__container__address__inner--h3 配送先
@@ -82,7 +82,7 @@
           %p
           〒#{@user.user_info.postal_code}
           %br
-          #{@user.user_info.state}#{@user.user_info.city}#{@user.user_info.address}
+          #{@user.user_info.state.name}#{@user.user_info.city}#{@user.user_info.address}
           %br
           #{@user.user_info.first_name} #{@user.user_info.last_name}
         = link_to '/identifacations', class: 'buy__container__address__inner--edit' do

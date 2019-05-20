@@ -15,11 +15,11 @@
   %section.bought__conteiner__item
     .bought__conteiner__item__inner
       %h3
-        = image_tag "#{@product.product_images[0][:image_url]}"
+        = image_tag "#{@product.product_images.first.image_url.url}"
       %p.buy__container__item__inner--p #{@product.name}
   %section.bought__conteiner__price
     %p.buy__container__item__inner--form--price--p
-      = number_to_currency(@product.order.payment_price, unit: "¥ ")
+      = converting_to_jpy(@order.payment_price)
     %span.buy__container__item__inner--form--price--span #{@product.shipping_fee.name}
   %section.bought__conteiner__bottom
     %address.bought__conteiner__bottom--address
@@ -27,7 +27,7 @@
       %p
       〒#{@user.user_info.postal_code}
       %br
-      #{@user.user_info.state}#{@user.user_info.city}#{@user.user_info.address}
+      #{@user.user_info.state.name}#{@user.user_info.city}#{@user.user_info.address}
       %br
       #{@user.user_info.first_name} #{@user.user_info.last_name}
 

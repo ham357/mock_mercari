@@ -1,12 +1,12 @@
 .ccreate__container
     %section.ccreate__container__top
         %h2 クレジットカード情報入力
-        = form_tag('pay_cards_path',method: :post, id:'charge-form',class:'ccreate__container__top__form') do
+        = form_tag(pay_cards_path,method: :post, id:'charge-form',class:'ccreate__container__top__form') do
             .ccreate__container__top__form__content
                 .ccreate__container__top__form__content--group
                     %label{for: "payment_card_no", class: "input--label"} カード番号
                     %span.require 必須
-                    %input.input--default{type: "text", id: "card_number", placeholder: "半角数字のみ", 'data-input-type': "card", class: "input-default"}
+                    %input.input--default{type: "text", id: "card_number", placeholder: "半角数字のみ", 'data-input-type': "card", class: "input-default", pattern: "^[0-9]+$", maxlength: '16'}
                     %ul.ccreate__container__top__form__content--group--brand
                         %li.ccreate__container__top__form__content--group--brand--list
                             %img{ src:"/images/visa.svg", id: "visa"}
@@ -59,7 +59,8 @@
                 .ccreate__container__top__form__content--code
                     %label{for: "payment_card_no", class: "input--label"} セキュリティコード
                     %span.require 必須
-                    %input.input--default{name: 'cvc',type: "text", id: "cvc", placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default"}
+                    %input.input--default{name: 'cvc',type: "text", id: "cvc", placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default",
+                    pattern: "^[0-9]+$", maxlength: '4'}
                 .ccreate__container__top__form__content--sequ
                     .ccreate__container__top__form__content--sequ--text
                         %i.fas.fa-question-circle
@@ -89,7 +90,7 @@
             = render partial: "top_tab", locals: { url:'#', contents: '売上・振込申請' }
             = render partial: "tab", locals: { url:'#', contents: 'ポイント' }
             %h3 設定
-            = render partial: "top_tab", locals: { url:'#', contents: 'プロフィール' }
+            = render partial: "top_tab", locals: { url:profiles_path, contents: 'プロフィール' }
             = render partial: "tab", locals: { url:'#', contents: '発送元・お届け先住所変更' }
             = render partial: "active_tab", locals: { url:'#', contents: '支払い方法' }
             = render partial: "tab", locals: { url:'#', contents: 'メール / パスワード'  }

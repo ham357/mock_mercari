@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190514112049) do
+ActiveRecord::Schema.define(version: 20190516124359) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20190514112049) do
     t.datetime "updated_at",         null: false
     t.integer  "pre_category_id"
     t.integer  "pre_precategory_id"
+    t.boolean  "size_flag"
+    t.boolean  "brand_flag"
     t.index ["name"], name: "index_categories_on_name", using: :btree
   end
 
