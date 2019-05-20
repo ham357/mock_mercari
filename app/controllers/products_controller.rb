@@ -40,7 +40,8 @@ class ProductsController < ApplicationController
       @comment = Comment.new
       @exclusion_products = Product.where(user_id: @product.user_id).where.not(id: params[:id]).limit(6)
       @exclusion_product_brands = Product.where(brand_id: @product.brand_id).where.not(id: params[:id]).limit(6)
-    end
+      user_signed_in? ? @user_id = current_user.id : @user_id = 0
+end
 
     def destroy
         @product =  Product.find(params[:id])
