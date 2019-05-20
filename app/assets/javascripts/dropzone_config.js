@@ -70,6 +70,26 @@ $(function(){
             e.preventDefault();
             myDropzone.processQueue();
             $('.dz-remove').text('削除');
+
+            $.ajax({ 
+              url: '/products/new', 
+              type: 'GET',
+              dataType: 'json' 
+            })
+            .done(function(data) {
+              console.log(data['new_product'].id);
+              $('#overlay, #modalWindow').fadeIn();
+              var html = `<a class=" product-modal__container__content__btn--blue" href="/products/${ data['new_product'].id }"><div class="product-modal__container__content__btn--blue">
+              <h1>商品ページへ行ってシェアする</h1>
+              </div>
+              </a>`
+              $('.product-modal__container__content').append(html);
+  
+            })
+            .fail(function() {
+              alert('modal error');
+            })
+
           }else{
             return false;
           }
@@ -112,7 +132,6 @@ $(function(){
 
     },
     success: function(file, response){
-      window.location.href = "/"; 
     },
     removedfile: function(file){
       var id = $(file.previewTemplate).find('.dz-remove').attr('id');
@@ -160,4 +179,21 @@ $(function(){
     var count = 100 - ($('.dz-preview').length * 22) + "%"
       $('.dz-message').css('width', count);
   })
+  
+　if(document.URL.match("sell")) {
+  locateCenter(); 
+  $(window).resize(locateCenter);  
+  function locateCenter() {
+    let w = $(window).width();
+    let h = $(window).height();
+    
+    let cw = $('#modalWindow').outerWidth();
+    let ch = $('#modalWindow').outerHeight();
+   
+    $('#modalWindow').css({
+      'left': ((w - cw) / 2) + 'px',
+      'top': ((h - ch) / 2) + 'px'
+    });
+  }
+}
 });
