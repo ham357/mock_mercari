@@ -17,7 +17,7 @@ $(function(){
     init: function(){
       myDropzone = this
       $('form').submit(function(e){
-        　if(document.URL.match("sell")) {
+        　if(document.URL.match("sell") || document.URL.match("edit")){
           $(".error").remove();
           var errflg = 0; 
           if (myDropzone.files.length == 0) {
@@ -67,28 +67,32 @@ $(function(){
             errflg = 1; 
           }
           if (errflg == 0){
-            e.preventDefault();
-            myDropzone.processQueue();
-            $('.dz-remove').text('削除');
-
-            $.ajax({ 
-              url: '/products/new', 
-              type: 'GET',
-              dataType: 'json' 
-            })
-            .done(function(data) {
-              console.log(data['new_product'].id);
-              $('#overlay, #modalWindow').fadeIn();
-              var html = `<a class=" product-modal__container__content__btn--blue" href="/products/${ data['new_product'].id }"><div class="product-modal__container__content__btn--blue">
-              <h1>商品ページへ行ってシェアする</h1>
-              </div>
-              </a>`
-              $('.product-modal__container__content').append(html);
+            if(document.URL.match("sell")){
+              e.preventDefault();
   
-            })
-            .fail(function() {
-              alert('modal error');
-            })
+              $.ajax({ 
+                url: '/products/new', 
+                type: 'GET',
+                dataType: 'json' 
+              })
+
+              .done(function(data) {
+                $('#overlay, #modalWindow').fadeIn();
+                var html = `<a class=" product-modal__container__content__btn--blue" href="/products/${ data['new_product'].id }"><div class="product-modal__container__content__btn--blue">
+                <h1>商品ページへ行ってシェアする</h1>
+                </div>
+                </a>`
+                $('.product-modal__container__content').append(html);
+    
+              })
+              .fail(function() {
+                alert('modal error');
+              })
+            }
+            myDropzone.processQueue();
+            setTimeout(function(){
+              $('.dz-remove').text('削除');
+          },5000);
 
           }else{
             return false;
@@ -98,8 +102,8 @@ $(function(){
     this.on("removedfile", function (file) {
       if (file.url && file.url.trim().length > 0) {
           $("<input type='hidden'>").attr({
-              id: 'DeletedImageUrls',
-              name: 'DeletedImageUrls'
+              id: 'DeletedImageUrls[]',
+              name: 'DeletedImageUrls[]'
           }).val(file.name).appendTo('#item-dropzone');
       }
   });
