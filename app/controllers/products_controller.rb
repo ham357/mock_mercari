@@ -141,8 +141,12 @@ end
     
     def update_productimage(product)
         if params[:DeletedImageUrls].present?
-            product_image = product.product_images.find_by(image_url: params[:DeletedImageUrls])
-            product_image.destroy
+            i = 0
+            while params[:DeletedImageUrls][i].present? do
+                product_image = product.product_images.find_by(image_url: params[:DeletedImageUrls])
+                product_image.destroy
+                i += 1
+            end
         end
         if params[:product][:product_images_attributes].present?
             i = 0
