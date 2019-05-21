@@ -9,6 +9,11 @@ class ProductsController < ApplicationController
         @product = Product.new
         @product.product_images.build
         @main_categories = Category.where(sub_category_id: nil)
+        @new_product = Product.where(user_id: current_user.id).order(created_at: :desc).limit(1)
+        respond_to do |format|
+            format.html
+            format.json {@new_product}
+        end
         render layout: "sell"
     end
 

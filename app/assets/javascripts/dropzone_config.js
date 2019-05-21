@@ -69,11 +69,31 @@ $(function(){
           if (errflg == 0){
             if(document.URL.match("sell")){
               e.preventDefault();
+  
+              $.ajax({ 
+                url: '/products/new', 
+                type: 'GET',
+                dataType: 'json' 
+              })
+
+              .done(function(data) {
+                $('#overlay, #modalWindow').fadeIn();
+                var html = `<a class=" product-modal__container__content__btn--blue" href="/products/${ data['new_product'].id }"><div class="product-modal__container__content__btn--blue">
+                <h1>商品ページへ行ってシェアする</h1>
+                </div>
+                </a>`
+                $('.product-modal__container__content').append(html);
+    
+              })
+              .fail(function() {
+                alert('modal error');
+              })
             }
             myDropzone.processQueue();
             setTimeout(function(){
               $('.dz-remove').text('削除');
           },5000);
+
           }else{
             return false;
           }
@@ -163,4 +183,21 @@ $(function(){
     var count = 100 - ($('.dz-preview').length * 22) + "%"
       $('.dz-message').css('width', count);
   })
+  
+　if(document.URL.match("sell")) {
+  locateCenter(); 
+  $(window).resize(locateCenter);  
+  function locateCenter() {
+    let w = $(window).width();
+    let h = $(window).height();
+    
+    let cw = $('#modalWindow').outerWidth();
+    let ch = $('#modalWindow').outerHeight();
+   
+    $('#modalWindow').css({
+      'left': ((w - cw) / 2) + 'px',
+      'top': ((h - ch) / 2) + 'px'
+    });
+  }
+}
 });
