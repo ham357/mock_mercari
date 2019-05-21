@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :now_product, only: %i[show search_rate category_define]
+  before_action :authenticate_user!, only: [:new,:create,:destroy,:edit,:update]
 
     def index
         @products = Product.all.limit(48)
