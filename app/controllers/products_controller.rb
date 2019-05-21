@@ -45,7 +45,8 @@ class ProductsController < ApplicationController
       @comment = Comment.new
       @exclusion_products = Product.where(user_id: @product.user_id).where.not(id: params[:id]).limit(6)
       @exclusion_product_brands = Product.where(brand_id: @product.brand_id).where.not(id: params[:id]).limit(6)
-    end
+      user_signed_in? ? @user_id = current_user.id : @user_id = 0
+end
 
     def destroy
         @product =  Product.find(params[:id])
@@ -140,8 +141,12 @@ class ProductsController < ApplicationController
     
     def update_productimage(product)
         if params[:DeletedImageUrls].present?
-            product_image = product.product_images.find_by(image_url: params[:DeletedImageUrls])
-            product_image.destroy
+            i = 0
+            while params[:DeletedImageUrls][i].present? do
+                product_image = product.product_images.find_by(image_url: params[:DeletedImageUrls])
+                product_image.destroy
+                i += 1
+            end
         end
         if params[:product][:product_images_attributes].present?
             i = 0

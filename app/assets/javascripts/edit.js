@@ -23,7 +23,17 @@ $(function(){
           myDropzone.emit("thumbnail", mockFile, image_long_url);
 
           myDropzone.files.push(mockFile);
-
+          
+          var total_images = $('.dz-preview').length
+  
+          if (total_images < 5){
+          var count = 100 - total_images * 20 + "%" 
+          }else if (total_images >= 10){
+            $('.dz-message').hide();
+          }else{
+            var count = 100 - (total_images - 5 ) * 20 + "%"
+          }
+            $('.dz-message').css('width', count);
       });
     }
   })
