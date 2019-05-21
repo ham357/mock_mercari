@@ -136,3 +136,13 @@
         = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?570108281", alt: "mercari", height: "65", width: "80"
     %p
         %small © 2019 Mercari
+#overlay
+#modalWindow
+    .product-modal__container
+        .product-modal__container__head
+            %h1 出品が完了しました
+        .product-modal__container__content
+            %p あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。  
+            =link_to sell_path, class: " product-modal__container__content__btn--red" do
+                .product-modal__container__content__btn--red
+                    %h1 続けて出品する

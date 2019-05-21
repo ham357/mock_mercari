@@ -30,3 +30,10 @@ json.shipping_method do
     end
   end
 end
+
+json.new_product do
+  if @new_product.present?
+      json.id                   @new_product.ids
+  end
+end
+

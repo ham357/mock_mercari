@@ -9,6 +9,11 @@ class ProductsController < ApplicationController
         @product = Product.new
         @product.product_images.build
         @main_categories = Category.where(sub_category_id: nil)
+        @new_product = Product.where(user_id: current_user.id).order(created_at: :desc).limit(1)
+        respond_to do |format|
+            format.html
+            format.json {@new_product}
+        end
         render layout: "sell"
     end
 
@@ -40,7 +45,8 @@ class ProductsController < ApplicationController
       @comment = Comment.new
       @exclusion_products = Product.where(user_id: @product.user_id).where.not(id: params[:id]).limit(6)
       @exclusion_product_brands = Product.where(brand_id: @product.brand_id).where.not(id: params[:id]).limit(6)
-    end
+      user_signed_in? ? @user_id = current_user.id : @user_id = 0
+end
 
     def destroy
         @product =  Product.find(params[:id])
@@ -100,16 +106,17 @@ class ProductsController < ApplicationController
       @subsub_id = @product.category.sub_subcategory_id
       if @subsub_id == nil
         main_name = Category.find(@main_id).name
-        sub_name,subsub_name = nil
+        sub = Category.find_by(main_category_id: @main_id,sub_category_id: @sub_id, sub_subcategory_id: nil)
+        subsub_name = nil
       elsif  @sub_id == nil
         main_name = Category.find(@main_id).name
-        sub_name = Category.find(@sub_id).name
+        sub, subsub_name = nil
       else
         main_name = Category.find(@main_id).name
-        sub_name = Category.find(@sub_id).name
+        sub = Category.find_by(main_category_id: @main_id,sub_category_id: @sub_id, sub_subcategory_id: nil)
         subsub_name = Category.find(@category_id).name
       end
-      return main_name, sub_name, subsub_name
+      return main_name, sub.name, subsub_name,sub.id
     end
 
     private

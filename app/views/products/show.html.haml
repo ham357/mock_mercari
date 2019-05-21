@@ -35,7 +35,7 @@
                 #item_main_category.font-blue
                   %p #{@category_defines[0]}
               - unless @category_defines[1].nil?
-                = link_to category_path(@sub_id) do
+                = link_to category_path(@category_defines[3].to_i) do
                   #item_sub_category.font-blue
                     %i.fas.fa-chevron-right
                     %p.category-p #{@category_defines[1]}
@@ -70,14 +70,15 @@
       = converting_to_jpy(@product.price)
     %span.span-tax (税込)
     %span.span-fee 送料込み
-  .items__container__main__sold
-    -if @product.sold == true
-      .items__container__main__sold--true
-        %h1 売り切れました
-    - else
-      = link_to product_orders_path(params[:id]),data: {"turbolinks" => false},class:"items__container__main__sold--a" do
-        .items__container__main__sold--a--false
-          %h1 購入画面に進む
+  - unless @product.user_id == @user_id
+    .items__container__main__sold
+      -if @product.sold == true
+        .items__container__main__sold--true
+          %h1 売り切れました
+      - else
+        = link_to product_orders_path(params[:id]),data: {"turbolinks" => false},class:"items__container__main__sold--a" do
+          .items__container__main__sold--a--false
+            %h1 購入画面に進む
   .items__container__main__description
     %p #{@product.description}
   .items__container__main__like
