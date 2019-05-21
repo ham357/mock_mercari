@@ -17,7 +17,7 @@ $(function(){
     init: function(){
       myDropzone = this
       $('form').submit(function(e){
-        　if(document.URL.match("sell")) {
+        　if(document.URL.match("sell") || document.URL.match("edit")){
           $(".error").remove();
           var errflg = 0; 
           if (myDropzone.files.length == 0) {
@@ -67,9 +67,13 @@ $(function(){
             errflg = 1; 
           }
           if (errflg == 0){
-            e.preventDefault();
+            if(document.URL.match("sell")){
+              e.preventDefault();
+            }
             myDropzone.processQueue();
-            $('.dz-remove').text('削除');
+            setTimeout(function(){
+              $('.dz-remove').text('削除');
+          },5000);
           }else{
             return false;
           }
@@ -78,8 +82,8 @@ $(function(){
     this.on("removedfile", function (file) {
       if (file.url && file.url.trim().length > 0) {
           $("<input type='hidden'>").attr({
-              id: 'DeletedImageUrls',
-              name: 'DeletedImageUrls'
+              id: 'DeletedImageUrls[]',
+              name: 'DeletedImageUrls[]'
           }).val(file.name).appendTo('#item-dropzone');
       }
   });
@@ -112,7 +116,6 @@ $(function(){
 
     },
     success: function(file, response){
-      window.location.href = "/"; 
     },
     removedfile: function(file){
       var id = $(file.previewTemplate).find('.dz-remove').attr('id');
