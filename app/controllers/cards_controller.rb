@@ -22,7 +22,7 @@ class CardsController < ApplicationController
                             customer_id: customer.id,
                             card_id: customer.default_card)
         if @card.save
-            redirect_to session.delete(:return_to)
+            redirect_to session.delete(:return_to), notice: "カード情報の登録に成功しました"
         else
             redirect_to pay_cards_path
         end
@@ -38,7 +38,7 @@ class CardsController < ApplicationController
     end
 
     def set_request_from
-        session[:return_to] = request.referer
+        request.referer.include?('user_infos') ? session[:return_to] = mypages_path : session[:return_to] = request.referer
     end
 
 end
