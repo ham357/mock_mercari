@@ -26,7 +26,7 @@ class UserInfosController < ApplicationController
 
 
   def set_request_from
-    session[:return_to] = request.referer
+    request.referer.include?('sign_up') ? session[:return_to] = cards_path : session[:return_to] = request.referer
   end
 
 end

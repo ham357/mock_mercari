@@ -23,7 +23,7 @@ end
       @user_image = UserImage.new(user_id: @user.id,image_url: 'member_no_image.png')
       @user_image.save
       sign_in @user
-      redirect_to root_path(@user), notice: "ユーザー情報を登録しました (ログイン済み)"
+      redirect_to user_infos_path(@user), notice: "ユーザー登録に成功しました"
     else
       redirect_to :back, flash: { error: @user.errors.full_messages }
     end
