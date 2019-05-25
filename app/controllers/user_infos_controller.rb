@@ -1,9 +1,20 @@
 class UserInfosController < ApplicationController
 
+  before_action :authenticate_user!
+  before_action :set_request_from,only: :index
+
+  def index
+    @user = User.find(current_user.id)
+    @user_info = UserInfo.find_by(user_id: @user.id)
+  end
+
   def update
     @user = User.find(current_user.id)
-    @user.user_info.update(strong_params)
-    redirect_to root_path(@user), notice: "ユーザー情報を更新しました"
+    if @user.user_info.update(strong_params)
+      redirect_to session.delete(:return_to), notice: "ユーザー情報を更新しました"
+    else
+      redirect_to :back, error: @user_infos.errors.full_messages
+    end
   end
 
 
@@ -11,6 +22,11 @@ class UserInfosController < ApplicationController
     params.require(:user_info).permit(
         :postal_code, :city, :address, :address2, :state_id
         )
+  end
+
+
+  def set_request_from
+    session[:return_to] = request.referer
   end
 
 end

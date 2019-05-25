@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
     require "payjp"
     before_action :authenticate_user!
+    before_action :set_request_from,only: :index
 
     def index
         @card = Card.where(user_id: current_user.id).first
@@ -21,7 +22,7 @@ class CardsController < ApplicationController
                             customer_id: customer.id,
                             card_id: customer.default_card)
         if @card.save
-            redirect_to cards_path
+            redirect_to session.delete(:return_to)
         else
             redirect_to pay_cards_path
         end
@@ -35,4 +36,9 @@ class CardsController < ApplicationController
         @card.delete
         redirect_to cards_path
     end
+
+    def set_request_from
+        session[:return_to] = request.referer
+    end
+
 end
