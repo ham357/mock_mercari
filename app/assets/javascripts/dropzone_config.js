@@ -15,14 +15,11 @@ $(function(){
     previewsContainer: '#dz-previews',
     previewTemplate:`<div class="dz-preview"><div class="dz-image"><img data-dz-thumbnail /></div><a class="dz-edit">編集</a></div>`,
     init: function(){
-      console.log("init")
 
       myDropzone = this
       $('form').submit(function(e){
-        console.log("submit")
 
         　if(document.URL.match("sell") || document.URL.match("edit")){
-          console.log("sell edit if")
 
           $(".error").remove();
           var errflg = 0; 
@@ -87,7 +84,6 @@ $(function(){
         }
       })
     this.on("removedfile", function (file) {
-      console.log("remove")
 
       if (file.url && file.url.trim().length > 0) {
           $("<input type='hidden'>").attr({
@@ -128,29 +124,8 @@ $(function(){
   },10);
 
     },
-    sending: function(file, response){
-      
-      console.log("sending")
-    },
-    success: function(file, response){
-      
-      console.log("success")
-    },
-    complete: function(file, response){
-      
-      console.log("complete")
-    },
-    canceled: function(file, response){
-      
-      console.log("canceled")
-    },
-    processing: function(file, response){
-      
-      console.log("processing")
-    },
     completemultiple: function(file, response){
       
-      console.log("completemultiple")
       if(document.URL.match("edit")){
         var now_url = document.URL
         var show_path = now_url.replace('edit', '');
@@ -159,7 +134,6 @@ $(function(){
     },
 
     queuecomplete	: function(files){
-      console.log("queuecomplete")
 
       if(document.URL.match("sell")){
         $.ajax({ 
@@ -187,7 +161,6 @@ $(function(){
     },
     removedfile: function(file){
       var id = $(file.previewTemplate).find('.dz-remove').attr('id');
-      console.log("removedfile")
 
       if (($('.dz-preview').length - 1) < 5){
         var count = 100 - (($('.dz-preview').length - 1) * 20) + "%"
