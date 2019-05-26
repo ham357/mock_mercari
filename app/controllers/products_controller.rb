@@ -70,7 +70,7 @@ end
         if @product.update(product_params)
             update_productimage(@product)
             respond_to do |format|
-                format.html { redirect_to root_path , notice: "更新しました"}
+                format.html { redirect_to product_path }
                 format.json
             end
         else
@@ -145,7 +145,7 @@ end
             i = 0
             while params[:DeletedImageUrls][i].present? do
                 product_image = product.product_images.find_by(image_url: params[:DeletedImageUrls])
-                product_image.destroy
+                product_image.destroy if product_image.present?
                 i += 1
             end
         end

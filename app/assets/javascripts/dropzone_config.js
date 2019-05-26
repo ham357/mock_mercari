@@ -15,9 +15,15 @@ $(function(){
     previewsContainer: '#dz-previews',
     previewTemplate:`<div class="dz-preview"><div class="dz-image"><img data-dz-thumbnail /></div><a class="dz-edit">編集</a></div>`,
     init: function(){
+      console.log("init")
+
       myDropzone = this
       $('form').submit(function(e){
+        console.log("submit")
+
         　if(document.URL.match("sell") || document.URL.match("edit")){
+          console.log("sell edit if")
+
           $(".error").remove();
           var errflg = 0; 
           if (myDropzone.files.length == 0) {
@@ -67,32 +73,13 @@ $(function(){
             errflg = 1; 
           }
           if (errflg == 0){
-            if(document.URL.match("sell")){
-              e.preventDefault();
-  
-              $.ajax({ 
-                url: '/products/new', 
-                type: 'GET',
-                dataType: 'json' 
-              })
 
-              .done(function(data) {
-                $('#overlay, #modalWindow').fadeIn();
-                var html = `<a class=" product-modal__container__content__btn--blue" href="/products/${ data['new_product'].id }"><div class="product-modal__container__content__btn--blue">
-                <h1>商品ページへ行ってシェアする</h1>
-                </div>
-                </a>`
-                $('.product-modal__container__content').append(html);
-    
-              })
-              .fail(function() {
-                alert('modal error');
-              })
+            if (myDropzone.getQueuedFiles().length > 0){
+              e.preventDefault();
             }
+            
             myDropzone.processQueue();
-            setTimeout(function(){
-              $('.dz-remove').text('削除');
-          },5000);
+            $('.dz-remove').text('削除');
 
           }else{
             return false;
@@ -100,6 +87,8 @@ $(function(){
         }
       })
     this.on("removedfile", function (file) {
+      console.log("remove")
+
       if (file.url && file.url.trim().length > 0) {
           $("<input type='hidden'>").attr({
               id: 'DeletedImageUrls[]',
@@ -107,6 +96,10 @@ $(function(){
           }).val(file.name).appendTo('#item-dropzone');
       }
   });
+    },
+    renameFile: function (file) {
+      let newName = new Date().getTime();
+      return newName;
     },
     drop: function(){
       dropflg = 1;
@@ -135,10 +128,66 @@ $(function(){
   },10);
 
     },
+    sending: function(file, response){
+      
+      console.log("sending")
+    },
     success: function(file, response){
+      
+      console.log("success")
+    },
+    complete: function(file, response){
+      
+      console.log("complete")
+    },
+    canceled: function(file, response){
+      
+      console.log("canceled")
+    },
+    processing: function(file, response){
+      
+      console.log("processing")
+    },
+    completemultiple: function(file, response){
+      
+      console.log("completemultiple")
+      if(document.URL.match("edit")){
+        var now_url = document.URL
+        var show_path = now_url.replace('edit', '');
+        window.location.href= show_path;
+      }
+    },
+
+    queuecomplete	: function(files){
+      console.log("queuecomplete")
+
+      if(document.URL.match("sell")){
+        $.ajax({ 
+          url: '/products/new', 
+          type: 'GET',
+          dataType: 'json' 
+        })
+
+        .done(function(data) {
+
+          $('#overlay, #modalWindow').fadeIn();
+          var html2 = `<a class=" product-modal__container__content__btn--blue" href="/products/${ data['new_product'].id }"><div class="product-modal__container__content__btn--blue">
+          <h1>商品ページへ行ってシェアする</h1>
+          </div>
+          </a>`
+
+          $('.product-modal__container__content').append(html2);   
+
+        })
+        .fail(function() {
+          alert('modal error');
+        })
+      }
+        
     },
     removedfile: function(file){
       var id = $(file.previewTemplate).find('.dz-remove').attr('id');
+      console.log("removedfile")
 
       if (($('.dz-preview').length - 1) < 5){
         var count = 100 - (($('.dz-preview').length - 1) * 20) + "%"
