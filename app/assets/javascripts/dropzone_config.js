@@ -171,7 +171,7 @@ $(function(){
         .done(function(data) {
 
           $('#overlay, #modalWindow').fadeIn();
-          var html2 = `<a class=" product-modal__container__content__btn--blue" href="/products/${ data['new_product'].id }"><div class="product-modal__container__content__btn--blue">
+          var html2 = `<a class=" product-modal__container__content__btn--blue" href="/products/${ data['new_product'].id }" data-turbolinks="false"><div class="product-modal__container__content__btn--blue">
           <h1>商品ページへ行ってシェアする</h1>
           </div>
           </a>`
