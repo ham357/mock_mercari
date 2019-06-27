@@ -100,3 +100,6 @@ gem 'dropzonejs-rails'
 
 # パンくずリスト
 gem 'gretel'
+
+# fog
+gem 'fog-aws'
