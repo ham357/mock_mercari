@@ -13,5 +13,5 @@ CarrierWave.configure do |config|
   }
 
   config.fog_directory  = 'upload-inoue-test'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/upload-inoue-test
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/upload-inoue-test'
 end
