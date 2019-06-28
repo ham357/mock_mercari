@@ -1,9 +1,13 @@
 $(function(){
   Dropzone.autoDiscover = false;
   var dropflg = 0;
+  var addedfile_count = 0; 
+  var now_images = 0;
+  var submitflg = 0;
+  var total_images = 0;
     $("#item-dropzone").dropzone({
     paramName : "product[product_images_attributes][image_url]",
-    maxFiles: 11,
+    maxFiles: 10,
     maxFilesize: 2,
     parallelUploads: 10,
     maxThumbnailFilesize: 10,
@@ -15,9 +19,13 @@ $(function(){
     previewsContainer: '#dz-previews',
     previewTemplate:`<div class="dz-preview"><div class="dz-image"><img data-dz-thumbnail /></div><a class="dz-edit">編集</a></div>`,
     init: function(){
+
       myDropzone = this
       $('form').submit(function(e){
+        submitflg = 1;
+
         　if(document.URL.match("sell") || document.URL.match("edit")){
+
           $(".error").remove();
           var errflg = 0; 
           if (myDropzone.files.length == 0) {
@@ -67,32 +75,12 @@ $(function(){
             errflg = 1; 
           }
           if (errflg == 0){
-            if(document.URL.match("sell")){
-              e.preventDefault();
-  
-              $.ajax({ 
-                url: '/products/new', 
-                type: 'GET',
-                dataType: 'json' 
-              })
 
-              .done(function(data) {
-                $('#overlay, #modalWindow').fadeIn();
-                var html = `<a class=" product-modal__container__content__btn--blue" href="/products/${ data['new_product'].id }"><div class="product-modal__container__content__btn--blue">
-                <h1>商品ページへ行ってシェアする</h1>
-                </div>
-                </a>`
-                $('.product-modal__container__content').append(html);
-    
-              })
-              .fail(function() {
-                alert('modal error');
-              })
+            if (myDropzone.getQueuedFiles().length > 0){
+              e.preventDefault();
             }
             myDropzone.processQueue();
-            setTimeout(function(){
-              $('.dz-remove').text('削除');
-          },5000);
+            $('.dz-remove').text('削除');
 
           }else{
             return false;
@@ -100,6 +88,7 @@ $(function(){
         }
       })
     this.on("removedfile", function (file) {
+
       if (file.url && file.url.trim().length > 0) {
           $("<input type='hidden'>").attr({
               id: 'DeletedImageUrls[]',
@@ -108,55 +97,160 @@ $(function(){
       }
   });
     },
+    renameFile: function (file) {
+      let newName = new Date().getTime();
+      return newName;
+    },
     drop: function(){
       dropflg = 1;
+
+    },
+    dragenter		: function(){
+
+      if(total_images == 10){
+        myDropzone.disable();
+      }
+
     },
     addedfiles: function(files){
+      addedfile_count = files.length;
       $(".error").remove();
       $(document).ready();
       $('#dz-preview').append(`<div class="dz-preview"><div class="dz-image"><img data-dz-thumbnail /></div><a class="dz-edit">編集</a></div>`)
 
       if(dropflg==1){
-        var total_images = $('.dz-preview').length + files.length
-        dropflg = 0;
+        total_images = myDropzone.files.length + files.length
+        now_images = myDropzone.files.length;
       }else{
-        var total_images = $('.dz-preview').length
+        total_images = myDropzone.files.length
+        now_images = myDropzone.files.length - addedfile_count;
       }
 
       if (total_images < 5){
-      var count = 100 - total_images * 20 + "%" 
-    }else if (total_images >= 10){
-      $('.dz-message').hide();
-    }else{
-      var count = 100 - (total_images - 5 ) * 20 + "%"
-    }
-    setTimeout(function(){
-      $('.dz-message').css('width', count);
-  },10);
+        var count = 100 - total_images * 20 + "%" 
+      }else if (total_images >= 10){
+        $('.dz-message').hide();
+      }else{
+        var count = 100 - (total_images - 5 ) * 20 + "%"
+      }
+      setTimeout(function(){
+        $('.dz-message').css('width', count);
+    },10);
+
+      if(total_images > 10){
+        $('.sell__container__top__section--form--uploader').append(`<p class="error"> アップロードできる画像は10枚までです。</p>`);
+
+        if(dropflg==1){
+          while(files.length){
+            files.shift()
+          }
+        }else{
+          var i = 0;
+          while(i < files.length){
+            var addedfile = myDropzone.files[myDropzone.files.length - 1]
+            myDropzone.removeFile(addedfile);
+            i += 1;
+          }
+        }        
+
+        if ((now_images) < 5){
+          var count = 100 - (now_images* 20) + "%"
+        }else{
+          var count = 100 - ((now_images - 5) * 20) + "%"
+        }
+        setTimeout(function(){
+        $('.dz-message').css('width', count);
+        },10);
+
+        if (now_images >= 10){
+          $('.dz-message').hide();
+        }else{
+          $('.dz-message').show();
+        }
+
+      }
+
+      dropflg = 0;
 
     },
-    success: function(file, response){
+    completemultiple: function(file, response){
+      if(document.URL.match("edit")){
+        var now_url = document.URL
+        var show_path = now_url.replace('edit', '');
+        window.location.href= show_path;
+      }
+    },
+
+    queuecomplete	: function(files){
+      if (submitflg == 1){
+        if(document.URL.match("sell")){
+          $.ajax({ 
+            url: '/products/new', 
+            type: 'GET',
+            dataType: 'json' 
+          })
+
+          .done(function(data) {
+
+            $('#overlay, #modalWindow').fadeIn();
+            var html2 = `<a class=" product-modal__container__content__btn--blue" href="/products/${ data['new_product'].id }" data-turbolinks="false"><div class="product-modal__container__content__btn--blue">
+            <h1>商品ページへ行ってシェアする</h1>
+            </div>
+            </a>`
+
+            $('.product-modal__container__content').append(html2);   
+
+          })
+          .fail(function() {
+            alert('modal error');
+          })
+        }
+      }
+        
     },
     removedfile: function(file){
+      if (myDropzone.files.length < 10){
+        myDropzone.enable()
+      }
       var id = $(file.previewTemplate).find('.dz-remove').attr('id');
 
-      if (($('.dz-preview').length - 1) < 5){
-        var count = 100 - (($('.dz-preview').length - 1) * 20) + "%"
-      }else if (($('.dz-preview').length + 1) > 10){
-        $('.dz-message').show();
-        var count = 100 - (($('.dz-preview').length - 6) * 20) + "%"
+      if (myDropzone.files.length < 5){
+        var count = 100 - (myDropzone.files.length* 20) + "%"
+      }else if ((myDropzone.files.length + 1) == 10){
+        var count = 100 - ((myDropzone.files.length - 5) * 20) + "%"
       }else{
-        var count = 100 - (($('.dz-preview').length - 6) * 20) + "%"
+        var count = 100 - ((myDropzone.files.length - 5) * 20) + "%"
       }
+      setTimeout(function(){
       $('.dz-message').css('width', count);
+    },10);
+
+    if ((myDropzone.files.length + 1) == 10){
+      $('.dz-message').show();
+    }
+
       var previewElement;
       return (previewElement = file.previewElement) != null ? (previewElement.parentNode.removeChild(file.previewElement)) : (void 0);
     },
-    error: function(){
-      alert('error');
+    maxfilesreached	: function(file){
+      $(".error").remove();
     },
-    maxfilesreached	: function(){
-      $('.sell__container__top__section--form--uploader').append(`<p class="error"> アップロードできる画像は10枚までです。</p>`);
+    maxfilesexceeded : function(file){
+      if ((now_images) < 5){
+        var count = 100 - (now_images* 20) + "%"
+      }else{
+        var count = 100 - ((now_images - 5) * 20) + "%"
+      }
+      setTimeout(function(){
+      $('.dz-message').css('width', count);
+    },10);
+
+    if (now_images >= 10){
+      $('.dz-message').hide();
+    }else{
+      $('.dz-message').show();
+    }
+
     }
   });
 
@@ -180,10 +274,10 @@ $(function(){
   }
 
   $('input[type=file]').on('change', function(){
-    var count = 100 - ($('.dz-preview').length * 22) + "%"
+    var count = 100 - (myDropzone.files.length * 22) + "%"
       $('.dz-message').css('width', count);
   })
-  
+
 　if(document.URL.match("sell")) {
   locateCenter(); 
   $(window).resize(locateCenter);  
